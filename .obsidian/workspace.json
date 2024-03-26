@@ -1,0 +1,186 @@
+{
+  "main": {
+    "id": "cbbc4905a08312ec",
+    "type": "split",
+    "children": [
+      {
+        "id": "2576460fa35e9f79",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ed7a9c9b3ac77de5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Assembly.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "83eb8558ef1c0b92",
+    "type": "split",
+    "children": [
+      {
+        "id": "6945b10c120e4091",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "616b348e4fa94142",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0f6b5e68cfb87002",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d5284c434f26f874",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "58c1519258e8d6cd",
+    "type": "split",
+    "children": [
+      {
+        "id": "66b073affe8cdfec",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9c8b11353acc3f3c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Assembly.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9e88f3d9627043f7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Assembly.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4ef6fc3aa990247b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "e2e16bf9deba3463",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Assembly.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "ed7a9c9b3ac77de5",
+  "lastOpenFiles": [
+    "Architettura degli elaboratori.md",
+    "WhatsApp Image 2024-02-27 at 11.40.29_1b5fd1d1.jpg",
+    "Assembly.md",
+    "Untitled.canvas",
+    "mp 19 03.md",
+    "Metodologie di programmazione.md",
+    "mp 29 02.md",
+    "Untitled.md",
+    "mp 26 03.md",
+    "Pasted image 20240326111451.png",
+    "Lezione 1.md",
+    "Fondamenti di programmazione.md",
+    "Università Appunti.md",
+    "mp 21 03.md",
+    "laboratorio 20 03.md",
+    "laboratorio 28 02.md",
+    "Pasted image 20240319103308.png",
+    "Screenshot 2024-03-19 103209.png",
+    "Screenshot 2024-03-19 101737.png",
+    "ae 15 03.md",
+    "Screenshot 2024-03-15 120408.png",
+    "Screenshot 2024-03-15 120241.png",
+    "mp 14 03.md",
+    "Screenshot 2024-03-14 132040.png",
+    "Screenshot 2024-03-14 131803.png",
+    "mp 12 03.md",
+    "Screenshot 2024-03-12 101727.png",
+    "Espressioni regolari.md",
+    "mp 07 03.md",
+    "mp 05 03.md",
+    "mp 27 02.md",
+    "uni notes",
+    "Sicurezza.md"
+  ]
+}
