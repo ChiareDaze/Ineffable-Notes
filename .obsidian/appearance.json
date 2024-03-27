@@ -1,5 +1,7 @@
 {
   "accentColor": "#7534ef",
   "cssTheme": "Border",
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "baseFontSize": 16,
+  "monospaceFontFamily": "Cascadia Code"
 }

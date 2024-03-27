@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ed7a9c9b3ac77de5",
+            "id": "e67900098e6558b7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Assembly.md",
+                "file": "Notes/Architettura degli elaboratori/Assembly.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Assembly.md",
+                "file": "Notes/Architettura degli elaboratori/Assembly.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Assembly.md",
+                "file": "Notes/Architettura degli elaboratori/Assembly.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Assembly.md"
+                "file": "Notes/Architettura degli elaboratori/Assembly.md"
               }
             }
           }
@@ -147,39 +147,45 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ed7a9c9b3ac77de5",
+  "active": "e67900098e6558b7",
   "lastOpenFiles": [
-    "Architettura degli elaboratori.md",
-    "WhatsApp Image 2024-02-27 at 11.40.29_1b5fd1d1.jpg",
-    "Assembly.md",
+    "Notes/Fondamenti di programmazione/Lezione 1.md",
+    "Notes/Architettura degli elaboratori/Assembly.md",
+    "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
+    "Notes/Fondamenti di programmazione/Fondamenti di programmazione.md",
+    "Notes/Metodologie di programmazione/Metodologie di programmazione.md",
+    "Index.md",
+    "Notes/Metodologie di programmazione/laboratorio 20 03.md",
+    "Notes/Metodologie di programmazione/mp 05 03.md",
+    "Notes/Metodologie di programmazione",
+    "Notes/Fondamenti di programmazione",
+    "Notes/ae 15 03.md",
+    "Notes/Metodologie di programmazione/mp 07 03.md",
+    "Notes/Architettura degli elaboratori",
+    "Media/Pasted image 20240228095400.png",
+    "Notes/Metodologie di programmazione/laboratorio 27 03.md",
+    "Notes",
+    "Media",
+    "Media/WhatsApp Image 2024-02-27 at 11.40.29_1b5fd1d1.jpg",
     "Untitled.canvas",
-    "mp 19 03.md",
-    "Metodologie di programmazione.md",
-    "mp 29 02.md",
+    "Notes/Metodologie di programmazione/mp 19 03.md",
+    "Notes/Metodologie di programmazione/mp 29 02.md",
     "Untitled.md",
-    "mp 26 03.md",
-    "Pasted image 20240326111451.png",
-    "Lezione 1.md",
-    "Fondamenti di programmazione.md",
-    "Università Appunti.md",
-    "mp 21 03.md",
-    "laboratorio 20 03.md",
-    "laboratorio 28 02.md",
-    "Pasted image 20240319103308.png",
-    "Screenshot 2024-03-19 103209.png",
-    "Screenshot 2024-03-19 101737.png",
-    "ae 15 03.md",
-    "Screenshot 2024-03-15 120408.png",
-    "Screenshot 2024-03-15 120241.png",
-    "mp 14 03.md",
-    "Screenshot 2024-03-14 132040.png",
-    "Screenshot 2024-03-14 131803.png",
-    "mp 12 03.md",
-    "Screenshot 2024-03-12 101727.png",
+    "Notes/Metodologie di programmazione/mp 26 03.md",
+    "Media/Pasted image 20240326111451.png",
+    "Notes/Metodologie di programmazione/mp 21 03.md",
+    "Notes/Metodologie di programmazione/laboratorio 28 02.md",
+    "Media/Pasted image 20240319103308.png",
+    "Media/Screenshot 2024-03-19 103209.png",
+    "Media/Screenshot 2024-03-19 101737.png",
+    "Media/Screenshot 2024-03-15 120408.png",
+    "Media/Screenshot 2024-03-15 120241.png",
+    "Notes/Metodologie di programmazione/mp 14 03.md",
+    "Media/Screenshot 2024-03-14 132040.png",
+    "Media/Screenshot 2024-03-14 131803.png",
+    "Notes/Metodologie di programmazione/mp 12 03.md",
     "Espressioni regolari.md",
-    "mp 07 03.md",
-    "mp 05 03.md",
-    "mp 27 02.md",
+    "Notes/Metodologie di programmazione/mp 27 02.md",
     "uni notes",
     "Sicurezza.md"
   ]

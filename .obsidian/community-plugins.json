@@ -1,4 +1,6 @@
 [
   "obsidian-style-settings",
-  "obsidian-discordrpc"
+  "obsidian-discordrpc",
+  "obsidian-git",
+  "folder-note-plugin"
 ]

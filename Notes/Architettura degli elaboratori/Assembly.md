@@ -1,3 +1,16 @@
+
+> [!NOTE] Index
+> 1. [[#Registri]]
+> 2. [[#Sintassi per creare un programma in Assembly]]
+> 3. [[#Caricare le variabili nei registri (lw)]]
+> 4. [[#Spostare il valore in un altro registro (move)]]
+> 5. [[#Somma tra interi (add e addi)]]
+> 6. [[#Sottrazione tra interi (sub e subi)]]
+> 7. [[#Syscall]]
+> 8. [[#Operazioni con le stringhe]]
+> 9. [[#Comandi `mult` e `mflo`]]
+
+---
 ### Registri
 
 >[!info] Cosa sono?
@@ -12,6 +25,8 @@
 >- Da `$t0` a `$t9` sono registri temporanei
 >- `$s0` e `$s7` registri temporanei
 >- `coproc1` e `coproc0` registri che contengono double e float
+
+^6cabc1
 
 ---
 ### Sintassi per creare un programma in Assembly
