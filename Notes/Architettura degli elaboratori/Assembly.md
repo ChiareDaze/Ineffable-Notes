@@ -400,3 +400,4 @@ syscall
 >	- il risultato viene caricato nel registro `$lo`
 >	- per spostare il valore in un altro registro uso `mflo` (move from lo)
 
+---
