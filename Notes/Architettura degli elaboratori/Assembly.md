@@ -31,7 +31,7 @@
 ---
 ### Sintassi per creare un programma in Assembly
 
-#### .global main
+#### .globl main
 
 - All'inzio del programma si deve scrivere `Global main`
 	- Può essere accessibile a tutti i file
@@ -46,7 +46,7 @@
 
 ##### Ex.
 ```js
-.global main
+.globl main
 
 .data
 
@@ -63,7 +63,7 @@ main:
 - Serve per caricare la variabile all'interno di un registro
 
 ```js
-.global main
+.globl main
 
 .data
 
@@ -80,7 +80,7 @@ lw $t0, numero
 - Possiamo spostare il valore in altri registri
 
 ```js
-.global main
+.globl main
 
 .data
 
@@ -147,7 +147,7 @@ subi $t3, $t0, 5
 - Differenza tra due registri
 
 ```js
-.global main
+.globl main
 
 .data
 
@@ -167,7 +167,7 @@ sub $t2, $t0, $t1
 #### Sottrazione senza caricare un .data (li)
 
 ```js
-.global main
+.globl main
 
 .data
 
@@ -219,7 +219,7 @@ syscall //chiude il programma
 ### Operazioni con le stringhe
 
 ```js
-.global main
+.globl main
 
 .data
 
@@ -251,7 +251,7 @@ syscall
 - Il valore viene rappresentato in 8 bit
 
 ```js
-.global main
+.globl main
 
 .data
 char: .byte 'v'
@@ -284,7 +284,7 @@ syscall
 - Se avessi voluto inserire uno spazio tra le due v dovrei scrivere:
 
 ```js
-.global main
+.globl main
 
 .data
 char: .byte 'v'
@@ -316,7 +316,7 @@ syscall
 #### Stampare un float
 
 ```js
-.global main
+.globl main
 
 .data
 PI: .float 3.14
@@ -341,7 +341,7 @@ syscall
 #### Operazioni con i double 
 
 ```js
-.global main
+.globl main
 
 .data
 
@@ -372,7 +372,7 @@ syscall
 #### `Mul` e `mult`
 
 ```js
-.global main
+.globl main
 
 .data
 
@@ -387,6 +387,8 @@ lw $t1, due
 
 mul $t2, $t0, $t1 // fa il prodotto tra $t0 e $t1 e lo carica nel registro $t2
 
+//metodo alternativo con mult
+
 mult $t0, $1 //esegue il prodotto e lo carica in $lo
 mflo $t2 //"sposta" il prodotto da $lo a $t2
 
@@ -399,5 +401,50 @@ syscall
 >- `mult` moltiplicazione tra due registri
 >	- il risultato viene caricato nel registro `$lo`
 >	- per spostare il valore in un altro registro uso `mflo` (move from lo)
+
+---
+### Divisioni
+
+#### `Div` e `divu`
+
+```js
+.globl main 
+
+.data 
+
+Uno: .word 10
+Due: .word 2
+
+.text
+main:
+
+lw $t0, Uno
+lw $t1, Due
+
+div $t2, $t0, $t1 //div esegue la divisione tra $t0 e $t1
+
+li $v0, 1
+move $a0, $t2
+syscall
+
+//metodo alternativo con divu
+
+divu $t0, $t1
+mflo $t2
+
+li $v0, 10
+syscall
+```
+
+>[!info] Cosa succede se la divisione con il resto?
+>La parte intera viene caricata nel registro `$lo` e il resto viene caricato nel registro `$hi`
+
+- Per spostare il resto in un registro si deve fare
+
+```js
+divu $t0, $t1
+mflo $t2
+mfhi $t3 //sposta il resto nel registro $t3
+```
 
 ---
