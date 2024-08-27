@@ -2,4 +2,4 @@
 
 ###### These are my uni notes
 
-I hope I remember to update them
+Hope I will remember to update them
