@@ -3,5 +3,8 @@
   "cssTheme": "Border",
   "theme": "obsidian",
   "baseFontSize": 16,
-  "monospaceFontFamily": "Cascadia Code"
+  "monospaceFontFamily": "Cascadia Code",
+  "enabledCssSnippets": [
+    "snippets"
+  ]
 }

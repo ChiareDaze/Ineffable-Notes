@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "2576460fa35e9f79",
+        "id": "8d38b241300512a8",
         "type": "tabs",
         "children": [
           {
-            "id": "e67900098e6558b7",
+            "id": "b979d0ae1a1429fe",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Architettura degli elaboratori/Assembly.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "58c1519258e8d6cd",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Architettura degli elaboratori/Assembly.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Architettura degli elaboratori/Assembly.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Architettura degli elaboratori/Assembly.md"
+                "file": "README.md"
               }
             }
           }
@@ -143,51 +142,56 @@
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
+      "command-palette:Open command palette": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "e67900098e6558b7",
+  "active": "b979d0ae1a1429fe",
   "lastOpenFiles": [
-    "README.md",
-    "Notes/Fondamenti di programmazione/Lezione 1.md",
-    "Notes/Architettura degli elaboratori/Assembly.md",
     "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
-    "Notes/Fondamenti di programmazione/Fondamenti di programmazione.md",
+    "Notes/Architettura degli elaboratori/Esercizi.md",
+    "Excalidraw/Pipeline.excalidraw.md",
+    "Notes/Metodologie di programmazione/mp 04 04.md",
+    "Notes/Metodologie di programmazione/while e do...while.md",
+    "Excalidraw/Drawing 2024-08-09 17.53.18.excalidraw.md",
     "Notes/Metodologie di programmazione/Metodologie di programmazione.md",
-    "Index.md",
-    "Notes/Metodologie di programmazione/laboratorio 20 03.md",
-    "Notes/Metodologie di programmazione/mp 05 03.md",
+    "Notes/Metodologie di programmazione/For e for each.md",
+    "Notes/Architettura CPU MIPS.md",
+    "Notes/Fondamenti di programmazione/Fondamenti di programmazione.md",
+    "Notes/Architettura degli elaboratori/Assembly.md",
+    "Notes/Metodologie di programmazione/Interfaccia Iterator e Iterable.md",
+    "Notes/Metodologie di programmazione/Classi astratte.md",
+    "Notes/Metodologie di programmazione/Interfacce.md",
+    "Notes/Metodologie di programmazione/Classi, oggetti e metodi.md",
+    "Notes/Metodologie di programmazione/Modificatori di accesso.md",
+    "Notes/Metodologie di programmazione/Incapsulamento.md",
+    "Notes/Metodologie di programmazione/Overriding e overloading.md",
+    "Notes/Metodologie di programmazione/Heap, Stack e Metaspace.md",
+    "Media/Pasted image 20240811174420.png",
+    "Media/Pasted image 20240811174055.png",
+    "Media/Pasted image 20240811173749.png",
+    "Media/Pasted image 20240811173533.png",
+    "Media/Pasted image 20240811173427.png",
+    "Media/Pasted image 20240811173246.png",
+    "Media/Pasted image 20240811173128.png",
+    "Media/Pasted image 20240811173033.png",
+    "Media/Pasted image 20240811172846.png",
+    "Media/Pasted image 20240811172240.png",
+    "Notes/Metodologie di programmazione/Python cheatSheet.md",
+    "Notes/Metodologie di programmazione/Programmazione a oggetti.md",
+    "Notes/Metodologie di programmazione/Packages.md",
+    "Notes/Metodologie di programmazione/if in java.md",
+    "Notes/Metodologie di programmazione/Array.md",
+    "Notes/Metodologie di programmazione/Hello world.md",
+    "Notes/Metodologie di programmazione/Introduzione.md",
+    "Excalidraw",
     "Notes/Metodologie di programmazione",
     "Notes/Fondamenti di programmazione",
-    "Notes/ae 15 03.md",
-    "Notes/Metodologie di programmazione/mp 07 03.md",
     "Notes/Architettura degli elaboratori",
-    "Media/Pasted image 20240228095400.png",
-    "Notes/Metodologie di programmazione/laboratorio 27 03.md",
     "Notes",
     "Media",
-    "Media/WhatsApp Image 2024-02-27 at 11.40.29_1b5fd1d1.jpg",
     "Untitled.canvas",
-    "Notes/Metodologie di programmazione/mp 19 03.md",
-    "Notes/Metodologie di programmazione/mp 29 02.md",
-    "Untitled.md",
-    "Notes/Metodologie di programmazione/mp 26 03.md",
-    "Media/Pasted image 20240326111451.png",
-    "Notes/Metodologie di programmazione/mp 21 03.md",
-    "Notes/Metodologie di programmazione/laboratorio 28 02.md",
-    "Media/Pasted image 20240319103308.png",
-    "Media/Screenshot 2024-03-19 103209.png",
-    "Media/Screenshot 2024-03-19 101737.png",
-    "Media/Screenshot 2024-03-15 120408.png",
-    "Media/Screenshot 2024-03-15 120241.png",
-    "Notes/Metodologie di programmazione/mp 14 03.md",
-    "Media/Screenshot 2024-03-14 132040.png",
-    "Media/Screenshot 2024-03-14 131803.png",
-    "Notes/Metodologie di programmazione/mp 12 03.md",
-    "Espressioni regolari.md",
-    "Notes/Metodologie di programmazione/mp 27 02.md",
-    "uni notes",
-    "Sicurezza.md"
+    "uni notes"
   ]
 }

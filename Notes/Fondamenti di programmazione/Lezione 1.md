@@ -53,7 +53,7 @@ d = {key1:val1, key2:val2}
 >- `d.get("key")` -> restituisce il valore associato alla chiave
 >- `d.keys()` -> restituisce una lista di chiavi del dizionario
 >- `d.values()` -> restituisce una lista di valori del dizionario
->- `d.tems()` -> restituisce una lista di tuple con chiavi e valori `[(key1, val1), (key2, val2)]`
+>- `d.items()` -> restituisce una lista di tuple con chiavi e valori `[(key1, val1), (key2, val2)]`
 >- `d.del()` -> cancella una coppia
 
 ##### Ex.

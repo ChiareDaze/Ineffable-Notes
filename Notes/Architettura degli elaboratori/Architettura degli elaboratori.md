@@ -1,4 +1,3 @@
 ### Lezioni
 
-- [[Assembly]]
-- 
+- [[Assembly]] 
