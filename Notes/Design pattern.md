@@ -37,7 +37,7 @@ L'ereditarietà non è sufficiente, proviamo con le interfacce
 
 - **No**: distrugge ogni possibile riuso del codice, perché dobbiamo reimplementare le interfacce per ogni sottoclasse
 
-**Abbiamo bisogno dei design pattern**
+**Abbiamo bisogno dei design pattern!**
 
 ---
 ### Design pattern
@@ -253,10 +253,206 @@ In questo modo posso cambiare le strategie ti attacco del mostro.
 
 ---
 
+### Singleton pattern
 
+Assicura che, della classe singleton, ne esista solo una sola istanza.
 
+Innanzitutto creiamo la classe `DriveTest` e creiamo la classe `Singleton`.
 
+```Java
+public class DriverTest
+{
+	public static void main(String[] args)
+	{
+		//...//
+	}
+}
+```
 
+La classe non potrà essere richiamata con:
 
+```Java
+Singleton s = new Singleton;
+```
 
+Questo perché `new` crea una nuova istanza e non vogliamo che questo succeda.
 
+Creiamo la classe `Singleton` che non dovrà avere un costruttore.
+
+```Java
+class Singleton
+{
+	private Singleton() 
+	{
+		//...//
+	}
+}
+```
+
+Quando compileremo il programma andrà in errore proprio perché il costruttore è `private`.
+
+Il singleton gestisce al suo interno in modo privato un'istanza del suo stesso tipo.
+
+```Java
+class Singleton
+{
+	private Singleton instance;
+
+	private Singleton() 
+	{
+		//...//
+	}
+}
+```
+
+`Instance` **non è mai modificabile**.
+
+L'unico elemento pubblico che mi serve è un metodo getter che ritorna un `Singleton`.
+
+```Java
+class Singleton
+{
+	private Singleton instance;
+
+	private Singleton() 
+	{
+		//...//
+	}
+
+	public Singleton getInstance()
+	{
+		
+	}
+}
+```
+
+Devo ancora risolvere il problema della creazione delle istanze.
+
+Quindi scriveremo:
+
+```Java
+class Singleton
+{
+	private Singleton instance;
+
+	private Singleton() 
+	{
+		//...//
+	}
+
+	public Singleton getInstance()
+	{
+		if (instance == null)
+			instance = new Singleton();
+	}
+}
+```
+
+Ho ancora un problema: visto che dal codice client (il codice che utilizza il Singleton) non posso usare `new` non è possibile che il metodo non sia statico perché se il metodo è associato a un'istanza che devo poter creare (ma in questo caso non possiamo creare l'istanza dal momento in cui dichiaro `private` il costruttore).
+
+Quindi dichiarerò `getIstance()` come **static**.
+
+```Java
+class Singleton
+{
+	private Singleton instance;
+
+	private Singleton() 
+	{
+		//...//
+	}
+
+	public static Singleton getInstance()
+	{
+		if (instance == null)
+			instance = new Singleton();
+	}
+}
+```
+
+Ora il programma darà errore sulle righe
+
+```Java
+if (instance == null)
+	instance = new Singleton();
+```
+
+Perché se `getInstance()` è un metodo statico, potrà accedere solo a variabili statiche.
+
+Quindi dichiariamo **static** anche `instance`
+
+```Java
+class Singleton
+{
+	private static Singleton instance;
+
+	private Singleton() 
+	{
+		//...//
+	}
+
+	public static Singleton getInstance()
+	{
+		if (instance == null)
+			instance = new Singleton();
+
+		return instance;
+	}
+}
+```
+
+A questo punto, tornando a `DriverTest`
+
+```Java
+Singleton s = new Singleton();
+```
+
+dovrà essere scritto come
+
+```Java
+Singleton s = Singleton.getInstance();
+```
+
+Con `Singleton.getInstance()` sto richiamando un metodo **statico** associato alla classe.
+
+Per capire come funziona il programma aggiungiamo un nuovo oggetto `s2` nel main e se `s` e `s2` sono uguali allora dovrà stampare `ok`.
+
+```Java
+public class DriverTest
+{
+	public static void main(String[] args)
+	{
+		Singleton s = Singleton.getInstance();
+		Singleton s2 = Singleton.getInstance();
+
+		if (s == s2)
+		{
+			System.out.println("ok");
+		}
+	}
+}
+```
+
+Eseguendo il programma verrà stampato `ok`.
+
+Questo perché gli oggetti `s` e `s2` sono entrambi il valore della variabile `instance`. 
+
+La prima volta che accedo alla riga
+
+```Java
+Singleton s = Singleton.getInstance();
+```
+
+Viene inizializzata `instance` utilizzando il costruttore e viene ritornata.
+
+Quando eseguiamo la riga
+
+```Java
+Singleton s2 = Singleton.getInstance();
+```
+
+`Instance` non sarà più **null** perché è uguale al valore che le ho assegnato eseguendo la riga precedente.
+
+Questo vuol dire che le verrà assegnato lo stesso oggetto che è stato inizializzato precedentemente.
+
+Le classi che saranno un singleton potranno eventualmente ereditare da questo singleton, oppure implementare al loro interno questo pattern.
