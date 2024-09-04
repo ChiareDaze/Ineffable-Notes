@@ -42,3 +42,4 @@
 [[Interfacce]]
 [[Classi astratte]]
 [[Interfaccia Iterator e Iterable]]
+[[Design pattern]]

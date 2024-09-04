@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Metodologie di programmazione/Interfaccia Iterator e Iterable.md",
+                "file": "Notes/Design pattern.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Metodologie di programmazione/Interfaccia Iterator e Iterable.md",
+                "file": "Notes/Design pattern.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Metodologie di programmazione/Interfaccia Iterator e Iterable.md",
+                "file": "Notes/Design pattern.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Metodologie di programmazione/Interfaccia Iterator e Iterable.md"
+                "file": "Notes/Design pattern.md"
               }
             }
           }
@@ -150,7 +150,15 @@
   },
   "active": "b979d0ae1a1429fe",
   "lastOpenFiles": [
+    "Media/Pasted image 20240903191530.png",
+    "Media/Pasted image 20240903165505.png",
+    "Media/Pasted image 20240903165018.png",
+    "Media/Pasted image 20240903122317.png",
+    "Media/Pasted image 20240903122105.png",
+    "Media/Pasted image 20240903121612.png",
+    "Media/Pasted image 20240903121502.png",
     "Notes/Metodologie di programmazione/Metodologie di programmazione.md",
+    "Notes/Design pattern.md",
     "Notes/Metodologie di programmazione/Interfaccia Iterator e Iterable.md",
     "Notes/Metodologie di programmazione/Modificatori di accesso.md",
     "Notes/Metodologie di programmazione/while e do...while.md",
@@ -178,14 +186,7 @@
     "Notes/Metodologie di programmazione/Heap, Stack e Metaspace.md",
     "Media/Pasted image 20240811174420.png",
     "Media/Pasted image 20240811174055.png",
-    "Media/Pasted image 20240811173749.png",
-    "Media/Pasted image 20240811173533.png",
-    "Media/Pasted image 20240811173427.png",
-    "Media/Pasted image 20240811173246.png",
-    "Media/Pasted image 20240811173128.png",
-    "Media/Pasted image 20240811173033.png",
     "Notes/Metodologie di programmazione/Python cheatSheet.md",
-    "Notes/Metodologie di programmazione/Programmazione a oggetti.md",
     "Notes/Metodologie di programmazione",
     "Notes/Fondamenti di programmazione",
     "Notes/Architettura degli elaboratori",
