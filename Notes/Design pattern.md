@@ -187,3 +187,76 @@ Demando al valore corrente di `AttackStrategy` la scelta di quale sia l'operazio
 
 Quindi abbiamo fatto un refactoring, abbiamo estrapolato dalla classe `Monster` la sua strategia d'attacco e l'abbiamo messa in una classe a sé stante che implementa `AttackStrategy`.
 
+Ora implementiamo una nuova classe `PowerAttackStrategy` che implementa `AttackStrategy`.
+
+```Java
+public class PowerAttackStrategy implements AttackStrategy
+{
+	@Override
+	public void attack()
+	{
+		System.out.println ("POWERATTACK!!");
+	}
+}
+```
+
+Come faccio nel `TestDriver` a cambiare la strategia di attacco?
+
+```Java
+public class TestDriver
+{
+	public static void main (String args[])
+	{
+		Monster m = new Monster();
+		m.attack();
+		m.setAttackStrategy(new PowerAttackStrategy());
+		m.attack();
+	}
+}
+```
+
+E creo il metodo `setAttackStrategy`.
+
+```Java
+public class Monster
+{
+	AttackStrategy attackStrategy;
+
+	public Monster () //costruttore
+	{
+		attackStrategy = new SimpleAttackStrategy();
+	}
+
+	void attack()
+	{
+		attackStrategy.attack();
+	}
+
+	void setAttackStrategy(AttackStrategy newAttackStrategy)
+	{
+		attackStrategy = newAttackStrategy;
+	}
+}
+```
+
+In questo modo posso cambiare le strategie ti attacco del mostro.
+
+>[!info]  In sintesi
+>- Abbiamo preso una classe che ha un determinato comportamento
+>- Abbiamo estratto questo comportamento attraverso uno strategy (quindi creando un'interfaccia e poi una classe che implementa l'interfaccia)
+>- Abbiamo generalizzato e adattato a varie esigenze l'interfaccia semplicemente creando delle classi che la implementano 
+>- Abbiamo, infine, utilizzato `setAttackStrategy` per cambiare il comportamento della classe `Monster`
+
+>[!Important] Perché è importante il Pattern Strategy?
+>- Consente di avere delle gerarchie di oggetti molto profonde 
+>- E' comodo da sviluppare
+
+---
+
+
+
+
+
+
+
+
