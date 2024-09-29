@@ -94,9 +94,11 @@ Supponiamo di voler sistemare su uno scaffale 4 libri di matematica, 3 di chimic
 Dopo aver messo il primo, rimangono 8 libri da scegliere per il secondo spazio. Una volta scelto il secondo libro, te ne restano 7 per il terzo spazio, e così via.
 
 Quindi:
+
 $$
-9\times 8\times 7\times 6\times 5 \times 4\times 3\times 2\times 1=9!
+9 \times 8 \times 7 \times 6 \times 5 \times 4 \times 3 \times 2 \times 1 = 9!
 $$
+
 **Seconda domanda**
 
 Innanzitutto dobbiamo pensare al possibile ordinamenti delle varie materie, quindi immaginiamo i libri della stessa materia come un unico blocco.
