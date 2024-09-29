@@ -94,7 +94,8 @@ Supponiamo di voler sistemare su uno scaffale 4 libri di matematica, 3 di chimic
 Dopo aver messo il primo, rimangono 8 libri da scegliere per il secondo spazio. Una volta scelto il secondo libro, te ne restano 7 per il terzo spazio, e così via.
 
 Quindi:
-$$9\times 8\times 7\times 6\times 5 \times 4\times 3\times 2\times 1=9!
+$$
+9\times 8\times 7\times 6\times 5 \times 4\times 3\times 2\times 1=9!
 $$
 **Seconda domanda**
 
@@ -103,18 +104,28 @@ Innanzitutto dobbiamo pensare al possibile ordinamenti delle varie materie, quin
 Le materie sono 3, quindi dobbiamo disporli in 3 posti.
 
 Quindi: 
-$$3\times 2 \times 1 = 3!$$
+$$
+3\times 2 \times 1 = 3!
+$$
 
 Ora pensiamo anche a sistemare i vari libri.
 
 Libri di matematica: 
-$$4\times 3\times 2\times 1 = 4!$$
+$$
+4\times 3\times 2\times 1 = 4!
+$$
 Libri di chimica: 
-$$3\times 2\times 1=3!$$
+$$
+3\times 2\times 1=3!
+$$
 Romanzi: 
-$$2\times 1= 2!$$
+$$
+2\times 1= 2!
+$$
 Quindi il numero di modi in cui posso ordinare i libri è:  
-$$3!\times 4!\times 3!\times 2! $$
+$$
+3!\times 4!\times 3!\times 2! 
+$$
 
 ### Definizione permutazioni
 
@@ -127,7 +138,9 @@ Il numero delle permutazioni di $n$ oggetti e $n!$
 Per ordinare gli $n$ oggetti scelgo il primo (ho $n$ modi possibili) scelgo il secondo (ho $n-1$ modi possibili), $\dots$ , scelgo l'n-esimo.
 
 **Principio fondamentale**
-$$\#permutazioni=n\times(n-1)\times(n-2)\times\dots $$
+$$
+\#permutazioni=n\times(n-1)\times(n-2)\times\dots 
+$$
 ### Permutazioni senza ripetizioni
 
 Supponiamo di voler trovare il numero di anagrammi della parola mela.
@@ -139,9 +152,13 @@ Se volessimo trovare gli anagrammi del nome Emma il numero di permutazioni non �
 In generale, quando abbiamo parole di lunghezza $n$ con $r$ lettere distinte, sappiamo che la prima appare $n_{1}$ volte, la seconda $n_{2}$ volte ecc.
 
 Il numero di anagrammi sarà:
-$$\frac{n_{1}}{n_{1}!\times n_{2}!\times n_{r}}$$
+$$
+\frac{n_{1}}{n_{1}!\times n_{2}!\times n_{r}}
+$$
 Quindi, scomponendo il problema abbiamo che la `e` e la `a` si ripetono 1 volta, mentre la `m` 3 volte.
 
 Quindi avremo che i possibili anagrammi di Emma sono:
-$$\frac{4!}{1!\times 1!\times 2!}=\frac{4!}{2!}$$
+$$
+\frac{4!}{1!\times 1!\times 2!}=\frac{4!}{2!}
+$$
 
