@@ -57,7 +57,8 @@ In quanti modi posso scegliere un rappresentante e un vice di sesso diverso?
 
 $\#\{(a,b): a = è \space rappresentante, b = è\space vice\}$
 
-Risposta: $$120\space ragazzi\times20\space ragazze = 140\space modi\space possibili $$
+Risposta: 
+$$120\space ragazzi\times20\space ragazze = 140\space modi\space possibili $$
 Per scegliere il vice non è possibile applicare il principio fondamentale perché non sappiamo l'esito del primo esperimento.
 Infatti, non sappiamo se il il rappresentante scelto è maschio o femmina.
 
@@ -75,7 +76,8 @@ $$\#\{(a,b): a = è \space rappresentante\space M, b = è\space vice\space F\}$$
 *Cardinalità*:
 $$120\times 20$$
 
-Quindi la risposta è:$$(120\times 20)+(120\times 20) = 4800$$
+Quindi la risposta è:
+$$(120\times 20)+(120\times 20) = 4800$$
 
 ---
 ### Permutazioni
@@ -91,7 +93,8 @@ Supponiamo di voler sistemare su uno scaffale 4 libri di matematica, 3 di chimic
 
 Dopo aver messo il primo, rimangono 8 libri da scegliere per il secondo spazio. Una volta scelto il secondo libro, te ne restano 7 per il terzo spazio, e così via.
 
-Quindi: $$9\times 8\times 7\times 6\times 5 \times 4\times 3\times 2\times 1=9!
+Quindi:
+$$9\times 8\times 7\times 6\times 5 \times 4\times 3\times 2\times 1=9!
 $$
 **Seconda domanda**
 
@@ -99,12 +102,17 @@ Innanzitutto dobbiamo pensare al possibile ordinamenti delle varie materie, quin
 
 Le materie sono 3, quindi dobbiamo disporli in 3 posti.
 
-Quindi: $$3\times 2 \times 1 = 3!$$
+Quindi: 
+$$3\times 2 \times 1 = 3!$$
+
 Ora pensiamo anche a sistemare i vari libri.
 
-Libri di matematica: $$4\times 3\times 2\times 1 = 4!$$
-Libri di chimica: $$3\times 2\times 1=3!$$
-Romanzi: $$2\times 1= 2!$$
+Libri di matematica: 
+$$4\times 3\times 2\times 1 = 4!$$
+Libri di chimica: 
+$$3\times 2\times 1=3!$$
+Romanzi: 
+$$2\times 1= 2!$$
 Quindi il numero di modi in cui posso ordinare i libri è:  
 $$3!\times 4!\times 3!\times 2! $$
 
@@ -118,7 +126,8 @@ Il numero delle permutazioni di $n$ oggetti e $n!$
 
 Per ordinare gli $n$ oggetti scelgo il primo (ho $n$ modi possibili) scelgo il secondo (ho $n-1$ modi possibili), $\dots$ , scelgo l'n-esimo.
 
-**Principio fondamentale**$$\#permutazioni=n\times(n-1)\times(n-2)\times\dots $$
+**Principio fondamentale**
+$$\#permutazioni=n\times(n-1)\times(n-2)\times\dots $$
 ### Permutazioni senza ripetizioni
 
 Supponiamo di voler trovare il numero di anagrammi della parola mela.
@@ -129,8 +138,10 @@ Se volessimo trovare gli anagrammi del nome Emma il numero di permutazioni non �
 
 In generale, quando abbiamo parole di lunghezza $n$ con $r$ lettere distinte, sappiamo che la prima appare $n_{1}$ volte, la seconda $n_{2}$ volte ecc.
 
-Il numero di anagrammi sarà:$$\frac{n_{1}}{n_{1}!\times n_{2}!\times n_{r}}$$
+Il numero di anagrammi sarà:
+$$\frac{n_{1}}{n_{1}!\times n_{2}!\times n_{r}}$$
 Quindi, scomponendo il problema abbiamo che la `e` e la `a` si ripetono 1 volta, mentre la `m` 3 volte.
 
-Quindi avremo che i possibili anagrammi di Emma sono:$$\frac{4!}{1!\times 1!\times 2!}=\frac{4!}{2!}$$
+Quindi avremo che i possibili anagrammi di Emma sono:
+$$\frac{4!}{1!\times 1!\times 2!}=\frac{4!}{2!}$$
 
