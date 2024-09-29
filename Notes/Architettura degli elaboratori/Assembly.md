@@ -25,7 +25,6 @@
 >- `$s0` e `$s7` registri temporanei
 >- `coproc1` e `coproc0` registri che contengono double e float
 
-^6cabc1
 
 ---
 ### Sintassi per creare un programma in Assembly

@@ -43,3 +43,5 @@
 [[Classi astratte]]
 [[Interfaccia Iterator e Iterable]]
 [[Design pattern]]
+[[Stream]]
+[[Tipi generici]]

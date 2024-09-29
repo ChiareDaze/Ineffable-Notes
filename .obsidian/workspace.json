@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "8d38b241300512a8",
+        "id": "12680f235f67e0e0",
         "type": "tabs",
         "children": [
           {
-            "id": "b979d0ae1a1429fe",
+            "id": "742f8d3720958e5d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Metodologie di programmazione/Design pattern.md",
+                "file": "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Metodologie di programmazione/Design pattern.md",
+                "file": "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Metodologie di programmazione/Design pattern.md",
+                "file": "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Metodologie di programmazione/Design pattern.md"
+                "file": "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md"
               }
             }
           }
@@ -147,45 +147,45 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "616b348e4fa94142",
+  "active": "742f8d3720958e5d",
   "lastOpenFiles": [
     "Index.md",
-    "Notes/Metodologie di programmazione/Metodologie di programmazione.md",
     "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
+    "README.md",
+    "Notes/Metodologie di programmazione/Metodologie di programmazione.md",
+    "Notes/Metodologie di programmazione/Ex4.md",
+    "Notes/Metodologie di programmazione/For e for each.md",
+    "Notes/Basi di dati.md",
+    "Notes/Calcolo delle probabilità.md",
+    "Notes/Architettura degli elaboratori/Assembly.md",
+    "Notes/Metodologie di programmazione/while e do...while.md",
+    "Notes/Metodologie di programmazione/mp 14 05.md",
+    "Notes/Fondamenti di programmazione/Fondamenti di programmazione.md",
+    "Notes/Fondamenti di programmazione/Python cheatSheet.md",
+    "Notes/Sistemi operativi.md",
+    "Media/Pasted image 20240927141123.png",
+    "Media/Pasted image 20240927140421.png",
+    "Media/Pasted image 20240926154616.png",
+    "Media/Pasted image 20240926153638.png",
+    "Media/Pasted image 20240926133117.png",
+    "Media/Pasted image 20240925163920.png",
+    "Media/Pasted image 20240924162958.png",
+    "Media/Pasted image 20240924161453.png",
+    "Media/Pasted image 20240924155728.png",
+    "Media/Pasted image 20240924155459.png",
     "Notes/Metodologie di programmazione/Design pattern.md",
-    "Media/Pasted image 20240903191530.png",
-    "Media/Pasted image 20240903165505.png",
-    "Media/Pasted image 20240903165018.png",
-    "Media/Pasted image 20240903122317.png",
-    "Media/Pasted image 20240903122105.png",
-    "Media/Pasted image 20240903121612.png",
-    "Media/Pasted image 20240903121502.png",
+    "Notes/Metodologie di programmazione/Stream.md",
+    "Notes/Metodologie di programmazione/Tipi generici.md",
+    "Notes/Metodologie di programmazione/Untitled.md",
+    "Notes/Metodologie di programmazione/Heap, Stack e Metaspace.md",
+    "Notes/Metodologie di programmazione/mp 07 05.md",
+    "Notes/Metodologie di programmazione/mp 16 05.md",
     "Notes/Metodologie di programmazione/Interfaccia Iterator e Iterable.md",
     "Notes/Metodologie di programmazione/Modificatori di accesso.md",
-    "Notes/Metodologie di programmazione/while e do...while.md",
-    "Media/Pasted image 20240902182614.png",
-    "Media/Pasted image 20240902182507.png",
     "Excalidraw/Drawing 2024-09-02 18.12.37.excalidraw.md",
     "Excalidraw",
     "Notes/Metodologie di programmazione/Array.md",
-    "Notes/Metodologie di programmazione/For e for each.md",
     "Notes/Metodologie di programmazione/Switch.md",
-    "Notes/Metodologie di programmazione/Overriding e overloading.md",
-    "Notes/Metodologie di programmazione/Classi astratte.md",
-    "Notes/Architettura degli elaboratori/Assembly.md",
-    "Notes/Fondamenti di programmazione/Fondamenti di programmazione.md",
-    "README.md",
-    "Notes/Architettura degli elaboratori/Esercizi.md",
-    "Excalidraw/Pipeline.excalidraw.md",
-    "Notes/Metodologie di programmazione/mp 04 04.md",
-    "Excalidraw/Drawing 2024-08-09 17.53.18.excalidraw.md",
-    "Notes/Architettura CPU MIPS.md",
-    "Notes/Metodologie di programmazione/Interfacce.md",
-    "Notes/Metodologie di programmazione/Classi, oggetti e metodi.md",
-    "Notes/Metodologie di programmazione/Incapsulamento.md",
-    "Notes/Metodologie di programmazione/Heap, Stack e Metaspace.md",
-    "Media/Pasted image 20240811174420.png",
-    "Notes/Metodologie di programmazione/Python cheatSheet.md",
     "Notes/Metodologie di programmazione",
     "Notes/Fondamenti di programmazione",
     "Notes/Architettura degli elaboratori",

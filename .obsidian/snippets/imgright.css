@@ -1,8 +1,3 @@
-:not(pre) > code,
-.cm-inline-code {
-  color: rgba(117, 233, 253, 0.75) !important;
-}
-
 img[alt*="right"] {
     float:right;
     clear:right;

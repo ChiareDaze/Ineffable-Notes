@@ -456,3 +456,479 @@ Singleton s2 = Singleton.getInstance();
 Questo vuol dire che le verrà assegnato lo stesso oggetto che è stato inizializzato precedentemente.
 
 Le classi che saranno un singleton potranno eventualmente ereditare da questo singleton, oppure implementare al loro interno questo pattern.
+
+### Pattern Observer Observable
+
+Due elementi importanti: gli "osservatori" (Observer) e gli "osservati" (Subject).
+
+Gli "osservatori" osserveranno gli "osservati" e quando gli "osservati" faranno qualcosa, notificherà l'evento a tutti gli "osservatori".
+
+#### Esempio celebrità-fan
+
+```Java
+public interface Subject
+{
+	public void register(Observer o); //registra l'osservatore
+	public void unregister(Observer o); //annulla la registrazione
+	public void notifyAllObserver(String s); //notifica tutti gli osservatori
+}
+```
+
+Creo la classe `Celebrity` che implementa `Subject`
+
+```Java
+public class Celebrity implements Subject
+{
+	private String celebrityName;
+	private List <Observer> followers;
+
+	public Celebrity (String celebrityName)
+	{
+		super();
+		this.celebrityName = celebrityName; //nome celebrità
+		this.followers = new ArrayList<>(); //lista followers (Osservatori)
+	}
+
+	@Override
+	public void register(Observer o)
+	{
+		followers.add(o); //aggiunge il follower
+	}
+
+	@Override
+	public void unregister(Observer o)
+	{
+		followers.remove(o); //rimuove il follower
+	}
+
+	@Override
+	public void notifyAllObserver(String s)
+	{
+		for (Observer observer : followers)
+		{
+			observer.update(celebrityName, s);
+		}
+	}
+
+	public void tweet (String t)
+	{
+		System.out.println(CelebrityName+ " has tweeted " + t);
+		notifyAllObserver(t);
+	}
+}
+```
+
+Il metodo `notifyAllObserver` scorre `followers` e richiama il metodo `update` passandogli il nome della celebrità e `s`.   
+
+`Observer` è l'interfaccia che implementeranno i vari fan e ha solo `update` come metodo.
+
+```Java
+public interface Observer
+{
+	public void update (String name, String s);
+}
+```
+
+Ora creiamo la classe `Follower` che andrà a implementare l'interfaccia `Observer`.
+
+```Java
+public class Follower implements Observer
+{
+	private String followerName;
+
+	public Follower
+	{
+		super();
+		this.follower = followerName;
+	}
+
+	@Override
+	public void update(String name, String s)
+	{
+		System.out.println(followerName + " has recived " + s + "'s tweet " + name)
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Followers [followerName = " + followerName + " ]";
+	}
+}
+```
+
+Creiamo il main
+
+```Java
+public class Client
+{
+	public static void main(String[] args)
+	{
+		Celebrity davidTennant = new Celebrity ("David Tennant");
+		Celebrity michaelSheen = new Celebrity ("Michael Sheen");
+
+		Follower goofy = new Follower ("Goofy");
+		Follower pluto = new Follower ("Pluto");
+		Follower scroogeMcDuck = new Follower ("Scrooge McDuck");
+
+		davidTennant.register(scroogeMcDuck);
+		davidTennant.register(goofy);
+
+		michaelSheen.register(pluto);
+
+		davidTennant.tweet("ALLONS-Y");
+		michaelSheen.tweet("DAVID!!! WHAT HAS HAPPEN TO YOUR HAIR!!!")
+	}
+}
+```
+
+I messaggi verranno notificati a tutti i followers.
+
+Il tweet verrà inviato solo agli utenti registrati.
+
+---
+
+### Builder pattern
+
+Si occupa del modo in cui viene creato un oggetto.
+
+#### Quando usiamo il Builder pattern?
+
+1. Quando una classe ha troppe variabili e alcune di loro sono dello stesso tipo creando, in questo modo, confusione nel client program;
+2. Quando alcuni parametri sono facoltativi e il programma dovrà passarli come argomento nullo;
+3. Quando la creazione dell'istanza della classe è troppo pesante e complessa.
+
+#### Esempio classe Computer
+
+
+```Java
+public class Computer
+{
+	//parametri necessari
+	private String RAM;
+	private String HDD;
+	private String CPU;
+
+	//parametri facoltativi
+	private boolean isGraphicsCardEnabled;
+	private boolean isBluetoothEnabled;
+
+	private Computer (Builder builder)
+	{
+		this.RAM = ram;
+		this.HDD = hdd;
+		this.CPU = cpu;
+		this.isGraphicsCardEnabled = isGraphicsCardEnabled
+		this.isBluetoothEnabled = isBluetoothEnabled;
+	}
+}
+```
+
+Per ogni parametro dobbiamo creare una metodo `getter`.
+
+```Java
+public class Computer
+{
+	//parametri necessari
+	private String RAM;
+	private String HDD;
+	private String CPU;
+
+	//parametri facoltativi
+	private boolean isGraphicsCardEnabled;
+	private boolean isBluetoothEnabled;
+
+	private Computer (Builder builder)
+	{
+		this.RAM = ram;
+		this.HDD = hdd;
+		this.CPU = cpu;
+		this.isGraphicsCardEnabled = isGraphicsCardEnabled
+		this.isBluetoothEnabled = isBluetoothEnabled;
+	}
+
+	public String getHDD() {
+			return HDD;
+		}
+	
+		public String getRAM() {
+			return RAM;
+		}
+	
+		public boolean isGraphicsCardEnabled() {
+			return isGraphicsCardEnabled;
+		}
+	
+		public boolean isBluetoothEnabled() {
+			return isBluetoothEnabled;
+		}
+
+}
+```
+
+Creiamo ora classe `Builder`, che dovrà essere statica e dovrà essere annidata in modo che potrà utilizzare il costruttore della classe.
+
+La classe dovrà gli stessi parametri di `Computer` e un costruttore dove gli argomenti sono tutti i parametri necessari.
+
+```Java
+public static class Builder
+{
+	//parametri necessari
+	private String RAM;
+	private String HDD;
+	private String CPU;
+
+	//parametri facoltativi
+	private boolean isGraphicsCardEnabled;
+	private boolean isBluetoothEnabled;
+
+	public Builder(String ram, String hdd, String cpu)
+	{
+		this.RAM = ram;
+		this.HDD = hdd;
+		this.CPU = cpu;
+	}
+}
+```
+
+Ora dobbiamo creare dei metodi per impostare i parametri facoltativi.
+
+```Java
+public static class Builder
+{
+	//parametri necessari
+	private String RAM;
+	private String HDD;
+	private String CPU;
+
+	//parametri facoltativi
+	private boolean isGraphicsCardEnabled;
+	private boolean isBluetoothEnabled;
+
+	public Builder(String ram, String hdd, String cpu)
+	{
+		this.RAM = ram;
+		this.HDD = hdd;
+		this.CPU = cpu;
+	}
+
+	public void setGraphicsCardEnabled (boolean isGraphicsCardEnabled)
+	{
+		this.isGraphicsCardEnabled = isGraphicsCardEnabled;
+	}
+
+	public void setBluetoothEnabled (boolean isBluetoothEnabled)
+	{
+		this.isBluetoothEnabled = isBluetoothEnabled;
+	}
+}
+```
+
+Ora dobbiamo cambiare i metodi per restituire l'istanza di `Builder`.
+
+Basta cambiare **void** in **Builder** e scrivere `return this` (ritorna la corrente istanza dell'oggetto).
+
+```Java
+public static class Builder
+{
+	//parametri necessari
+	private String RAM;
+	private String HDD;
+	private String CPU;
+
+	//parametri facoltativi
+	private boolean isGraphicsCardEnabled;
+	private boolean isBluetoothEnabled;
+
+	public Builder(String ram, String hdd, String cpu)
+	{
+		this.RAM = ram;
+		this.HDD = hdd;
+		this.CPU = cpu;
+	}
+
+	public Builder setGraphicsCardEnabled (boolean isGraphicsCardEnabled)
+	{
+		this.isGraphicsCardEnabled = isGraphicsCardEnabled;
+		return this;
+	}
+
+	public Builder setBluetoothEnabled (boolean isBluetoothEnabled)
+	{
+		this.isBluetoothEnabled = isBluetoothEnabled;
+		return this;
+	}
+}
+```
+
+Ora creiamo un metodo che restituirà l'istanza di `Computer`.
+
+In genere questo metodo è chiamato `build()`.
+
+```Java
+public Computer build ()
+{
+	return new Computer(this);
+}
+```
+
+Ora scriviamo il main
+
+```Java
+public class ComputerClient
+{
+	public static void main(String args[])
+	{
+		Computer comp = new Computer.Builder("2GB", "2TB", "Intel i7").build();
+
+		Computer comp1 = new Computer.Builder("2GB", "2TB", "Intel i7").setGraphicsCardEnabled(true);
+	}
+}
+```
+
+---
+### Decorator
+
+E' un pattern strutturale che permette di aggiungere dinamicamente funzionalità a un oggetto senza modificare il suo codice originale o alterare le sue classi.
+
+Questo si ottiene "decorando" l'oggetto, cioè avvolgendolo in un nuovo oggetto che aggiunge nuovi comportamenti, lasciando intatta l'interfaccia originale.
+
+#### Quando si usa decorator?
+
+Quando si ha un oggetto esistente e vuoi aggiungere nuove funzionalità in modo flessibile e modulare, oppure quando non si può modificare direttamente il codice dell'oggetto originale (per esempio, per evitare di creare una gerarchia di classi molto complessa o per non toccare il codice esistente).
+
+#### Come funziona?
+
+Decorator segue una logica simile alla composizione. C'è una base (interfaccia o classe astratta) e i vari decoratori implementano o ereditano da quella classe.
+
+I decoratori hanno un riferimento all'oggetto che stanno decorando e possono aggiungere comportamenti prima o dopo aver delegato il lavoro all'oggetto originale.
+
+#### Esempio Beverage
+
+Supponiamo di avere un'interfaccia per una **Beverage** e diverse implementazioni di bevande come `Caffè`. 
+Ora, vogliamo aggiungere dinamicamente degli "extra" come **latte** o **zucchero** senza modificare la classe `Caffè`.
+
+Implementiamo  l'interfaccia `Beverage`.
+
+```Java
+public interface Beverage {
+    String getDescription();
+    double cost();
+}
+```
+
+Creiamo la classe `caffè` che implementa `Beverage`.
+
+```Java
+public class Coffee implements Beverage {
+    @Override
+    public String getDescription() {
+        return "Coffee";
+    }
+
+    @Override
+    public double cost() {
+        return 1.50; // Costo base del caffè
+    }
+}
+```
+
+Creiamo la classe astratta `Decorator` che implementa `Beverage` e ha un riferimento a un oggetto `Beverage`.
+
+Usiamo **protected** perché la classe decoratrice astratta potrebbe essere estesa da altre sottoclassi, che potrebbero voler accedere direttamente al campo `beverage` per eseguire ulteriori operazioni. 
+
+```Java
+public abstract class BeverageDecorator implements Beverage {
+    protected Beverage beverage;
+
+    public BeverageDecorator(Beverage beverage) {
+        this.beverage = beverage;
+    }
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription();  // Delegazione all'oggetto decorato
+    }
+
+    @Override
+    public double cost() {
+        return beverage.cost();  // Delegazione all'oggetto decorato
+    }
+}
+```
+
+Ora possiamo creare decoratori per aggiungere funzionalità come latte e zucchero.
+
+```Java
+public class LatteDecorator extends BeverageDecorator {
+    public LatteDecorator(Beverage beverage) {
+        super(beverage);
+    }
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription() + ", Latte";
+    }
+
+    @Override
+    public double cost() {
+        return beverage.cost() + 0.50;  // Aggiunge il costo del latte
+    }
+}
+```
+
+```Java
+public class SugarDecorator extends BeverageDecorator {
+    public SugarDecorator(Beverage beverage) {
+        super(beverage);
+    }
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription() + ", Sugar";
+    }
+
+    @Override
+    public double cost() {
+        return beverage.cost() + 0.20;  // Aggiunge il costo dello zucchero
+    }
+}
+```
+
+Scriviamo il main
+
+```Java
+public class Main {
+    public static void main(String[] args) {
+        Beverage coffee = new Coffee();  // Crea un caffè semplice
+        System.out.println(coffee.getDescription() + " $" + coffee.cost());
+
+        // Aggiungi latte al caffè
+        coffee = new LatteDecorator(coffee);
+        System.out.println(coffee.getDescription() + " $" + coffee.cost());
+
+        // Aggiungi anche zucchero al caffè con latte
+        coffee = new SugarDecorator(coffee);
+        System.out.println(coffee.getDescription() + " $" + coffee.cost());
+    }
+}
+```
+
+L'output sarà:
+
+```java
+Coffee $1.5 
+Coffee, Latte $2.0 
+Coffee, Latte, Sugar $2.2
+```
+
+>[!Important] Vantaggi del Decorator
+>- Flessibilità: si può aggiungere nuove funzionalità senza modificare le classi esistenti;
+>- Modularità: si può combinare i decoratori in modo flessibile, aggiungendo o rimuovendo comportamenti dinamicamente;
+>- Riutilizzo del codice: i decoratori possono essere riutilizzati con altri oggetti che implementano la stessa interfaccia.
+
+
+>[!warning] Svantaggi del Decorator
+>- Tanti oggetti: se usato eccessivamente, il pattern può generare molte piccole classi e oggetti, complicando la manutenzione;
+>- Debug più complesso: capire la combinazione esatta dei decoratori può diventare difficile in sistemi complessi.
+
+---
