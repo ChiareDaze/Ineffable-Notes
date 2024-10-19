@@ -49,11 +49,7 @@ K: "By the way, you can read and learn everything from here...and...huh...what? 
 Oh...in that case i can explain you how this section works"
 
 
-\**Kamek fixes his hat*\*
-
-
-
-
+\**Kamek adjusts his hat*\*
 
 
 

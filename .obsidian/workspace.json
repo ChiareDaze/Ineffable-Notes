@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "12680f235f67e0e0",
+        "id": "d3d2c4c39268c59d",
         "type": "tabs",
         "children": [
           {
-            "id": "742f8d3720958e5d",
+            "id": "e4deef406159edd1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -16,7 +16,21 @@
                 "file": "Notes/Calcolo delle probabilità.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Calcolo delle probabilità"
+            }
+          },
+          {
+            "id": "d50473eb82f4f7d0",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2024-10-19 18.24.00.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2024-10-19 18.24.00.excalidraw"
             }
           }
         ]
@@ -39,7 +53,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -48,13 +64,15 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#permutazioni",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,14 +80,17 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "58c1519258e8d6cd",
@@ -85,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Calcolo delle probabilità.md",
+                "file": "Notes/Metodologie di programmazione/Nuovi appunti.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,7 +114,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Nuovi appunti"
             }
           },
           {
@@ -102,10 +125,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Calcolo delle probabilità.md",
+                "file": "Notes/Metodologie di programmazione/Nuovi appunti.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Nuovi appunti"
             }
           },
           {
@@ -116,7 +141,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -125,8 +152,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Calcolo delle probabilità.md"
-              }
+                "file": "Notes/Metodologie di programmazione/Nuovi appunti.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Nuovi appunti"
             }
           }
         ]
@@ -147,45 +176,46 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "742f8d3720958e5d",
+  "active": "e4deef406159edd1",
   "lastOpenFiles": [
-    "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
-    "Index.md",
-    "README.md",
-    "Notes/Metodologie di programmazione/Metodologie di programmazione.md",
-    "Notes/Metodologie di programmazione/Ex4.md",
-    "Notes/Metodologie di programmazione/For e for each.md",
-    "Notes/Basi di dati.md",
     "Notes/Calcolo delle probabilità.md",
-    "Notes/Architettura degli elaboratori/Assembly.md",
-    "Notes/Metodologie di programmazione/while e do...while.md",
-    "Notes/Metodologie di programmazione/mp 14 05.md",
-    "Notes/Fondamenti di programmazione/Fondamenti di programmazione.md",
-    "Notes/Fondamenti di programmazione/Python cheatSheet.md",
-    "Notes/Sistemi operativi.md",
-    "Media/Pasted image 20240927141123.png",
-    "Media/Pasted image 20240927140421.png",
-    "Media/Pasted image 20240926154616.png",
-    "Media/Pasted image 20240926153638.png",
-    "Media/Pasted image 20240926133117.png",
-    "Media/Pasted image 20240925163920.png",
-    "Media/Pasted image 20240924162958.png",
-    "Media/Pasted image 20240924161453.png",
-    "Media/Pasted image 20240924155728.png",
-    "Media/Pasted image 20240924155459.png",
-    "Notes/Metodologie di programmazione/Design pattern.md",
-    "Notes/Metodologie di programmazione/Stream.md",
-    "Notes/Metodologie di programmazione/Tipi generici.md",
-    "Notes/Metodologie di programmazione/Untitled.md",
-    "Notes/Metodologie di programmazione/Heap, Stack e Metaspace.md",
-    "Notes/Metodologie di programmazione/mp 07 05.md",
-    "Notes/Metodologie di programmazione/mp 16 05.md",
-    "Notes/Metodologie di programmazione/Interfaccia Iterator e Iterable.md",
-    "Notes/Metodologie di programmazione/Modificatori di accesso.md",
-    "Excalidraw/Drawing 2024-09-02 18.12.37.excalidraw.md",
+    "Excalidraw/Drawing 2024-10-19 18.24.00.excalidraw.md",
+    "Media/Pasted image 20241019183232.png",
+    "Excalidraw/Drawing 2024-10-19 18.23.50.excalidraw.md",
     "Excalidraw",
-    "Notes/Metodologie di programmazione/Array.md",
-    "Notes/Metodologie di programmazione/Switch.md",
+    "Media/Pasted image 20241019175111.png",
+    "README.md",
+    "Index.md",
+    "Notes/Metodologie di programmazione/Nuovi appunti.md",
+    "Notes/Metodologie di programmazione/Vecchi appunti.md",
+    "Notes/Metodologie di programmazione/Metodologie di programmazione.md",
+    "Notes/Metodologie di programmazione/Nuovi appunti/while e do...while.md",
+    "Notes/Metodologie di programmazione/Nuovi appunti/Array.md",
+    "Notes/Metodologie di programmazione/Nuovi appunti",
+    "Notes/Metodologie di programmazione/Vecchi appunti/mp 30 04.md",
+    "Notes/Metodologie di programmazione/Nuovi appunti/Overriding e overloading.md",
+    "Notes/Metodologie di programmazione/Vecchi appunti/mp 04 04.md",
+    "Notes/Metodologie di programmazione/Vecchi appunti/laboratorio 10 04.md",
+    "Notes/Metodologie di programmazione/Vecchi appunti",
+    "Notes/Architettura degli elaboratori/Assembly.md",
+    "Notes/Fondamenti di programmazione/Fondamenti di programmazione.md",
+    "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
+    "Notes/Basi di dati.md",
+    "Notes/Fondamenti di programmazione/Lezione 1.md",
+    "Notes/Sistemi operativi.md",
+    "Media/Pasted image 20241016164938.png",
+    "Media/Pasted image 20241016161011.png",
+    "Media/Pasted image 20241016160700.png",
+    "Media/Pasted image 20241016160643.png",
+    "Media/Pasted image 20241016153105.png",
+    "Media/Pasted image 20241010153555.png",
+    "Media/Pasted image 20241010153511.png",
+    "Media/Pasted image 20241010145654.png",
+    "Notes/Metodologie di programmazione/Nuovi appunti/For e for each.md",
+    "Notes/Metodologie di programmazione/Nuovi appunti/Design pattern.md",
+    "Notes/Metodologie di programmazione/Nuovi appunti/Ex4.md",
+    "Notes/Metodologie di programmazione/Vecchi appunti/mp 14 05.md",
+    "Notes/Fondamenti di programmazione/Python cheatSheet.md",
     "Notes/Metodologie di programmazione",
     "Notes/Fondamenti di programmazione",
     "Notes/Architettura degli elaboratori",
