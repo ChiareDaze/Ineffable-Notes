@@ -41,17 +41,12 @@ Nobody cares about this old boring story!!!"
 
 
 K: "So...welcome to my secret library newcomer!!  Here you can find all the knowledge of the Universe!
-...err...maybe you already know this story...*
+Let me explain you how this place works...follow me"
 
-\**Kamek coughs*\*
+\**Kamek adjusts his hat and starts walking*\*
 
-K: "By the way, you can read and learn everything from here...and...huh...what? What are you saying? You are interested in the computer science section?!
-Oh...in that case i can explain you how this section works"
-
-
-\**Kamek adjusts his hat*\*
-
-
+K: "First of all you need to know that my library is divided into sections.
+You just need to searc"
 
 - [[Fondamenti di programmazione]]
 - [[Metodologie di programmazione]]

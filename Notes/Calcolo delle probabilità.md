@@ -294,3 +294,100 @@ Quindi le ripartizioni totali sono:
 ---
 # Probabilità
 
+Supponiamo di avere un esperimento. Chiameremo *spazio campionario* ($S$) l'insieme dei possibili esiti dell'esperimento.
+
+##### Esperimento 1
+
+Lancio un dado $S=\{ 1,2,3,4,5,6 \}$
+
+##### Esperimento 2
+
+Lancio 2 volte una moneta $S = \{ (T,T),(T,C),(C,C),(C,C),(C,T) \}$
+
+Un evento è descritto matematicamente da un sottoinsieme di $S$, più precisamente dall'insieme degli esiti che lo realizzano.
+
+L'evento "esce un numero pari" è descritto dal $\{ 2,4,6 \} \subset S$
+
+La *famiglia degli eventi* = *famiglia dei sottoinsiemi di S*
+
+#### Proprietà
+
+- Due eventi $E,F \subset S$ si dicono incompatibili se $S \space \cap \space F = \emptyset$
+- L'evento $S$ è detto *certo* (nell'esempio del dado l'evento "esce un intero" è dato da $S$)
+- Dato un evento $E$, l'evento complementare $E^{c}=S \setminus E$ (per esempio se l'evento è "esce un numero minore o uguale a 2", l'evento complementare è dato da $\{ 3,4,5,6 \}$)
+- Le *leggi di De Morgan* $(A \space \cup \space B)^{c}=A^{ c }\space \cap \space B^{ c } = A^{ c } \space \cup \space B^{ c }$
+- L'evento *impossibile* è descritto da $\emptyset$
+
+#### Spazio di probabilità
+
+>[!info] Definizione
+>Uno spazio di probabilità è descritto dalla coppa $(S,P)$ dove $S$ è lo spazio campionario dell'esperimento e $P$ è chiamata funzione di probabilità, è una funzione definita sulla famiglia degli eventi che soddisfa i seguenti assiomi:
+>1. $P(E) \in [0,1] \forall E$ evento cioè $\forall E \subset S$
+>2. $P(S) = 1$
+>3. Data una successione $E_{1},E_{2},\dots$ di eventi 2 a 2 distinguibili vale:
+>
+>$$
+>P\left( \bigcup_{i=1}^{ \infty } E_{i} \right) = \sum_{i=1}^{ \infty }P(E_{i}) 
+>$$
+>
+>Questo quando $\forall i\neq$ e $E_{i}\space \cap \space E_{j} \neq \emptyset$ ovvero $\forall i \neq j$ abbiamo $E_{i}$ e $E_{j}$ incompatibili.
+>
+>*Terminologia*: dato $E$ evento, $P(E)$ si dice probabilità dell'evento $E$
+
+#### Proposizione 1
+
+$$
+P(\emptyset)=0
+$$
+
+La probabilità dell'evento impossibile è uguale a 0.
+
+_Dimostrazione - Utilizzando l’assioma 3_
+
+Prendiamo la successione $E1​,E2​,E3​,...$ dove $E1​=∅,E2​=∅,E3​=∅,...,$ quindi abbiamo che $∀i \neq j$ l’intersezione $Ei​∩Ej​=∅$.
+
+Per l’assioma 3 $P\left( \bigcup_{i=1}^{ \infty } E_{i} \right) = \sum_{i=1}^{ \infty }P(E_{i})$, quindi $P(\emptyset)\sum_{i=1}^{ \infty }​P(∅)$, per l’assioma 1 sappiamo che $P(∅)∈[0,1]$.
+
+Supponiamo che $P(∅)∈(0,1]$ allora abbiamo che $\sum_{i_{1}}^{ \infty } ​P(∅)=+∞$ e quindi $P(\emptyset) \neq \sum_{i=1}^{\infty}P(\emptyset)$, per esclusione quindi $P(∅)=0$ altrimenti come appena visto otteniamo un valore infinito.
+
+#### Proposizione 2
+
+Prendiamo un esempio:
+
+- Domani piove con una probabilità $0.3$
+- Domani c’è il sole con una probabilità $0.6$
+- Domani nevica con una probabilità $0.1$
+- Qual è la probabilità che piova o che nevichi? $0.3 + 0.1 = 0.4$
+
+**P soddisfa l’additività finita**: Dati n eventi a 2 a 2 _incompatibili_ $E1​,E2​,...,En​$ vale $P\left( \bigcup_{i=1}^{ n }E_{i} \right)=\sum_{i=1}^{ n } P(E_{i})$
+
+*Dimostrazione*
+
+coming soon
+
+
+#### Proposizione 3
+
+$$
+\forall E \subset S \space vale \space P(E^{ c } ) = 1-P(E)
+$$
+
+*Dimostrazione*
+
+Coming soon
+
+
+#### Proposizione 4 - Monotonia della funzione di probabilità
+
+Dati $E$ e $F$ eventi con $E \subset F$ allora vale $P(E)\leq P(F)$.
+
+$F=E \cup (F\setminus E)$, quindi $E$ e $F \setminus E$ sono *disgiunti*.
+
+Quindi, $P(F)=P(E)+P(F \setminus E )$ dato che per l’assioma 1$P(F \setminus E)≥0 allora P(E)+P(F \setminus E)≥P(E)$.
+
+
+#### Proposizione 5
+
+$\forall E, F$ eventi, allora $P(E) \cup F = P(E) + P(F)-P(E \cap F)$, questa formula generale non viene usata nel caso in cui $E,F$ sono distinguibili allora $P(E \cup F) = 0$.
+
+ 

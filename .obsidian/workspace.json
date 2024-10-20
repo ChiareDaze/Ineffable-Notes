@@ -20,18 +20,6 @@
               "icon": "lucide-file",
               "title": "AAAAAAA"
             }
-          },
-          {
-            "id": "d50473eb82f4f7d0",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Drawing 2024-10-19 18.24.00.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2024-10-19 18.24.00.excalidraw"
-            }
           }
         ]
       }
@@ -178,14 +166,14 @@
   },
   "active": "e4deef406159edd1",
   "lastOpenFiles": [
+    "Notes/Calcolo delle probabilità.md",
+    "README.md",
+    "AAAAAAA.md",
     "Notes/Metodologie di programmazione/Metodologie di programmazione.md",
     "Notes/Fondamenti di programmazione/Python cheatSheet.md",
     "Notes/Fondamenti di programmazione/Fondamenti di programmazione.md",
-    "AAAAAAA.md",
     "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
-    "README.md",
     "Notes/Architettura degli elaboratori/Assembly.md",
-    "Notes/Calcolo delle probabilità.md",
     "Excalidraw/Drawing 2024-10-19 18.24.00.excalidraw.md",
     "Media/Pasted image 20241019183232.png",
     "Excalidraw/Drawing 2024-10-19 18.23.50.excalidraw.md",
