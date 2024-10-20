@@ -89,7 +89,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "58c1519258e8d6cd",
@@ -178,14 +179,18 @@
   "active": "e4deef406159edd1",
   "lastOpenFiles": [
     "Notes/Metodologie di programmazione/Metodologie di programmazione.md",
+    "Notes/Fondamenti di programmazione/Python cheatSheet.md",
+    "Notes/Fondamenti di programmazione/Fondamenti di programmazione.md",
     "AAAAAAA.md",
+    "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
+    "README.md",
+    "Notes/Architettura degli elaboratori/Assembly.md",
     "Notes/Calcolo delle probabilità.md",
     "Excalidraw/Drawing 2024-10-19 18.24.00.excalidraw.md",
     "Media/Pasted image 20241019183232.png",
     "Excalidraw/Drawing 2024-10-19 18.23.50.excalidraw.md",
     "Excalidraw",
     "Media/Pasted image 20241019175111.png",
-    "README.md",
     "Notes/Metodologie di programmazione/Nuovi appunti.md",
     "Notes/Metodologie di programmazione/Vecchi appunti.md",
     "Notes/Metodologie di programmazione/Nuovi appunti/while e do...while.md",
@@ -196,9 +201,6 @@
     "Notes/Metodologie di programmazione/Vecchi appunti/mp 04 04.md",
     "Notes/Metodologie di programmazione/Vecchi appunti/laboratorio 10 04.md",
     "Notes/Metodologie di programmazione/Vecchi appunti",
-    "Notes/Architettura degli elaboratori/Assembly.md",
-    "Notes/Fondamenti di programmazione/Fondamenti di programmazione.md",
-    "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
     "Notes/Basi di dati.md",
     "Notes/Fondamenti di programmazione/Lezione 1.md",
     "Notes/Sistemi operativi.md",
@@ -214,7 +216,6 @@
     "Notes/Metodologie di programmazione/Nuovi appunti/Design pattern.md",
     "Notes/Metodologie di programmazione/Nuovi appunti/Ex4.md",
     "Notes/Metodologie di programmazione/Vecchi appunti/mp 14 05.md",
-    "Notes/Fondamenti di programmazione/Python cheatSheet.md",
     "Notes/Metodologie di programmazione",
     "Notes/Fondamenti di programmazione",
     "Notes/Architettura degli elaboratori",
