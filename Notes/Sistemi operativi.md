@@ -183,24 +183,104 @@ Tipicamente sono usate dal sistema operativo per eseguire alcune operazioni a in
 
 Per i processori Intel, gli interrupt sono solo questi.
 
+##### Interruzioni Sincrone
+
+Sono interruzioni di programma causate da un'istruzione di programma.
+Per esempio:
+
+- Overflow
+- Divisione per 0
+- Debugging 
+- Riferimento a un indirizzo di memoria momentaneamente o sbagliato o non disponibile (per esempio segmentation fault)
+- Tentativo di esecuzione di un'istruzione macchina errata
+- Chiamata a system call
+
+Nei processori Intel vengono chiamate *exception*.
+
+#### Che cosa succede esattamente?
+
+Quando viene sollevate un’interruzione il sistema operativo crea un **handler** che esegue delle particolari operazioni sempre presenti nel sistema operativo. 
+
+Nel caso di interruzioni *asincrone* una volta terminato l’handler si riprende la normale esecuzione del programma dall’istruzione successiva a quella che ha generato l’interruzione, a meno che l’operazione non sia stata completamente abortita.
+
+Nel caso delle interruzioni *sincrone* non è detto che quello descritto precedentemente accada.
+Si possono presentare, infatti, tre diversi casi:
+
+- *faults*: errore corregibile, viene eseguita di nuovo la stessa istruzione (page fault)
+- *aborts*: errore non corregibile, si esegue il software collegato con l'errore (segmentation fault)
+- *traps e system calls*: si continua dall'istruzione successiva (debugging)
+
+#### Ciclo fetch ed execute tenendo conto delle interruzioni
+
+Viene eseguito il fetch normalmente. Dopo l’execute, nel caso in cui le interrupt sono abilitate, viene anche controllato se l’operazione ne genera uno oppure se ne arriva uno da un’operazione precedente, se è presente viene eseguito l’handler corrispondente.
+
+#### Interrupt Handler
+
+E' una funzione presente nel sistema operativo e non prevista nel codice scritto dallo sviluppatore.
+
+Quando viene eseguito, il sistema operativo e l'hardware comunicano per memorizzare il *program counter* e il *registro di stato* in modo da poter tornare successivamente (se possibile).
+
+![[Pasted image 20241027155834.png|400]]
+
+##### Cosa succede esattamente?
+
+**Hardware**
+
+1. Un dispositivo solleva un'interruzione
+2. Il processore finisce l'esecuzione dell'istruzione corrente
+3. Segnala che "è a conoscenza" dell'interruzione
+4. Salva alcune informazioni, PSW (registri di controllo) e PC, nel *Control Stack*
+5. Carica nel PC il valore per eseguire le istruzione dell'handler
+
+**Software**
+
+1. Salva tutti i registri della CPU in un opportuno stack
+2. Esegue le opportune istruzioni
+3. Prende i registri salvati in memoria e li sposta negli opportuni registri di appartenenza
+4. Riporta al valore originario PSW e PC
+
+E' possibile anche "spegnere" gli interrupt per togliere la fase di controllo di questi dalla CPU (vengono sollevati e non gestiti).
+
+Ci posso anche essere interrupt *annidati* per cui l'harduware forza il sequenziamento.
+
+![[Pasted image 20241027160555.png|400]]
+
 ---
-### I/O programmato
+### I/O con interrupt
 
-E' il più vecchio modo di fare I/O.
-Se il processo fa una lettura, il processo stesso andrà a verificare lo status finché l'operazione non è completa.
+I controller per i dispositivi I/O sono più lenti del processore e vengono gestiti tramite interrupt.
+Inizialmente venivano gestiti in modo sequenziale, quindi quando c'era bisogno di un dispositivo esterno, il processore non svolgeva altre operazioni e aspettava che il dispositivo fosse pronto.
 
-#### Accesso diretto alla memoria
+#### Come vengono gestiti adesso?
 
-Le istruzioni di i/o tipicamente richiedono di trasferire informazioni tra dispositivo di i/o e memoria
+1. La CPU manda un avviso al dispositivo e nel frattempo (mentre il dispositivo di prepara) continua altri processi
+2. Quando il dispositivo è pronto, viene mandato un interrupt in modo tale da fa capire alla CPU che quel dispositivo può essere usato.
+
+![[Pasted image 20241027163149.png|200]]
+
+>[!warning]
+>Il dato prima di andare in memoria deve passare per la CPU. La copia dei dati, quindi, rallenta questo metodo.
+
+In alcuni casi questo metodo presenta delle *attese*:
+
+![[Pasted image 20241027163223.png|400]]
+
+Nel caso $b$ non ci sono attese dato che, tra una scrittura e l'altra, il dispositivo è pronto e le completa.
+
+Nel caso $c$, la prima scrittura non è finita e intanto ne viene inviata una seconda. In questo caso, il processore deve aspettare che finisca la prima.
+
+#### Accesso diretto alla memoria (DMA)
+
+Le istruzioni di I/O tipicamente richiedono di trasferire informazioni tra dispositivo di I/O e memoria.
+
+Con questo metodo i dispositivi I/O non hanno bisogno della CPU come tramite, ma possono entrare direttamente in memoria. Quindi vengono utilizzati comunque gli interrupt, ma una volta che arrivano alla CPU, quest'ultima non deve gestire nulla perché il trasferimento è già finito.
 
 Trasferisce un blocco di dati direttamente dalla/alla memoria
 Un'interruzione viene mandata quando il trasferimento è completo.
 
-Liberiamo la cpu per eseguire qualcos'altro
-
 #### Multiprogrammazione
 
-Un processore deve eseguire più programmi contemporaneamente.
+Per riempire le attese inutili, il processore deve eseguire più programmi contemporaneamente.
 
 La sequenza con cui i programmi sono eseguiti dipende dalla loro priorità e dal fatto che siano o meno in attesa di input/output.
 
@@ -208,37 +288,21 @@ Alla fine della gestione di un’interruzione, il controllo potrebbe non tornare
 
 #### Gerarchia della memoria
 
-![[Pasted image 20240927140421.png|300]]
+![[Pasted image 20241028155910.png|650]]
 
-Andando dall'alto verso il basso:
-
-- Diminuisce la velocità di accesso
-- Diminuisce il costo al bit
-- Aumenta la capacità
-- Diminuisce la frequenza di accesso alla memoria da parte del processore
-
-#### Memoria secondaria
-
-- E' un tipo di memoria non volatile.
-- Memoria "ausiliaria" ed "esterna"
-
+- *Inboard memory*: si trova sui componenti interni del Computer e ne fanno parte Registri, Cache e Ram. Tutte queste memorie sono *volatili*
+- *Outboard Memory*: sono per esempio i dispositivi di memoria esterni
+- *Off-line Storage*: sono dispositivi scollegati dal computer stesso
 #### Memoria cache
 
-- La velocità del processor è maggiore della velocità di accesso alla memoria principale.
-- Usata per immagazzinare i dati più utili
-- E' molto veloce
-- Mantiene un insieme di dati piccoli
+![[Pasted image 20241028160254.png|400]]
 
-#### Memoria principale e cache
+La cache contiene alcune porzioni della RAM. 
+La CPU prima di prendere un dato dalla RAM, controlla se è presente nella Cache. Se il dato non è presente, lo prende in RAM e scrive quella porzione nella Cache (questo accade perché è molto probabile che quel dato verrà riutilizzato dopo poco - si parla, quindi, di *località dei riferimenti*).
 
-![[Pasted image 20240927141123.png|400]]
+La Cache è invisibile ai programmatori e al compilatore. Nemmeno il sistema operativo vede la Cache, nonostante possa decidere di non usarla.
+Alcune parti del sistema operativo, inoltre, imitano il funzionamento della Cache stessa.
 
-##### Cache
+![[Pasted image 20241028172354.png|400]]
 
-Contiene copie di porzioni della memoria principale
-
-Il processore prima controlla se un dato è nella cache
-Se no, il corrispondente blocco di memoria viene caricato nella cache
-
-E' probabile che il dato appena caricato serva ancora nell'immediato futuro.
-
+---

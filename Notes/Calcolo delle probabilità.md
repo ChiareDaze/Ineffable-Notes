@@ -388,6 +388,167 @@ Quindi, $P(F)=P(E)+P(F \setminus E )$ dato che per l’assioma 1$P(F \setminus
 
 #### Proposizione 5
 
-$\forall E, F$ eventi, allora $P(E) \cup F = P(E) + P(F)-P(E \cap F)$, questa formula generale non viene usata nel caso in cui $E,F$ sono distinguibili allora $P(E \cup F) = 0$.
+$\forall E, F$ eventi, allora $P(E \cup F) = P(E) + P(F)-P(E \cap F)$, questa formula generale non viene usata nel caso in cui $E,F$ sono distinguibili allora $P(E \cup F) = 0$.
 
- 
+---
+### Spazi campionari con esiti equiprobabili
+
+In molti esperimenti è naturale assumere che tutti gli esiti dello spazio campionario siano equiprobabili.
+Prima di tutto lo spazio campionario $S$ dovrà essere in insieme finito. Poniamo $S=\{ 1,2,\dots,N \}$, allora sarà naturale ipotizzare che
+
+$$
+P(\{ 1 \})=P(\{ 2 \})=\dots=P(\{ n \})
+$$
+
+Per gli assiomi 1 e 2 possiamo dire che
+
+$$
+P(\{ i \})=\frac{1}{N} \ \ \ \ \ \ \ i=1,2,\dots ,N
+$$
+
+Per l'assioma 3 avremo perciò che per ogni evento $E$
+
+$$
+P(E)=\frac{\text{numero di elementi di }E}{\text{numero di elementi di }S}
+$$
+
+>[!info]
+>Quindi, se assumiamo che tutti gli esiti di un esperimento siano equiprobabili, allora la probabilità di ogni evento $E$ è uguale alla proposizione degli esiti dello spazio campionario contenuti in $E$ (casi possibili su casi favorevoli)
+
+##### Esempio
+
+Se si lanciano due dadi, qual è la probabilità che la somma dei valori sulla faccia superiore sia uguale a 7?
+
+**Svolgimento**
+Assumiamo che tutti i 36 possibili esiti siano equiprobabili. Poiché ci sono 6 possibili esiti che danno come soluzione 7 $E=\{ (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) \}$, la probabilità sarà:
+
+$$
+\frac{6}{36}=\frac{1}{6}
+$$
+
+##### Esempio
+
+Ho un'urna con 6 palline bianche e 5 nere a caso senza rimpiazzo. Qual è la probabilità che esca una pallina bianca e 5 nere?
+
+Non conviene registrare il colore delle due palline poiché *romperebbe la simmetria*. Conviene, invece, numerarle una per una in modo da distinguerle.
+
+$$Urna = U=\{ B_{1},B_{2},B_{3},B_{4},B_{5},B_{6},N_{1},N_{2},N_{3},N_{4},N_{5} \}$$
+Ci sono 11 palline distinguibili.
+
+$$
+S = \{ A \subset U:|A|=3 \}
+$$
+
+Un esempio è l'esito:
+
+$$
+\{ B_{2},B_{4},N_{3} \}
+$$
+
+Quindi adesso $S$ ha esiti equiprobabili per simmetria: $P(E)=\frac{|E|}{|S|}$ dove $|S|=\binom{ 11 }{ 3 }$.
+
+$|E|=\{ A \subset U:|A|=3, A \text{ha una pallina bianca e 2 nere} \}$.
+
+$|E|=6 \times \binom{ 5 }{ 2 }$ dove $6$ sono i modi per estrarre una pallina bianca e $\binom{ 5 }{ 2 }$ quelli per scegliere due palline senza considerare l'ordine. Quindi:
+
+$$
+P(E) = \frac{6 \times \binom{ 5 }{ 2 }}{\binom{ 11 }{ 3 } } = \frac{4}{11}
+$$
+---
+### Principio di inclusione/esclusione
+
+**Con 2 eventi**
+
+$$
+P(A \space \cup B)=P(A)+P(B)-P(A \space \cap \space B)
+$$
+
+**Con 3 eventi**
+
+$$
+P(A \space \cup \space B \space \cup \space C)=P(A)+P(B)+P(C)-P(A \space \cap \space B)-P(A \space \cap \space C)-
+$$
+$$
+-P(B \space \cap \space C)+ P(A \space \cap \space B \space \cap \space C)
+$$
+---
+### Probabilità condizionata
+
+Dati $E$ e $F$ con $P(F)>0$, la probabilità di $E$ condizionata $F$ è definita come 
+$$
+$P(E|F)=\frac{P(E \space \cap \space F )}{P(F)}$
+$$
+
+Si svolge l’esperimento e so che “si verifica $F$”, questa informazione muta la speranza che si verifichi $E$ e la nuova probabilità di $E$ sapendo che si è verificato $F$ è data da $P(E∣F)$.
+
+##### Esempio
+
+Si lancia un dado.
+
+$E = \text{Esce 1 o 2}, P(E)=\frac{2}{6}=\frac{1}{3}$
+
+Supponiamo di sapere che si è verificato l'evento $F$ ($F=\text{Uscito un numero} \leq 4$), se so che $F$ si realizza allora so che è uscito o 1 o 2 o 3 o 4. Quindi ho 4 esiti possibili e c'è simmentria.
+
+In questo modo se si verifica $F$ allora $P(E)=\frac{2}{4}=\frac{1}{2}$, ci aspettiamo che $P(E|F)=\frac{1}{2}$.
+
+Calcolo usando la definizione:
+$$
+P(E|F)= \frac{P(E \space \cap \space F)}{P(F)}= \frac{\frac{2}{6}}{\frac{4}{6}}=\frac{1}{2}
+$$
+$$
+S= \{ 1,2,\dots,6 \}
+$$
+$$
+F=\{ 1,2,3,4 \}
+$$
+
+---
+### ...
+
+---
+# Variabili aleatorie
+
+### Variabili reali
+
+Dato uno spazio di probabilità ($S, P$), una variabile aleatoria è una funzione $X:S\to R$ quindi una funzione che mappa elementi dello spazio campionario in numeri reali.
+
+##### Esempio 1
+
+Lancio una moneta due volte e abbiamo $X := \text{\#volte in cui esce testa, X}$  è una variabile aleatoria.
+
+Abbiamo $S=\{ (T,T), (C,C),(T,C),(C,T) \}$ e sono tutti esiti equiparabili.
+
+Quindi: 
+$$X((T,T))=2, \space X((T,C))=1, \space, X((C,T))=1, \space, X((C,C))=0$$
+
+##### Esempio 2
+
+Lancio due volte un dado e abbiamo $X:=\text{\#somma dei numeri usciti}$.
+Otterremo:
+$$
+S=\{ (a,b):a,b \in \{ 1,2,3,4,5,6 \} \}
+$$
+
+Quindi abbiamo esiti equiprobabili.
+$$
+X((a,b))=a+b \space
+$$
+Quindi per esempio
+$$
+X((1,5))=6
+$$
+
+### Variabili discrete
+
+Una variabile aleatoria $X$ è detta *discreta* se i valori che può assumere $\{ X_{i} \}_{i \in I}$, formano un insieme finito o infinito numerabile. Quindi, per esempio, la variabile aleatoria degli esempio descritti precedentemente è discreta.
+
+#### Densità di probabilità aleatoria discreta
+
+Data $X$ variabile aleatoria che assume $\{ X_{i} \}_{i \in I}$, la *densità di probabilità discreta* di $X$ è la funzione:
+
+$$
+P_{X}: \{ X_{i} \}_{i \in I} \to [0,1], P_{X}:=(X=X_{i})
+$$
+
+E' quindi una funzione che descrive la probabilità associata a ciascun valore possibile di una variabile aleatoria discreta.
+

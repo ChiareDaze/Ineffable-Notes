@@ -41,20 +41,23 @@ Si dividono i dati strutturati e non strutturati.
 - Dati strutturati: gli oggetti rappresentati da brevi stringhe di simboli e da numeri
 - Dati non strutturati: testi scritti di un linguaggio naturale
 
-La struttura dell'informazione dipende da come viene utilizzata e può essere modificata nel tempo.
+La struttura dell'informazione *dipende da come viene utilizzata* e può essere modificata nel tempo.
 
+L'obbiettivo di una base di dati è quella di facilitare il recupero di informazioni registrate in una tabella, sulla base delle loro *relazioni*.
 
-Qual è l'obiettivo di una bd?
-
-Facilita il recupero di informazioni che abbiamo registrato nella tabella.
-
-Quando noi inseriamo dei dati, non hanno significato. i dati devono essere interpretati.
+Quando vengono inseriti dei dati, non hanno significato, ciò significa che devono essere interpretati.
 Quando progettiamo un data base i dati devono avere un nome che ci fa capire cosa sono.
 
-Modelli
-modello logico: indipendenti dalle strutture fisiche
+### Modelli dei dati
 
-modelli concettuali: progettiamo cosa vogliamo progettare e come.
+Sono strutture da utilizzare per organizzare i dati e le loro relazioni, un componente fondamentale sono i costruttori di tipo, ad esempio nel *modello relazionale* abbiamo il costruttore di relazione che organizza i dati come insieme di record.
+
+I modelli si dividono:
+
+- modello logico: Sono indipendenti dalle strutture fisiche ma sono disponibili nei DBMS
+- modelli concettuale: sono indipendenti dalle modalità di realizzazione e hanno lo scopo di rappresentare le entità del mondo reale e le loro relazione nella prima fase della progettazione
+
+#### Modello relazionale
 
 Modello relazionale: abbiamo oggetti che sono record (relazioni), campi (informazioni di un certo oggetto) e informazioni d'interesse
 
@@ -796,4 +799,250 @@ Si ha che:
 $$
 X \to Y \in F^{A} \text{ se e solo se } Y \subseteq X^{+}
 $$
-,
+---
+
+### Quali sono i problemi di uno schema mal progettato?
+
+Ipotizziamo di avere uno schema
+
+- Studente (Matr, CF, Cogn, Nome, Data, Com) -> chiave: Matr
+- Corso (C#, Tit, Doc) -> chiave -> C#
+- Esame (Matr, C#, Data, Voto) -> 
+- Comune (Com, Prov) -> Com, Prov
+
+
+Studente(Matr, CF, Cogn, Nome, Data, Com)
+
+Poiché il numero di matricola identifica univocamente uno
+studente, ad ogni numero di matricola corrisponde:
+- un solo codice fiscale ( Matr -> CF )
+- un solo cognome ( Matr -> Cogn )
+- un solo nome ( Matr -> Nome )
+- una sola data di nascita ( Matr -> Data )
+- un solo comune di nascita ( Matr -> Com )
+
+Quindi in un'istanza si Studente per essere legale deve soddisfare la dipendenza funzionale
+
+Matr -> Matr CG Cogn Nome Data
+
+Con considerazioni analoghe abbiamo che un'istanza di Studente per essere legale deve soddisfare la dipendenza funzionale
+
+CF -> Matr CF Cogn Nome Data
+
+Pertanto sia Matr che CF sono chiavi di Studente.
+
+Però, possiamo avere istanze di Studente che non soddisfano la dipendenza funzionale (Cogn -> Nome)
+
+![[Pasted image 20241024132340.png|500]]
+
+Le uniche dipendenze funzionali non banali che devono essere soddisfatte da un'istanza legale di Studente sono del tipo $K \to X$
+
+Dove $K$  contiene una chiave (Mat o CF)
+
+Prendiamo ora 
+
+Esame(Matr, C#, Data, Voto)
+
+Uno studente può sostenere l’esame relativo ad un corso una sola volta;
+pertanto per ogni esame (identificato dallo studente e dal corso, quindi
+da Mat# C#) esiste
+- una sola data (in cui è stato sostenuto)
+- un solo voto
+
+Quindi ogni istanza legale di Esame deve soddisfare la dipendenza funzionale
+
+Matr C# -> Data Voto
+
+Esistono istanze di Esame che non soddisfano una o entrambe le dipendenze funzionali
+
+Matr -> Data
+Matr -> Voto
+
+Pertanto Matr C# è una chiave per Esame (si vede facilmente che è anche l’unica chiave)
+
+### Terza forma normale
+
+>[!info] Definizione 1
+>Uno schema di relazione è in 3NF se le uniche dipendenze funzionali non banali he devono essere soddisfatte da ogni istanza legale sono del tipo
+>$$
+>K \to X
+>$$
+>
+>Dove $K$ contiene una chiave oppure $X$ è contenuto in una chiave
+
+>[!info] Definizione official deluxe 2.0
+>Dati uno schema di relazione R e un insieme di dipendenze funzionali F su R, R è in 3NF se
+>$$
+> \forall X \to A \in F^{ A }, A \notin X
+>$$
+>
+>$A$ *appartiene* a una chiave (è primo), oppure $X$  *contiene* una chiave (è una superchiave)
+
+#### Esempio
+
+$R = ABCD$, $F=\{AB\to CD, AC \to BD, D \to BC,AD\to ABC \}$
+
+$K_{1}=AB$
+$K_{2}=AC$
+$K_{3}=AD$
+
+---
+### Dipendenze transitive
+
+Studente (Matr, CF, Cogn, Nome, Data, Com, Prov)
+
+Ad un numero di matricola corrisponde un solo comune di nascita
+(quello dello studente con quel numero di matricola): Matr ® Com
+Un comune si trova in una sola provincia: Com ® Prov
+
+Quindi a un numero di matricola corrisponde una sola provincia: Matr -> Prov
+
+La dipendenza funzionale Matr -> Prov è una conseguenza
+delle due dipendenze funzionali
+
+Matr -> Com e Com -> Prov
+Com -> Prov viene detta dipendenza transitiva
+
+>[!info] Definizione
+>Siano R uno schema di relazione e F un insieme di dipendenze funzionali su R
+>- $X \to A \in F^{ + }|A \notin X$ è una dipendenza parziale su R se A non è primo ed X è contenuto propriamente in una chiave di R
+>
+>![[Pasted image 20241024151154.png]]
+>
+>- $X \to A in F^{ + }|A \notin X$ è una dipendenza transitiva su R se A non è primo e per ogni chiave K di R si ha che X non è contenuto propriamente in K e $K-X\neq \emptyset$
+>
+>![[Pasted image 20241024151207.png]]
+
+Curriculum (Matr, CF, Cogn, Nome, DataN, Com, Prov, C#, Tit, Doc, DataE, Voto)
+
+A un numero di matricola corrisponde un solo cognome (il cognome dello studente con quel numero di matricola): Matr -> Cogn
+
+Quindi, a una coppia costituita da un numero di matricola e da un codice di corso corrisponde un solo cognome Matr C# -> Cogn
+
+L'attributo Cogn dipende parzialmente dalla chiave Matr C#
+
+Matr C# -> Cogn è una conseguenze di Matr -> Cogn
+
+Matr è contenuto proprimanete in una chiave
+
+>[!info] Definizione alternativa
+>Dato uno schema R e un insieme di dipendenze funzionali F, R è in 3NF se e solo se non ci sono attributi che dipendono parzialmente o transitivamente da una chiave.
+
+#### Dipende parzialmente
+
+$A$ dipende parzialmente da una chiave $K$ se $\exists X \subset R$ tale che $X\to A \in F^{ + }$ con $A \notin X$ e tale che $X \subset K$ e $A$ non è parte di una chiave.
+
+#### Dipende transitivamente 
+
+$A$ dipende transitivamente da una chiave $K$ se  $\exists C \subset R$ tale che $K \to X \in F^{ + }$ con con $A \notin X$ e $X \to A \in F^{ + }$ e $X$ non è una chiave e $A$ non è parte di
+una chiave.
+
+#### Teorema
+
+Siano R uno schema di relazione e F un insieme di dipendenze funzionali su R. Uno schema R è in 3NF se e solo se non esistono né dipendenze parziali né dipendenze transitive in R.
+
+##### Dimostrazione parte solo se
+
+Lo schema R è in 3FN, quindi $\forall X \to A \in F^{ + }, A \notin X$
+$A$ appartiene a una chiave oppure $X$ contiene una chiave
+
+- Se $A$ è parte di una chiave, viene a mancare la prima condizione per avere una dipendenza parziale o transitiva
+- Se $A$ non fa parte di nessuna chiave , allora $X$ è superchiave, in quanto tale può contenere una chiave, ma non essere contenuto propriamente, quindi la dipendenza non può essere parziale. Inoltre, essendo superchiave non può verificarsi che per ogni chiave K di R X non è contenuto propriamente in $K$ e $K-X \neq \emptyset$. Quindi la dipendenza non può essere transitiva.
+
+---
+### 3FN
+
+Se dopo il processo di individuazione ci trovassimo a produrre uno schema che non è in 3NF, dovremmo procedere a una fase di *decomposizione*. 
+
+Uno schema che non è in 3NF può essere decomposto in più modi
+
+$R=ABC$ con l'insieme delle dipendenze funzionali $F=\{A \to B \to C\}$
+non è in terza forma normale e la chiave è $A$
+
+$R$ può essere decomposto in 
+
+$$
+R1 = AB \{ A \to  B\} \text { e } R2 = AC \{ A \to C \}
+$$
+Oppure
+
+$$
+R1=AC \text { con } \{ A \to B \} \text { e } \{ A \to C \}
+$$
+Entrambi gli schemi sono in 3NF, tuttavia la seconda soluzione non è soddisfacente.
+
+Se vado a prendere le istanze legale degli schemi che ottenuto
+
+![[Pasted image 20241030153624.png|300]]
+
+Ho due istanze legali in 3NF, il join naturale dovrebbe ricostruire lo schema originario e vedo se tutte le dipendenze che avevo all'inizio vengono rispettate
+
+![[Pasted image 20241030153740.png]]
+
+Però $B -> C$ non è soddisfatta
+
+##### Esempio pratico
+
+R = (Matricola, Comune e Provincia) con l'insieme di dipendenze
+$$
+F=\{ \text{Matricola} \to \text { Comune }, \text { Comune  }\to \text { Provincia } \}
+$$
+Lo schema non è in 3NF 
+
+R può essere decomposta in
+![[Pasted image 20241030154139.png]]
+
+Entrambi gli schemi sono in 3NF, tuttavia la seconda soluzione non è soddisfacente
+
+Consideriamo le istanze legali
+
+![[Pasted image 20241030154226.png]]
+
+L'istanza dello schema originario R che posso ricostruire da questa è la seguente
+
+![[Pasted image 20241030154256.png]]
+
+Ma $\text { comune } \to \text { provincia }$ non soddisfa la dipendenza funzionale Comune -> Provincia
+
+### Forma normale di Boyce-Codd
+
+La 3NF non è la più restrittiva che si può ottenere. Ne esistono altre, tra cui la forma normale Boyce-Codd.
+
+>[!Definizione]
+>Una relazione è in forma normale di Boyce-Codd quando in essa ogni determinante è una superchiave
+
+Una relazione che rispetta la forma normale di Boyce-Codd è anche in terza forma normale, ma non è vero l'opposto
+
+---
+### Chiusura dell'insieme di attributi X
+
+Per il calcolo della chiusura dell'insieme di attributi X, denotata con $X^{ + }$ possiamo usare questo algoritmo.
+
+**Input**: uno schema di relazione R, un insieme F di dipendenze funzionali su R, un sottoinsieme X di R.
+**Output**: la chiusura di X rispetto ad F (restituita nella variabile Z)
+
+>**Begin**
+>$Z:=X$
+>$S:=\{ A\setminus Y \in F  \wedge A \in V \wedge Y \subseteq Z \}$
+>**while** $S \not\subset Z$
+>	**do**
+>	**begin**
+>		$Z:=Z\cap S$
+>		$S:=\{ A\setminus Y \in F  \wedge A \in V \wedge Y \subseteq Z \}$
+>	**end**
+>**end**
+
+### Teorema algoritmo correttezza
+
+L'algoritmo di calcolo di $X^{ + }$ calcola correttamente tutti e soli gli attributi di $X^{ + }$.
+Calcola correttamente la chiusura di un insieme di attributi $X$ rispetto a un insieme $F$ di dipendenze funzionali.
+
+#### Dimostrazione
+
+Indichiamo con $Z^{ (0) }$ il valore iniziale di $Z(Z^{ (0) }=X)$ e con $Z^{ (i) }$ e $S^{ i }$, $i\geq 1$, i valori di $Z$ e $S$ dop l'i-esima esecuzione del corpo del ciclo; è facile vedere che $Z^{ (i) }\subseteq Z^{ (i+1) }$, per ogni $i$.
+
+Sia $j$ tale che $S(j)\subseteq Z(j)$ (cioè $Z(j)$, è il valore di $Z$ quando l'algoritmo termina)
+$$
+A \in Z^{ (j) } \text { se e solo se  }A \in X^{ + }  
+$$
+ p
