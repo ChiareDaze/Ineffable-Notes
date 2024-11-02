@@ -552,3 +552,77 @@ $$
 
 E' quindi una funzione che descrive la probabilità associata a ciascun valore possibile di una variabile aleatoria discreta.
 
+##### Esempio
+
+Lancio due volte una moneta e v.a. $X :=\text { \#Teste uscite }$ quindi $X(T,T)=2,X(T,C)=1,X(C,C)=0$.
+
+Quindi $X$ è una variabile aleatoria che assume i valori $0,1,2$.
+
+$$
+$P_{X}:\{ 0,1,2 \}\to[0,1] \space e \space P_{X}(a)=P(X=a)
+$$
+Quindi calcoliamo:
+$$
+P_{X}(0)=P(X=0)=\frac{1}{4}
+$$
+E' il caso in cui escano due croci $(C,C)$ e ha probabilità $\frac{1}{4}$
+
+Poi:
+
+$$
+P_{X}(1)=P(X=1)=\frac{2}{4}
+$$
+
+E' il caso in cui almeno una dei due sia testa $(T,C)\space oppure \space (C,T)$ e ha probabilità $\frac{2}{4}$
+
+Infine calcolo:
+$$
+P_{X}(2)=P(X=2)=\frac{1}{4}
+$$
+
+E' il caso in cui entrambi sono testa $(T,T)$ e ha probabilità $\frac{1}{4}$.
+
+
+Possiamo rappresentare la densità discreta con un istogramma.
+
+![[Pasted image 20241102182238.png|500]]
+
+#### Valore atteso
+
+Data una variabile aleatoria discreta $X$ che assume valore $\{ X_{i} \}_{i\in I}$, definiamo il valore atteso di $X$ come:
+$$
+E[X] = \sum_{i \in I} X_{i}P(X=X_{i}) = \sum_{i \in I} X_{i}P_{X}(X_{i})
+$$
+Dove $E$ indica il *valore atteso di X*.
+
+##### Esempio
+
+Lanciamo una moneta 2 volte e come variabile aleatoria si ha $X=\text { \#Teste uscite}$.
+
+$$
+E[X]=0 \space\cdot \space \frac{1}{4} + \space 1 \space \cdot \frac{2}{4} + 2 \space \cdot \frac{1}{4} = 1 
+$$
+
+##### Esempio
+
+Data un'urna con 3N e 2B. Estraggo due palline senza rimpiazzo, sia $X :=\text { \#Palline nere estratte }$.
+Calcolare $E[X]$.
+
+Abbiamo $X=\{ 0,1,2 \}$
+- $P(X=0)=\frac{2\cdot 1}{5 \cdot 4} = \frac{2}{20}$
+- $P(X=1)=\frac{3\cdot 2}{5 \cdot 4} + \frac{2\cdot 3}{5 \cdot 4} = \frac{2}{20}= \frac{12}{20}$
+- $P(X=2)=\frac{3\cdot 2}{5 \cdot 4} = \frac{6}{20}$
+$$
+E[X]= 0 \cdot \frac{2}{20} + 1 \cdot \frac{12}{20} + 2 \cdot \frac{6}{20} = \frac{6}{5}
+$$
+
+#### Funzione di distribuzione (o ripartizione)
+
+Data una variabile aleatoria $X$, la sua funzione di distribuzione è definita come:
+
+$$
+F_{X}:\mathbb{R} \to [0,1] \space con \space F_{X}(a)=P(X\leq a) \space\forall a \in \mathbb{R} 
+$$
+##### Esempio
+
+Sia $X$ la stessa variabile aleatoria di prima (esempio urna) determiniamo $F_{X}$. 

@@ -13,12 +13,24 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Basi di dati.md",
+                "file": "Notes/Calcolo delle probabilità.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Basi di dati"
+              "title": "Calcolo delle probabilità"
+            }
+          },
+          {
+            "id": "ecbeb5089900719a",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2024-11-02 18.17.50.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2024-11-02 18.17.50.excalidraw"
             }
           }
         ]
@@ -166,14 +178,18 @@
   },
   "active": "e4deef406159edd1",
   "lastOpenFiles": [
+    "Media/Pasted image 20241102182238.png",
+    "Excalidraw/Drawing 2024-11-02 18.17.50.excalidraw.md",
+    "Notes/Calcolo delle probabilità.md",
+    "Excalidraw",
+    "Notes/Untitled.md",
+    "Notes/Basi di dati.md",
     "Media/Pasted image 20241030154256.png",
     "Media/Pasted image 20241030154226.png",
     "Media/Pasted image 20241030154139.png",
     "Media/Pasted image 20241030153740.png",
     "Media/Pasted image 20241030153624.png",
     "Notes/Sistemi operativi.md",
-    "Notes/Calcolo delle probabilità.md",
-    "Notes/Basi di dati.md",
     "Notes/Metodologie di programmazione/Metodologie di programmazione.md",
     "Notes/Fondamenti di programmazione/Fondamenti di programmazione.md",
     "Notes/Architettura degli elaboratori/Architettura degli elaboratori.md",
@@ -182,14 +198,12 @@
     "Media/Pasted image 20241028155910.png",
     "Media/Pasted image 20241027170400.png",
     "Media/Pasted image 20241027163223.png",
-    "Media/Pasted image 20241027163221.png",
     "AAAAAAA.md",
     "README.md",
     "Notes/Fondamenti di programmazione/Python cheatSheet.md",
     "Notes/Architettura degli elaboratori/Assembly.md",
     "Excalidraw/Drawing 2024-10-19 18.24.00.excalidraw.md",
     "Excalidraw/Drawing 2024-10-19 18.23.50.excalidraw.md",
-    "Excalidraw",
     "Notes/Metodologie di programmazione/Nuovi appunti.md",
     "Notes/Metodologie di programmazione/Vecchi appunti.md",
     "Notes/Metodologie di programmazione/Nuovi appunti/while e do...while.md",
@@ -203,8 +217,6 @@
     "Notes/Fondamenti di programmazione/Lezione 1.md",
     "Notes/Metodologie di programmazione/Nuovi appunti/For e for each.md",
     "Notes/Metodologie di programmazione/Nuovi appunti/Design pattern.md",
-    "Notes/Metodologie di programmazione/Nuovi appunti/Ex4.md",
-    "Notes/Metodologie di programmazione/Vecchi appunti/mp 14 05.md",
     "Notes/Metodologie di programmazione",
     "Notes/Fondamenti di programmazione",
     "Notes/Architettura degli elaboratori",
