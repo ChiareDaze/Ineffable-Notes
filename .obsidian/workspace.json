@@ -173,14 +173,15 @@
       "daily-notes:Open today's daily note": false,
       "command-palette:Open command palette": false,
       "templates:Insert template": false,
+      "obsidian-git:Open Git source control": false,
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
   "active": "e4deef406159edd1",
   "lastOpenFiles": [
-    "Media/Pasted image 20241102182238.png",
     "Excalidraw/Drawing 2024-11-02 18.17.50.excalidraw.md",
     "Notes/Calcolo delle probabilità.md",
+    "Media/Pasted image 20241102182238.png",
     "Excalidraw",
     "Notes/Untitled.md",
     "Notes/Basi di dati.md",
@@ -197,7 +198,6 @@
     "Media/Pasted image 20241028160254.png",
     "Media/Pasted image 20241028155910.png",
     "Media/Pasted image 20241027170400.png",
-    "Media/Pasted image 20241027163223.png",
     "AAAAAAA.md",
     "README.md",
     "Notes/Fondamenti di programmazione/Python cheatSheet.md",

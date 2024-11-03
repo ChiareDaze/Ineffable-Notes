@@ -559,7 +559,7 @@ Lancio due volte una moneta e v.a. $X :=\text { \#Teste uscite }$ quindi $X(T,T)
 Quindi $X$ è una variabile aleatoria che assume i valori $0,1,2$.
 
 $$
-$P_{X}:\{ 0,1,2 \}\to[0,1] \space e \space P_{X}(a)=P(X=a)
+P_{X}:\{ 0,1,2 \}\to[0,1] \space e \space P_{X}(a)=P(X=a)
 $$
 Quindi calcoliamo:
 $$
@@ -609,9 +609,11 @@ Data un'urna con 3N e 2B. Estraggo due palline senza rimpiazzo, sia $X :=\text {
 Calcolare $E[X]$.
 
 Abbiamo $X=\{ 0,1,2 \}$
+
 - $P(X=0)=\frac{2\cdot 1}{5 \cdot 4} = \frac{2}{20}$
 - $P(X=1)=\frac{3\cdot 2}{5 \cdot 4} + \frac{2\cdot 3}{5 \cdot 4} = \frac{2}{20}= \frac{12}{20}$
 - $P(X=2)=\frac{3\cdot 2}{5 \cdot 4} = \frac{6}{20}$
+
 $$
 E[X]= 0 \cdot \frac{2}{20} + 1 \cdot \frac{12}{20} + 2 \cdot \frac{6}{20} = \frac{6}{5}
 $$
@@ -626,3 +628,100 @@ $$
 ##### Esempio
 
 Sia $X$ la stessa variabile aleatoria di prima (esempio urna) determiniamo $F_{X}$. 
+
+- Se $a<0$ allora $F_{X}(a)=P(X\leq a)=0$
+- Se $0 \leq a$ allora $F_{X}(a)=P(X\leq a)=\frac{1}{10}$
+- Se $1 \leq a < 2$ allora $F_{X}(a)=P(X\leq a)=F_{X}(\{ X=1 \cup \{ X=0 \}\})=\frac{1}{10}+\frac{6}{10}=\frac{7}{10}$
+- Se $a \geq 2$ allora $F_{X}(a)=P(X \leq a)=F_{X}(\{ X=0 \}\cup \{ X=1 \}\cup \{ X= \})=\frac{1}{10}+\frac{6}{10}+\frac{3}{10}=1$
+
+Quindi guardando meglio la funzione abbiamo che:
+
+$$
+F_{X}(a)= \begin{cases}
+0 \space se \space a \leq 0 \\
+\frac{1}{10} \space se \space 0 \leq a \leq 1 \\
+\frac{7}{10} \space se \space 1 \leq a \leq 2 \\
+1 \space se \space a \geq 2
+\end{cases}
+$$
+
+In generale se $X$ è una variabile aleatoria che assume $n$ valori dati da $X_{1}\leq X_{2}\leq \dots X_{n}$ allora si ha che:
+
+$$
+F_{X}(a)= \begin{cases}
+0 \space se \space a \leq 0 \\
+P(X_{1}) \space se \space X_{1} \leq a < X_{2} \\
+P(X_{1})+P(X_{2}) \space se \space X_{2} \leq a < X_{3} \\
+.  \\
+P(X_{1})+P(X_{2})+\dots + P(X_{k}) \space se \space X_{k} \leq a < X_{k+1} \\ 
+. \\
+1 = P(X_{1})+\dots + P(X_{n}) \space se \space a \geq X_{n}\\
+\end{cases}
+$$
+
+#### Varianza di una variabile aleatoria
+
+Sia $X$ una variabile aleatoria discreta, la varianza di $X$ è definita come $Var(X):= E[(X-EX)^{ 2 }]$.
+Dove $EX$ è il valore atteso.
+
+La varianza è utile perché indica la dispersione della variabile aleatoria $X$ dal suo valore atteso (il risultato è in unità al quadrato).
+
+>[!info]
+>Con il termine *dispersione* si indica quanto i dati si allontanano dal valore centrale (valore atteso) e tra di loro.
+
+##### Esempio
+
+Sia $X$ una variabile aleatoria con $X(1)=\frac{1}{2}$ e $X(-1)=\frac{1}{2}$, abbiamo che:
+
+$$
+E[X]=EX=1 \cdot \frac{1}{2} + 1 \cdot \frac{1}{2}=0
+$$
+
+Quindi:
+
+$$
+Var(X)=E[(X-EX)^{ 2 } ] = E[(X-0)^{ 2 } ]= E[X^{ 2 }]=1
+$$
+
+#### Deviazione quadratica
+
+Sia $X$ una variabile aleatoria, la deviazione quadratica standard in $X$ è data da $\sigma_{X}:=\sqrt{ Var(X) }$.
+
+In altre parole, è una misura che indica quanto i dati sono  "sparpagliati" rispetto al valore atteso.
+
+>[!warning] Qual è la differenza tra deviazione quadratica e varianza?
+>Entrambe calcolano la stessa cosa. L'unico elemento che le distingue è l'unità di misura.
+>Infatti, la varianza non è altro che la deviazione quadratica elevata al quadrato.
+
+##### Esempio
+
+Supponiamo di avere i seguenti voti di un gruppo di studenti in un test  $X=\{ 6,7,8,9,10 \}$.
+
+Calcoliamo ill valore atteso:
+
+$$
+E[X]= \frac{6+7+8+9+10}{5}=8
+$$
+
+Ora calcoliamo la varianza:
+
+1) Calcolo la distanza di ogni voto dalla media:
+	- $6$ è a distanza $2$ dalla media $(8-6=2)$
+	- $7$ è a distanza $1$ dalla media $(8-7=1)$
+	- $8$ è a distanza $0$ dalla media $(8-8=0)$
+	- $9$ è a distanza $1$ dalla media $(9-8=1)$
+	- $10$ è a distanza $2$ dalla media $(10-8=2)$
+
+2) Eleviamo al quadro:
+$$
+2^{ 2 }=4,\space 1^{ 2 }=1, \space 0^{ 2 }=0, \space 1^{ 2 }=1,\space 2^{ 2 }=4     
+$$
+3) Calcoliamo la media dei valori elevati al quadrato:
+$$
+Var(X) = \frac{4+1+0+1+4}{5}=2
+$$
+Ora calcoliamo la derivazione standard svolgendo la radice quadrata della varianza:
+$$
+\sigma_{X}=\sqrt{ 2 } \approx 1,41
+$$
+---
