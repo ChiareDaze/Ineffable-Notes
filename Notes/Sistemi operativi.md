@@ -306,3 +306,6 @@ Alcune parti del sistema operativo, inoltre, imitano il funzionamento della Cach
 ![[Pasted image 20241028172354.png|400]]
 
 ---
+### Chiave
+
+Una chiave nella sua chiusura deve contenere tutto $R$.
