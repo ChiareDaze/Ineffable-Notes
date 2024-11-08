@@ -773,3 +773,4 @@ $$
 E[f(X)]=\sum_{i \in I} f(X_{i}) \space \cdot \space P(X=X_{i}) = \sum_{i \in I} f(X_{i}) \space \cdot \space P_{X}(X_{i})
 $$
 
+cbdhsfhdfdh
