@@ -725,3 +725,51 @@ $$
 \sigma_{X}=\sqrt{ 2 } \approx 1,41
 $$
 ---
+### Funzione aleatoria
+
+Dati $(S,P)$ e $X: S\to \mathbb{R}$ , denoto con $f(X)$ la variabile aleatoria $f$ o $X$, avremo quindi che:
+$$
+ \underbrace{S \overset{X}{\to} \mathbb{R} \overset{f}{\to}\mathbb{R}}_{f \space o \space X =f(X)}
+$$
+
+- $f(X): S \to \mathbb{R}$ è una variabile aleatoria
+
+Infatti:
+
+- $X : S\to \mathbb{R}$ assume valori $\{ X_{i} : i \in I \}$
+- $f(X) = f \space o X:S \to \mathbb{R}$ assume valori $\{ f(X_{i}) : i \in I \}$
+
+##### Esempio
+
+Lancio 10 volte una moneta $X = \text { \#Teste uscite }$. Si vince $€2$ per ogni testa e si perde €1 per ogni croce.
+
+$Y= \text { \#Guadagno algebrico }$ 
+
+Posso esprimere $Y$ come $f(X)$.
+
+$$
+Y = 2 \cdot X - 1 \cdot (10-X)=3X-10\space\space\space \space \space \space \space \space \space Y= f(X) \text { dove } f: \mathbb{R} \to \mathbb{R} 
+$$
+Ho $(S,P) \space e \space X:S\to R \text { variabile aleatoria }$
+
+Ho $f:\mathbb{R}\to \mathbb{R}$, se $X$ è una variabile aleatoria discreta, allora $f \space o \space X=f(X)$ è variabile discreta aleatoria.
+
+Calcolo $E[f(X)]$
+
+**Primo metodo**
+
+Determino i possibili valori di $f(X)$ che chiamo $\{ y_{j}:j \in J \}$ e calcolo $P(f(X)=y_{j}) \forall j \in J$.
+Quindi per definizione:
+$$
+\sum_{j} y_{j}\space\cdot \space P(f(X)) = y_{j}
+$$
+**Secondo metodo**
+
+*Teorema*
+
+Sia $X$ una variabile aleatoria discreta che assume valori $\{ X_{i} \}_{i \in I}$ e sia $f:\mathbb{R}\to \mathbb{R}$.
+Allora:
+$$
+E[f(X)]=\sum_{i \in I} f(X_{i}) \space \cdot \space P(X=X_{i}) = \sum_{i \in I} f(X_{i}) \space \cdot \space P_{X}(X_{i})
+$$
+

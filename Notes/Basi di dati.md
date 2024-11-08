@@ -1044,5 +1044,22 @@ Indichiamo con $Z^{ (0) }$ il valore iniziale di $Z(Z^{ (0) }=X)$ e con $Z^{ (i)
 Sia $j$ tale che $S(j)\subseteq Z(j)$ (cioè $Z(j)$, è il valore di $Z$ quando l'algoritmo termina)
 $$
 A \in Z^{ (j) } \text { se e solo se  }A \in X^{ + }  
-$$
- p
+$$ ---
+### Decomposizioni che preservano le dipendenze
+
+Sia $R$ uno schema di relazione. Una *decomposizione* di $R$ e una famiglia $\rho=\{ R_{1},R_{2},\dots,R_{k} \}$ di sottoinsiemi di R che ricopre $R$ ($\bigcup_{i=1^{ k }}R_{1=R}$) (i sottoinsiemi possono avere intersezione non vuota).
+
+Quindi, se lo schema $R$ è composto da un certo insieme di attributi, decomporlo significa definire dei sottoschemi che contengono ognuno un sottoinsieme degli attributi di $R$. I sottoschemi possono avere attributi in comune, e la loro unione deve necessariamente contenere tutti gli attributi di $R$.
+
+#### Lemma 2
+
+Siano F e G due insiemi di dipendenze funzionali.
+Se $F \subseteq G^{ + }$ allora $F^{ + } \subseteq G^{ + }$
+
+#### Def
+
+Sia $R$ uno schema di relazione, $F$ un insieme di dipendenze funzionali su $R$ e $\rho=\{ R_{1},R_{2},\dots, R_{k} \}$ una decomposizione di R.
+
+Diciamo che $\rho$ preserva $F$ se $F \equiv \bigcup_{i=1^{ k }} \pi_{Ri}(F)$,
+dove $\pi_{Ri}(F)=\{ X \to Y|X\to Y \in F^{ +  } \wedge XY \subseteq R_{i}\}$ 
+
