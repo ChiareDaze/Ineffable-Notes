@@ -303,19 +303,79 @@ La CPU prima di prendere un dato dalla RAM, controlla se è presente nella Cache
 La Cache è invisibile ai programmatori e al compilatore. Nemmeno il sistema operativo vede la Cache, nonostante possa decidere di non usarla.
 Alcune parti del sistema operativo, inoltre, imitano il funzionamento della Cache stessa.
 
+La Cache è quindi *gestita completamente dall'Hardware* tramite dei circuiti.
+
 ![[Pasted image 20241028172354.png|400]]
 
+Quindi date $2^{ n }$ locazioni di memoria RAM le dividiamo per $K$, ovvero il numero di word in un blocco e otteniamo un numero molto più grande rispetto alla grandezza C della cache.
+
+Il tag quindi deve essere grande a sufficienza per coprire tutti i blocchi.
+
+*Schema funzionamento*
+
+![[Pasted image 20241108174801.png|300]]
+
+
+- *Capacità della Cache*: Anche con cache molto piccole diminuiamo di molto gli accessi in RAM.
+- Ma c’è da considerare anche la *grandezza dei blocchi*: Con blocchi molto grandi ho molte possibilità di trovare i dati in cache ma incrementarli troppo è controproducente infatti saranno di più anche i *dati da sovrascrivere* quando non troviamo qualche dato
+
+Dobbiamo, quindi, trovare un *giusto equilibrio*.
+
+**Notazioni sulla Cache**
+
+- *Funzione di mappatura*: determina in che locazione della cache va messo un determinato blocco di memoria.
+- *Algoritmo di rimpiazzamento*: determina in che modo scegliere quale blocco va rimpiazzato in caso serva, tipicamente si usa l'algoritmo *LRU* (least recently used) che rimpiazza il blocco usato meno recentemente, ovvero il più vecchio presente in Cache
+- *Politica di scrittura*: quando si vuole scrivere un dato in RAM si possono usare più strade. Per esempio, se il dato è stato scritto in Cache, verrà scritto anche in RAM? Se si, stiamo usando il *Write-Through*. Quindi ogni modifica che avviene in Cache avviene anche in RAM. Altrimenti viene usato il *Write-Back*, cioè il dato viene scritto in Cache ma non in RAM perché se successivamente dobbiamo leggerlo, verrà letto dalla Cache e quindi non c'è bisogno di averlo in RAM. Lo scriviamo solo in caso di rimpiazzi su quel blocco, altrimenti perdiamo solo lo stato aggiornato. In questo modo la memoria potrebbe trovarsi in uno stato "obsoleto" ma è sicuramente più efficiente del write-trough
+
+*Esempio*
+
+![[Pasted image 20241108180036.png|300]]
+
+Il processore ha più processori interni e ogni processore ha diverse cache. Salendo di numero diventano più grandi e più lente, quindi si controlla in ordine $L_{1} \to L_{2}\to L_{3}\to RAM$.
+
+- $L_{1}$ sono due cache, una per istruzione e un'altra per il resto dei dati.
+- $L_{2}$ e $L_{3}$ sono sempre 2 ciascuna ma contengono qualsiasi tipo di dato
+
+Come detto prima il S.O. *può spegnere il caching* e inoltre può decidere *la politica di scrittura*, ad esempio Linux non la spegne mai e utilizza sempre write-back.
+
+#### Strati e utenti
+
+![[Pasted image 20241108182123.png|300]]
+
+**Quali sono i servizi offerti da un sistema operativo?**
+
+- Esecuzioni di programmi anche in *contemporanea*
+- Accesso ai dispositivi di I/O
+- Accesso al sistema operativo stesso attraverso uno *shell*
+- Sviluppo di programmi
+- Rilevamento e reazione ad errori hardware/software
+- *Accounting*: una collezione di statistiche di sistema e monitoraggio delle risorse che viene utilizzato per capire cosa migliorare
+
+Quindi il SO è un programma che gestisce il funzionamento degli altri programmi, prepara i loro ambienti, li manda in esecuzione, gestisce errori. E' un'*interfaccia* tra hardware e software.
+
+>[!info] Cos'è il Kernel?
+>E' una parte di sistema operativo in codice macchina che è racchiusa tutta insieme in una parte della RAM (solitamente quella iniziale) e serve appunto per eseguirlo.
+
+#### Evoluzione dei sistemi operativi
+
+I sistemi operativi esistevano già dagli anni 40' ed erano molto diversi rispetto a quelli di adesso. 
+
+L'evoluzione è  dovuta principalmente a:
+
+- Aggiornamenti Hardware
+- Nuovi servizi
+- Correzione di errori
+
+**Anni '40**
+
+Non c'era nessun Sistema Operativo e per fornire comandi a un computer si usavano delle console con interruttori. I computer arrivavano a occupare intere stanze.
+
+Il metodo in Input venne presto migliorato grazie alle *schede perforate*:
+
+![[Pasted image 20241108183520.png|300]]
+
+**Anni '50/'60**
+
+
 ---
-### Identificare una chiave di uno schema
-
-> [!info] Ricordiamo che
-> Una chiave nella sua chiusura deve contenere tutto $R$.
-
-Supponiamo di avere $R=(A,B,C,D,E,H)$ e $F=\{ Ab \to CD, C \to E, AB \to E, ABC \to D \}$
-
-**Osservazioni**
-
-1) Conviene partire da quelli con cardinalità maggiore, se la loro chiusura non contiene $R$, è inutile calcolare la chiusura dei loro rispettivi sottoinsiemi. 
-
-2) Se ci sono degli attributi che non compaiono mai a destra delle dipendenze funzionali, non sono determinanti funzionalmente da nessun altro attributo. Quindi rimarrebbero fuori dalla chiusura di qualunque sottoinsieme di $R$ che non li contenesse, ma ogni chiave deve terminare tutto lo schema. Quindi gli attributi che non compaiono a destra di nessuna dipendenze funzionale in F dovranno essere sicuramente in ogni chiave
 
