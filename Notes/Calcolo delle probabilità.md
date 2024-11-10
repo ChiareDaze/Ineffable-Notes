@@ -829,3 +829,15 @@ E[(X-1)^{ 4 } ]&=E[f(X)]=f(-1) \cdot P(-1) + f(0) \cdot P(0)=+f(2)\cdot P(2)+f(3
 &=2   
 \end{align}
 $$
+**Linearità del valore atteso**
+
+Sia $X$ una variabile aleatoria discreta e siano $a, b \in \mathbb{R}$ allora $E[aX+b]=aE[X]+b$
+
+*Dimostrazione*
+
+Sia $\{ x_{i} \}_{i\in I}$ l'insieme dei valori assunti da $X$, inoltre abbiamo $aX+b=f(X)$ dove $f(u)=au+b$. 
+La scriviamo quindi come funzione di $X$.
+
+$$
+E[aX+b]=E[f(X)]
+$$
