@@ -829,6 +829,7 @@ E[(X-1)^{ 4 } ]&=E[f(X)]=f(-1) \cdot P(-1) + f(0) \cdot P(0)=+f(2)\cdot P(2)+f(3
 &=2   
 \end{align}
 $$
+
 **Linearità del valore atteso**
 
 Sia $X$ una variabile aleatoria discreta e siano $a, b \in \mathbb{R}$ allora $E[aX+b]=aE[X]+b$
@@ -839,5 +840,102 @@ Sia $\{ x_{i} \}_{i\in I}$ l'insieme dei valori assunti da $X$, inoltre abbiamo 
 La scriviamo quindi come funzione di $X$.
 
 $$
-E[aX+b]=E[f(X)]
+E[aX+b]=E[f(X)] = \sum_{i \in I}f(x_{i})P(X=x_{i})=\sum_{i \in I}(ax_{i}+b)P(X=x_{i})
 $$
+$$
+\text { Proprietà distributiva }= \sum_{i}ax_{i}P(X_{i})+bP(X_{i})
+$$
+$$
+\text { Portiamo fuori a,b e spezziamo }= a \underbrace{\sum_{i}P(x_{i})}_{E[X]} + b \underbrace{\sum P(x_{i})}_{1}= aE[X]+b 
+$$
+
+##### Esempio
+
+$E[X]=1000$ come calcoliamo $E[3X-500]$?
+
+Applichiamo la formula:
+
+$$
+E[3X-500]=3E[X]-500=3000 - 500 = 2500
+$$
+
+**Proposizione**
+
+Ricordiamo che la varianza si calcola $Var(X):=E[(X-EX)^{ 2 }]$, possiamo anche calcolarla come:
+$$
+Var(X)=E[X^{ 2 } ]-(EX)^{ 2 } 
+$$
+---
+>[!warning] Reminder
+>La deviazione quadratica standard è:
+>$$
+>\sqrt{ Var(x) }
+$$
+
+Osserviamo che $Var(X)$ deve essere sempre $\geq 0$ infatti $Var(X)=E[(X-EX)^{ 2 }]$ è $\geq 0$, dato che è elevato al quadrato.
+
+$$
+Var(X)=0 \iff P(X=EX)=1
+$$
+
+Se la varianza è uguale a 0 allora significa che la variabile è costante, infatti $Var(X)$ misura quanto $X$ si sposta dal suo valore atteso $E[X]$.
+
+>[!info] Osservazione 
+>![[Pasted image 20241110184736.png|60]] 
+>Né la varianza né la deviazione quadratica sono lineari
+
+**Proprietà**
+
+Data $X$ variabile discreta e dati $a,b \in \mathbb{R}$ vale:
+$$
+Var(aX+b)=a^{ 2 }Var(X) 
+$$
+E quindi si può notare che amplifica le costanti moltiplicative e annulla quelle additive.
+
+---
+
+### Variabile di Bernoulli
+
+Una variabile aleatoria è  detta di Bernoulli se di parametro $p \in [0,1]$ se $P(X=1)=p$ e $P(X=0)=1-p$, quindi questa può assumere soltanto due valori.
+
+Quindi in questo caso notiamo che:
+$$
+E[X]=1 \cdot P(X=1)+0 \cdot P(X=0)=1 \cdot p + 0 \cdot(1-p)=p
+$$
+Mentre
+$$
+Var(X)=E[X^{ 2 } ]-(EX)^{ 2 }=p-p^{ 2 }=p \cdot (1-p)  
+$$
+Dove
+$E[X^{ 2 }]=1^{ 2 } \cdot P(X=1)+0^{ 2 }\cdot P(X=0)=p$
+
+---
+
+### Variabile aleatoria binomiale
+
+Dato un esperimento con $n$ prove indipendenti, tutte svolte nello stesso modo.
+Supponiamo che ogni prova abbia due possibili esiti: *successo* e *insuccesso*.
+
+*Esempio 1*
+
+Lancio una moneta 10 volte, i 10 lanci solo le prove e come successo stabilisco che deve uscire testa.
+
+*Esempio 2*
+
+Lancio un 8 volte, gli 8 lanci sono le prove e come successo stabilisco quando esce un numero multiplo di 3.
+
+Definiamo $X=\#Successi \space ottenuti$ nelle prove, notiamo quindi che può assumere come valore, tutti i valori interi da 0 a n, ma con che probabilità?
+
+Chiamiamo p la probabilità che una singola prova ci dia successo come esito.
+
+**Proposizione**
+
+$$
+\forall k=0.1,2,\dots,n \space vale \space P(X=k) = \binom{ n }{k  }\cdot p^{ k } \cdot (1-p)^{ n-k }   
+$$
+
+Prendiamo l'esempio 2, quindi abbiamo $n=8$, $p=\frac{1}{3}$ e calcoliamo la probabilità di due successi:
+$$
+P(X=2)=\binom{ 8 }{ 2 }\cdot \left( \frac{1}{2} \right)^{ 2 } \cdot \left( \frac{2}{3} \right)^{ 6 }   
+$$
+
