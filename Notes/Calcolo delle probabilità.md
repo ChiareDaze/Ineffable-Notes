@@ -773,3 +773,59 @@ $$
 E[f(X)]=\sum_{i \in I} f(X_{i}) \space \cdot \space P(X=X_{i}) = \sum_{i \in I} f(X_{i}) \space \cdot \space P_{X}(X_{i})
 $$
 
+##### Esempio
+
+Data $X$ che assume valori $-1, 0, 3$ con probabilità $0.2, 0.5, 0.3$ rispettivamente. Calcolare $E((X-1)^{ 2 })$.
+
+**Primo metodo**
+
+$$
+Y = (X-1)^{ 2 } \text { assume valori } \space 
+\begin{cases}
+4 \space se \space X = -1 \space o \space X = 3 \\
+1 \space se \space X=0
+\end{cases} 
+$$
+
+- $P(Y=4) =P(X=-1)+P(X=3)=0.2+0.3=0.5$
+- $P(Y=1)=P(X=0)=0.5$
+- $E[Y]=4 \cdot 0.5+1 \cdot 0.5=2.5$
+
+**Secondo metodo**
+
+$$
+\begin{align}
+E[Y] & = f(-1) \cdot P(X = -1)+f(0)+f(3)\cdot P(X=3)\\
+& = (-1 -1)^{ 2 } \cdot 0.2 + (0-1)^{ 2 } + (3-1)^{ 2 } \cdot 0.3 \\
+& = 0.8+0.5+1.2=2.5   
+\end{align}
+$$
+---
+### Valore atteso con funzione
+
+Se $X$ è variabile discreta che assume i valori $\{ x_{i} \}_{i\in I}$ e $f:\mathbb{R}\to \mathbb{R}$ allora:
+$$
+E[f(X)]=\sum_{i\in I}f(x_{i})\cdot P(X=x_{i})
+$$
+$$\text { La chiamiamo * }$$
+##### Esempio
+
+$X$ assume valori $\{ -1,0,2,3 \}$ e abbiamo che:
+- $P(-1)=0.1$
+- $P(0)=0.2$
+- $P(2)=0.2$
+- $P(3)=0.5$
+
+Allora:
+$$
+E[(X-1)^{ 4 } ]=E[f(X)] \space dove \space f(u)=(u-1)^{ 4 } 
+$$
+
+Calcoliamo:
+$$
+\begin{align} \\
+E[(X-1)^{ 4 } ]&=E[f(X)]=f(-1) \cdot P(-1) + f(0) \cdot P(0)=+f(2)\cdot P(2)+f(3)\cdot P(3) \\
+&=(-1-1)^{ 4 } \cdot 0.1 + (-1)^{ 4 } \cdot 0.2 + (2-1)^{ 4 }\cdot 0.2 + (3-1)^{ 4 }+(3-1)^{ 4 } \cdot 0.5  \\
+&=2   
+\end{align}
+$$
