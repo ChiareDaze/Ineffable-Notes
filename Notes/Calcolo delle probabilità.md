@@ -939,3 +939,209 @@ $$
 P(X=2)=\binom{ 8 }{ 2 }\cdot \left( \frac{1}{2} \right)^{ 2 } \cdot \left( \frac{2}{3} \right)^{ 6 }   
 $$
 
+*Perché vale questa proposizione?*
+
+Supponiamo di avere 4 prove e ci chiediamo $P(X=2)$, questo evento $\{ X=2 \}$ possiamo vederlo come unione di varie prove:
+
+$$
+E_{SSII}\space \cup \space E_{SISI} \space \cup \space E_{ISSI} \space \cup \space E_{IISS} \space \cup \space E_{ISIS}
+$$
+
+Dove i pedici sono successi e insuccessi.
+
+Abbiamo $\binom{ 4 }{ 2 }$ eventi, in generale $\binom{ n }{ k }$.
+
+Adesso se calcoliamo la probabilità di tutti questi eventi:
+$$
+\begin{align}
+P(X=2)&=P(E_{SSII})+\dots+P(E_{ISIS}) \\
+& = p \cdot p \cdot (1-p) \cdot (1-p))+\dots+((1-p)\cdot p\cdot p\cdot(1-p))
+\end{align}
+$$
+
+Hanno tutti la stessa probabilità che è data da $p^{ 2 }\cdot(1-p)^{ 2 }$ quindi è uguale a:
+
+$$
+\binom{ 4 }{ 2 } \cdot p^{ 2 } \cdot (1-p)^{ 2 }   
+$$
+
+Ovviamente abbiamo $p=2$ e quindi $n-k=2$ ma dipende da quanti esiti con successo abbiamo. *Quindi vale la proposizione*.
+
+**Definizione**
+
+Una variabile aleatoria binomiale di parametri $n \in \{ 1,2,3,\dots \}$ e $p \in [0,1]$ è una variabile aleatoria che assume valori $0,1,2,\dots,n$ con la stessa probabilità:
+$$
+P(X=k)=\binom{ n }{ k } \cdot p^{ k }\cdot (1-p)^{ k } \space \forall k \in \{ 0,1,2,\dots,n \}   
+$$
+**Teorema**
+
+Indichiamo con $X=Bin(n,p)$ una variabile binomiale di parametri $n,p$.
+
+Sia $X=Bin(n,p)$ allora:
+$$
+E[X]=n \cdot p \space e \space Var(X)=n \cdot p \cdot (1-p)
+$$
+Se $n=1$ e $X=Bin(n,p)$ ho che $X$ assume i valori $0,1$ e:
+$$
+P(X=1)=\binom{ n }{ 1 } \cdot p ^{ 1 }\cdot (1-p)^{ n-1 }=\binom{ 1 }{ 1 }\cdot p^{ 1 }\cdot(1-p)^{ 0 }=p      
+$$
+Mentre
+$$
+P(X=0)=1-p
+$$
+Quindi si può notare che $Bin(1,0)=Bernoulli(p)$, cioè una variabile aleatoria di Bernoulli di parametro $p$.
+
+##### Esempio
+
+Lancio 5 volte una moneta onesta. Sia $X=\text { \#Teste uscite }$ determinare la probabilità discreta $X, EX, Var(X), \sigma(X_{0})$
+
+$X=Bin(\frac{5}{1})$ ovvero 5 prove e il successo è che esce testa.
+
+Calcoliamo $P_{X}$, sappiamo che $X$ assume $0,1,2,3,4,5$ ovvero le possibili teste quindi per questi valori $k$ calcoliamo:
+
+![[WhatsApp Image 2024-11-11 at 12.51.20_6224f911.jpg|500]]
+
+Poi abbiamo che:
+
+![[WhatsApp Image 2024-11-11 at 12.51.20_ca374040.jpg|500]]
+
+---
+
+*Perché le costanti additive non importano nella varianza?*
+
+Prendiamo come esempio due grafici di due probabilità:
+
+![[WhatsApp Image 2024-11-11 at 12.51.21_a3e43a1f.jpg|400]]
+
+Notiamo che se trasliamo la probabilità di una costante, i grafici rimangono uguali ma vengono traslati, la varianza quindi rimane la stessa, dato che misura la dispersione dal valore atteso.
+
+Quindi $Var(X) e Var(X+b)$ coincidono.
+
+---
+
+### Variabile aleatoria di Poisson (distribuzione degli eventi rari)
+
+Una variabile aleatoria $X$ è detta di Poisson di parametro $\lambda >0$ se assume valori $0,1,2,\dots$ (valori interi) e:
+$$
+P_{X}(k)=P(X=k)=e^{ -\lambda } \cdot \frac{\lambda^{ k } }{k!} \space \forall k = 0,1,2,\dots
+$$
+
+Per verificare l’esistenza della variabile aleatoria di Poisson di parametro $k$ devo verificare:
+$$
+\begin{cases}
+P_{X}(k)\geq 0 \space \forall k =0,1,2,\dots \\
+\\
+\sum \limits_{k=0}^{ \infty } P_{X}(k)=1
+\end{cases}
+$$
+Infatti:
+$$
+\sum_{k=0}^{ \infty } P_{X}(k)=\sum_{k=0}^{ \infty }e^{ -\lambda } \cdot \frac{\lambda^{ k } }{k!}=e^{ -\lambda } \cdot \underbrace{\sum_{k=0}^{ \infty } \frac{\lambda^{ k } }{k!}U}_{Serie \space Esponenziale} = e^{ -\lambda }\cdot e^{ \lambda }=1  
+$$
+
+La variabile aleatoria di Poisson è un'approssimazione della variabile aleatoria binomiale $Bin(n,p)$ quando $n$ è molto grande e $p$ molto piccola.
+
+**Teorema: legge dei piccoli numeri**
+
+Dato $n \in \{ 1,2,\dots \}$ sia $P_{n}\in[0,1]$ tale che:
+
+$$
+\exists \lim_{ n \to \infty }P(X_{n}=k)=P(Z=k) \space \forall k \in \{ 0,1,2,\dots \}
+$$
+Quindi per $n$ grande possiamo approssimare $P(X_{n}=k) \approx P(Z=K)$, quindi in alcune situazioni abbiamo che:
+
+$$
+Bin(n,p) \approx Poisson(\lambda)
+$$
+
+Dove presi $n,p,\lambda$ abbiamo che:
+$$
+n\gg 1 (molto \space grande)
+$$
+$$
+np \approx \lambda \space \text { quindi anche } p \approx \frac{\lambda}{n}
+$$
+
+Cosa intendiamo per $Bin(n,p) \approx Poisson(\lambda)?$
+
+Intendiamo che:
+$$
+P(X=k) \approx P(Z=k) \space \forall k=0,1,2,\dots
+$$
+
+Dove $X=Bin(n,p)$ e $Z=Poisson(\lambda)$
+
+
+*Esempio di grandezza ben modellizzata da una variabile aleatoria di Poisson*
+
+Supponiamo di avere la pagina di un libro e consideriamo la probabilità che un carattere venga stampato in modo errato. 
+Si ha una variabile aleatoria binomiale infatti un numero di prove n e due esiti, successo se stampato male e insuccesso altrimenti.
+
+Notiamo che n è il numero di caratteri ed è molto alto all’interno di una pagina, e p possiamo assumerla piccola.
+
+Possiamo quindi assumere $Bin(n,p) \approx Poisson(\lambda)$ dove $\space \lambda=n⋅p$.
+
+
+*Esempio più concreto*
+
+Supponiamo che il numero di errori tipografici per pagina sia approssimato da $Poiss\left( \frac{2}{1} \right)$:
+
+- Qual è la probabilità che ci sia almeno un errore a pagina 20?
+
+Consideriamo quindi $z := \text { \#Errori a pagina 20 }$ e quindi abbiamo che:
+$$
+z=Poiss(\lambda) \space \space \space \space \space \space \lambda=\frac{1}{2}
+$$
+
+$$
+P(z=k)=e^{ -\frac{1}{2} } \cdot \left( \frac{1}{2} \right)^{ k } \cdot \frac{1}{k!} 
+$$
+
+Possiamo considerare il fatto che ci sia almeno un errore come l’evento complementare di non ci sono errori, quindi possiamo calcolare:
+
+$$
+P(z \geq 1)= 1 - P(z = 0)= 1 - e^{ - \frac{1}{2} } ​\cdot \left( \frac{1}{2} \right)^{ 0 } \cdot \frac{1}{0!}=1−e^{ -\frac{1}{2} } \approx 0.393
+$$
+
+- Qual è la probabilità che ci siano esattamente 4 errori?
+
+$$
+P(z =4)= 1 - e^{ - \frac{1}{2} } ​\cdot \left( \frac{1}{2} \right)^{ 4 } \cdot \frac{1}{4!}=1−e^{ -\frac{1}{2} } \approx 0.00158
+$$
+
+>[!info] Osservazione
+>![[Pasted image 20241111143543.png|95]]
+>La Poisson approssima una binomiale $Poiss(\lambda) \approx Bin(n,n\lambda​)$ per un n abbastanza grande.
+
+
+**Teorema: valore atteso e varianza di Poisson**
+
+Se $X=Poiss(\lambda)$ allora $E[X]=\lambda$ e anche $Var(X)=\lambda$
+
+---
+
+### Variabile aleatoria geometrica
+
+Immaginiamo di ripetere in maniera indipendente una prova (lancio un dado$\space \infty \space$volte). Ogni prova ha successo con probabilità $p$ e insuccesso con $1-p$.
+
+Sia $X$ il numero di prove necessarie per ottenere il primo successo.
+
+Quindi:
+
+$$
+P(X=k)=\underbrace{(1-p)}_{\text { Prova 1, ins }} \cdot \underbrace{(1-p)}_{\text { Prova 2 ins. }} \to \text{Ultima prova, successo}
+$$
+
+Quindi abbiamo:
+$$
+P(X=k)=(1-p)^{ k-1 } \cdot p \space \space \space \space \space \space \forall k = 1,2,\dots
+$$
+
+Teoricamente si potrebbe sempre ottenere un insuccesso e quindi avere che $X=+ \infty$ e quindi si avrebbe che:
+
+$$
+P(X=+ \infty)=(1-p)^{ \infty }=0 \space \space \space \space \space \text { con } 0<p<1 
+$$
+
+Questo significa che l’evento è possibile ma ha una probabilità nulla.
+Questa situazione strana è data dal fatto che l’insieme degli esiti è un insieme non numerabile.
