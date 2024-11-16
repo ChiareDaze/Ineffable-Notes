@@ -1075,3 +1075,7 @@ Supponiamo di avere $R=(A,B,C,D,E,H)$ e $F=\{ Ab \to CD, C \to E, AB \to E, ABC 
 1) Conviene partire da quelli con cardinalità maggiore, se la loro chiusura non contiene $R$, è inutile calcolare la chiusura dei loro rispettivi sottoinsiemi. 
 
 2) Se ci sono degli attributi che non compaiono mai a destra delle dipendenze funzionali, non sono determinanti funzionalmente da nessun altro attributo. Quindi rimarrebbero fuori dalla chiusura di qualunque sottoinsieme di $R$ che non li contenesse, ma ogni chiave deve terminare tutto lo schema. Quindi gli attributi che non compaiono a destra di nessuna dipendenze funzionale in F dovranno essere sicuramente in ogni chiave
+---
+
+### Decomposizioni che hanno un join senza perdita
+

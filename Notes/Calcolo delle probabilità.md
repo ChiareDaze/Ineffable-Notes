@@ -1145,3 +1145,66 @@ $$
 
 Questo significa che l’evento è possibile ma ha una probabilità nulla.
 Questa situazione strana è data dal fatto che l’insieme degli esiti è un insieme non numerabile.
+
+Oppure possiamo dimostrare che questo risultato è 0 svolgendo:
+$$
+P(X=\infty) = 1 - P(Z< \infty) = 1 - 1 =0
+$$
+Dove
+$$
+P(X<\infty) = \sum_{k=0}^{ \infty } P(X=k)=\sum_{k=0}^{ \infty } (1-p)^{ k } \cdot p = p \underbrace{\sum_{k=0}^{ \infty } (1-p)^{ k } }_{\text { Serie Geometrica }}= p \cdot \frac{1}{1-(1-p)}=1   
+$$
+Infine, possiamo dire che in una variabile aleatoria geometrica:
+$$
+EX=\frac{1}{p} \space  \space \space \space \space \space \space \space \space Var(X=\frac{1-p}{p^{ 2 } })
+$$
+
+##### Esercizio
+
+Si lancia un dado finché non esce 6.
+	a) Calcolare il valore atteso del numero di lanci effettuati
+	b) Calcolare la probabilità di aver effettuato almeno 7 lanci
+
+
+a) 
+$$ 
+\begin{align}
+&P(\text { Esce 6 })= \frac{1}{6} = p \\
+&X=\text { Lanci effettuati fino al primo 6 }= Geom\left( \frac{1}{6} \right) \\
+&E[X]= \frac{ 1 }{ \frac{1}{6} }=\frac{ 1 }{ \frac{1}{6} }=6   \\
+\end{align}
+$$
+
+
+b) Abbiamo $p=\frac{1}{6}$ come prima e anche la variabile aleatoria $X$. Adesso però dobbiamo calcolare $P(X=7)$
+
+$$
+P(X= 7)=p^{ k-1 }=\left( \frac{5}{6} \right)^{ 6 } 
+$$
+---
+### Variabile aleatoria binomiale negativa
+
+Dipende da due parametri, $p \in (0,1)$ che è la probabilità di successo in una prova e $r \in \{ 1,2,3,\dots \}$ intero che indica il numero di successi che voglio ottenere.
+
+##### Esempio chiave
+
+Considero una successione di prove indipendenti di tipo successo/insuccesso.
+
+$$
+X := \text { \# Prove effettuate fino ad avere r successi per la prima volta }
+$$
+Allora $X= Bin\_Neg(p,r),X$ assume valori $r,r+1,r+2,\dots$ quando dato $k \in \{ r,r+1,r+2,\dots \}$ come calcoliamo $P(X=k)$?
+
+Sappiamo che sicuramente la $k$-esima prova deve avere come esito successo, mentre nella $k-1$ prove dobbiamo avere sicuramente $r-1$ successi.
+
+Non tenendo conto dell'ordine, possiamo dire che:
+
+$$
+P(X=K)=P(\text { Ho } r-1 \text { successi nelle prime }k-1 \text { prove}) \cdot p
+$$
+
+A questo punto, possiamo utilizzare la binomiale per calcolare la probabilità degli $r-1$ successi:
+
+$$
+\binom{ k-1 }{ r-1 } \cdot p^{ r-1 } \cdot (1-p)^{ (k-1)-(r-1) }=\binom{ k-1 }{ r-1 } \cdot p^{ r } \cdot (1-p)^{ k-r }  
+$$
