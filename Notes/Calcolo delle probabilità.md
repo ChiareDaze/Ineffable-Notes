@@ -881,7 +881,7 @@ $$
 Se la varianza è uguale a 0 allora significa che la variabile è costante, infatti $Var(X)$ misura quanto $X$ si sposta dal suo valore atteso $E[X]$.
 
 >[!info] Osservazione 
->![[Pasted image 20241110184736.png|60]] 
+>![[Pasted image 20241110184736.png|70]] 
 >Né la varianza né la deviazione quadratica sono lineari
 
 **Proprietà**
@@ -1208,3 +1208,61 @@ A questo punto, possiamo utilizzare la binomiale per calcolare la probabilità d
 $$
 \binom{ k-1 }{ r-1 } \cdot p^{ r-1 } \cdot (1-p)^{ (k-1)-(r-1) }=\binom{ k-1 }{ r-1 } \cdot p^{ r } \cdot (1-p)^{ k-r }  
 $$
+---
+
+### Variabile aleatoria ipergeometrica
+
+**Prototipo**
+
+Abbiamo un'urna con $N$ palline di cui $m$ bianche e $N-m$ nere, estraggo senza rimpiazzo $n$ palline con $n \leq N$.
+
+Definiamo $X := \text { \#Numero palline bianche estratte }$
+
+$X$ è detta *variabile aleatoria di parametri* $N,m,n$.
+
+Come si calcola $P(X=k)$? Numeriamo tutte le palline per distinguerle, nello spazio campionario abbiamo: $\binom{ N }{ m }$ modi per scegliere $n$ palline. Usiamo il principio fondamentale della combinatoria:
+$$
+P(X=k)= \frac{\binom{ n }{ k } \cdot \binom{ N-m }{ n-k } }{\binom{ N }{ n } }
+$$
+Quindi al numeratore abbiamo i modi per scegliere le bianche per i modi per scegliere le nere.
+
+Per quali $k$ abbiamo che $P(X=k)>0$?
+
+$$
+P(X=k)\iff \binom{ m }{ k } > 0 \iff 0 \leq n-k \leq N-m 
+$$
+
+Ricordiamo che per i binomiali $\binom{ b }{ a }$ deve valere $0\leq a\leq b$ altrimenti è $0$.
+
+Quindi abbiamo:
+$$
+\begin{cases}
+0 \leq k \leq m \\
+0\leq n-k \leq N-m
+\end{cases}
+$$
+Ovvero 4 disuguaglianze:
+$$
+\begin{cases}
+0\leq k \\
+k \leq m \\
+k\leq n \\
+n+m-N\leq k
+\end{cases}
+$$
+Scritto in un'unica disuguaglianza:
+$$
+max(0,n+m-N)\leq k \leq min(m,n)
+$$
+
+>[!info] Definizione
+>Una variabile aleatoria ipergeometrica di parametri $N,m,n$ è una variabile aleatoria discreta con densità di probabilità come il prototipo visto per l’esercizio sopra, cioè:
+>$$
+>P(X=k)= \frac{\binom{ n }{ k } \cdot \binom{ N-m }{ n-k } }{\binom{ N }{ n } }
+>$$
+
+Inoltre abbiamo che:
+$$
+E[X]=\frac{n\cdot m}{N} \space \space \space \space \space \space \space Var(X)=np(1-p)\left( 1- \frac{ n-1 }{ N-1 }  \right) \space \space \space \space \space \space \space \space \text { dove } p =\frac{m}{n}
+$$
+

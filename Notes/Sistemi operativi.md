@@ -376,6 +376,57 @@ Il metodo in Input venne presto migliorato grazie alle *schede perforate*:
 
 **Anni '50/'60**
 
+Si mettono insieme più programmi da eseguire, che presero il nome di *jobs* e il sistema operativo serviva a gestire questi ultimi.
+Questo metodo funzionava molto bene in sistema non interattivi (*batch*), poiché il sistema richiedeva un dato input e l'utente doveva solo aspettare la fine dei calcoli.
+
+*Quali erano le problematiche di questo sistema?*
+
+- *Protezione della memoria*: per esempio se un job andava a scrivere nella zona della memoria del controllore dei jobs, questa parte non doveva essere accessibile.
+- *Timer*: impedisce che un job blocchi l'intero sistema per essere eseguito. Infatti, alcuni di questi impiegavano giorni per essere eseguiti.
+- *Istruzioni privilegiate*: Per esempio, il sistema di controllo dei jobs doveva essere eseguito con dei privilegi più alti. Infatti, il sistema può accedere a quella zona di memoria.
+
+Quindi i job venivano eseguiti in *modalità utente* (numero limitato di istruzioni) mentre il monitor dei job in *modalità sistema* (possono essere eseguite più istruzioni e possiamo accedere a zone di memoria protette).
+
+>[!warning] C'era un problema molto importante
+>Più del 96% del tempo è sprecato ad aspettare i dispositivi di I/Où
+
+![[Pasted image 20241112174350.png]]
+
+Come possiamo vedere, di quei 31 millisecondi, solo 1 è lavoro effettivo della CPU. Gli altri sono attesa di I/O.
+
+Quindi prima veniva eseguita una *programmazione singola*, cioè un'operazione per volta con tante attese.
+
+Per questo motivo si passò alla *multiprogrammazione*.
+
+![[Pasted image 20241112174620.png]]
+
+Più programmi in esecuzione e contemporaneamente all'attesa di uno, ne viene svolto un altro (minori tempi di attesa).
+
+*Esempio*
+
+![[Pasted image 20241112181458.png]]
+
+Prendiamo questi 3 jobs. Il primo è molto incentrato sulla CPU e dura 5 minuti, mentre gli altri due utilizzano molto I/O e durano 15 e 10 minuti.
+
+*Cosa succede in entrambi i tipi di programmazione?*
+
+![[Pasted image 20241116184541.png|400]]
+
+A sinistra abbiamo programmazione singola e quindi si impiegano 30 minuti (1 job dietro l'altro) e un utilizzo non gestito molto bene delle risorse.
+
+Nella multi programmazione invece eseguiamo tutti i job insieme, infatti job1 utilizza solo CPU e nessun dispositivo, mentre gli altri 2 utilizzano dispositivi diversi e quindi possono essere eseguiti tutti contemporaneamente.
+
+Come statistiche otteniamo:
+
+![[Pasted image 20241116184922.png|500]]
+
+*Throughput*: $\frac{ job-completati }{ ore }$
+*Mean Response Time:* Media dei tempi di completamento.
+Nel caso di uniprogramming dobbiamo considerare che $job1=5, job_{2}=job_{1}+15$ e quindi $\frac{ 5+20+30 }{ 3 }$.
+
+
+
+
 
 ---
 
