@@ -52,6 +52,6 @@ You just need to searc"
 - [[Metodologie di programmazione]]
 - [[Architettura degli elaboratori]]
 - [[Calcolo delle probabilità]]
-- [[Sistemi operativi]]
-- [[Basi di dati]]
+- [[Sistemi operativi I]]
+- [[Basi di dati I]]
 - 

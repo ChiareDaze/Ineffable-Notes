@@ -1077,5 +1077,372 @@ Supponiamo di avere $R=(A,B,C,D,E,H)$ e $F=\{ Ab \to CD, C \to E, AB \to E, ABC 
 2) Se ci sono degli attributi che non compaiono mai a destra delle dipendenze funzionali, non sono determinanti funzionalmente da nessun altro attributo. Quindi rimarrebbero fuori dalla chiusura di qualunque sottoinsieme di $R$ che non li contenesse, ma ogni chiave deve terminare tutto lo schema. Quindi gli attributi che non compaiono a destra di nessuna dipendenze funzionale in F dovranno essere sicuramente in ogni chiave
 ---
 
-### Decomposizioni che hanno un join senza perdita
+### Copertura minimale
+
+Sia F un insieme di dipendenze funzionali. Una copertura minimale di F è un insieme G di dipendenze funzionali equivalente ad F tale che:
+
+- Per ogni dipendenza funzionale in G la parte destra è un singleton, cioè è costituita da un unico attributo (ogni attributo nella parte destra è non ridondante)
+- Per nessuna dipendenza funzionale $X \to A$ in G esiste $X' \subset X$ tale che  $G \equiv G - \{ X \to A \} \cup \{ X'\to A \}$ (ogni attributo nella parte sinistra è non ridondante): nei determinanti non ci sono determinanti ridondanti (Se ho $AB \to C$ nella chiusura minimale non ci sono $A\to C$ e $B \to C$)
+- per nessuna dipendenza funzionale $X\to A$ in $G$, $G \equiv G - \{ X \to A \}$ (ogni dipendenza è non ridondante).
+
+**Come si trova la copertura minimale?**
+
+1) Per prima cosa si applica la decomposizione, si riducono a singleton le parti a destra delle dipendenze funzionali
+2) $FG$ dove $G \equiv \{ X\to A \} \cup (X\to A)$, $F \subseteq G^{ + } \land G \subseteq F^{ + }$  
+
+---
+### Teorema
+
+Sia $R$ uno schema di relazione e $F$ un insieme di dipendenze funzionali su $R$, che è una copertura minimale. L'algoritmo di decomposizione permette di calcolare in tempo polinomiale una decomposizione $\rho$ di $R$ tale che:
+- Ogni schema di relazione $\rho$ è in 3NF
+- $\rho$ preserva $F$
+
+---
+
+# Organizzazione fisica dei dati
+
+Un requisito fondamentale per un sistema di gestione di basi di dati è l’efficienza, cioè la capacità di rispondere alle richieste dell’utente *nel minor tempo possibile*. 
+Poiché la disposizione fisica dei dati influisce sull’efficienza di elaborazione di specifiche richieste, durante la progettazione fisica della base di dati, l’amministratore deve considerare quali operazioni saranno effettuate più frequentemente.
+
+In generale, a ogni oggetto base di un modello logico (ad esempio, schemi di relazione nel modello relazionale, segmenti nel modello gerarchico, o tipi di record nel modello a rete) corrisponde un file di record. 
+I record all’interno di un file condividono lo stesso formato, ossia gli stessi campi. 
+Nel caso del modello relazionale, questi campi corrispondono agli attributi, mentre negli altri due modelli rappresentano i campi dei segmenti o dei tipi di record.
+
+### Memoria a stato solido
+
+![[Pasted image 20241130164326.png|250]]
+
+I file sono memorizzati su disco, suddiviso in blocchi di dimensione fissa, generalmente compresa tra $2^{ 9 }$ e $2^{ 12 }$ byte, che corrispondono tipicamente ai settori di una traccia. 
+
+La suddivisione in blocchi avviene *durante la formattazione del disco*. 
+
+
+**Costo di accesso**
+
+Il costo di un accesso al disco, ovvero il trasferimento di un blocco tra la memoria principale e quella secondaria, è significativamente più elevato rispetto al costo dell’elaborazione dello stesso blocco in memoria principale. 
+Per questo motivo, la stima del tempo di risposta del sistema a una richiesta utente si basa sul *numero di accessi al disco necessari*.
+
+Tuttavia, non sempre un’elaborazione di un blocco richiede un nuovo accesso al disco. 
+Quando un blocco viene trasferito in memoria principale, il sistema lo conserva in un buffer e mantiene in memoria i blocchi trasferiti, fino a quando lo spazio disponibile lo consente. 
+Il sistema tiene traccia dei blocchi presenti nei buffer per ridurre il numero di accessi al disco. Inoltre, il costo di un accesso al disco non è uniforme: dipende dalla posizione del blocco rispetto all’ultimo trasferito, poiché ciò influisce sia sullo spostamento della testina tra i cilindri sia sul tempo di rotazione del disco.
+
+Per semplificare la valutazione dei costi delle operazioni elementari sui file, assumeremo che ogni lettura o scrittura di un blocco comporti necessariamente il trasferimento tra la memoria secondaria e quella principale, e che il costo di ogni accesso alla memoria secondaria sia costante (quindi consideriamo il caso peggiore).
+
+#### Record
+
+I record fisici contengono campi che corrispondono agli attributi delle relazioni (nel modello relazionale) o ai campi dei record logici. 
+Questi campi sono generalmente di tipo elementare, come interi, numeri reali o stringhe di caratteri. 
+Oltre ai dati veri e propri, un record fisico può includere campi aggiuntivi che forniscono informazioni sul record stesso o che consentono di accedere rapidamente ad altri record, tramite puntatori.
+
+
+**Puntatori nei record**
+
+Un puntatore a un record è un dato che consente di accedere rapidamente al record. 
+Un’opzione comune è utilizzare come puntatore l’indirizzo del primo byte del record sul disco. Tuttavia, questa soluzione può risultare poco flessibile qualora si renda necessario spostare il record.
+Una strategia alternativa è utilizzare una coppia $(b,k)$, dove:
+- $b$ è l’indirizzo del blocco che contiene il record
+- $k$ è il valore di uno o più campi che fanno da chiave nel file a cui il record appartiene
+
+Questa soluzione consente una maggiore libertà di movimento, permettendo di spostare il record all’interno dello stesso blocco.
+
+
+**Campi speciali nei record**
+
+I record possono includere campi aggiuntivi che non contengono dati ma informazioni utili. 
+
+- Alcuni byte possono indicare *il tipo del record*, utile quando nello stesso blocco sono memorizzati record di tipi diversi.
+- Uno o più byte possono specificare *la lunghezza del record*, indispensabile se il record contiene campi a lunghezza variabile.
+- Un bit di *“cancellazione”* per indicare che *il record è stato cancellato* (utile se il record è referenziato da un puntatore, poiché lo spazio non può essere immediatamente riutilizzato).
+- Un bit *“usato/non usato”* per indicare se *lo spazio è occupato da un record valido o è vuoto*.
+
+
+**Accesso ai campi**
+
+Per accedere a un campo specifico di un record, è necessario conoscere la posizione del primo byte di quel campo.
+
+- *Record con campi a lunghezza fissa*: Se tutti i campi hanno una lunghezza fissa, basta ordinarli. La posizione di ogni campo può essere calcolata facilmente, poiché la distanza dal primo byte del record (*offset*) è costante.
+    
+- *Record con campi a lunghezza variabile*: In questo caso, l’offset dei campi può variare tra i record. Esistono due strategie principali per gestire questo scenario:
+    
+    1. *Contatore di lunghezza per campo*: All’inizio di ogni campo si include un contatore che specifica la lunghezza del campo in byte. Per accedere a un campo, è necessario scorrere i campi precedenti e sommare le loro lunghezze, rendendo questa soluzione meno efficiente.
+    2. *Puntatori agli offset*: All’inizio del record si memorizzano puntatori agli offset di ciascun campo a lunghezza variabile. I campi a lunghezza fissa precedono quelli variabili, semplificando l’accesso diretto ai campi.
+
+>[!info]
+>La seconda strategia è generalmente più efficiente, poiché evita di dover esaminare i campi precedenti per determinare la posizione di un campo specifico.
+
+
+#### Blocchi 
+
+Analogamente ai record, anche i blocchi possono riservare spazio per memorizzare informazioni aggiuntive sul loro contenuto. 
+Queste informazioni possono riguardare, ad esempio, record cancellati o non utilizzati, puntatori a record (nel caso di record a lunghezza variabile), oppure collegamenti ad altri blocchi in una lista. Inoltre, in alcuni casi può essere presente dello spazio inutilizzato per garantire che gli offset dei campi interi siano multipli di 4.
+
+##### Organizzazione dei blocchi
+
+**Blocchi con record a lunghezza fissa**
+
+Quando un blocco contiene solo record di lunghezza fissa, può essere suddiviso in aree (*sotto blocchi*), ciascuna delle quali ospita un record. 
+
+Per inserire un nuovo record, è necessario individuare un’area libera. Se il bit "usato/non usato" è memorizzato in ogni record, la ricerca di un’area disponibile *potrebbe richiedere la scansione dell’intero blocco*. 
+
+Per ottimizzare questa operazione, tutti i bit "usato/non usato" possono essere raccolti in uno o più byte all’inizio del blocco, rendendo più rapida la verifica delle aree libere.
+
+
+**Blocchi con record a lunghezza variabile**
+
+In presenza di record di lunghezza variabile, si possono adottare due strategie per accedere ai record:
+
+-  *Campi di lunghezza nei record*:  Si assume che il primo record inizi dal primo byte del blocco e che ogni record contenga un campo che ne specifica la lunghezza in byte. Per determinare l’inizio di un record successivo, si somma l’offset del record precedente alla sua lunghezza (arrotondando eventualmente al successivo multiplo di 4, se necessario).
+
+- *Directory dei puntatori*:  All’inizio del blocco si può inserire una directory che contiene i puntatori ai record presenti nel blocco. In questo caso, un puntatore indica l’offset del record nel blocco. La directory può essere strutturata in diversi modi:
+	
+	- La directory è preceduta da un campo che specifica il numero di puntatori presenti.
+	- La directory ha una dimensione fissa e può contenere un numero massimo di puntatori. eventuali spazi non utilizzati sono riempiti con il valore $0$ (che non può essere un offset valido).
+	- La directory è una lista di puntatori, che termina con il valore $0$ per indicare la fine della lista.
+
+##### Vantaggi dell'uso di una directory
+
+L’uso di una directory all’inizio del blocco offre diversi vantaggi:
+
+- *Flessibilità nei movimenti dei record*: I record puntati possono essere spostati liberamente. È sufficiente aggiornare l’offset corrispondente nella directory, senza dover modificare i puntatori nei record stessi.
+    
+- *Gestione dei bit di cancellazione*: I bit di cancellazione possono essere spostati dai record alla directory. Ciò consente di riutilizzare lo spazio di un record cancellato, migliorando l’efficienza nella gestione dello spazio del blocco.
+
+
+### File
+
+Consentono la ricerca di record in base al valore di uno o più campi chiave.
+
+>[!warning] 
+>Il termine *chiave* non va inteso come nell'algebra relazionale, poiché un valore della chiave non necessariamente indentifica univocamente un record nel file.
+
+Le operazioni elementari su questi file sono:
+
+- *ricerca*
+- *inserimento*
+- *cancellazione*
+- *modifica*
+
+#### Heap
+
+Questa *non* è un'organizzazione. Infatti i record vengono allocati in un ordine determinato soltanto dall'ordine di inserimento. Questo porta a presentazioni peggiori in termini di ricerca e quindi di accessi in memoria, ma se ammettiamo duplicati, l'inserimento è meno veloce. 
+
+In un file heap, un record viene sempre inserito come ultimo del file e quindi tutti blocchi sono pieni a eccezione dell'ultimo. 
+L'accesso al file avviene attraverso la directory che contiene i puntatori ai blocchi.
+
+
+**Ricerca**
+
+Per effettuare la ricerca di un record specifico, si deve cercare in tutto il file, iniziando dal primo record fino a incontrare quello desiderato. Quindi il tempo di ricerca dipende dalla posizione del record nel file.
+
+Se il record si trova all'$i$-esimo blocco, avremo $i$ accessi alla memoria e quindi *si dovrebbe valutare il costo medio di ricerca*.
+
+##### Esempio
+
+Si hanno:
+
+- $N=152$ record
+- Ogni record ha $30$ byte
+- Ogni blocco contiene $65$ byte
+- Ogni blocco ha un puntatore di $4$ byte al prossimo blocco
+
+
+*Quanti record interi possiamo inserire in ogni blocco?*
+
+$$
+\frac{ 65-4 }{ 30 } 
+$$
+
+$65-4$ perché è la dimensione del blocco meno la dimensione del puntatore.
+Si divide per $30$, quindi per la dimensione di un record.
+
+Si ottiene $2.03$ come risultato.
+In un blocco non è possibile inserire record "a cavallo" e quindi si prende a parte intera inferiore. Questo significa che in un blocco si possono inserire $2$ record.
+Quel $0.03$ di blocco non possiamo memorizzarlo in un nuovo blocco.
+
+Quanti blocchi servono per memorizzare $N$ record?
+
+$$
+\frac{N}{\text { Record per blocco }}= \frac{151}{2}=75.5
+$$
+
+In questo caso dato che stiamo considerando i blocchi necessari per memorizzare un record, non arrotondiamo con la parte inferiore ma bensì con la superiore, quindi per memorizzare $151$ record con i dati visti prima abbiamo bisogno di $76$ blocchi.
+
+Quando effettuiamo una ricerca, dobbiamo scorrere una lista di $76$ blocchi.
+
+#### ISAM (Indexed Sequential Access Method)
+
+Il file viene ordinato in base al valore della *chiave* di ricerca.
+In generale viene lasciata una certa percentuale di spazio libero in ogni blocco.
+
+Viene creato un file indice che contiene un record per ogni blocco del file principale.
+
+Ogni record del file indice ha due campi che contengono: un puntatore a un blocco del file principale e il più piccolo valore della chiave presente nel blocco.
+
+**Ricerca**
+
+**Inserimento**
+
+---
+
+#### B-trees (alberi binari)
+
+E' la struttura migliore per creare indici.
+
+Partiamo dall'idea di generalizzare l'isam.
+
+---
+
+# Controllo della concorrenza
+
+Normalmente vediamo più programmi in esecuzione contemporaneamente. Ma in realtà la CPU cicla continuamente tra le istruzioni di programmi diversi.
+
+*Cos'è un processo?*
+Il processo è l'esecuzione del programma
+
+
+**Transazioni**
+
+E' l'esecuzione di una parte di un programma che rappresenta un'unità logica di accesso o modifica del contenuto della base di dati.
+
+#### Proprietà
+
+##### Acid
+
+- *Atomicity*: una transazione o viene eseguita del tutto oppure non essere eseguita. Se viene interrotta a metà, bisogna disfare tutto quello che è stato eseguito.
+- *Consistency*: una transazione non deve violare nessuna regola definita nella base dati
+- *Isolation*: una transazione ben progettata non deve dipendere da altre transazioni. Il risultato non deve dipendere dall'ordine dell'esecuzione delle transazioni precedenti. Deve essere *indipendente*.
+- *Durability*: il risultato finale di un calcolo deve essere memorizzato in modo permanente nella base dati
+
+**Schedule**
+E' un piano di esecuzione di un insieme di transazioni da eseguire.
+
+**Schedule seriale**
+E' uno schedule che è sempre corretto e corrisponde a un'esecuzione sequenziale delle transazioni.
+Lo ottengo permutando tutte le transazioni di un dato schema.
+
+*Perché sono importanti?*
+Uno schedule sarà accettabile se serializzato. Significa dire che comunque vengano interfogliate le transazioni, la se sequenza degli accessi ai diversi schedule è la stessa di quella di uno schedule seriale.
+
+*Quali problemi possono sorgere a causa dell'esecuzione concorrente dei programmi?*
+
+Dopo una lettura, all'intero del SO, un item viene portato in memoria centrale in uno spazio privato della singola transazione.
+
+*Cosa si intende per serializzabilità?*
+
+Uno schema non seriale è corretto se è serializzabile, cioè è "equivalente" a uno schedule seriale.
+
+>[!warning]
+>Equivalente non è uguale! 
+>Ricordiamo ad esempio che nel caso di insiemi di dipendenze funzionali l’equivalenza era data di al fatto di avere la stessa chiusura
+
+#### Equivalenza di schedule
+
+Due schedule sono *equivalenti* se producono *valori uguali* dove due valori sono *uguali* solo se sono prodotti dalla stessa sequenza di operazioni.
+
+*Come si testa la serializzabilità?*
+
+**Item**
+Unità di controllo a cui l'accesso è controllato.
+L'item può essere una riga, il campo di una riga, una tabella ecc...
+
+**Granularità**
+Le dimensioni degli item usate da un sistema sono dette la sua granularità.
+- La granularità dell’item va dal singolo campo della tabella all’intera tabella e oltre
+- Una granularità grande permette una gestione efficiente della concorrenza
+- Una granularità piccola può sovraccaricare il sistema, ma aumenta il livello di concorrenza (consente l’esecuzione concorrente di molte transazioni)
+
+#### Lock
+
+##### Lock binario
+
+Ogni item può stare in due stati. *Lock* e *locked*.
+
+Un lock viene richiesto da una transazione attraverso l'operazione di *locking* e se il valore della variabile è *unlocked* la transazione può accedere all'item e alla variabile viene assegnato il valore *locked*.
+
+Qualunque altra transazione che richiede il locked a quell'item verrà messa in attesa.
+
+Viene rilasciato da una transazione attraverso un'operazione di *unlocking* che assegna alla variabile il valore *unlocked*.
+
+#### Schedule legale
+
+Se una transazione effettua un locking ogni volta che deve leggere o scrivere un item.
+Ciascuna transazione rilascia ogni lock che ha ottenuto.
+
+Un lock binario, quindi, può assumere solo due valori *locked* e *unlocked*.
+
+Le transazioni fanno uso di due operazioni:
+- $lock(X)$ per richiedere l'accesso all'item X
+- $unlock(X)$ per rilasciare l'item X consentendone l'accesso ad altre transazioni.
+
+Ogni $lock(X)$ implica la *lettura* di X e ogni $unlock(X)$ implica la *scrittura* di X.
+
+---
+
+#### Protocollo di locking a due fasi
+
+*cosa significa a due fasi?*
+Fase di lock e unlock.
+
+Una transazione che ha cominciato la fase di unlock non può più fare nessun'altro lock.
+
+#### Teorema sul lock a due fasi
+
+Sia $T$ un insieme di transazioni. Se ogni transazione di $T$ è a due fasi allora ogni schedule di $T$ è serializzabile.
+
+---
+
+#### Deadlock
+
+Un deadlock si verifica quando ogni transazione è in attesa di ottenere un lock su un item sul quale qualche altra transazione mantiene un lock e quindi rimane bloccata, non rilascia i lock e può bloccare anche transazioni che non sono nell'insieme
+#### Livelock 
+
+Si verifica quando una transazione aspetta indefinitamente che gli venga garantito un lock su un certo item.
+
+Si può usare una strategia *first came-firts served* eseguendo le transazioni in vase alle loro priorità di una transazione all'aumentare del tempo in cui rimane in attesa.
+
+#### Abort di una transazione
+
+- La transazione esegue un operazione non corretta
+- Schedule rileva un deadlock
+- Lo scheduler fa abortire la transazione per garantire la serializzabilità
+- Si verifica un malfunzionamento hardware o software
+
+#### Punto di commit
+
+E' il punto in cui la transazione ha ottenuto tutti i lock che gli sono necessari e ha effettuato tutti i calcoli nell'area di lavoro
+
+#### Dati sporchi
+
+Sono dati scritti da una transazione sulla base di dati prima che abbiano raggiunto il punto di commit.
+
+### Protocollo a due fasi stretto
+
+Una transazione soddisfa il protocollo di locking a due fasi stretto se:
+
+1. Non scrive sulla base di dati fino a quando non ha raggiunto il suo punto di commit. Se una transazione è abortita allora non ha modificato nessun item nella base di dati
+2. Non rilascia un lock finché non ha finito di scrivere sulla base di dati. Se una transazione legge un item scritto da un’altra transazione quest’ultima non può essere abortita
+
+Questo protocollo risolve il problema dei dati sporchi, ma il deadlock è ancora possibile.
+
+Il protocollo si applica in due versioni:
+- *conservativa*: cerca di evitare il deadlock
+- *aggressiva*: cerca di processare le transazioni il più rapidamente possibile anche se ciò può portare al deadlock
+
+**Conservativa**
+
+Una transazione richiede tutti i lock che servono all'inizio e li ottiene se e solo se tutti i lock sono disponibili.
+
+Se non li può ottenere tutti viene messa in coda di attesa.
+
+Si evita il deadlock, ma non il livelock.
+
+*Come si evitano sia il deadlock che il livelock?*
+
+Una transazione richiede tutti i lock che servono all'inizio e li ottiene se e solo se:
+- Tutti i lock sono disponibili
+- Nessuna transazione che precede T nella coda è in attesa di un lock richiesto da T
+---
+### Timestamp
+
+Identifica univocamente una transazione. E' assegnato alla transazione dallo scheduler quando la transazione ha inizio.
 

@@ -870,7 +870,7 @@ $$
 >La deviazione quadratica standard è:
 >$$
 >\sqrt{ Var(x) }
-$$
+>$$
 
 Osserviamo che $Var(X)$ deve essere sempre $\geq 0$ infatti $Var(X)=E[(X-EX)^{ 2 }]$ è $\geq 0$, dato che è elevato al quadrato.
 
@@ -924,7 +924,7 @@ Lancio una moneta 10 volte, i 10 lanci solo le prove e come successo stabilisco 
 
 Lancio un 8 volte, gli 8 lanci sono le prove e come successo stabilisco quando esce un numero multiplo di 3.
 
-Definiamo $X=\#Successi \space ottenuti$ nelle prove, notiamo quindi che può assumere come valore, tutti i valori interi da 0 a n, ma con che probabilità?
+Definiamo $X=\text{\#Successi ottenuti}$ nelle prove, notiamo quindi che può assumere come valore, tutti i valori interi da 0 a n, ma con che probabilità?
 
 Chiamiamo p la probabilità che una singola prova ci dia successo come esito.
 
@@ -1015,7 +1015,7 @@ Prendiamo come esempio due grafici di due probabilità:
 
 Notiamo che se trasliamo la probabilità di una costante, i grafici rimangono uguali ma vengono traslati, la varianza quindi rimane la stessa, dato che misura la dispersione dal valore atteso.
 
-Quindi $Var(X) e Var(X+b)$ coincidono.
+Quindi $Var(X)\text{ e }Var(X+b)$ coincidono.
 
 ---
 
@@ -1155,6 +1155,7 @@ $$
 P(X<\infty) = \sum_{k=0}^{ \infty } P(X=k)=\sum_{k=0}^{ \infty } (1-p)^{ k } \cdot p = p \underbrace{\sum_{k=0}^{ \infty } (1-p)^{ k } }_{\text { Serie Geometrica }}= p \cdot \frac{1}{1-(1-p)}=1   
 $$
 Infine, possiamo dire che in una variabile aleatoria geometrica:
+
 $$
 EX=\frac{1}{p} \space  \space \space \space \space \space \space \space \space Var(X=\frac{1-p}{p^{ 2 } })
 $$
@@ -1265,4 +1266,5 @@ Inoltre abbiamo che:
 $$
 E[X]=\frac{n\cdot m}{N} \space \space \space \space \space \space \space Var(X)=np(1-p)\left( 1- \frac{ n-1 }{ N-1 }  \right) \space \space \space \space \space \space \space \space \text { dove } p =\frac{m}{n}
 $$
+---
 
