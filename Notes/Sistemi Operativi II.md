@@ -143,3 +143,86 @@ Per visualizzare i file nascosti si usa il comando:
 ls [-a | --all]
 ```
 
+---
+## C
+
+#### Funzioni
+
+**Sintassi**
+```
+<return-type> fn-name (parameter-list)
+	{
+		declaration of variables
+		executable statements
+	}
+```
+
+`;` viene usato per terminare uno statement
+
+```C
+x,y;
+x = 0;
+x = y + 1;
+```
+
+Un blocco può contenere 0 o più statement e i blocchi possono essere innestati.
+
+```C
+#include <stdio.h>
+
+/*
+Direttiva pre-processore
+stdio.h file header –contiene costanti e prototipi funzioni
+<> indicano che il file header e’ un file standard del C in
+/usr/include
+“” indicano che il file header e’ dell’utente e si trova nella
+directory corrente o in un path specificato
+-I permette di specificare le directory in cui cercare
+gli header file
+*/
+
+int main() {
+	printf(“scrivi quello che vuoi!!!! \n”); // scrive su stdout
+	return 0; //indica che il programma ha terminato con
+		successo//
+}
+```
+
+Per compilare ed eseguire i programmi (su Linux) si usa:
+
+```
+gcc -Wall prog.c
+```
+Stampa tutti i messaggi di warning
+
+```
+gcc -Wall prog-name.c -lm
+```
+
+`-lm` va specificato se si includono le librerie matematiche `<math.h>`, per esempio per usare funzione come $\sin, \cos, \log,\dots$
+
+Il risultato è un file eseguibile `a.out`
+Per specificare il nome dell'output si usa
+```
+gcc -Wall prog-name.c -o executable-name.o
+```
+
+#### Precompilazione e compilazione
+
+La precompilazione esegue tutte le direttive del compilatore ed elimina tutti i commenti.
+La compilazione controlla che la sintassi sia a posto. Per ogni chiamata a funzione, controlla che venga rispettato il corrispettivo header (che quindi deve esistere al momento della chiamata!). 
+Crea effettivamente del codice macchina, ma solo per il contenuto delle funzioni.
+Ogni chiamata a funzione ha una destinazione simbolica
+
+Per precompilare si usa
+```
+cpp nome-file.c > nome-file-precompilato.c
+```
+
+`>` serve per salvare l'output del primo file nel secondo.
+
+Per compilarlo si usa
+```
+gcc -c nom-file-precompilato.c -o nome-file.o
+```
+
