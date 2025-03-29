@@ -537,7 +537,7 @@ E' molto più veloce, ma le connessioni sono sequenziali.
 **Esempio**
 Vediamo un esempio:
 
-```
+```http
 GET /somedir/page.html HTTP/1.1
 Host: www.someschool.edu
 Connection: close
@@ -570,7 +570,7 @@ In questo caso i nomi diventano:
 
 **Esempio**
 
-```
+```http
 HTTP/1.1 200 OK
 Connection close
 Date: Thu, 06 Aug 1998 12:00:15 GMT
@@ -611,7 +611,6 @@ Per questo, sono stati introdotti i **cookie** con lo scopo di creare una sessio
 
 **Sessione**
 Ha un tempo di vita relativamente corto e sia il client che il server possono interromperla.
-
 ##### Interazione utente-server con i cookie 
 
 Servono quattro componenti:
@@ -621,66 +620,265 @@ Servono quattro componenti:
 3. Un file cookie mantenuto sul sistema terminale dell'utente e gestito dal browser dell'utente
 4. Un data base sul server
 
-Il server mantiene tutte le informazioni riguardanti il client su un file e gli assegna un identificatore di sessione (*SID*), composto da una stringa di numeri.
+Il server mantiene tutte le informazioni riguardanti il client su un file e gli assegna un identificatore di sessione (*SID*), composto da una stringa complessa di numeri.
 
 Ad ogni richiesta il browser consulta il file del cookie, estrae quello che necessario per quel sito web e lo inserisce in ogni richiesta HTTP. 
 Infine, il server può riconoscerlo e mostrare dei contenuti personalizzati.
 
 ##### Durata di un cookie
 
-Il server cancella il cookie inviando al client di intestazione `Set-Cookie` nel messaggio con `Max-Age = 0`.
-
+Quando il server chiude una sessione, invia al client un'intestazione `Set-Cookie`. Dopodiché, il server cancella i cookie mettendo nel messaggio `Max-Age = 0`.
 #### Caching
 
-Server per migliorare le prestazioni dell'applicazione web.
+Serve per migliorare le prestazioni dell'applicazione web, può essere gestito in diversi modi:
 
-Il server proxy ha una memoria per mantenere copie della pagine visitate.
-Il browser può essere configurato per inviare le richieste dell’utente alla cache
-Il browser trasmette tutte le richieste HTTP alla cache
-
+- L’utente può impostarla in modo tale che dopo alcuni giorni i contenuti vengano cancellati
+- La pagina può essere mantenuta in base alla sua ultima modifica
+- Si possono utilizzare informazioni nei campi intestazione dei messaggi per gestire la cache
 #### Server proxy
 
-Mantiene copie delle pagine visitate.
-Il browser può essere configurato per inviare le richieste dell’utente alla cache
-Il browser trasmette tutte le richieste HTTP alla cache
-- oggetto presente nella cache: la cache fornisce l’oggetto
-- altrimenti la cache richiede l’oggetto al server d’origine e poi lo inoltra al client
+E' un intermediario tra i vari client e sever e mantiene le copie delle pagine visitate in cache.
+Quindi, se tre client richiedono una pagina, il proxy riceve le richieste e ne invia una sola al server.
+
+![[Pasted image 20250320104957.png|350]]
+
+La cache serve a ridurre i tempi di risposta per i client, ridurre il traffico sul collegamento ad Internet e permettere ad ISP meno efficienti di fornire i dati in maniera veloce.
+
+#### Esempio con assenza di cache
+
+- Dimensione media degli oggetti $1Mb$
+- I browser della rete effettuano $15 \text { richieste al secondo}$
+- Per recuperare un file sulla internet ci vogliono $2\text { secondi}  -\text { Internet delay}$
+- Il tempo totale di risposta è quindi $\text {LAN Delay} + \text {Access delay} + \text {Internet delay}$
+
+![[Pasted image 20250320105406.png|350]]
+
+Facciamo una stima del ritardo calcolando $\frac{La}{R}$
+
+- Utilizzo della LAN: $\frac{15req/s \space \cdot \space 1Mb/req}{100Mbps}=15\%$
+- Utilizzo del collegamento d'accesso $\frac{15req/s \space \cdot \space 1Mb/req}{15Mbps}=100\%$
+- L'intensità tende a $1$ e il ritardo diventa importante
+- Come ritardo totale otteniamo $2\text { sec }+\text { minuti }+\text { millisecondi}$
+
+Come soluzione potremmo aumentare l’ampiezza di banda del collegamento a $100Mbps$ e raggiungere quindi un utilizzo sul collegamento del $15\%$ e avere un ritardo notevolmente ridotto. Ma fare questo non è sempre possibile dato che è molto costoso aggiornare l’intero collegamento.
+
+Oppure possiamo inserire una cache nella rete:
+
+![[Pasted image 20250320110012.png|300]]
+
+Supponiamo di avere una probabilità di successo pari a $0.4$, ovvero una hit nella cache.
+Otteniamo quindi:
+- Il $40\%$ delle richieste sarà soddisfatto immediatamente, nell’ordine dei $ms$
+- Il $60\%$ delle richieste sarà soddisfatto dal server d’origine
+- L’utilizzo del collegamento si è ridotto dal $100\%$ al $60\%$ portandoci ad avere dei ritardi trascurabili di circa $10ms$
+
+#### Inserimento di un oggetto in Cache
+
+Il client invia un messaggio di richiesta HTTP alla cache:
+
+```http
+GET /page/figure.gif
+Host: www.sito.com
+```
+
+La cache non ha l’oggetto e invia una richiesta HTTP al server, il quale risponde con l’oggetto richiesto. 
+La cache memorizza la pagina per richieste future e spedisce la risposta al client.
+
+Se invece la cache ha l’oggetto in memoria allora può inviarlo al client, ma prima deve *validarlo* per verificare che non sia stato modificato dal server. 
+Per fare questo tipo di verifica, viene utilizzato il *GET condizionale* che utilizza degli if.
+
+In tal modo, se la cache ha una copia aggiornata allora l’oggetto non verrà rinviato.
+
+![[Pasted image 20250320110539.png|300]]
 
 ---
-
 ### DNS
 
 #### Identificazione degli host
 
-Host internet hanno nomi (hostname) che sono facili da ricordare ma forniscono poca informazione sulla collocazione degli host all'interno di internet.
+Gli host internet hanno nomi (*hostname*) facili da ricordare, ma forniscono poca informazione sulla collocazione degli host all'interno di internet. Per questo, vengono utilizzati gli *indirizzi IP*.
+#### Indirizzi IP
 
-Il DNS prende in input il nome di una macchina e ci dice qual è l'indirizzo IP. Mantiene il mapping tra indirizzo IP e nome.
+Sono composti da 32 bit e vengono utilizzati per indirizzare i datagrammi.
+Possiamo rappresentarli come stringhe dove ogni byte (4 byte = 32 bit) rappresenta un numero decimale compreso tra 0 e 255 ed ognuno di questi 4 numeri è separato da un `.`, ad esempio: `121.34.230.94`
 
-Il DNS deve mantenere le informazioni e recuperarle velocemente.
-Organizza le informazioni in modo gerarchico in modo da poterle recuperare facilmente.
-Viene utilizzato da tutte le applicazioni.
-Utilizza il servizio di trasporto UDP e indirizza la porta 53.
+Questo formato serve anche per creare una gerarchia negli indirizzi. Infatti, tramite l’indirizzo IP possiamo ricavare la rete di appartenenza e l’indirizzo del nodo.
+
+Come facciamo, dunque, a ricavare un hostname utilizzabile da un indirizzo IP? Utilizziamo il **DNS (Domain Name System)**.
+
+#### DNS
+
+Questo protocollo, prende in input il nome di una macchina e ci dice qual è il suo indirizzo IP.
+Con l'indirizzo IP, possiamo rappresentare $2^{ 32 }$ indirizzi in totale e tutte queste coppie devono essere accessibili.
+
+Per la memorizzazione degli indirizzi, si utilizza un *database distribuito* su una gerarchia di server DNS.
+Invece, per quanto riguarda l'accessibilità, si fa uso di un *protocollo a livello applicazione* che consente agli host di interrogare i database dei server ed eseguire la traduzione
+
+Il DNS deve mantenere le informazioni e recuperarle velocemente, e per questo, organizza le informazioni in modo gerarchico.
+Viene utilizzato da tutte le applicazioni per tradurre gli hostname e utilizza per il trasporto l'UDP, utilizzando la porta 53.
+
+Viene utilizzato l'UDP perché si hanno meno overhead, cioè pacchetti aggiuntivi utilizzati non per trasmettere dati, ma per gestire le connessioni. Infatti, i messaggi DNS sono molto corti e una connessione TCP richiede più tempo.
+
+_In generale (Esempio con HTTP)_:
+1. Un client HTTP richiede un URL ad esempio `www.google.com`
+2. Il browser prende il nome dell’host dall’URL e lo passa al lato client DNS
+3. Il client DNS invia una query ad un server DNS
+4. Il client DNS riceve una risposta che contiene l’indirizzo IP corrispondente all’hostname
+5. Adesso il browser può dare inizio alla connessione TCP verso il server HTTP localizzato a quell’indirizzo IP
+
+>[!warning]
+>Quindi, il DNS non è un’applicazione vera e propria utilizza direttamente dall’utente
+
+#### Aliasing
 
 >[!info] Aliasing
->Il DNS permette di associare un nome più semplice da ricordare a un come complesso.
+>Il DNS permette di associare uno o più nomi semplici da ricordare a un nome complesso.
 
-I siti con molto traffico vengono replicati su più server e ciascuno di questi gira su un sistema terminale diverso e presenta un indirizzo IP diverso.
+ Per esempio, `server1.euw.azienda.com` potrebbe avere dei sinonimi più semplici come `azienda.com`.
 
-#### Può essere centralizzato?
+Quindi il primo, più “complesso” è l’*hostname canonico*, mentre il secondo si chiama *alias*. 
+Il funzionamento è uguale a quello per la traduzione tra indirizzo IP e nome host. Quindi, se un client chiede un alias, riceverà nome canonico e indirizzo IP.
 
-No, perché se avesse anche un singolo punto di fallimento, crasherebbe il server DNS e quini internet stesso.
-......
+Siti con molto traffico vengono replicati su più server e ciascuno di questi gira su un sistema terminale diverso e presenta un indirizzo IP diverso.
 
-#### Gerarchia del DNS
+#### Gerarchia Server DNS
 
-Per fare una ricerca in tempi rapidi, si raggruppano le coppie (IP e nomehost) in base al dominio.
+Inizialmente il DNS doveva tradurre pochi indirizzi e in poche reti e quindi era sufficiente salvarli in un file di testo che veniva aggiornato ogni notte.
+Ora, però, non può essere *centralizzato* perché è un'applicazione che gira su un gran numero di server sparsi per il mondo.
+
+Se fosse centralizzato, si avrebbero una serie di conseguenze:
+- Il server crasherebbe e Internet diventerebbe praticamente inutilizzabile
+- Si avrebbero troppe richieste da gestire per un singolo server
+- Un solo server non potrebbe mai essere vicino ad ogni client del mondo e quindi rallenterebbe le persone più lontane
+- Il server va aggiornato spesso per aggiungere nuovi nomi e con uno singolo sarebbe molto difficile anche mantenerlo online
+- Non sarebbe *scalabile*
+
+Quindi, si utilizza una gerarchia di server che segue le seguenti "regole":
+- Nessun server deve mantenere tutti le coppie hostname - indirizzo IP
+- Mapping (traduzione) distribuito su svariati server
+
+Ma come memorizziamo le $2^{ 32 }$ coppie in modo da renderle velocemente accessibili da tutti i client?
+
+Innanzitutto, raggruppiamo i nomi in base al dominio. Per esempio:
+- `www.uniroma1.it
+- `www.google.com`
+- `www.unipi.it`
+- `www.cnr.it`
+- `www.umass.edu`
+
+Per fare una ricerca in tempi rapidi, si raggruppano le coppie (`IP` e `nomehost`) in base al dominio.
+
 Ci sono tre classi di server DNS organizzati in una gerarchia:
-- root
+- Root
 - Top-level domain
 - Authoritative
-Ci sono poi i server DNS locali con cui interagiscono direttamente le applicazioni
----
 
+Ci sono poi i server DNS locali con cui interagiscono direttamente le applicazioni.
+
+![[Pasted image 20250324082515.png]]
+
+Se ad esempio richiediamo la pagina `www.amazon.com`:
+1. La richiesta arriva al server root il quale gli dirà dove trovare il server `.com`
+2. Il server *TLD* gli dirà dove trovare il server `amazon.com`
+3. Il server di amazon gli dirà dove trovare `www.amazon.com`
+
+**Server TLD**
+Sono server che si occupano dei domini `com, org, net, edu...`. Per esempio, in Italia abbiamo il `Registro.it` che ha sede a Pisa nel CNR e gestisce il dominio `.it`.
+
+>[!write] Etichette di domini
+>![[Pasted image 20250324082754.png]]
+
+**Server di competenza (o authoritative server)**
+Ogni organizzazione avrà il suo authoritative server in modo da rendere pubblici i suoi hostname, questi sono gestiti direttamente dall’organizzazione e di solito ce ne sono due, uno primario e uno secondario.
+
+**Server DNS locale (o default name server)**
+Non appartiene direttamente alla gerarchia dei server dato che è interno agli ISP o organizzazioni.
+Quando un host effettua una richiesta DNS, la query viene inviata al suo server DNS locale che agisce come un proxy inoltrando la query in una gerarchia di server.
+
+#### Gestione delle query all'interno della gerarchia
+
+##### Query iterativa
+L'host invia la richiesta al *server DNS locale*, che a sua volta la inoltra a un *server root*. 
+Questo indica dove trovare il *server TLD*, il quale fornisce l'indirizzo del *server di competenza* (*authoritative*). 
+Quest'ultimo, infine, individua la pagina richiesta e la restituisce all'host.
+
+![[Pasted image 20250324084700.png|350]]
+
+Notiamo che per fare la mappatura di un hostname sono stati inviati 8 messaggi.
+
+##### Query ricorsiva
+
+![[Pasted image 20250324084931.png|350]]
+
+L'host (`cis.poly.edu`), vuole risolvere un nome di dominio, invia la richiesta al proprio *server locale*, (`dns.poly.edu`). 
+Se questo non ha già la risposta, si occupa di trovarla per conto dell’host, avviando una risoluzione *ricorsiva*.
+
+Il *server locale* interroga prima un *server root* che gli indica quale *server TLD* può gestire la richiesta. 
+A sua volta, il *server TLD* fornisce l’indirizzo del *server di competenza*, responsabile del dominio richiesto.
+
+Una volta contattato, il *server di competenza* restituisce l’indirizzo IP corrispondente. Il *server locale* riceve questa informazione e la invia all’host, che ora può accedere alla risorsa desiderata.
+
+In questo processo, l’host si limita a fare una sola richiesta, mentre è il *server locale* a gestire l’intera ricerca, contattando i vari server e raccogliendo la risposta.
+
+#### Record e messaggi
+
+Il mapping è mantenuto all’interno di server sottoforma di *resource record (RR)*, ognuno di questi mantiene un mapping tra hostname, indirizzo IP, alias, nome canonico e altro.
+
+I server quindi si scambiano questi record attraverso i messaggi DNS, un messaggio può contenere più RR.
+
+**Record DNS**
+Questi sono memorizzati all’interno del database e vengono trasportati dai messaggi, hanno questa struttura:
+
+- `(Name, Value, Type, TTL)` dove:
+    - TTL è il tempo residuo di vita
+    - Type ha vari valori e fa a seconda di questo fa cambiare il significato di `name` e `value`
+
+Se Type vale `A`:
+
+- Allora il record contiene una mappatura Hostname → IP **a**ddress e quindi troveremo sul campo `name` l’hostname e sul campo `value` l’indirizzo IP
+
+Se Type vale `CNAME`:
+
+- Si tratta di una traduzione fra alias e nome canonico, avremo su `name` l’alias e su `value` il nome canonico
+
+Se Type vale `NS`:
+
+- Il record mappa un dominio in un name server quindi avremo su `name` il dominio come ad esempio `uniroma1.it` e su `value` il nome dell’host del server authoritative di quel dominio come ad esempio `di.uniroma1.it`
+
+Se Type vale `MX`:
+
+- Si sta mappando Alias → nome canonico del mail server, quindi avremo che `value` è il nome canonico del server di posta associato a `name`
+
+In generale:
+
+![[Pasted image 20250324093138.png]]
+
+**Messaggi DNS**
+Le query e le risposte hanno lo stesso formato nel protocollo DNS.
+
+Abbiamo un’intestazione da 12 byte che comprende:
+
+- Identificazione: numero di 16 bit per la domanda e la risposta usa lo stesso numero
+- Flag che indicano:
+    - Domanda o Risposta
+    - Richiesta di ricorsione
+    - Ricorsione disponibile
+    - Risposta di competenza (se il server non è competente per quel nome)
+- Numero di:
+    - Domande
+    - RR di risposta
+    - RR autorevoli
+    - RR addizionali
+
+Fuori l’intestazione troviamo i blocchi per le informazioni che ci erano state date nella sezione “*numero di*”.
+- Domande: Campi per il nome richiesto e il tipo di domanda (A, MX, NS…)
+- Risposte: RR per la risposta, se abbiamo replicati ci saranno più RR
+- Competenza: Record per i server di competenza
+- Informazioni aggiuntive: Informazioni extra che possono essere utili come ad esempio in una risposta MX dove il campo risposta contiene il record MX con il nome canonico del server di posta mentre in questo campo aggiuntivo c’è un record di tipo A con l’indirizzo IP relativo all’hostname canonico del server di posta.
+
+![[Pasted image 20250324093249.png|500]]
+
+---
 ### Protocollo FTP
 
 Permette di trasferire file da una macchina remota o di inviarvi file.
@@ -772,4 +970,260 @@ Quando la connessione è stabilita, si procede in 3 fasi:
 - Transazione
 - Aggiornamento
 
- 
+ ---
+
+## Livello di trasporto
+
+Due tipi di servizi:
+- Affidabile
+- Non affidabile: non so quanto di quello che invio arrivi a destinazione
+
+A livello di trasporto ci sono processi che si basano sui servizi del livello di rete e li potenzia.
+A livello di rete dsfdsdsf
+
+#### Indirizzamento
+
+La maggior parte dei sistemi operativi è multiutente e multiprocesso
+- Diversi processi client attivi (host locale)
+- Diversi processi server attivi (host remoto)
+
+Per stabilire una comunicazione tra i due processi è necessario un metodo per individuare:
+
+- host locale
+- host remoto
+- processo locale
+- processo remoto
+
+L'indirizzamento è dato dai numeri di porta
+
+L'indirizzo IP è l'indirizzamento a livello di rete, la porta è l'indirizzamento al livello di trasporto.
+
+#### Socket API
+
+interfaccia tra il livello di trasporto e livello applicazione
+Appare come un file o un terminale, ma è una struttura dati creata e utilizzata dal programma applicativo.
+
+Il socket address contiene due informazioni, numero di porta + indirizzo IP.
+
+#### Numeri di porta
+
+- 16 bit address
+- numero di porta well known
+
+#### Individuare i socket address
+
+Il client ha bisogno di un socket address locale e uno remoto per comunicare
+
+Socket address locale: fornito dal sistema operativo
+- Conosce l’indirizzo IP del computer su cui il client è in esecuzione
+- Il numero di porta è assegnato temporaneamente dal sistema operativo (numero di porta effimero o temporaneo – non utilizzato da altri processi)
+
+Socket address remoto
+- Numero di porta noto in base all’applicazione (http porta 80)
+- Indirizzo IP fornito dal DNS (Domani Name System)
+- Oppure porta e indirizzo noti al programmatore quando si vuole verificare il corretto funzionamento di un’applicazione (esempi sul libro di testo)
+
+Anche il server ha bisogno di un socket address locale e uno remoto
+Socket address locale: fornito dal sistema operativo
+- Conosce l’indirizzo IP del computer su cui il server è in esecuzione
+- Il numero di porta è noto al server perché assegnato dal progettista (numero well known o scelto)
+
+Socket address remoto
+- è il socket address locale del client che si connette
+- Poiché numerosi client possono connettersi, il server non può conoscere a priori tutti i socket address, ma li trova all’interno del pacchetto di richiesta
+
+N.B. il socket address locale di un server non cambia (è fissato e rimane invariato), mentre il socket address remoto varia ad ogni interazione con client diversi (anche con stesso client su connessioni diverse)
+
+#### Servizi dei protocollo di trasporto Internet
+
+##### TCP
+
+Orientato alla connessione., è richiesto un setup fra processi client e server
+L'utente deve stabilire una connessione e quindi rilasciarla
+
+E' affidabile: fra processi di invio e di ricezione
+C'è il controllo della congestione, si allarga a più nodi della rete. E' un problema di ciò che c'è in mezzo a mittente e destinatario.
+Non offre temporizzazione, garanzie su unm’’ap i ezza di banda minima, sicurezza (alcune possono essere implementate, Es. SSL)
+
+##### UDP
+
+E' un protocollo non affidabile e quindi senza connessione. Non c'è alcun setup tra i processi client e server
+Due messaggi mandati dalla stessa connessione possono arrivare con latenze importanti.
+non offre: setup della connessione, affidabilità, controllo di flusso, controllo della congestione, temporizzazione né ampiezza di banda minima e sicurezza
+E' utilizzata perché è veloce
+
+#### UDP nel dettaglio
+
+E' un protocollo di trasporto inaffidabile e privo di connessione
+Gli unici servizi che offre:
+- Comunicazione tra processi utilizzando i socket
+- Multiplexing/demultiplexing dei pacchetti
+- Incapsulamento e decapsulamento
+	- Datagrammi indipendenti, non numerati
+
+Non fornisce alcun controllo di flusso, errori (eccetto checksum), congestione
+
+Processo client e processo server
+Il processo client passa le richieste al processo client di trasporto che le invierà all'applicazione di destinazione.
+
+Servizio senza connessione significa che:
+il mittente deve dividere i suoi messaggi in porzioni di dimensioni accettabili dal livello di trasporto a cui consegnarli uno per uno. 
+Ogni pacchetto è indipendente dagli altri (la sequenza di arrivo può essere diversa da quella di spedizione)
+Non c’è coordinazione tra livello trasporto mittente e destinatario
+
+#### Rappresentazioni con macchine a stati finiti
+
+Il mittente riceve richieste dall'applicazione, le incapsula e le invia
+Il destinatario riceve dalla rete il pacchetto, lo decapsula e lo passa al livello applicazione
+
+#### Datagrammi UDP
+
+vedi slide 31
+
+#### Struttura datagrammi
+
+32 bit per l'intestazione
+All'interno dell'header abbiamo la lunghezza e il checksum che controlla la correttezza del pacchetto.
+
+#### Checksum UDP
+
+Rileva gli errori (bit alterati) nel datagramma trasmesso.
+vedi slide 33 e 34
+
+#### DNS usa UDP
+
+Quando vuole effettuare una query, DNS costruisce un messaggio di query e lo passa a UDP.
+L’entità UDP aggiunge i campi di intestazione al messaggio e trasferisce il segmento risultante al livello di rete, etc.
+L’applicazione DNS aspetta quindi una risposta
+Se non ne riceve tenta di inviarla a un altro server dei nome
+La semplicità della richiesta/risposta (molto breve) motiva l’utilizzo di UDP, che risulta più veloce
+
+- Nessuna connessione stabilita
+- Nessuno stato di connessione
+- Intestazioni di pacchetto più corte
+
+UDP è utilizzato anche perché consente un controllo più sottile a livello di applicazione su quali dati sono inviati e quando
+
+Utilizzato spesso nelle applicazioni multimediali
+- Tollera perdite di pacchetti (limitate)
+- sensibile alla frequenza
+---
+#### TCP
+
+Offre un trasporto orientato alla connessione, controllo del flusso, controllo degli errori e controllo della congestione
+
+---
+### Stop and wait
+
+Meccanismo orientato alla connessione + controllo di flusso + controllo degli errori
+
+Il mittente e il destinatario usano una finestra scorrevole di dimensione 1
+Il mittente invia un pacchetto alla volta e ne attende l'ack prima di spedire il successivo
+
+Se il pacchetto è corretto arriva l'ack al mittente. Altrimenti viene scartato senza informare il mittente.
+
+Abbiamo una sola locazione (una sola finestra di invio e una sola finestra di ricezione).
+La finestra di invio serve per memorizzare cosa è stato inviato e in caso inviare nuovamente il pacchetto se viene perso.
+
+Il controllo degli errore viene controllato attraverso un numero sequenza + ack + controllo degli errori
+
+#### Numeri di sequenza
+
+vedi slide 4
+
+Il destinatario si accorge se si mandano duplicati attraverso il numero di sequenza.
+I numeri di sequenza 0 e 1 sono sufficienti per il protocollo stop and wait
+Convenzione: il numero di riscontro (ack) indica il numero di sequenza del prossimo pacchetto atteso dal destinatario
+Se il destinatario ha ricevuto correttamente il pacchetto 0 invia un riscontro con valore 1 (che significa che il prossimo pacchetto atteso ha numero di sequenza 1)
+
+#### Efficienza di stop and wait
+
+Consideriamo il prodotto rate\*ritardo (misura del numero di bit che il mittente può inviare prima di ricevere un ack, volume della pipe in bit)
+- Se rate elevato e ritardo consistente
+	- è stop and wait inefficiente
+
+#### Protocolli con pipeline
+
+Invio tanti pacchetti e aspetto che nel frattempo mi torni l'ack
+Nel frattempo che aspetto gli ack, libero spazio e ne mando altri
+
+Abbiamo un intervallo di numeri di sequenza più ampio.
+
+##### Go back N
+Abbiamo una finestra di invio di più locazioni e una finestra di invio con una sola locazione
+
+Rispetto allo stop and wait i numeri di sequenza sono $2^{ m }$ dove m è la dimensione del campo "numero di sequenza" in bit
+
+L'ack indica in numero di sequenza del prossimo pacchetto atteso
+
+Ack cumulativo: tutti i pacchetti fino al numero di sequenza indicato nell’ack sono stati ricevuti correttamente
+
+Quando mi arriva l'ack posso scorrere di più posizioni i pacchetti da inviare
+
+**Finestra di ricezione**
+
+La finestra di ricezione ha dimensione 1
+Il destinatario è sempre in attesa di uno specifico pacchetto, qualsiasi pacchetto arrivato fuori sequenza (appartenente alle due regioni esterne alla finestra) viene scartato
+
+**Timer di rispedizione**
+Il timer è associato al pacchetto più "vecchio"
+Allo scadere del timer vengono rispediti tutti i pacchetti in attesa di riscontro. Questo perché il destinatario non può bufferizzare perché ha una sola locazione
+
+---
+### TCP
+
+- Protocollo con pipeline
+- Bidirezionale (ack in piggybacking)
+- Orientato al flusso di dati (stream-oriented)
+- Orientato alla connessione
+- Affidabile (controllo degli errori)
+- Controllo del flusso
+- Controllo della congestione
+
+Il TCP riceve il pacchetto dal livello applicazione.
+
+#### Struttura dei segmenti
+
+Composto da una porta sorgente una porta destinazione.
+
+**Numero di sequenza**
+Numero che identifica il pacchetto.
+Il TCP numera i pacchetti in base al numero di byte nella sequenza.
+
+**Numeri di riscontro**
+Si riferisce al byte ricevuti, in base all'ack ricevuto.
+
+**Byte flag**
+Assumono significato quando valgono `1`.
+Tre flag (ack, syn e fin) che servono per stabilire la connessione.
+Se ack  = 1, il segmento è un'ack
+sym = 1, segmento di sincronizzazione
+fin = 1, segmento di chiusura di connessione
+
+#### Stabilire una connessione
+
+E' un aspetto virtuale, mittente e destinatario si scambiano pacchetti di controllo.
+
+3 fasi
+- apertura connessione
+- scambio dati
+- chiusura
+
+#### Trasferimento dati: urgent
+
+Se ci sono dati urgenti, vengono messi all'inizio del pacchetto.
+Quando il destinatario riceve i messaggi urgenti, vengono elaborati subito dall'applicazione.
+
+#### Chiusura della connessione
+
+Il client o il server chiude la connessione.
+C'è uno scambio come quello di apertura.
+
+#### Controllo degli errori
+
+- *Checksum*: Se un segmento arriva corrotto viene scartato dal destinatari
+- Riscontri + timer di ritrasmissione
+- Ritrasmissione
+	- Ritrasmissione del segmento all’inizio della coda di spedizione
+
+

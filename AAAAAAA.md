@@ -25,7 +25,7 @@ K: "**KOOPA TROOPA!!!!**"
 
 
 K: "How many times do I have to say that? You don't have to preach to newcomers.
-Nobody cares about this old boring story!!!"
+Nobody cares about that old boring story!!!"
 
 
 
@@ -45,7 +45,7 @@ Let me explain you how this place works...follow me"
 
 \**Kamek adjusts his hat and starts walking*\*
 
-K: "First of all you need to know that my library is divided into sections.
+K: "First of all, you need to know that my library is divided into sections.
 You just need to searc"
 
 - [[Fondamenti di programmazione]]
