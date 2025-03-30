@@ -1042,9 +1042,11 @@ Calcola correttamente la chiusura di un insieme di attributi $X$ rispetto a un i
 Indichiamo con $Z^{ (0) }$ il valore iniziale di $Z(Z^{ (0) }=X)$ e con $Z^{ (i) }$ e $S^{ i }$, $i\geq 1$, i valori di $Z$ e $S$ dop l'i-esima esecuzione del corpo del ciclo; è facile vedere che $Z^{ (i) }\subseteq Z^{ (i+1) }$, per ogni $i$.
 
 Sia $j$ tale che $S(j)\subseteq Z(j)$ (cioè $Z(j)$, è il valore di $Z$ quando l'algoritmo termina)
+
 $$
-A \in Z^{ (j) } \text { se e solo se  }A \in X^{ + }  
-$$ ---
+A \in Z^{ (j) } \text {  se e solo se }A \in X^{ + }  
+$$
+---
 ### Decomposizioni che preservano le dipendenze
 
 Sia $R$ uno schema di relazione. Una *decomposizione* di $R$ e una famiglia $\rho=\{ R_{1},R_{2},\dots,R_{k} \}$ di sottoinsiemi di R che ricopre $R$ ($\bigcup_{i=1^{ k }}R_{1=R}$) (i sottoinsiemi possono avere intersezione non vuota).
