@@ -13,7 +13,7 @@
 - [[Incapsulamento]]
 - [[Overriding e overloading]]
 - [[Heap, Stack e Metaspace]]
-- [[Interfacce]]
+- [[Interfacce]]ù
 - [[Classi astratte]]
 - [[Interfaccia Iterator e Iterable]]
 - [[Design pattern]]
