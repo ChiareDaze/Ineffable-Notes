@@ -139,3 +139,136 @@ E|---X---
 
 
 ### Armonia - accordi minori di settima
+
+#### Accordi di settima dalla $6^{ a }$ corda
+
+Il ragionamento è sempre lo stesso per gli accordi minori.
+Di base prendiamo un accordo minore. Quindi, prendiamo la tonica, la quinta e la *terza minore*.
+
+*Esempio Am*
+```lua
+E|---5--- tonica che si ripete
+B|---5--- quinto grado che si ripete
+G|---5--- terza minore
+D|---7--- tonica che si ripete
+A|---7--- quinta
+E|---5--- tonica
+```
+
+Per fare l'accordo di settima, abbassiamo di un tono la "tonica ripetuta"
+
+*Esempio Am7*
+```lua
+E|---5--- tonica che si ripete
+B|---5--- quinto grado che si ripete
+G|---5--- terza minore
+D|---5--- settima
+A|---7--- quinta
+E|---5--- tonica
+```
+
+Per fare l'accordo maggiore settima, abbassiamo di mezzo tono la "tonica ripetuta"
+
+*Esempio Am7*
+```lua
+E|---5--- tonica che si ripete
+B|---5--- quinto grado che si ripete
+G|---5--- terza minore
+D|---6--- settima maggiore
+A|---7--- quinta
+E|---5--- tonica
+```
+
+#### Accordi di settima dalla $5^{ a }$ corda
+
+Prendiamo un accordo minore. Quindi, prendiamo la tonica, la quinta e la *terza minore*.
+
+*Esempio Dm*
+```lua
+E|---5--- quinta che si ripete
+B|---6--- terza minore
+G|---7--- tonica che si ripete
+D|---7--- quinta
+A|---5--- tonica
+E|---X---
+```
+
+Per fare l'accordo di settima, abbassiamo di un tono la "tonica ripetuta"
+
+*Esempio Dm7*
+```lua
+E|---5--- quinta che si ripete
+B|---6--- terza minore
+G|---5--- settima
+D|---7--- quinta
+A|---5--- tonica
+E|---X---
+```
+
+Per fare l'accordo maggiore settima, abbassiamo di mezzo tono la "tonica ripetuta"
+
+*Esempio Dm (maj7)*
+```lua
+E|---5--- quinta che si ripete
+B|---6--- terza minore
+G|---6--- settima maggiore
+D|---7--- quinta
+A|---5--- tonica
+E|---X---
+```
+
+**Accordo minore bemolle quinta**
+E' un tipo di accordo usato molto nel jazz e nel blues.
+Prendo l'accordo di settima e abbasso la quinta di un semitono (quinta bemolle)
+
+*Esempio Dm7b5*
+```lua
+E|---X---
+B|---6--- terza minore
+G|---5--- settima
+D|---6--- quinta bemolle
+A|---5--- tonica
+E|---X---
+```
+
+#### Accordi di settima presi dalla $4^{ a }$ corda
+
+Prendo di base un accordo maggiore a partire alla quarta corda.
+
+*Esempio Gm*
+```Lua
+E|---6--- terza minore
+B|---8--- tonica ripetuta
+G|---7--- quinta
+D|---5--- tonica
+A|---X--- 
+E|---X---
+```
+
+Per fare l'accordo di settima, abbassiamo di un tono la "tonica ripetuta"
+
+*Esempio Am7*
+```Lua
+E|---6--- terza minore
+B|---6--- settima
+G|---7--- quinta
+D|---5--- tonica
+A|---X--- 
+E|---X---
+```
+
+Per fare l'accordo di settima maggiore, abbassiamo di un semitono la "tonica ripetuta"
+
+*Esempio Am(maj7)*
+```Lua
+E|---6--- terza minore
+B|---7--- settima maggiore
+G|---7--- quinta
+D|---5--- tonica
+A|---X--- 
+E|---X---
+```
+
+---
+
+### Salti di quarta
