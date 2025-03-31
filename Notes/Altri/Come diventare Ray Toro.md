@@ -1,10 +1,23 @@
-Questi sono i miei appunti del corso di chitarra che non partono proprio dalle basi o un da argomento per principianti. C'è un po' di teoria musicale, ma non eccessiva (grazie Paolo per avermi risparmiato questa sofferenza).
+Questi sono i miei appunti del corso di chitarra. C'è un po' di teoria musicale, ma non eccessivamente (grazie Paolo per avermi risparmiato questa sofferenza).
 
 ![[Desolation Row Mcr GIF by My Chemical Romance.gif|450]]
 
 >"The sharpest lives are the deadliest to lead"
 
 ---
+
+>[!info] Notazione
+>Per le note utilizzo la notazione anglosassone:
+>A - La
+>B - Si
+>C - Do
+>D - Re
+>E - Mi
+>F - Fa
+>G - Sol
+>
+>Per quanto riguarda le tab ogni riga è una corda e i numeri scritti su ogni corda corrispondono al tasto
+
 ### Armonia - accordi maggiori di settima
 
 >[!info]
@@ -207,7 +220,7 @@ E|---X---
 
 Per fare l'accordo maggiore settima, abbassiamo di mezzo tono la "tonica ripetuta"
 
-*Esempio Dm (maj7)*
+*Esempio Dm(maj7)*
 ```lua
 E|---5--- quinta che si ripete
 B|---6--- terza minore
@@ -247,7 +260,7 @@ E|---X---
 
 Per fare l'accordo di settima, abbassiamo di un tono la "tonica ripetuta"
 
-*Esempio Am7*
+*Esempio Gm7*
 ```Lua
 E|---6--- terza minore
 B|---6--- settima
@@ -259,7 +272,7 @@ E|---X---
 
 Per fare l'accordo di settima maggiore, abbassiamo di un semitono la "tonica ripetuta"
 
-*Esempio Am(maj7)*
+*Esempio Gm(maj7)*
 ```Lua
 E|---6--- terza minore
 B|---7--- settima maggiore
@@ -270,5 +283,31 @@ E|---X---
 ```
 
 ---
+### Salti di quarta e armonizzazione della scala maggiore
 
-### Salti di quarta
+#### Scala maggiore e i suoi intervalli
+
+Per armonizzare correttamente una scala maggiore, si deve conoscere la sua struttura:
+
+$$
+\text { Tono - Tono - Semitono - Tono - Tono - Tono - Semitono }
+$$
+
+Questa sequenza definisce la distanza tra le note della scala e permette di costruire gli accordi su diversi gradi.
+
+#### Accordi di settima nella scala maggiore
+
+Ogni grado della scala maggiore genera un accordo secondo questo schema:
+
+1. *1°*: accordo maggiore con settima maggiore (maj7)
+2. *2°*: accordo minore con settima (m7)
+3. *3°*: accordo minore con settima (m7)
+4. *4°*: accordo maggiore con settima maggiore (maj7)
+5. *5°*: accordo maggiore con settima dominante (7)
+6. *6°*: accordo minore con settima (m7)
+7. *7°*: accordo semidiminuito (m7b5)
+
+#### Salti di quarta
+
+Gli accordi descritti precedentemente, possono essere collegati tra loro attraverso i *salti di quarta*, cioè un movimento armonico molto utilizzato nella musica.
+
