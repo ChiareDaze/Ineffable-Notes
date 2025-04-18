@@ -5,7 +5,7 @@
 >E' un interprete di comandi e spesso viene chiamato anche *terminale*.
 
 **bash**
-Scrive un prompt che attende che l'tente scriva un comando.
+Scrive un prompt che attende che l'utente scriva un comando.
 
 #### Sintassi comandi
 
