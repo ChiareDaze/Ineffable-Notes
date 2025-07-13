@@ -1,4 +1,3 @@
-Appunti video Salvo Romeo/Elia Bombardelli
 ## Calcolo combinatorio
 
 Quali problemi riesce a risolvere il calcolo combinatorio?
