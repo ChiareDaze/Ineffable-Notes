@@ -1,6 +1,6 @@
 ### Cosa sono
 
-Sono un modo per rendere il codice pi flessibile e riutilizzabile.
+Sono un modo per rendere il codice più flessibile e riutilizzabile.
 Invece di scrivere un codice che funziona solo con un tipo specifico, si può scrivere un codice che funziona con qualsiasi tipo di dato, ma mantenendo comunque la sicurezza dei tipi.
 
 I tipi generici sono come una variabile per i tipi di dato. Invece di specificare esattamente quale tipo di dato verrà utilizzato.

@@ -12,9 +12,9 @@ Ciao, sono Chiara e sono una studentessa di informatica. Qui troverete i miei ap
 - [[Metodologie di programmazione]]
 
 **Secondo anno**
-- [[Basi di dati I]]
+- [[Basi di dati I]]]
 - [[Basi di dati II]]
-- [[Calcolo delle probabilità]]
+- [[Calcolo delle probabilità 1]]
 - [[Sistemi operativi I]]
 - [[Sistemi Operativi II]]
 

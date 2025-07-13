@@ -111,7 +111,7 @@ Si tratta di un'infrastruttura in fibra ottica che si estende per circa 15.000 k
 
 #### Commutazione (switching)
 
-Una internetwork è una rete composta da dispositivi (come switch e router) che scambiano informazioni tra loro. 
+Una internetwork è una rete composta da dispositivi (come switch e router) che scambiano informazioni tra loro.
 Esistono due principali modalità di commutazione:
 
 **Reti a commutazione di circuito**
@@ -205,7 +205,6 @@ Velocità significa quanto la rete riesce a trasmettere velocemente i dati.
 >- perdita di pacchetti
 
 **Bandwidth o ampiezza di banda**
-
 Con questo termine, si intendono due concetti legati tra loro.
 
 - *Caratterizzazione del mezzo trasmissivo*: misura la larghezza dell’intervallo di frequenze utilizzate nel sistema trasmissivo (*Hz*). Più è ampia, più è la quantità di informazione che posso trasmettere.
@@ -213,21 +212,20 @@ Con questo termine, si intendono due concetti legati tra loro.
 - *Caratterizzazione di un collegamento*: misura la quantità di bit al secondo che un link garantisce di trasmettere (*bps*)
 
 Il bit rate è la quantità di bit al secondo che un link può trasmettere (immettere sul canale).
-Il bit rate dipende dalla banda ed è proporzionale a essa
+Il bit rate dipende dalla banda ed è proporzionale a essa.
 
 >[!write] Esempio
 >Il rate di un link Fast Ethernet è di 100 Mbps, ovvero tale rete
 >può inviare al massimo 100 Mbps
 
 **Throughput**
-
 Indica quanto effettivamente la rete è in grado di inviare i dati.
 E' misurato come il rate (*bps*),  ma tipicamente è `<=` al rate, questo perché il rate è la misura della potenziale velocità di un link.
 
 >[!write] Esempio
 >Una strada è progettata per far transitare 1000 auto al minuto da un punto all’altro. Se c’è traffico, tale cifra può essere ridotta a 100. Il rate è 1000 auto al minuto, il throughput 100 auto al minuto
 
-Come facciamo a misurare il throughput end-to-end (dalla sorgete alla destinazione)?
+Come facciamo a misurare il throughputffff end-to-end (dalla sorgete alla destinazione)?
 
 Dato che $R_{s}<R_{c}$ il throughput è definito da $R_{s}$.
 
@@ -261,6 +259,15 @@ Infine, viene determinato il canale di uscita.
 Equivale all'attesa di trasmissione nella coda di input e nella coda di output del router.
 Varia in base al livello di congestione del router e da pacchetto a pacchetto.
 
+Il calcolo si basa su misurare statistiche e dipende dall'intensità di traffico:
+$$
+\text { Intensità di traffico}=\frac{L \cdot a}{R}
+$$
+Dove:
+- $R$ è il rate di trasmissione ($bps$)
+- $L$ è la lunghezza del pacchetto ($bit$)
+- $a$ è il tasso medio di arrivo dei pacchetti ($pkt/s$)
+
 **Ritardo di trasmissione**
 Indica il tempo richiesto per immettere tutti i bit del pacchetto sul collegamento.
 
@@ -271,7 +278,7 @@ Possiamo calcolarlo anche in questo modo:
 $$
 \begin{align}
 &R =\text { rate del collegamento (in bps) } \\
-&L=\text { rate del collegamento (in bps) }\\
+&L=\text { lunghezza del pacchetto (bit) }\\
 &\text {Ritardo di trasmissione}= \frac{L}{R}\\
 \end{align}
 $$
@@ -336,7 +343,7 @@ Supponiamo di avere un link da $1 \text { bps}$ e un ritardo di $5 \text { secon
 ![[Pasted image 20250308185026.png|500]]
 
 Il primo bit entra dopo un secondo e dopo 5 secondi sarà arrivato alla fine.
-In questi 5 secondi saranno entrati altri bit tutti, a differenza di un secondo per via del bitrate, e si saranno mossi tutti ogni secondo.
+In questi 5 secondi saranno entrati altri bit, a differenza di un secondo per via del bitrate, e si saranno mossi tutti ogni secondo.
 
 Possiamo pensare al link come un tubo in cui la sezione trasversale indica il rate e la lunghezza il ritardo.
 Possiamo, quindi, vedere il volume come prodotto tra rate e ritardo:
@@ -444,7 +451,7 @@ Il modello OSI non è mai stato implementato perché:
 ---
 ### Livello applicazione
 
-Qui, la comunicazione è fornita per mezzo di una connessione logica: questo significa che i livelli applicazione nei due lati della comunicazione agiscono come se esistesse un collegamento diretto attraverso il quale poter inviare e ricevere messaggi.
+Qui, la comunicazione è fornita per mezzo di una connessione logica: questo significa che i livelli applicazione, nei due lati della comunicazione, agiscono come se esistesse un collegamento diretto attraverso il quale poter inviare e ricevere messaggi.
 
 ### Web e  HTTP
 
@@ -888,7 +895,7 @@ Il comando per accedervi è
 ftp NomeHost
 ```
 
-Per il trasferimento si isa
+Per il trasferimento si usa
 
 ```
 ftp > get dsvdsvcs
@@ -1225,5 +1232,455 @@ C'è uno scambio come quello di apertura.
 - Riscontri + timer di ritrasmissione
 - Ritrasmissione
 	- Ritrasmissione del segmento all’inizio della coda di spedizione
+
+### Controllo della congestione
+
+Ci si accorge della congestione quando i pacchetti vengono smarriti oppure quando ci sono lunghi ritardi
+
+La congestione si crea nei router
+
+#### Problematiche nella gestione della congestione
+
+##### Finestra di congestione
+
+Per controllare la congestione si usa la variabile CWND (congestion window) che insieme a RWND definisce la dimensione della finestra di invio
+- CWND: relativa alla congestione della rete
+- RWND: relativa alla congestione del ricevente
+
+##### Rilevare la congestione
+
+Per controllare la congestione si usa la variabile CWND (congestion window) che insieme a RWND definisce la dimensione della finestra di invio
+- CWND: relativa alla congestione della rete
+- RWND: relativa alla congestione del ricevente
+
+##### Controllo della congestion
+
+Idea di base: incrementare il rate di trasmissione se non c’è congestione (ack), diminuire se c’è congestione (segmenti persi)
+L’algoritmo di controllo della congestione si basa su tre componenti
+1. Slow start
+2. Congestion avoidance
+3. Fast recovery
+
+#### Slow start
+
+Cwnd inizializzata a 1 MSS
+- Poiché la banda disponibile può essere molto maggiore, slow start incrementa di 1MSS la cwnd per ogni segmento riscontrato
+
+LA cwnd cresce esponenzialmente fino a raggiungere una soglia
+
+![[Pasted image 20250401143855.png]]
+
+#### Congestion avoidance
+
+Cresce linearmente
+Ogni volta che viene riscontrata l'intera finestra di segmenti, si incrementa di 1 la cwnd
+
+Aumento fin quando ci sono timeout o ack duplicati
+
+Generalizzando possiamo dire che la cwnd aumenta fino alla rivelazione della congestione
+
+**Come vengono definiti al livello del TCP?**
+
+#### TCP Taho
+
+Si comincia con la slow start mandando un pacchetto, incremento di uno fin quando non ricevo un ack e aumento di uno.
+
+Quando sto in congestion avoidance, incremento di uno e torno indietro se ho timeout o ack duplicati
+
+
+#### Affinamento
+
+Oss: C'è una differenza tra l'evento del timeout e dei tre ack duplicati
+
+Ack duplicati vuol dire che i segmenti arrivano non in ordine
+Il timeout significa che i pacchetti non stanno arrivando e indica una congestione più grave
+
+#### TCP Reno
+
+Quando il timeout significa che ho una congestione più importante e quindi si riparte da 1
+
+3 ack duplicati: congestione lieve
+- applica fast recovery a partire da ssthreshold + 3
+
+#### Come si imposta il timeout?
+
+Deve dipendere dal RTT.
+Ma il RTT non dipende solo dalla distanza che attraversa, ma anche dalla congestione. Dobbiamo considerare il tempo di accodamento nel router
+
+Si deve stimare il RTT e far variare il timeout in base al RTT
+Per ogni segmento che spedisco posso stimare il RTT
+
+Come si stima?
+SampleRTT: tempo misurato dalla trasmissione del segmento fino alla ricezione di ACK
+- ignora le ritrasmissioni
+- Un solo SampleRTT per più segmenti trasmessi insieme
+Varia a causa di una congestione nei router e carica nei sistemi terminali, quindi serve una stima "più livellata" di RTT
+
+$$
+\text { EstimatedRTT}_{t+1} = (1-\alpha)\cdot \text { EstimatedRTT}_{t} + \alpha \cdot \text { SampleRTT}_{t+1}
+$$
+
+- Media mobile esponenziale ponderata
+- L’influenza delle misure passate decresce esponenzialmente
+- $\alpha$ peso (tipicamente $0,125$)
+
+$$
+DevRTT = (1-\beta) \cdot \text { DevRTT } + \beta \cdot |\text { SampleRTT }- \text { EstimatedRTT }|
+$$
+Stima di quanto SampleRTT si discosta da EstimatedRTT
+- Tipicamente $\beta=0,25$
+---
+
+### Livello di Rete
+
+Il livello di rete nella pila dei protocolli è quello che si occupa di instradare i datagrammi dal mittente al destinatario.
+A differenza del livello di trasporto non stiamo più facendo comunicare processi, ma due *host*.
+
+A livello di rete prende i segmenti del trasporto, li incapsula trasformandoli in *datagrammi* e li trasmette al router più vicino.
+Il datagramma viene, quindi, instradato tra i vari router fino a raggiungere l'host destinatario, dove viene decapsulato e inviato al livello successivo.
+
+#### Funzioni del livello di rete
+
+**Routing**
+Determina il percorso da seguire dall'origine fino alla destinazione. Più localmente, un router decide quale sarà il prossimo router su cui instradare il datagramma.
+
+**Forwarding**
+Si occupa del trasferimento vero e proprio dei pacchetti sul percorso scelto dal routing.
+
+Tramite gli *algoritmi di routing* vengono create delle *tabelle di routing* che verranno poi usate per il *forwarding*. Le tabelle associano ad ogni intestazione un collegamento d’uscita.
+
+#### Switch e Router
+
+Sono entrambi dei *packet switch (commutatore di pacchetto)* ovvero dei dispositivi che si occupano di trasferire dati da un’interfaccia di ingresso ad una di uscita in base ai valori presenti nei datagrammi.
+
+- *Link - layer switch (commutatore a livello di collegamento)*: stabilisce il percorso in base al campo presente nell’intestazione a livello di collegamento (livello 2). E' usato per collegare singoli computer all’interno di una LAN
+- *Router*: stabilisce il percorso in base al campo presente nell’intestazione a livello di rete (livello 3). Riceve un insieme di informazioni (pacchetto) e in base alle tabelle di routing decide quale sarà il prossimo router su cui instradarlo
+
+#### Circuit switching e Packet switching
+
+**Reti a circuito virtuale**
+In questo tipo di rete viene quindi stabilita una connessione virtuale e durante tutta la connessione i pacchetti seguiranno il percorso prestabilito inizialmente.
+
+I pacchetti in un circuito virtuale hanno un'*etichetta di circuito* VC nella loro intestazione. In base a questo, il router sceglie il percorso su cui instradare il pacchetto. Il VC può essere diverso da router a router anche se si riferisce allo stesso percorso. Per questo, viene cambiato il VC durante il passaggio all'interno di un router.
+
+![[Pasted image 20250507093533.png|450]]
+
+**Come si implementa?**
+Innanzitutto, serviranno:
+- Un percorso tra due host
+- Numeri di VC per ogni collegamento
+- Righe nella tabella di intorno in ciascun router
+- Il  numero di VC rappresenta un etichetta di flusso e cambia su tutti i collegamenti del percorso
+
+##### Esempio
+
+![[Screenshot 2025-05-07 093742.png|270]]
+
+Possibile tabella di R1
+
+![[Pasted image 20250507093758.png|500]]
+
+1. Entra nell'interfaccia 1 un pacchetto con VC 12
+2. Viene instradato sull'interfaccia 2 e gli viene cambiato il VC in 22
+3. R2 probabilmente avrà una regola secondo cui i pacchetti con VC 22 dall'interfaccia 1 vengono instradati sull'interfaccia 2 con VC 22
+
+Per ogni connessione stabilita i router mantengono una linea nella tabella, quando una connessione viene rilasciata non ne hanno più bisogno e quindi la cancellano.
+
+**Reti a datagramma**
+Internet è un datagramma (packet switched), quindi i router non conservano informazioni sui circuiti virtuali dato che non esistono vere e proprie connessioni a livello di rete. I pacchetti vengono semplicemente inoltrati in altri router in base al loro indirizzo di destinazione.
+
+Questo significa che i pacchetti non seguiranno più lo stesso percorso. Infatti, potrebbero prendere ciascuno un percorso diverso per arrivare a destinazione.
+
+![[Pasted image 20250508120721.png|400]]
+
+In questo caso la tabella di inoltro dei router sarebbe troppo grande se coprisse tutte le possibilità.
+Per scegliere il percorso, viene utilizzato il prefisso degli indirizzi.
+
+![[Pasted image 20250508120830.png|350]]
+
+- Se riceve `11001000 00010111 00010110 10100001` verrà instradato sull’interfaccia 0
+- Se riceve `11001000 00010111 00011000 10101010` verrà instradato sull’interfaccia 1
+
+Nel secondo caso scegliamo l'interfaccia 1 anche se il prefisso è uguale alla 2 perché abbiamo più cifre che combaciano sulla 1 (i 3 zeri che seguono i due 1).
+
+#### Router
+
+![[Pasted image 20250508121225.png]]
+
+La commutazione può avvenire anche direttamente sulle porte, prende il come di *commutazione decentralizzata*. Questa è permessa da una copia della tabella d'inoltro nella porta d'ingresso.
+
+Questo tipo di commutazione serve ad avere un'elaborazione allo stesso tasso della linea ed evitare i colli di bottiglia, cioè quando il tasso di arrivo è maggiore a quello di inoltro.
+
+Una volta scelto il percorso, il pacchetto viene mandato alla switching fabric dove viene instradato sulla porta di output.
+
+Sulle porte di output è presente quindi la *funzionalità di accodamento* che gestisce i colli di bottiglia e lo *schedulatore di pacchetti* che stabilisce in quale ordine spedire quelli accodati.
+
+---
+### Routing
+
+Sceglie il percorso (route) migliore per i pacchetti.
+Costruisce le tabelle e inserisce i dati al suo interno
+
+#### Routing intra-dominio: RIP (routing information protocol)
+
+**Algoritmo di routing**
+Possiamo identificare la rete con un grafo i cui nodi sono i router e gli archi sono i vari collegamenti tra router.
+Un path è una sequenza di nodi all'interno del grafo.
+
+Su ogni arco c'è un costo. Il costo di un cammino è la somma di tutti i costi degli archi lungo il cammino
+
+*Qual è il cammino a costo minimo tra due nodi u e z?*
+Si utilizza l'algoritmo d'instradamento con vettore delle distanze.
+Si basa sull'equazione di Bellman-Ford e il concetto di vettore di distanza.
+
+$$
+\text { Formula Bellman-Ford } D_{x}(y) = min_{v}\{ c(x,v) + D_{v}(y) \}
+$$
+
+Dove $min_{v}$ riguarda tutti i vicini di $x$.
+$D_{x}(Y)$ è il costo del percorso a costo minimo dal nodo $x$ al nodo $y$.
+
+**Vettore delle distanze**
+Array in cui ogni nodi ha il suo array che contiene il costo verso gli altri nodi.
+
+Ogni nodo della rete inizializza il proprio vettore mettendo i valori dei nodi con cui è collegato.
+
+#### RIP
+
+E' un protocollo a vettore distanza 
+E' tipicamente incluso in UNIX BSD dal 1982 e la distanza è misurata in hop (max = 15 hop e 16 indica $\infty$)
+
+---
+
+### Livello di Collegamento
+
+E' il livello più basso dello stack protocollare. 
+La comunicazione è hop-to-hop
+
+i router e host vengono genericamente chiamati *nodi* o *stazioni*.
+Il protocollo di collegamento si occupa della trasmissione dei datagrammi lungo un collegamento.
+
+I collegamenti possono essere:
+- punto-punto: collega direttamente due dispositivi
+- condiviso da più di due nodi
+
+Un datagramma può essere gestito da diversi protocolli.
+
+#### Servizi
+
+**Framing**
+Incapsulamento e aggiunta dell'intestazione.
+Per identificare origine e destinazione vengono utilizzati gli indirizzi MAC.
+
+**Consegna affidabile**
+Basata sull'ack come nel trasporto.
+E considerata necessaria nei collegamenti che presentano un basso numero di errori sui bit.
+
+**Controllo del flusso**
+Evita che il nodo trasmittente saturi quello ricevente
+
+**Rilevazione degli errori**
+Causati dalle interferenze, vedi slide
+
+Il livello di collegamento è implementato nelle interfacce di rete.
+
+#### Sottolivelli
+
+**Data link control (DLC)**
+Occupa tutte le questioni comuni sia ai collegamenti puto-punto, che a quelli broadcast. 
+
+**Media Access Control (MAC)**
+Si occupa solo degli aspetti specifici dei canali broadcast
+
+---
+#### Metodi di persistenza
+
+Definisce come si comporta il nodo quando deve trasmettere. 
+Ascolta il canale, se è libero trasmette subito.
+Se il canale è occupato, può aspettare un tempo randomico per poi riascoltare il canale o rimanere in ascolto finché il canale si libera e in caso trasmette subito.
+Se c'è collisione va in back-off.
+
+**p persistente**
+Se il canale è libero trasmette con probabilità $p$ e rimanda la trasmissione con probabilità $(1-p)$
+
+Se il canale è occupato usa la procedura di back-off (attesa di un tempo random e nuovo ascolto).
+Se c'è collisione fa back-off esponenziale.
+
+> [!info] Persistenza
+Si riferisce all'approccio che si ha verso la trasmissione. Quanto si vuole trasmettere subito.
+
+#### Protocolli MAC a rotazione
+
+**Protocolli MAC a suddivisione del canale**
+Condividono il canale equamente ed efficientemente con carichi elevati ed è inefficiente con carichi elevati.
+
+**Protocolli MAC ad accesso casuale**
+Efficienti anche con carichi non elevati: un singolo nodo può utilizzare interamente il canale.
+Carichi elevati: eccesso di collisioni.
+
+**Protocolli a rotazione**
+Cercano di realizzare un compromesso tra i protocolli precedenti.
+Un nodo principale sonda “a turno” gli altri.
+In particolare:
+- elimina le collisioni
+- elimina gli slot vuoti
+- ritardo di polling
+- se il nodo principale (master) si guasta, l’intero canale resta inattivo
+
+**Protocollo token-passing**
+Un messaggio di controllo circola tra i nodi seguendo un ordine preciso e prefissato.
+Messaggio di controllo (token).
+In particolare:
+- Decentralizzato
+- altamente efficiente
+- il guasto di un nodo può mettere fuori uso l’intero canale
+
+---
+
+### Indirizzi MAC
+
+Sono indirizzi composti da 6 byte e sono associati alla scheda di rete.
+Sono univoci.
+Durante l'incapsulamento del datagramma, nell'intestazione ci sono due indirizzi MAC del mittente e del destinatario.
+
+Ogni nodo ha il suo indirizzo MAC.
+
+*Esempio*
+
+![[Pasted image 20250509145234.png|400]]
+
+Abbiamo una sorgente e una destinazione. Il frame generato dall'orifine passa per due router.
+Il frame parte dall'indirizzo IP
+
+---
+
+### CDMA Code division multiple access
+
+Assumiamo di avere 4 stazioni connesse sullo stesso canale
+I dati spediti sono d1, d2, d3, d4, i codici assegnati c1, c2, c3, c4
+Ogni stazione “moltiplica” i propri dati per il proprio codice e trasmette
+
+Se moltiplichiamo ogni codice per un altro otteniamo 0 
+Se moltiplichiamo ogni codice per se stesso otteniamo il numero delle stazioni
+
+>[!info] Rappresentazione
+>$0 = -1$
+>$1 = +1$
+>$\text {silenzio} = 0$
+
+#### Generazione sequenze di chip
+
+Viene utilizzata la tabella di Walsh (matrice quadrata) in cui ogni riga è una sequenza di chip.
+
+$W_{1}$ indica una sequenza con un chip solo e può assumere valore +1 o -1 e conoscendo $W_{N}$ possiamo creare $W_{2N}$ in questo modo:
+
+![[Pasted image 20250520143812.png|450]]
+
+![[Pasted image 20250520143837.png|450]]
+
+### Protocolli MAC
+
+#### Bluetooth
+E' una tecnologia LAN wireless progettata per connettere dispositivi con diverse funzioni e diverse capacità.
+Ha un raggio trasmissivo di $10m$
+
+E' una rete ad hoc, infatti si forma spontaneamente senza aiuto di alcuna stazione base.
+
+Bluetooth definisce 2 tipi di reti:
+
+- *Piconet*: rete composta al massimo di 8 dispositivi. 1 stazione primaria e 8 secondarie che si sintonizzano con la primaria.
+- *Scatternet*: combinazione di Piconet
+
+**Dispositivo Bluetooth**
+Trasmettitore radio a breve portata
+Rate 1 Mbps
+Ampiezza di banda: 2,4 GHz
+
+#### RFID Radio Frequency Identification
+
+Vengono utilizzati per identificare degli oggetti tramite dei RF tag. Il reader ha delle antenne con la quale riceve la richiesta per ottenere gli ID.
+
+---
+## Sicurezza delle reti LAN
+
+>[!info] Definizione di attacco
+>E' un insieme di azioni che cerca di compromettere
+>- Integrità
+>- Confidenzialità
+>- Disponibilità di una risorsa
+
+**Riservatezza o confidenzialità**
+solo mittente e destinatario (che devono essere autenticati) devono essere in grado di comprendere il contenuto del messaggio che deve rimanere segreto
+
+**Integrità**
+il contenuto della comunicazione non deve essere alterato
+
+**Disponibilità**
+Utenti legittimi devono poter usare i servizi di rete
+
+### Fasi di uno scenario di intrusione
+
+- *Scansione della rete*: in questa fase si mira a recuperare più informazioni possibili sulla rete obiettivo (*Network Mapping*)
+- *Identificazione delle vulnerabilità*: scansione dei singoli host e port scanning
+- *Attacco*: vengono sfruttate vulnerabilità scoperte nella fase precedente, creando un punto di appoggio per un accesso futuro
+- *Espansione dell’attacco*: l’intruso accede nuovamente al sistema per rubare dati confidenziali, cancellando file, mettendo fuori uso il sistema
+
+#### Network mapping
+
+Metodo per il recupero di informazioni sulla rete obiettivo, al fine di tracciare una mappa dei sistemi connessi e individuarne le vulnerabilità
+Per essere effettivo deve aggirare le regole adottate dai firewall (e progredire con il loro aggiornamento)
+
+Storicamente basato su ping, adotta meccanismi molto sottili per introdursi in una rete e ottenere un risultato analogo
+
+Obiettivo: ottenere in qualche modo una risposta dalle macchine sotto
+
+Si suddividono in:
+- Metodi basati su richiesta valida
+- Metodi basati su richiesta non valida
+
+
+>[!info] Classificazione attacchi
+>- *Sniffing*: spiare la conversazione
+>- *Spoofing*: Impersonare un altro soggetto
+>- *hijacking*: Dirottare una sessione in corso
+>- *Denial of service*: Mettere fuori uso alcuni servizi
+
+>[!info] Classificazione malware
+>- *Trojan*: parte nascosta di un file utile.
+>- *Virus*: L’infezione proviene da un oggetto ricevuto (attachment di e-mail), e mandato in esecuzione 
+>	- Auto-replicante: si propaga da solo ad altri host e utenti
+>- *Worm*: L’infezione proviene da un oggetto passivamente ricevuto che si auto-esegue
+
+>[!info] Contromisure
+>- Antivirus
+>- Firewall
+>- Intrusion detection syestem
+>- Crittografia
+
+**Antivirus**
+Software atto a rilevare ed eliminare programmi dolosi. Viene installato sui singoli host per cui agisce localmente all’host.
+Metodi:
+- Esamina i dati interni al computer per rilevare presenza di programmi dolosi noti
+- Analizza il comportamento dei vari programmi alla ricerca di istruzioni sospette perché tipiche del comportamento dei virus
+
+Deve essere sempre aggiornato con la creazione di nuovi attacchi (sempre un passo indietro agli attacchi).
+
+**Firewall**
+Installato sul punto di ingresso della rete che è un'interfaccia tra ciò che è fuori e dentro. Tutto ciò che passa viene analizzato dal firewall e in caso di rilevazione di qualcosa di anomalo, viene bloccato.
+
+##### Funzionamento firewall
+Tre tipi di firewall:
+- A filtraggio dei pacchetti
+- A filtraggio dei pacchetti con memoria dello stato
+- A livello di applicazione (gateway)
+
+**Filtraggio dei pacchetti**
+Una rete privata è collegata a Internet mediante un router.
+Il router è responsabile del filtraggio dei pacchetti e determina quali pacchetti devono essere bloccati o quali possono passare in base a:
+- Indirizzo IP sorgente o destinazione
+- Porte sorgente e destinazione TCP o UDP
+- Tipo di messaggio ICMP
+- Bit TCP SYN o ACK
+
 
 

@@ -226,3 +226,5 @@ Per compilarlo si usa
 gcc -c nom-file-precompilato.c -o nome-file.o
 ```
 
+### Puntatori
+
