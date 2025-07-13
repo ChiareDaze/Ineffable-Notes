@@ -53,7 +53,9 @@ $$
 
 Facciamo riferimento all'esempio precedente:
 
-$\begin{align} A &= \{ a,b,c \}\\n &= 3\\ k&=2\end{align}$
+$A = \{ a,b,c \}$
+$n=3$
+$k=2$
 
 Sta volta, però, se vogliamo ottenere delle disposizioni senza ripetizioni, si devono aggiungere altre coppie.
 
@@ -120,9 +122,11 @@ $$
 > Dati $n$ elementi distinti, si definisce **combinazione con ripetizione**, un raggruppamento *non ordinato* di $k$ elementi estratti da un insieme di partenza di $n$ oggetti, dove uno stesso elemento può figurare nel raggruppamento fino a $k$ volte
 
 Prendiamo in esame l'esempio precedente:
+
 $A = \{ a,b,c \}$
 $n =3$
 $k=2$
+
 $$
 \{ a,b \}, \{ a,c \},\{ b,c \}
 $$
@@ -143,9 +147,10 @@ Per un totale di $6$ raggruppamenti
 >$$
 
 Seguendo l'esempio di prima:
-$$
 
-C^{ r }_{3_{2}}=\binom{ 4 }{ 2 }=\frac{4!}{2!\cdot(4-2)!}= \frac{ 4 \cdot 3 \cdot 2 }{ 4 }=6$$
+$$
+C^{ r }_{3_{2}}=\binom{ 4 }{ 2 }=\frac{4!}{2!\cdot(4-2)!}= \frac{ 4 \cdot 3 \cdot 2 }{ 4 }=6
+$$
 
 >[!warning]
 >Nelle combinazioni non è importante l'ordine in cui compaiono gli elementi (altrimenti si tratterebbe di **disposizioni**). E' importante sapere "chi c'è" nel gruppo di $k$ elementi, quindi quanti sono i possibili sottoinsiemi di $k$ elementi presi da un gruppo di partenza di $n$
@@ -161,12 +166,12 @@ $$
 Questo non è l'unico modo che abbiamo per cambiare l'ordine delle palline. Se si decidesse di scrivere tutte le sequenze ordinate che si possono ottenere con le tre palline otterremmo:
 $$
 \begin{align}
-P_{1},P_{2},P_{3} \\
-P_{1},P_{3},P_{2} \\
-P_{2},P_{1},P_{3} \\
-P_{2},P_{3},P_{1} \\
-P_{3},P_{1},P_{2} \\
-P_{3},P_{2},P_{1}
+&P_{1},P_{2},P_{3} \\
+&P_{1},P_{3},P_{2} \\
+&P_{2},P_{1},P_{3} \\
+&P_{2},P_{3},P_{1} \\
+&P_{3},P_{1},P_{2} \\
+&P_{3},P_{2},P_{1}
 \end{align}
 $$
 Informalmente, possiamo considerare ciascuna di queste $6$ come una permutazione delle $3$ palline.
