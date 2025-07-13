@@ -124,7 +124,9 @@ $$
 Prendiamo in esame l'esempio precedente:
 
 $A = \{ a,b,c \}$
+
 $n =3$
+
 $k=2$
 
 $$
@@ -252,8 +254,10 @@ $$
 Formalmente possiamo vedere questa soluzione come le permutazioni per ottenere le lettere intermedie moltiplicate alle disposizioni semplici per ottenere le due vocali all'inizio e alla fine:
 
 $n = 3$ 
+
 $k=2$
-$$\begin{align}
+$$
+\begin{align}
 P_{tot}&= P_{n} \space \cdot \space D_{n_{k}}  \\
 P_{tot}&= 3! \space \cdot \space 3 \space \cdot \space 2 = 36
 \end{align}
