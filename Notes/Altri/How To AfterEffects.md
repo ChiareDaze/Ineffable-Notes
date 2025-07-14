@@ -8,6 +8,51 @@ These are my notes on how to use Adobe After Effects where i'm going to explain 
 >"Three two one, let's jam"
 
 ---
+# Shortcuts cheat sheet (windows)
+
+>[!info] File Operrations
+>- New Project `Ctrl+Alt+N`
+>- Open Project `Ctrl+O`
+>- Save Project `Ctr+S`
+>- Close Project `Ctrl+Shift+W`
+
+>[!info] Importing
+>- Import File `Ctrl+I`
+>- Import Multiple Files `Ctrl+Shift+I`
+
+>[!info] Composition
+>- New Composition `Ctrl+N`
+>- Composition Settings `Ctrl+K`
+>- Add to Render Queue `Ctrl+M`
+
+>[!info] Layer Operations
+>- New Solid `Ctrl+Y`
+>- New Text `Ctrl+Alt+Shift+T`
+>- Duplicate Layer `Ctrl+D`
+>- Split Layer `Ctrl+Shift+D`
+>- Pre-compose `Ctrl+Shift+C`
+
+>[!info] Viewing
+>- Fit to View `Shift+/`
+>- Zoom In `Ctrl+ +`
+>- Zoom Out `Ctrl + -`
+>- Toggle Transparency Grid `Alt+Shift+Ctrl+T`
+
+>[!info] Transform Project
+>- Anchor Point `A`
+>- Position `P`
+>- Scale `S`
+>- Rotation `R`
+>- Opacity `T`
+
+>[!info] Keyframes
+>- Toggle Keyframes `Alt+Shift+P`
+>- Go to Next Keyframe `J`
+>- Got to Previous Keyframe `K`
+>- Show the Keyframes `U`
+>- Convert to Easy Ease (select the keyframes) `F9`
+
+---
 ### Interface
 
 ![[Pasted image 20250714230317.png|600]]
@@ -105,4 +150,4 @@ Instead of showing values, the speed graph shows how fast those values are chang
 >[!warning]
 >My tip is to not just read about it, but to actually try it out. Experiment with different settings, play around with the graphs and see what works best for you. That's the best way to learn and develop your own style.
 
-I'll add tomorrow (maybe) all the gifs and images. I'm too tired (it's 1am help)
+I'll add all the gifs and images tomorrow (maybe). I'm too tired (it's 1am help)
