@@ -8,7 +8,17 @@ These are my notes on how to use Adobe After Effects where i'm going to explain 
 >"Three two one, let's jam"
 
 ---
-# Shortcuts cheat sheet (windows)
+# Index
+
+>[!info] Index
+>- [[#Shortcuts cheat sheet (windows)]]
+>- [[#Interface]] 
+>- [[#How to create a project and import a file]]
+>- [[#Keyframes and graphs]]
+
+---
+
+## Shortcuts cheat sheet (windows)
 
 >[!info] File Operrations
 >- New Project `Ctrl+Alt+N`
