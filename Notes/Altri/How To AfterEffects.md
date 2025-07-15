@@ -100,7 +100,7 @@ When creating a new file, the first time you open After Effects, a window will a
 
 ![[Pasted image 20250714233143.png|400]]
 
-To create a new project, click on *New Project*. Otherwise, select *Open Project* and and select the file based on its location in the directories.
+To create a new project, click on *New Project*. Otherwise, select *Open Project* and select the file based on its location in the directories.
 
 Once the project is open, the main interface of After Effects will be displayed (as previously explained). So, the next step is to create a composition and import the files you want to use and then edit them as needed.
 
@@ -132,13 +132,13 @@ Set a keyframe at frame $0$ with an object on the middle of the screen, and anot
 
 >[!info] Types of keyframes
 >Not all keyframes behave the same way. There are different types of interpolation, which affects how the values change between keyframes.
->- **Linear keyframes**: these create a constant rate of changing between two points. The animations move at a stead and "mechanical" pace (no acceleration or decelerations). These keyframes appear as diamond shapes (such as the keyframes in the earlier example).
->- **Eased keyframes**: These allow the animation to gradually speed up or slow down, creating a more natural and realistic movement. When you apply easy ease, the keyframes becomes curves and appear as hourglass icons.
+>- **Linear keyframes**: these create a constant rate of changing between two points. The animations move at a stead and "mechanical" pace (no acceleration or decelerations). These keyframes appear as diamond shapes (such as the keyframes in the previous example).
+>- **Eased keyframes**: these allow the animation to gradually speed up or slow down, creating a more natural and realistic movement. When you apply easy ease, the keyframes become curves and appear as hourglass icons.
 
 *Easy ease example*
 ![[2025-07-1500-29-57-ezgif.com-video-to-gif-converter.gif|2000]]
 
-#### Graphs
+#### Graph
 It is where you can fine-tune how your animations behave between keyframes.
 It visually represents either:
 
@@ -151,7 +151,7 @@ Instead of showing values, the speed graph shows how fast those values are chang
 
 >[!info] Modify graphs and animation curves
 >Once you've applied keyframes, you can jump into the graph editor and tweak the motion curves to get more nuanced results.
->- The keyframes appear curved and allow you to shape the animation path. You can drag these handles to make the motion and end faster (or the other way round)
+>- The keyframes appear curved and allow you to shape the animation path. You can drag these handles to make the motion start slower and end faster (or the other way round)
 >- You can manually adjust the speed and influence of keyframes by manipulating these handles, allowing you to create effects like:
 >	- Smooth acceleration and deceleration
 >	- Sudden burst of speed
@@ -160,4 +160,60 @@ Instead of showing values, the speed graph shows how fast those values are chang
 >[!warning]
 >My tip is to not just read about it, but to actually try it out. Experiment with different settings, play around with the graphs and see what works best for you. That's the best way to learn and develop your own style.
 
-I'll add all the gifs and images tomorrow (maybe). I'm too tired (it's 1am help)
+##### Example (scale)
+
+*Value graph*
+![[2025-07-1515-08-53-ezgif.com-video-to-gif-converter.gif|1000]]
+
+*Speed graph*
+![[2025-07-1515-13-48-ezgif.com-video-to-gif-converter.gif|1000]]
+
+When you're working inside the *Graph Editor* in AE, the little yellow handles attached to the keyframes, allow you to customize the interpolation curve between keyframes (it means how the animation behave from one keyframe to the next).
+
+![[Screenshot 2025-07-15 150133.png|500]]
+
+These curves can represent either *values* or *speed*, depending on which mode you're in.
+
+In the previous examples, i'm animating the scale property of the image.
+Now, i want to change the *value graph*, which means i'm looking at how the actual scale percentage changes over time.
+
+The animation starts at $100\%$ scale and ends at $187\%$
+
+>So, what happens when you move those yellow handles?
+
+- Pulling the handle farther out horizontally makes the curve smoother and more gradual, creating a slower start or end (depending on which side you're editing)
+- Dragging it up or down affects how fast the value is increasing or decreasing in that section
+	- A steep curve means a fast change in scale
+	- A flat curve means a slow or barely noticeable change
+- Dragging the handle to the right you delay the influence of that keyframe
+	- The value changes more slowly at the beginning
+	- Visually, the animation starts slower and finishes faster
+- Dragging the handle to the left you make the curve steeper sooner, that means:
+	- The change in value happens more quickly at the start and then it slows down as it approaches the keyframe
+	- Visually, the animation starts fast and eases out sooner
+
+*Samples*
+1. ![[2025-07-1515-50-23-ezgif.com-video-to-gif-converter.gif|1000]]
+
+2. ![[2025-07-1515-53-07-ezgif.com-video-to-gif-converter.gif|1000]]
+
+3. ![[2025-07-1516-18-15-ezgif.com-video-to-gif-converter.gif|1000]]
+
+4. ![[2025-07-1516-18-30-ezgif.com-video-to-gif-converter.gif|1000]]
+
+5. ![[2025-07-1515-54-06-ezgif.com-video-to-gif-converter.gif|1000]]
+
+6. ![[2025-07-1515-54-39-ezgif.com-video-to-gif-converter.gif|1000]]
+
+>[!warning]
+>When you drag a handle in the opposite direction of the value's natural movement (like downward on a scale-up animation), you can create a sort of "bounce" or overshoot.
+
+![[2025-07-1516-51-19-ezgif.com-video-to-gif-converter.gif|1000]]
+
+
+![[2025-07-1516-52-06-ezgif.com-video-to-gif-converter.gif|1000]]
+
+
+![[2025-07-1516-57-15-ezgif.com-video-to-gif-converter.gif|1000]]
+
+---
