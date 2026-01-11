@@ -226,5 +226,187 @@ Per compilarlo si usa
 gcc -c nom-file-precompilato.c -o nome-file.o
 ```
 
-### Puntatori
+---
+### Appunti per le domande a crocette
 
+#### dd
+
+>[!info] Come funziona
+>Il comando `dd` in Linux serve per la copia e la conversione di dati.
+>E' utilizzato per trasferire da un file in input a un file in output.
+
+**Sintassi**
+
+```bash
+dd if=<input file> of=<output file> [opzioni]
+```
+
+- `if`:  specifica il file di input
+- `of`: specifica il file di output
+
+**Opzioni**
+- `bs = <size>`:  indica la dimensione dei blocchi che verranno utilizzati
+- `count =<number>`: limita la copia a un numero specifico di blocchi
+- `seek=<number>`: Specifica il numero di blocchi da saltare nel file di output prima di iniziare la scrittura
+- `skeep = <number>`: Indica quanti blocchi di dati saltare dall'inizio del file di input.
+
+#### ln
+
+>[!info] Come funziona
+>Il comando **`ln`** viene utilizzato in Linux per creare collegamenti (hard link  e symbolic link) tra file e directory.
+>Permette di creare riferimenti a file esistenti, facilitando l'accesso e l'organizzazione dei dati nel filesystem
+
+**Sintassi**
+
+```bash
+ln [opzioni] <target> <link_name>
+```
+
+- `<target>`: Il file o la directory di origine
+- `<link_name>`: Il nome del nuovo collegamento da creare
+
+>[!warning]
+>Per distinguere tra symbolic link e hard link si utilizza l'opzione `-s`
+>>[!example]
+>>*Hard Link*
+>>``` bash
+>>ln original_file.txt hard_link.txt
+>>```
+>>*Symbolic Link*
+>>```bash
+>>ln -s original_file.txt symbolic_link.txt
+>>```
+
+**Opzioni**
+- **`-s`**: Crea un collegamento simbolico
+- **`-f`**: Forza la creazione del collegamento sovrascrivendo eventuali file esistenti con lo stesso nome
+- **`-n`**: Non seguire i collegamenti simbolici esistenti
+
+>[!note] Comando `du`
+>per controllare l'uso dello spazio su disco di un file e di un collegamento (sia esso hard o simbolico).
+>Supponiamo di avere un file chiamato **`myfile`** e un collegamento simbolico **`mylink`** che punta a **`myfile`**. Vediamo cosa restituisce il comando:
+>
+>*Symbolic Link*
+>```bash
+>du myfile du mylink
+>```
+>
+>Output:
+>- `du myfile`: Mostra la dimensione effettiva di **`myfile`**, ad esempio `4.0K` se il file occupa 4 kilobyte
+>- **`du mylink`**: Mostra la dimensione di **`myfile`**, poiché `mylink` punta a **`myfile`**. Quindi, il risultato sarà lo stesso di `du myfile`
+>
+>*Hard Link*
+ >Se **`mylink`** è un collegamento hard a **`myfile`**, il comportamento è simile:
+ >```bash
+ >`du myfile du mylink`
+ >```
+ >
+>Output:
+>- Entrambi i comandi forniranno la stessa dimensione di **`myfile`**.
+
+#### ls
+
+>[!info] Come funziona
+>Il comando **`ls`** è utilizzato per elencare i file e le directory presenti in un filesystem. 
+>È uno dei comandi più comuni e utili in ambiente Unix/Linux e offre molte opzioni per personalizzare l'output
+
+**Sintassi**
+
+```bash
+ls [opzioni] [file|directory...]
+```
+
+Se non viene specificato alcun file o directory, `ls` elenca quelli presenti nella directory corrente.
+
+### Opzioni
+
+Ecco un elenco delle opzioni più utili e comuni per il comando **`ls`**:
+
+| Opzione   | Descrizione                                                                                                                    |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `-a`      | Mostra tutti i file, inclusi quelli nascosti (che iniziano con `.`)                                                            |
+| `-c`      | Ordina output per ctime (change time)                                                                                          |
+| `-l`      | Elenca i file in formato lungo, mostrando informazioni come i permessi, il proprietario, la dimensione e la data di modifica   |
+| `-h`      | Mostra la dimensione dei file in un formato leggibile (es. KB, MB) con l'opzione `-l`                                          |
+| `-R`      | Elenca ricorsivamente tutte le sottodirectory                                                                                  |
+| `-t`      | Ordina i file per data di modifica, dal più recente al meno recente                                                            |
+| `-S`      | Ordina i file per dimensione, dal più grande al più piccolo                                                                    |
+| `-r`      | Inverti l'ordine di sort                                                                                                       |
+| `-d`      | Mostra solo le directory, senza elencare i file al loro interno                                                                |
+| `-1`      | Mostra un file per riga                                                                                                        |
+| `-u`      | Ordina l'output per atime (access time), ma non lo mostra                                                                      |
+| `-F`      | Aggiunge un simbolo alla fine dei nomi dei file per indicarne il tipo (ad es. `/` per le directory, `*` per i file eseguibili) |
+| `--color` | Abilita la colorazione dell'output per differenti tipi di file                                                                 |
+| `-i`      | Mostra il numero di inode di ciascun file                                                                                      |
+| `-n`      | Mostra i nomi degli utenti e dei gruppi in formato numerico (ID invece di nomi)                                                |
+| `-p`      | Aggiunge un `/` alla fine dei nomi delle directory                                                                             |
+| `-Q`      | Riscontra i nomi dei file con virgolette                                                                                       |
+
+>[!warning]
+>Non confondere `-r` con `-R`.
+>`-r` serve per listare il contenuto della directory in ordine inverso.
+>`-R` lista ricorsivamente il contenuto delle directory con radice `mydir`
+
+#### Percorso assoluto e relativo
+
+**Percorso Assoluto**
+E' un percorso che specifica la posizione di un file o di una directory a partire dalla radice del filesystem. In Linux, la radice è rappresentata dal simbolo `/`.
+
+>[!info] Caratteristiche
+>- *Inizia dalla radice*: Sempre fa riferimento al percorso completo partendo dalla directory principale
+>- *Indipendente dalla posizione corrente*: Non importa in quale directory ci si trovi. Il percorso assoluto porterà sempre al file o alla directory specificati
+
+**Percorso Relativo**
+
+E' un percorso che specifica la posizione di un file o di una directory in relazione alla directory corrente in cui ci si trova. Non inizia dalla radice.
+
+>[!info] Caratteristiche
+>- *Inizia dalla directory corrente*: È composto da directory e file a partire dalla posizione attuale
+>- *Dipendente dalla posizione corrente*: Cambiando la directory attuale, cambia anche il significato del percorso relativo
+
+
+#### Simbolo `~`
+
+Rappresenta la home directory dell'utente corrente. È un modo conveniente per fare riferimento rapidamente a questa directory senza scriverne il percorso completo.
+
+>[!info] Caratteristiche
+>- *Home Directory*: Ogni utente ha una propria home directory, di solito situata in **`/home/nome_utente`**. Ad esempio, se il tuo nome utente è **`user`**, la tua home directory sarà **`/home/user`**.
+>- *Rappresentazione*: Usare `~` al posto di scrivere il percorso completo rende i comandi più brevi e più facili da digitare.
+
+- Puoi usare **`cd`** per spostarti nella tua home directory in qualsiasi momento:
+
+```bash
+cd ~
+```
+
+- Se vuoi accedere a una directory chiamata `documenti` all'interno della tua home directory, puoi usare:
+
+```bash
+cd ~/documenti
+```
+
+Per vedere i file e le directory presenti nella tua home:
+
+```bash
+ls ~
+```
+
+Puoi anche usare **`~`** in altri comandi. Ad esempio, per copiare un file dalla home directory a una directory di lavoro:
+
+```bash
+cp ~/file.txt /path/to/destination/
+```
+
+#### Touch
+
+>[!info] Come funziona
+>Viene utilizzato principalmente per due scopi principali:
+>- *Creare file vuoti*: Se il file specificato non esiste, `touch` lo crea come file vuoto
+>- *Aggiornare la data di accesso e modifica*: Se il file esiste già, il comando aggiorna la data e l'ora della sua ultima modifica e accesso al momento corrente
+
+**Opzioni**
+
+- **`-a`**: Aggiorna solo l'access time
+- **`-m`**: Aggiorna solo il modified time
+- **`-c`**: Non crea file se non esistono
+- **`-t`**: Permette di specificare un timestamp personalizzato nel formato `[[CC]YY]MMDDhhmm[.ss]`

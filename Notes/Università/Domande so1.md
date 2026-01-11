@@ -1,0 +1,3662 @@
+>[!note] Domanda Numero 1
+>
+>Quale delle seguenti affermazioni sulle directory di un file system è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] È sempre necessario identificare un file di un file system fornendone il path assoluto
+>- [ ] È sempre necessario identificare un file di un file system fornendone il path relativo alla directory corrente
+>- [ ] È sempre possibile dare lo stesso nome a file diversi
+>- [ ] Nessuna delle altre opzioni è vera
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 2
+>
+>Quale delle seguenti affermazioni sulla concorrenza tra processi o thread è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] La disabilitazione delle interruzioni impedisce la creazione di nuove interruzioni
+>- [ ] L'abuso della disabilitazione delle interruzioni fa diminuire la multiprogrammazione, a parità di numero di processi
+>- [ ] Se un processo può disabilitare le interruzioni tramite un'istruzione macchina dedicata, allora può far diminuire l'uso del processore
+>- [ ] La disabilitazione delle interruzioni non funziona su sistemi con più processori o più core
+>
+>>[!done]- Risposta
+>>
+>>La disabilitazione delle interruzioni impedisce la creazione di nuove interruzioni
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 3
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Lo scheduler ha, tra i suoi obiettivi, quello di minimizzare il numero di processi che rispettano la propria deadline
+>- [ ] Lo scheduler ha, tra i suoi obiettivi, quello di minimizzare il volume di lavoro nel tempo
+>- [ ] Lo scheduler ha, tra i suoi obiettivi, quello di massimizzare il tempo di risposta
+>- [ ] Lo scheduler ha, tra i suoi obiettivi, quello di minimizzare il tempo di inattività del processore
+>
+>>[!done]- Risposta
+>>
+>>Lo scheduler ha, tra i suoi obiettivi, quello di minimizzare il tempo di inattività del processore
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 4
+>
+>Quale delle seguenti affermazioni sul modello dei processi in UNIX SVR4 System V Release 4 è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Se un processo è Zombie, allora è terminato ma il suo process control block è ancora in memoria
+>- [ ] Asleep in Memory coincide con Blocked
+>- [ ] Ha anche uno stato Zombie: serve per tutti i processi che sono terminati
+>- [ ] Ha 9 stati (10 con Exit)
+>
+>>[!done]- Risposta
+>>
+>>Ha anche uno stato Zombie: serve per tutti i processi che sono terminati
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 5
+>
+>Quale delle seguenti affermazioni sulla memoria virtuale con paginazione è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Quando un indirizzo non viene trovato nel translation lookaside buffer, è necessario consultare la normale tabella delle pagine
+>- [ ] Il translation lookaside buffer è una particolare cache, ma non è completamente trasparente al sistema operativo
+>- [ ] Il translation lookaside buffer permette di accedere direttamente al contenuto degli indirizzi di memoria virtuali usati più di recente
+>- [ ] In assenza di translation lookaside buffer, l'accesso ad un indirizzo virtuale può richiedere almeno 2 accessi in memoria
+>
+>>[!done]- Risposta
+>>
+>>Il translation lookaside buffer permette di accedere direttamente al contenuto degli indirizzi di memoria virtuali usati più di recente
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 6
+>
+>Quale delle seguenti affermazioni sugli obiettivi di sicurezza di un sistema operativo è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Per "disponibilità" dell'hardware si intende la garanzia che le workstation restino sempre fisse in un posto
+>- [ ] Per "confidenzialità" dei dati si intende la garanzia che essi non possano essere generati automaticamente
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Per "integrità" dei dati si intende la garanzia che essi non vengano mai modificati
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 7
+>
+>Quale delle seguenti affermazioni sul buffering dell'I/O è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] Avviene direttamente su disco, altrimenti si rischia il deadlock per interferenze con il DMA
+>- [ ] Nel caso ci siano più buffer, vanno gestiti come nel problema dei lettori/scrittori
+>- [ ] Può consistere nel completare un'istruzione di output I dopo che alcune istruzioni successive ad I siano state eseguite
+>
+>>[!done]- Risposta
+>>
+>>Può consistere nel completare un'istruzione di output I dopo che alcune istruzioni successive ad I siano state eseguite
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 8
+>
+>Quale delle seguenti affermazioni, riguardanti il joint progress diagram di 2 processi, è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Può essere usato per visualizzare le possibilità di deadlock, ma solo se i processi richiedono al massimo 2 risorse
+>- [ ] Può essere usato per determinare quando uno dei due processi va in esecuzione a discapito dell'altro
+>- [ ] Può essere usato per determinare quando uno dei due processi sperimenta un page fault
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 9
+>
+>Quale delle seguenti affermazioni sulla gerarchia della memoria è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] Andando dall'alto in basso, cresce il costo
+>- [ ] Andando dall'alto in basso, diminuisce la capacità
+>- [ ] Andando dall'alto in basso, diminuisce la frequenza di accesso alla memoria da parte del processore
+>
+>>[!done]- Risposta
+>>
+>>Andando dall'alto in basso, diminuisce la frequenza di accesso alla memoria da parte del processore
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 10
+>
+>Quale dei seguenti elementi non fa parte del process control block?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il puntatore alla tabella delle pagine
+>- [ ] L’identificatore del thread
+>- [ ] Lo stato o modalità
+>- [ ] L’identificatore del processo
+>
+>>[!done]- Risposta
+>>
+>>L’identificatore del thread
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 11
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni sugli algoritmi di scheduling è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Il quanto di tempo ottimale per lo scheduler round-robin è maggiore del tipico tempo di completa esecuzione di un processo interattivo
+>- [ ] Lo scheduler First Come First Served favorisce i processi I/O-bound
+>- [ ] Anche assumendo che tutti i processi prima o poi terminino, lo scheduler First Come First Served soffre di starvation
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 12
+>
+>Quale delle seguenti affermazioni sulla segmentazione della memoria è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Diversi segmenti possono avere diverse lunghezze
+>- [ ] Differentemente dalla paginazione, il programmatore assembler di un processo non interagisce esplicitamente con la gestione dei segmenti
+>- [ ] Per accedere ad un indirizzo contenuto in un segmento di un processo, tale segmento dovrà essere posizionato in memoria principale
+>- [ ] Un indirizzo di memoria principale va visto come un numero di segmento più uno spiazzamento all'interno di tale segmento
+>
+>>[!done]- Risposta
+>>
+>>Differentemente dalla paginazione, il programmatore assembler di un processo non interagisce esplicitamente con la gestione dei segmenti
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 13
+>
+>Quale delle seguenti affermazioni sull'algoritmo per il rilevamento del deadlock visto a lezione è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Richiede in input, per ogni processo p e per ogni risorsa r, il numero massimo di istanze di r che p chiederà nel corso della sua esecuzione
+>- [ ] Se al passo 3 viene trovato un processo non marcato che soddisfi la condizione Qik ≤ wik, allora c'è un deadlock
+>- [ ] I processi marcati sono quelli che non sono coinvolti in un deadlock
+>- [ ] Nessuna delle altre opzioni è vera
+>
+>>[!done]- Risposta
+>>
+>>I processi marcati sono quelli che non sono coinvolti in un deadlock
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 14
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni sul long-term scheduler è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Viene chiamato in causa esclusivamente quando viene creato un nuovo processo
+>- [ ] Avendo le necessarie informazioni, una tipica strategia è mantenere una giusta proporzione, stabilita a priori, tra processi I/O-bound e CPU-bound
+>- [ ] Avendo le necessarie informazioni, una tipica strategia è ammettere in memoria principale i processi che richiedono dispositivi di I/O diversi da quelli richiesti dai processi già attivi
+>- [ ] Decide quali processi, tra quelli appena creati, possono essere ammessi in memoria principale per l'esecuzione
+>
+>>[!done]- Risposta
+>>
+>>Viene chiamato in causa esclusivamente quando viene creato un nuovo processo
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 15
+>
+>Quale delle seguenti affermazioni sulla memoria virtuale con paginazione è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il difetto principale del prepaging è che potrebbe portare in memoria pagine cui poi non si fa riferimento
+>- [ ] Placement policy e replacement policy sono sinonimi ed indicano lo stesso insieme di metodologie
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] Il difetto principale del paging on demand è che causa molti page fault dopo alcuni secondi di esecuzione
+>
+>>[!done]- Risposta
+>>
+>>Il difetto principale del prepaging è che potrebbe portare in memoria pagine cui poi non si fa riferimento
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 16
+>
+>Quale dei seguenti requisiti deve soddisfare un meccanismo che offra la mutua esclusione?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Non deve essere fatta alcuna assunzione sulla velocità di esecuzione dei processi coinvolti
+>- [ ] Se un processo fa richiesta di entrare nella sezione critica, deve poterlo fare subito
+>- [ ] Se un processo non fa richiesta di entrare nella sezione critica, deve comunque accordarsi all'esecuzione degli altri processi
+>- [ ] Si può assumere che un processo che non sia nella sezione critica prima o poi ci entri
+>
+>>[!done]- Risposta
+>>
+>>Non deve essere fatta alcuna assunzione sulla velocità di esecuzione dei processi coinvolti
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 17
+>
+>Quale delle seguenti affermazioni sulla memoria virtuale con paginazione è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il principio di località afferma che poche pagine saranno sempre sufficienti per eseguire ogni processo senza thrashing
+>- [ ] Il thrashing si verifica quando l'overhead dovuto alla gestione della paginazione è molto basso
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] La paginazione con memoria virtuale funziona bene nonostante il principio di località
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 18
+>
+>Quale delle seguenti affermazioni sullo scambio messaggi per la gestione della concorrenza è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] L'implementazione delle primitive per lo scambio messaggi non è garantita atomica dal sistema operativo
+>- [ ] Se un processo chiama receive, finché il messaggio non viene ricevuto, tutti gli altri processi che proveranno a chiamare receive verranno bloccati
+>- [ ] Per garantire la mutua esclusione, occorre ricorrere al busy waiting se sia invio che ricezione sono non bloccanti
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 19
+>
+>Quali delle seguenti affermazioni sui file system è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] I dati possono essere ricavati dai metadati
+>- [ ] I metadati possono essere ricavati dai dati
+>- [ ] I file system, che adottano il metodo journaling, mantengono un log per le operazioni di sola scrittura da effettuare, realizzandole in seguito
+>- [ ] Un volume coincide sempre con un disco, quindi se un computer ha 2 dischi avrà 2 volumi
+>
+>>[!done]- Risposta
+>>
+>>I file system, che adottano il metodo journaling, mantengono un log per le operazioni di sola scrittura da effettuare, realizzandole in seguito
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 20
+>
+>Quale delle seguenti affermazioni sui dispositivi di I/O è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] Il data rate confronta le velocità di trasferimento dati tra 2 diversi dispositivi di I/O
+>- [ ] Ciascun dispositivo di I/O può essere usato solo da uno specifico tipo di applicazione
+>- [ ] Tutti i dispositivi di I/O scambiano informazioni con la CPU in blocchi, per motivi di efficienza
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 21
+>
+>Quale delle seguenti affermazioni sui metodi di gestione dello spazio libero su disco è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Se viene usata la lista di blocchi liberi, c'è un overhead di spazio, contrariamente alla concatenazione di blocchi liberi
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Se ci sono blocchi da 1kB, e il disco contiene 1TB, l'occupazione dovuta alla lista di blocchi liberi è dell'1%
+>- [ ] Se viene usata la lista di blocchi liberi, una parte viene memorizzata su disco ed una parte in memoria principale
+>
+>>[!done]- Risposta
+>>
+>>Se viene usata la lista di blocchi liberi, c'è un overhead di spazio, contrariamente alla concatenazione di blocchi liberi
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 22
+>
+>Quale delle seguenti azioni va effettuata sia per un process switch che per un mode switch, assumendo di essere in un SO nel quale le funzioni di sistema sono eseguite all'interno dei processi utente?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Salvataggio del contesto del programma
+>- [ ] Aggiornamento delle strutture dati per la gestione della memoria
+>- [ ] Spostamento del process control block nella coda appropriata (ready, blocked, ready/suspend)
+>- [ ] Scelta di un altro processo da eseguire
+>
+>>[!done]- Risposta
+>>
+>>Salvataggio del contesto del programma
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 23
+>
+>Quale delle seguenti affermazioni è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] Nell'algoritmo di sostituzione basato su frequenza a 2 segmenti della page cache, un blocco passa da un segmento ad un altro esclusivamente per scorrimento
+>- [ ] L'algoritmo di LFU della page cache ha buone performance quando un settore viene acceduto molto spesso in poco tempo, per poi non essere più usato
+>- [ ] L'algoritmo di sostituzione basato su frequenza a 2 segmenti della page cache può non avere buone performance quando un settore viene acceduto spesso, ma tra il primo accesso e quelli successivi ci sono N accessi ad altri settori, diversi tra loro, con N pari alla dimensione del segmento nuovo
+>
+>>[!done]- Risposta
+>>
+>>L'algoritmo di sostituzione basato su frequenza a 2 segmenti della page cache può non avere buone performance quando un settore viene acceduto spesso, ma tra il primo accesso e quelli successivi ci sono N accessi ad altri settori, diversi tra loro, con N pari alla dimensione del segmento nuovo
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 24
+>
+>Quale delle seguenti affermazioni sul kernel di un sistema operativo è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] È responsabile dell'accensione del computer
+>- [ ] Viene swappato dal disco alla memoria principale ad ogni context switch
+>- [ ] È responsabile, tra le altre cose, della gestione dei processori
+>- [ ] Nessuna delle altre opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>È responsabile, tra le altre cose, della gestione dei processori
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 25
+>
+>Quale delle seguenti affermazioni sul controllo di accesso è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nel controllo di accesso basato su ruoli, ad ogni ruolo è assegnato un utente
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Nel controllo di accesso basato su ruoli, prima di stabilire se un'operazione è lecita, è necessario consultare una tabella soggetti-ruoli-oggetti
+>- [ ] Nel controllo di accesso discrezionale, prima di stabilire se un'operazione è lecita, è necessario consultare una tabella soggetti-oggetti
+>
+>>[!done]- Risposta
+>>
+>>Nel controllo di accesso discrezionale, prima di stabilire se un'operazione è lecita, è necessario consultare una tabella soggetti-oggetti
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 26
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni sulla preemption è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Se uno scheduler è non-preemptive, permette sempre ai suoi processi di essere eseguiti sul processore, senza interruzioni, fino al loro completamento
+>- [ ] Se uno scheduler è non-preemptive, è possibile che un processo monopolizzi il processore, anche in presenza di altri processi ready
+>- [ ] Se uno scheduler è preemptive, non è possibile che un processo monopolizzi il processore, anche in presenza di altri processi ready
+>- [ ] Per avere un trattamento equo sui processi, è sufficiente usare uno scheduler preemptive
+>
+>>[!done]- Risposta
+>>
+>>Se uno scheduler è non-preemptive, è possibile che un processo monopolizzi il processore, anche in presenza di altri processi ready
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 27
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni sugli algoritmi di scheduling è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Con lo scheduler Shortest Process Next, i processi con una grande immagine su RAM potrebbero soffrire di starvation
+>- [ ] Lo scheduler round-robin virtuale migliora il round-robin classico, facendo sì che i processi I/O-bound non vengano sfavoriti
+>- [ ] Lo scheduler First Come First Served "degenera" nello scheduler round-robin se il quanto di tempo è troppo lungo
+>- [ ] Nessuna delle altre opzioni è vera
+>
+>>[!done]- Risposta
+>>
+>>Lo scheduler round-robin virtuale migliora il round-robin classico, facendo sì che i processi I/O-bound non vengano sfavoriti
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 28
+>
+>Quale delle seguenti affermazioni sugli indirizzi di memoria principale è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Un indirizzo ﬁsico fa sempre riferimento alla memoria secondaria
+>- [ ] Per rispettare il requisito di rilocazione, occorre trasformare indirizzi ﬁsici in logici
+>- [ ] Gli indirizzi relativi sono usati nella paginazione
+>- [ ] Nessuna delle altre opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 29
+>
+>Quale delle seguenti affermazioni sui termini tipici della concorrenza è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Una sezione critica è una porzione di memoria che contiene almeno una variabile condivisa tra più processi
+>- [ ] Una operazione atomica è una sequenza di istruzioni macchina tale che, se un processo la esegue, allora arriverà a termine senza interruzioni da altri processi
+>- [ ] Il requisito di mutua esclusione prevede che un solo processo possa eseguire un certo segmento di codice o accedere ad una determinata risorsa
+>- [ ] Una race condition è una violazione della mutua esclusione || È possibile che 2 distinti processi chiamino la stessa funzione atomica
+>
+>>[!done]- Risposta
+>>
+>>Una sezione critica è una porzione di memoria che contiene almeno una variabile condivisa tra più processi
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 30
+>
+>Quale dei seguenti elementi fa parte del process control block?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni contiene elementi del process control block
+>- [ ] Le informazioni sul contesto del processo, aggiornate ad ogni istruzione eseguita
+>- [ ] L'intera immagine del processo in memoria
+>- [ ] La tabella delle pagine di secondo livello
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni contiene elementi del process control block
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 31
+>
+>Quale delle seguenti informazioni non è presente in una tipica entry di una directory di un ﬁle system?
+>
+>
+> Scegli un'alternativa:
+>- [ ] L'utente che ha creato il ﬁle
+>- [ ] La data di creazione del ﬁle
+>- [ ] Autorizzazioni per l'accesso al ﬁle
+>- [ ] Dimensione del ﬁle
+>
+>>[!done]- Risposta
+>>
+>>L'utente che ha creato il ﬁle
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 32
+>
+>Quale delle seguenti affermazioni sugli algoritmi di scheduling per i dischi è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] L'algoritmo random ha la stessa funzione dell'algoritmo ottimo dei rimpiazzamenti di pagina: ha delle prestazioni ottime non raggiungibili dagli altri algoritmi
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] L'algoritmo C-SCAN deriva da SCAN, ed è stato sviluppato per evitare di favorire le richieste di tracce ai bordi del disco
+>- [ ] Per valutare le prestazioni dell'algoritmo con priorità è necessario fornire il ruolo dell'utente
+>
+>>[!done]- Risposta
+>>
+>>L'algoritmo C-SCAN deriva da SCAN, ed è stato sviluppato per evitare di favorire le richieste di tracce ai bordi del disco
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 33
+>
+>Quale delle seguenti affermazioni sugli algoritmi di scheduling per i dischi è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] L'algoritmo C-SCAN deriva da SCAN, ed è stato sviluppato per evitare di favorire le richieste di tracce ai bordi del disco
+>- [ ] Per valutare le prestazioni dell'algoritmo con priorità è sufficiente fornire il ruolo degli utenti dei processi che effettuano le richieste
+>- [ ] L'algoritmo random ha la stessa funzione dell'algoritmo ottimo dei rimpiazzamenti di pagina: ha delle prestazioni ottime non raggiungibili dagli altri algoritmi
+>
+>>[!done]- Risposta
+>>
+>>L'algoritmo C-SCAN deriva da SCAN, ed è stato sviluppato per evitare di favorire le richieste di tracce ai bordi del disco
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 34
+>
+>Quale delle seguenti affermazioni sul metodo di allocazione contigua dei file è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] È possibile che ci sia frammentazione interna
+>- [ ] La compattazione permette di memorizzare file che altrimenti non potrebbero esserlo (pur essendo la loro dimensione minore di quella dello spazio libero)
+>- [ ] Non è necessaria la preallocazione
+>- [ ] La tabella di allocazione dei file necessita di memorizzare, per ogni file, il solo blocco di partenza
+>
+>>[!done]- Risposta
+>>
+>>La compattazione permette di memorizzare file che altrimenti non potrebbero esserlo (pur essendo la loro dimensione minore di quella dello spazio libero)
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 35
+>
+>Quale delle seguenti affermazioni sulla paginazione della memoria è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Frame e pagine devono avere la stessa dimensione
+>- [ ] Tutte le pagine di un processo dovranno essere, prima o poi, posizionate in un frame
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] Soffre del problema della frammentazione interna, e quindi necessita compattazione
+>
+>>[!done]- Risposta
+>>
+>>Frame e pagine devono avere la stessa dimensione
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 36
+>
+>Quale delle seguenti affermazioni sul controllo di accesso è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nel controllo di accesso basato su ruoli, ad ogni ruolo è assegnato un utente
+>- [ ] Nel controllo di accesso basato su ruoli, prima di stabilire se un'operazione è lecita, è necessario consultare una tabella soggetti-ruoli-oggetti
+>- [ ] Nel controllo di accesso discrezionale, prima di stabilire se un'operazione è lecita, è necessario consultare una tabella soggetti-oggetti
+>- [ ] Nessuna delle altre opzioni è vera
+>
+>>[!done]- Risposta
+>>
+>>Nel controllo di accesso discrezionale, prima di stabilire se un'operazione è lecita, è necessario consultare una tabella soggetti-oggetti
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 37
+>
+>Quale delle seguenti affermazioni è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nel caso delle risorse riusabili, in un grafo dell'allocazione delle risorse ci possono essere più archi tra lo stesso nodo-processo e lo stesso nodo-risorsa
+>- [ ] Nel caso delle risorse riusabili, in un grafo dell'allocazione delle risorse ci possono essere archi sia da nodi-processi a nodi-risorse che viceversa
+>- [ ] Un grafo dell'allocazione delle risorse è un grafo diretto aciclico
+>- [ ] In un grafo dell'allocazione delle risorse, all'interno di un nodo rappresentante una risorsa, c'è un pallino per ogni istanza di quella risorsa
+>
+>>[!done]- Risposta
+>>
+>>Un grafo dell'allocazione delle risorse è un grafo diretto aciclico
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 38
+>
+>Quali delle seguenti affermazioni è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] La confidenzialità di un sistema operativo consiste nel fatto che la shell del sistema operativo deve essere intuitiva e dare del tu agli utenti
+>- [ ] La disponibilità (availability) di un sistema operativo consiste nel fatto che il sistema operativo deve essere sempre pronto a rispondere alle richieste di un utente
+>- [ ] La disponibilità (availability) di un sistema operativo consiste nel fatto che devono esistere delle repository online che permettano sia di installare che di aggiornare il sistema operativo
+>- [ ] La confidenzialità di un sistema operativo consiste nel fatto che il sistema operativo deve essere sempre pronto a rispondere alle richieste di un utente
+>
+>>[!done]- Risposta
+>>
+>>La disponibilità (availability) di un sistema operativo consiste nel fatto che il sistema operativo deve essere sempre pronto a rispondere alle richieste di un utente
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 39
+>
+>Quale delle seguenti affermazioni sulla memoria virtuale con paginazione è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il difetto principale del prepaging è che potrebbe portare in memoria pagine cui poi non si fa riferimento
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] Il difetto principale del paging on demand è che, dopo una prima fase di assestamento, causa molti page fault
+>- [ ] Placement policy e replacement policy sono sinonimi ed indicano lo stesso insieme di metodologie
+>
+>>[!done]- Risposta
+>>
+>>Il difetto principale del prepaging è che potrebbe portare in memoria pagine cui poi non si fa riferimento
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 40
+>
+>Quale delle seguenti affermazioni sui dispositivi di memoria di massa è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] Un settore di un disco magnetico a testina mobile è l'area di una corona circolare del disco stesso
+>- [ ] Una traccia di un disco magnetico a testina mobile è l'area compresa da 2 raggi del disco stesso
+>- [ ] Per selezionare un settore su una traccia di un disco magnetico a testina mobile, è sufficiente posizionare la testina sulla giusta traccia
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 41
+>
+>Quale delle seguenti affermazioni sui semafori per la gestione della concorrenza è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Semafori generali e semafori binari hanno lo stesso potere computazionale (ovvero, permettono di risolvere gli stessi problemi)
+>- [ ] Le primitive sui semafori sono in grado di mettere un processo in blocked, senza usare, a tal proposito, il busy-waiting
+>- [ ] Per implementare le primitive sui semafori, servono un contatore ed una coda, che saranno condivisi da tutti i semafori usati
+>- [ ] L'implementazione delle primitive sui semafori è garantita atomica dal sistema operativo
+>
+>>[!done]- Risposta
+>>
+>>Per implementare le primitive sui semafori, servono un contatore ed una coda, che saranno condivisi da tutti i semafori usati
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 42
+>
+>Quale delle seguenti affermazioni sugli algoritmi di scheduling per i dischi è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nell'algoritmo F-SCAN, immediatamente prima che vengano scambiati i contenuti delle code F ed R, la coda F è vuota, mentre la coda R contiene le richieste arrivate mentre si servivano le richieste dentro F
+>- [ ] L'algoritmo Minimum Service Time può portare alla starvation di un processo, che non verrà quindi mai selezionato, se la richiesta era bloccante, per andare in esecuzione sul processore
+>- [ ] L'algoritmo LIFO è il più equo nei confronti dei processi che effettuano le richieste al disco
+>- [ ] Gli algoritmi Minimum Service Time, SCAN, C-SCAN, N-steps-SCAN ed F-SCAN non sono ottimizzati per essere usati su dischi con testine multiple selezionabili elettronicamente
+>
+>>[!done]- Risposta
+>>
+>>L'algoritmo LIFO è il più equo nei confronti dei processi che effettuano le richieste al disco
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 43
+>
+>Quale delle seguenti affermazioni sui meccanismi per la gestione della concorrenza è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Senza usare né semafori, né scambio messaggi, né istruzioni macchina atomiche, è possibile scrivere processi che non soffrano di starvation per garantire la mutua esclusione tra 2 processi
+>- [ ] Disabilitando gli interrupt, è possibile scrivere processi che non soffrano di starvation
+>- [ ] Usando i semafori di qualsiasi tipo, è possibile scrivere processi che non soffrano di starvation
+>- [ ] Usando le istruzioni macchina exchange e compare_and_swap, è possibile scrivere processi che non soffrano di starvation
+>
+>>[!done]- Risposta
+>>
+>>Senza usare né semafori, né scambio messaggi, né istruzioni macchina atomiche, è possibile scrivere processi che non soffrano di starvation per garantire la mutua esclusione tra 2 processi
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 44
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni sul long-term scheduler è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Decide quali processi, tra quelli appena creati, possono essere ammessi in memoria principale per l'esecuzione
+>- [ ] Avendo le necessarie informazioni, una tipica strategia è mantenere una giusta proporzione, stabilita a priori, tra processi I/O-bound e CPU-bound
+>- [ ] Viene chiamato in causa esclusivamente quando viene creato un nuovo processo
+>- [ ] Avendo le necessarie informazioni, una tipica strategia è ammettere in memoria principale i processi che richiedono dispositivi di I/O diversi da quelli richiesti dai processi già attivi
+>
+>>[!done]- Risposta
+>>
+>>Viene chiamato in causa esclusivamente quando viene creato un nuovo processo
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 45
+>
+>Quale delle seguenti affermazioni sui metodi di gestione dello spazio libero su disco è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Se ci sono blocchi da 1kB, e il disco contiene 1TB, l'occupazione dovuta alla lista di blocchi liberi è dell'1%
+>- [ ] Se viene usata la lista di blocchi liberi, tale lista viene interamente mantenuta in memoria principale
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Se viene usata la lista di blocchi liberi, c'è un overhead di spazio, contrariamente alla concatenazione di blocchi liberi
+>
+>>[!done]- Risposta
+>>
+>>Se viene usata la lista di blocchi liberi, c'è un overhead di spazio, contrariamente alla concatenazione di blocchi liberi
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 46
+>
+>Quale delle seguenti affermazioni sulle directory di un file system è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] È sempre necessario identificare un file di un file system fornendone il path relativo alla directory corrente
+>- [ ] È sempre possibile dare lo stesso nome a file diversi
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] È sempre necessario identificare un file di un file system fornendone il path assoluto
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 47
+>
+>Quale delle seguenti affermazioni sulla memoria cache è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] La memoria cache è direttamente indirizzabile in assembler
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] È possibile che, in un dato istante, la cache e la memoria RAM non siano coerenti tra loro
+>- [ ] L'algoritmo di rimpiazzamento per la cache stabilisce quale blocco di RAM deve essere sostituito da un blocco di cache
+>
+>>[!done]- Risposta
+>>
+>>È possibile che, in un dato istante, la cache e la memoria RAM non siano coerenti tra loro
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 48
+>
+>Quale delle seguenti affermazioni sui problemi dei produttori/consumatori e dei lettori/scrittori, nelle accezioni viste a lezione, è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Per il problema dei produttori/consumatori, non deve essere mai possibile che più consumatori accedano contemporaneamente al buffer, mentre nel problema dei lettori/scrittori deve sempre possibile che più lettori, in assenza di scrittori, accedano all'area di memoria
+>- [ ] Per il problema dei produttori/consumatori, non deve essere mai possibile che più produttori accedano contemporaneamente al buffer, mentre nel problema dei lettori/scrittori deve essere sempre possibile che più scrittori (in assenza di lettori) accedano all'area di memoria
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] Per il problema dei produttori/consumatori, deve essere sempre possibile che più consumatori accedano contemporaneamente al buffer, mentre nel problema dei lettori/scrittori non deve essere mai possibile che più scrittori accedano all'area di memoria
+>
+>>[!done]- Risposta
+>>
+>>Per il problema dei produttori/consumatori, non deve essere mai possibile che più consumatori accedano contemporaneamente al buffer, mentre nel problema dei lettori/scrittori deve sempre possibile che più lettori, in assenza di scrittori, accedano all'area di memoria
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 49
+>
+>Quale delle seguenti affermazioni, riguardanti il joint progress diagram di 2 processi, è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Può essere usato per determinare quando uno dei due processi sperimenta un page fault
+>- [ ] Può essere usato per visualizzare le possibilità di deadlock, ma solo se i processi richiedono al massimo 2 risorse
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Può essere usato per determinare quando uno dei due processi manda un segnale all'altro
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 50
+>
+>Quale delle seguenti affermazioni sui (vecchi) metodi per il partizionamento della memoria è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Con il partizionamento fisso, le partizioni devono avere tutte la stessa dimensione
+>- [ ] Con il buddy system, ogni indirizzo di memoria può ricadere in 2 porzioni
+>- [ ] Con il partizionamento fisso, ci possono essere al massimo N processi attivi (ovvero, accettati per l'esecuzione), dove N è il numero di partizioni
+>- [ ] Con il partizionamento dinamico, si manifesta il problema della frammentazione esterna
+>
+>>[!done]- Risposta
+>>
+>>Con il partizionamento dinamico, si manifesta il problema della frammentazione esterna
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 51
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni sulla preemption è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Se uno scheduler è preemptive e vi è più di 1 processo ready, non è possibile che un processo monopolizzi il processore
+>- [ ] Per avere un trattamento equo sui processi, è sufficiente usare uno scheduler preemptive
+>- [ ] Se uno scheduler è non-preemptive, permette sempre ai suoi processi di essere eseguiti senza interruzioni sul processore fino al loro completamento
+>- [ ] Se uno scheduler è non-preemptive, è possibile che un processo monopolizzi il processore, anche in presenza di altri processi ready
+>
+>>[!done]- Risposta
+>>
+>>Se uno scheduler è non-preemptive, è possibile che un processo monopolizzi il processore, anche in presenza di altri processi ready
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 52
+>
+>Nel modello dei processi a 5 stati, quali delle seguenti transizioni non è possibile?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Blocked ==> Running
+>- [ ] Running ==> Ready
+>- [ ] Blocked ==> Exit
+>- [ ] Blocked ==> Ready
+>
+>>[!done]- Risposta
+>>
+>>Blocked ==> Running
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 53
+>
+>Quale delle seguenti affermazioni sul metodo di allocazione indicizzata dei file è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il consolidamento permette sempre di ridurre la dimensione dell'indice
+>- [ ] Se usato con porzioni di dimensione variabile, i blocchi indice devono contenere anche la lunghezza di ogni porzione
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Non c'è modo per il sistema operativo di distinguere tra blocchi con dati e blocchi con indici
+>
+>>[!done]- Risposta
+>>
+>>Se usato con porzioni di dimensione variabile, i blocchi indice devono contenere anche la lunghezza di ogni porzione
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 54
+>
+>Quale delle seguenti affermazioni sul requisito di rilocazione nella gestione della memoria è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] Se viene realizzato tramite sostituzione degli indirizzi nel programma sorgente (al momento della creazione del processo), allora il relativo processo dovrà cominciare sempre allo stesso indirizzo; tale indirizzo dovrà essere uguale per tutti i processi
+>- [ ] Se viene realizzato tramite sostituzione degli indirizzi nel programma sorgente (al momento della creazione del processo), allora il relativo processo potrà trovarsi in diverse posizioni della memoria in diversi momenti del sua esecuzione
+>- [ ] Se viene realizzato tramite sostituzione degli indirizzi nel programma sorgente (al momento della creazione del processo), serve hardware speciale
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 55
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni sulla preemption è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Se uno scheduler è non-preemptive, permette sempre ai suoi processi di essere eseguiti sul processore, senza interruzioni, fino al loro completamento
+>- [ ] Se uno scheduler è non-preemptive, è possibile che un processo monopolizzi il processore, anche in presenza di altri processi ready
+>- [ ] Se uno scheduler è preemptive, non è possibile che un processo monopolizzi il processore, anche in presenza di altri processi ready
+>- [ ] Per avere un trattamento equo sui processi, è sufficiente usare uno scheduler preemptive
+>
+>>[!done]- Risposta
+>>
+>>Se uno scheduler è non-preemptive, è possibile che un processo monopolizzi il processore, anche in presenza di altri processi ready
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 56
+>
+>Quale dei seguenti requisiti deve soddisfare un meccanismo che offra la mutua esclusione?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Non deve essere fatta alcuna assunzione sulla velocità di esecuzione dei processi coinvolti
+>- [ ] Se un processo non fa richiesta di entrare nella sezione critica, deve comunque sincronizzarsi all'esecuzione degli altri processi
+>- [ ] Se un processo è nella sezione critica, occorre che rilasci subito la sezione critica stessa
+>- [ ] Se un processo fa richiesta di entrare nella sezione critica, deve poter entrare subito nella sezione critica stessa
+>
+>>[!done]- Risposta
+>>
+>>Non deve essere fatta alcuna assunzione sulla velocità di esecuzione dei processi coinvolti
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 57
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni sul dispatcher è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il resource balancing è un criterio di sistema non prestazionale
+>- [ ] Il rispetto delle deadline è un criterio utente prestazionale
+>- [ ] Il throughput è un criterio di sistema prestazionale
+>- [ ] La predictability è un criterio utente prestazionale
+>
+>>[!done]- Risposta
+>>
+>>La predictability è un criterio utente prestazionale
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 58
+>
+>Quale delle seguenti affermazioni sugli interrupt (o eccezioni) è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Devono essere gestiti da opportuno software di sistema
+>- [ ] Una volta gestito l'interrupt o l'eccezione, quando (e se) si torna ad eseguire il processo interrotto, l'esecuzione ripartirà sempre dall'istruzione successiva a quella dove è stato ricevuto l'interrupt o l'eccezione
+>- [ ] Normalmente, non vengono gestiti dal programmatore dell'applicazione che li ha causati
+>- [ ] Possono essere creati direttamente dai dispositivi di I/O
+>
+>>[!done]- Risposta
+>>
+>>Una volta gestito l'interrupt o l'eccezione, quando (e se) si torna ad eseguire il processo interrotto, l'esecuzione ripartirà sempre dall'istruzione successiva a quella dove è stato ricevuto l'interrupt o l'eccezione
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 59
+>
+>Quale delle seguenti affermazioni sulle istruzioni macchina speciali per la gestione della concorrenza è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Sono basate sul busy-waiting, ovvero sul fatto che un processo si mette autonomamente in stato blocked
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Non riescono ad evitare il manifestarsi del deadlock, a meno che non sia presente un sistema a priorità
+>- [ ] Come per la disabilitazione delle interruzioni, non funzionano per architetture con più processori o core
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 60
+>
+>Quale delle seguenti affermazioni sui processi è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Per la terminazione normale di un processo, è tipicamente prevista un'apposita system call, come ad esempio exit
+>- [ ] Un processo può morire quando si effettua il process spawning
+>- [ ] Un processo può essere creato dal modulo di gestione della memoria per gestire la traduzione da indirizzi virtuali a fisici
+>
+>>[!done]- Risposta
+>>
+>>Per la terminazione normale di un processo, è tipicamente prevista un'apposita system call, come ad esempio exit
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 61
+>
+>Quale delle seguenti affermazioni sui meccanismi software per la gestione della concorrenza è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Sia l'algoritmo di Dekker che quello di Peterson possono mettere in blocked uno dei 2 processi, quando ciò si rivela necessario
+>- [ ] Sia l'algoritmo di Dekker che quello di Peterson non funzionano se l'hardware sottostante riordina gli accessi in memoria
+>- [ ] Nell'algoritmo di Peterson, se la variabile turn è inizializzata ad 1, allora il processo 1 sarà sicuramente il primo ad entrare nella sezione critica nella prima iterazione
+>- [ ] Nell'algoritmo di Dekker, se la variabile turn è inizializzata ad 1, allora il processo 1 sarà sicuramente il primo ad entrare nella sezione critica nella prima iterazione
+>
+>>[!done]- Risposta
+>>
+>>Sia l'algoritmo di Dekker che quello di Peterson non funzionano se l'hardware sottostante riordina gli accessi in memoria
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 62
+>
+>Quale delle seguenti affermazioni sugli i-node di Unix è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Ogni directory è identificata da un i-node
+>- [ ] Per modificare una directory, un utente deve aprire il file speciale corrispondente e poi modificarlo opportunamente
+>- [ ] Ogni directory è un file speciale, organizzato come una lista di entry, ciascuna delle quali contiene il nome di un file ed il relativo i-node number
+>- [ ] Ogni directory può contenere molti i-node
+>
+>>[!done]- Risposta
+>>
+>>Per modificare una directory, un utente deve aprire il file speciale corrispondente e poi modificarlo opportunamente
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 63
+>
+>Quale delle seguenti affermazioni è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nel caso di un sistema operativo a kernel separato, la gestione dei process switch è a sua volta un processo
+>- [ ] Nel caso di un sistema operativo in cui le funzioni del sistema operativo vengono eseguite all'interno dei processi utente, non c'è bisogno di un process switch per eseguire una funzionalità del sistema operativo
+>- [ ] Nel caso di un sistema operativo in cui le funzioni del sistema operativo vengono eseguite all'interno dei processi utente, se un processo effettua una syscall e poi può continuare ad essere eseguito, non avviene alcun process switch
+>- [ ] Nel caso di un sistema operativo in cui le funzioni del sistema operativo vengono eseguite come processi separati, c'è sempre bisogno di un process switch per eseguire una funzionalità del sistema operativo
+>
+>>[!done]- Risposta
+>>
+>>Nel caso di un sistema operativo a kernel separato, la gestione dei process switch è a sua volta un processo
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 64
+>
+>Quale delle seguenti affermazioni sulla paginazione della memoria è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] La differenza tra paginazione semplice e paginazione con memoria virtuale è che nella seconda viene richiesto che tutte le pagine di un processo siano in memoria principale, affinché il processo stesso possa essere eseguito
+>- [ ] Con la paginazione con memoria virtuale, una sola pagina di ogni processo ready o in esecuzione è inizialmente caricata in memoria principale
+>- [ ] La differenza tra paginazione semplice e paginazione con memoria virtuale è che nella prima viene richiesto che tutte le pagine di un processo siano in memoria principale, affinché il processo stesso possa essere eseguito
+>- [ ] Nessuna delle altre opzioni è vera
+>
+>>[!done]- Risposta
+>>
+>>La differenza tra paginazione semplice e paginazione con memoria virtuale è che nella prima viene richiesto che tutte le pagine di un processo siano in memoria principale, affinché il processo stesso possa essere eseguito
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 65
+>
+>Quale delle seguenti affermazioni sul metodo di allocazione concatenata dei file è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il consolidamento permette di memorizzare file che altrimenti non potrebbero esserlo (pur essendo la loro dimensione minore di quella dello spazio libero)
+>- [ ] La tabella di allocazione dei file deve contenere l'intera catena
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Viene usato con porzioni di dimensione variabile, ma piccola
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 66
+>
+>Quale delle seguenti affermazioni sulla memoria virtuale con paginazione è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nel caso di una tabella delle pagine a 2 livelli, viene tipicamente richiesto che tutte le tabelle delle pagine di secondo livello entrino in una pagina
+>- [ ] Il numero di bit di un indirizzo virtuale è necessariamente diverso a seconda che si usi una tabella delle pagine ad 1 o a 2 livelli
+>- [ ] Il numero di bit di una entry di una tabella delle pagine di ultimo livello è uguale al numero di bit di controllo più il logaritmo (arrotondato all'intero superiore) del massimo numero di frame in memoria principale
+>- [ ] Nessuna delle altre opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>Il numero di bit di una entry di una tabella delle pagine di ultimo livello è uguale al numero di bit di controllo più il logaritmo (arrotondato all'intero superiore) del massimo numero di frame in memoria principale
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 67
+>
+>Quale delle seguenti affermazioni sul deadlock è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Affinchè ci sia un deadlock, sono necessarie le condizioni di attesa circolare, hold-and-wait, mutua esclusione e no preemption
+>- [ ] Per prevenire il deadlock, è necessario cercare di impedire almeno una delle 3 condizioni di mutua esclusione, hold-and-wait e no preemption
+>- [ ] Affinchè il deadlock sia possibile, sono necessarie le condizioni di mutua esclusione, hold-and-wait e no preemption
+>- [ ] Per prevenire il deadlock impedendo l'hold-and-wait, si può in alcuni casi imporre ai processi di richiedere tutte le risorse fin dall'inizio
+>
+>>[!done]- Risposta
+>>
+>>Per prevenire il deadlock, è necessario cercare di impedire almeno una delle 3 condizioni di mutua esclusione, hold-and-wait e no preemption
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 68
+>
+>Quale delle seguenti affermazioni è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] La modalità di un processo utente è sempre la modalità di sistema
+>- [ ] La modalità di un processo utente è inizialmente la modalità utente; può diventare modalità sistema nel momento in cui va in esecuzione il dispatcher
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] La modalità di un processo utente è sempre la modalità utente
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 69
+>
+>Quale delle seguenti affermazioni sulla memoria virtuale con paginazione è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è corretta
+>- [ ] Per ogni processo, il resident set contiene lo stesso numero di pagine
+>- [ ] Un tipico algoritmo per il replacement scope è quello dell'orologio
+>- [ ] La gestione del resident set tramite politica dinamica mira ad ampliare il numero di pagine di un processo durante l'esecuzione del processo stesso
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 70
+>
+>Quale delle seguenti affermazioni sulla concorrenza tra processi o thread è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] L'istruzione exchange non può ricevere costanti in input su nessun suo argomento, mentre per l'istruzione compare_and_swap questo non vale
+>- [ ] Le istruzioni speciali exchange e compare_and_swap sono garantite atomiche dal sistema operativo
+>- [ ] Per realizzare opportunamente l'istruzione compare_and_swap è sufficiente disabilitare le interruzioni
+>- [ ] Nessuna delle altre opzioni è vera
+>
+>>[!done]- Risposta
+>>
+>>L'istruzione exchange non può ricevere costanti in input su nessun suo argomento, mentre per l'istruzione compare_and_swap questo non vale
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 71
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni sul dispatcher è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il response time è un criterio utente prestazionale
+>- [ ] Il turnaround time (normalizzato o no) è un criterio utente prestazionale
+>- [ ] Il throughput è un criterio di sistema non prestazionale
+>- [ ] La fairness è un criterio di sistema non prestazionale
+>
+>>[!done]- Risposta
+>>
+>>Il throughput è un criterio di sistema non prestazionale
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 72
+>
+>Quale delle seguenti affermazioni sul file system FAT è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Usa il metodo di allocazione contiguo
+>- [ ] Ogni cluster del disco contiene sia dati del disco che l'indirizzo del prossimo cluster (o l'indicazione che si tratta dell'ultimo cluster)
+>- [ ] La tabella di allocazione dei file contiene tante righe quanti sono i file memorizzati sul disco, più una riga speciale per i blocchi liberi
+>- [ ] Nessuna delle altre opzioni è vera
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 73
+>
+>Quale delle seguenti affermazioni sulla memoria virtuale con paginazione è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il translation lookaside buffer, su alcuni processori, contiene un campo per il PID dei processi
+>- [ ] Il translation lookaside buffer funziona correttamente solo se tutti i frame validi contenuti al suo interno fanno riferimento a pagine effettivamente in RAM, e non swappate su disco
+>- [ ] Il mapping associativo permette al translation lookaside buffer di trovare una data pagina semplicemente sommando il numero della pagina con l'indirizzo di partenza del translation lookaside buffer stesso
+>- [ ] Quando un indirizzo viene trovato nel translation lookaside buffer, non è necessario consultare la normale tabella delle pagine
+>
+>>[!done]- Risposta
+>>
+>>Il mapping associativo permette al translation lookaside buffer di trovare una data pagina semplicemente sommando il numero della pagina con l'indirizzo di partenza del translation lookaside buffer stesso
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 74
+>
+>Quale dei seguenti elementi non è una delle parti che definiscono un processo?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il contatore di programma
+>- [ ] La priorità
+>- [ ] I dati contenuti nella porzione di memoria a lui dedicata
+>- [ ] Informazioni sullo stato delle risorse
+>
+>>[!done]- Risposta
+>>
+>>Informazioni sullo stato delle risorse
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 75
+>
+>Quale delle seguenti affermazioni, riguardanti la classificazione delle risorse di un sistema operativo e la loro relazione con il deadlock, è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nel caso delle risorse consumabili, se c'è un deadlock allora è stata richiesta almeno una risorsa già detenuta da un altro processo
+>- [ ] Nel caso delle risorse consumabili, se c'è un deadlock allora c'è una successione circolare di processi, ciascuno dei quali richiede una risorsa al processo successivo, che però la deve ancora creare
+>- [ ] Nel caso delle risorse riusabili, se c'è un deadlock allora è stata richiesta almeno una risorsa non ancora creata
+>- [ ] Nel caso delle risorse riusabili, se c'è un deadlock allora c'è una successione circolare di processi, ciascuno dei quali richiede una risorsa al processo successivo, che però la deve ancora creare
+>
+>>[!done]- Risposta
+>>
+>>Nel caso delle risorse consumabili, se c'è un deadlock allora c'è una successione circolare di processi, ciascuno dei quali richiede una risorsa al processo successivo, che però la deve ancora creare
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 76
+>
+>Si supponga che ci siano N processi attivi, giostrati da uno scheduler round-robin su un sistema monoprocessore. Quale delle seguenti affermazioni è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Dal punto di vista del processore, ogni processo esegue sempre le proprie istruzioni senza interruzioni
+>- [ ] Per realizzare correttamente un process switch, il SO avrà necessità di usare le informazioni sul contesto contenute nel process control block
+>- [ ] Dal punto di vista di ogni processo, l'esecuzione avviene in interleaving con gli altri processi
+>- [ ] Nessuna delle altre opzioni è vera
+>
+>>[!done]- Risposta
+>>
+>>Per realizzare correttamente un process switch, il SO avrà necessità di usare le informazioni sul contesto contenute nel process control block
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 77
+>
+>Quale delle seguenti affermazioni sulla traduzione di un indirizzo virtuale in fisico, in un sistema con memoria virtuale con paginazione (avente tabella delle pagine ad 1 livello), è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] L'hardware deve anche cercare il numero di pagina nelle entries della tabella delle pagine del processo in esecuzione.
+>- [ ] L'hardware deve anche estrarre dall'indirizzo virtuale il numero di pagina virtuale; tale operazione è equivalente ad una divisione intera
+>- [ ] L'hardware deve anche usare il numero di pagina per accedere alla tabella delle pagine del processo in esecuzione. A tal proposito, deve conoscere l'inizio di tale tabella, che viene definito dal software (sistema operativo). Tale indirizzo può cambiare durante l'esecuzione del processo: sta al sistema operativo mantenerlo aggiornato
+>- [ ] L'hardware deve anche usare il numero di frame ottenuto dalla tabella delle pagine per comporre, insieme con l'offset originale, l'indirizzo fisico. Tale operazione è equivalente ad uno shift seguito da una somma
+>
+>>[!done]- Risposta
+>>
+>>L'hardware deve anche cercare il numero di pagina nelle entries della tabella delle pagine del processo in esecuzione.
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 78
+>
+>Quale delle seguenti operazioni non è tipicamente effettuata su un file?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Apertura
+>- [ ] Connessione
+>- [ ] Posizionamento (seek)
+>- [ ] Lock/Unlock
+>
+>>[!done]- Risposta
+>>
+>>Connessione
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 79
+>
+>Quale delle seguenti affermazioni è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Diversi thread di uno stesso processo condividono lo stesso thread identifier
+>- [ ] Tra le funzioni di sistema per i thread, è tipicamente prevista una funzione per bloccare e sbloccare esplicitamente i thread stessi
+>- [ ] Diversi thread di uno stesso processo condividono lo stesso process identifier
+>- [ ] Diversi thread di uno stesso processo condividono i file aperti
+>
+>>[!done]- Risposta
+>>
+>>Diversi thread di uno stesso processo condividono lo stesso thread identifier
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 80
+>
+>Quale delle seguenti affermazioni sulla page cache è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nell'algoritmo di sostituzione basato su frequenza a 3 segmenti della page cache, i contatori vengono sempre incrementati, tranne quando sono nel segmento vecchio
+>- [ ] Nell'algoritmo di sostituzione basato su frequenza a 3 segmenti della page cache, i settori che possono essere sostituiti sono solo quelli del segmento vecchio
+>- [ ] Nell'algoritmo di sostituzione basato su frequenza a 3 segmenti della page cache, l'unico segmento in cui i contatori non vengono incrementati e i settori non possono essere sostituti è quello nuovo
+>- [ ] L'algoritmo di sostituzione basato su frequenza a 3 segmenti della page cache può avere buone performance anche quando dei settori vengono acceduti spesso, ma tra il primo accesso e quelli successivi ci sono molti altri accessi ad altri settori
+>
+>>[!done]- Risposta
+>>
+>>Nell'algoritmo di sostituzione basato su frequenza a 3 segmenti della page cache, i contatori vengono sempre incrementati, tranne quando sono nel segmento vecchio
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 81
+>
+>Quali delle seguenti affermazioni sulla efficienza di un sistema operativo è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Deve minimizzare il tempo di risposta, tenendo presenti eventuali priorità
+>- [ ] Deve servire il maggior numero di utenti possibile, tenendo presenti eventuali livelli di accesso
+>- [ ] Deve dare accesso alle risorse in modo equo ed egualitario tra tutti i processi
+>- [ ] Deve massimizzare l'uso delle risorse per unità di tempo, tenendo presenti eventuali priorità
+>
+>>[!done]- Risposta
+>>
+>>Deve dare accesso alle risorse in modo equo ed egualitario tra tutti i processi
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 82
+>
+>Quale delle seguenti affermazioni sui metodi di gestione del deadlock è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] L'unico metodo, che richiede di conoscere in anticipo il massimo numero di risorse che un processo dovrà chiedere, è quello per rilevare il deadlock
+>- [ ] Il metodo più permissivo nei confronti delle richieste di risorse è quello che consiste nel prevenire il deadlock
+>- [ ] L'unico metodo che non prevede mai la preemption delle risorse è quello che evita il deadlock
+>
+>>[!done]- Risposta
+>>
+>>L'unico metodo che non prevede mai la preemption delle risorse è quello che evita il deadlock
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 83
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Lo scheduler ha, tra i suoi obiettivi, quello dell'equità tra i processi, a meno che non siano definite delle priorità
+>- [ ] Lo scheduler va scritto in modo che il suo overhead sia basso
+>- [ ] Lo scheduler ha, tra i suoi obiettivi, quello di evitare il deadlock
+>- [ ] Lo scheduler ha, tra i suoi obiettivi, quello di massimizzare il volume di lavoro dei processi nel tempo
+>
+>>[!done]- Risposta
+>>
+>>Lo scheduler ha, tra i suoi obiettivi, quello di evitare il deadlock
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 84
+>
+>Quale delle seguenti affermazioni sugli scheduler per architetture multiprocessore è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Con l'assegnamento statico, si dà un processore a caso tra quelli liberi ai processi che mantengono un uso della RAM pressoché costante
+>- [ ] Assegnando i processi del sistema operativo con l'assegnamento dinamico, si rischia di creare un bottleneck su un solo processore
+>- [ ] Uno svantaggio dell'assegnamento statico è il suo overhead maggiore rispetto a quello dinamico
+>- [ ] Nessuna delle altre opzioni è vera
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 85
+>
+>Quale delle seguenti affermazioni sull'algoritmo del banchiere per evitare il deadlock visto a lezione è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] La matrice C - A può contenere elementi negativi, ma le matrici C ed A contengono solo elementi non negativi
+>- [ ] Richiede in input, per ogni processo p e per ogni risorsa r, il numero massimo di istanze di r che p chiederà nel corso della sua esecuzione
+>- [ ] All'inizio e alla fine di ogni invocazione dell'algoritmo, Vi = Ri - ∑j = 1, ..., nAi, j
+>- [ ] Se si procede da uno stato ad un altro, necessariamente è stata fatta almeno una richiesta ad almeno una risorsa da parte di almeno un processo
+>
+>>[!done]- Risposta
+>>
+>>La matrice C - A può contenere elementi negativi, ma le matrici C ed A contengono solo elementi non negativi
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 86
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni sul dispatcher è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il throughput è definito come il numero di processi completati per unità di tempo
+>- [ ] Il turnaround time è definito, per un dato processo, come il tempo che intercorre tra la sua prima esecuzione sul processore e il suo completamento
+>- [ ] Un dispatcher con buone prestazioni sul response time deve tipicamente sia minimizzare il valore medio di sistema del response time, sia massimizzare il numero di utenti con un basso valore per il response time
+>- [ ] Il processor utilization è definito come il rapporto tra il tempo in cui il processore viene usato ed il tempo totale del sistema
+>
+>>[!done]- Risposta
+>>
+>>Il turnaround time è definito, per un dato processo, come il tempo che intercorre tra la sua prima esecuzione sul processore e il suo completamento
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 87
+>
+>Quale delle seguenti affermazioni sugli i-node di Unix è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Per ogni file-system su disco organizzato con i-node, tutti gli i-node di tutti i file su tale file-system sono memorizzati esclusivamente su disco
+>- [ ] I puntatori a tripla indirezione di un i-node vengono usati solo se la dimensione del file lo richiede
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Ad ogni file effettivamente memorizzato su disco può essere associato un solo numero di i-node
+>
+>>[!done]- Risposta
+>>
+>>I puntatori a tripla indirezione di un i-node vengono usati solo se la dimensione del file lo richiede
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 88
+>
+>Quale delle seguenti affermazioni sul modello dei processi a 7 stati è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nessuna delle altre opzioni è vera
+>- [ ] Gli stati Ready, New e Blocked del modello a 5 stati vengono sdoppiati, e ne viene creata una versione Suspend
+>- [ ] Un processo è Suspend quando scade il timeout del dispatcher
+>- [ ] È possibile la transizione Ready/Suspend ==> Blocked/Suspend
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle altre opzioni è vera
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 89
+>
+>Quale delle seguenti affermazioni sui dischi magnetici a testina mobile è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Per selezionare un settore su una traccia di un disco magnetico a testina mobile, bisogna prima far ruotare il disco fino ad arrivare alla giusta traccia, e poi posizionare la testina sul giusto settore
+>- [ ] Una traccia di un disco è l'area compresa tra 2 raggi del disco stesso
+>- [ ] Il tempo di accesso ad un disco magnetico a testina mobile tiene conto sia del tempo che occorre per posizionare la testina che del tempo che occorre per far ruotare il disco, ma non del tempo che occorre per effettuare effettivamente il trasferimento di dati
+>- [ ] Nessuna delle altre opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>Il tempo di accesso ad un disco magnetico a testina mobile tiene conto sia del tempo che occorre per posizionare la testina che del tempo che occorre per far ruotare il disco, ma non del tempo che occorre per effettuare effettivamente il trasferimento di dati
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 90
+>
+>Assumendo un sistema monoprocessore, quale delle seguenti affermazioni sugli algoritmi di scheduling è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] L'exponential averaging permette di stimare la dimensione dell'immagine di un processo, a partire dalle precedenti immagini di quello stesso processo
+>- [ ] La funzione di decisione dello scheduler Highest Response Ratio Next considera tanto il tempo di esecuzione stimato quanto il tempo trascorso in attesa
+>- [ ] L'exponential averaging è una tecnica applicabile dal solo scheduler Short Process Next
+>- [ ] La funzione di decisione dello scheduler Shortest Remaining Time considera tanto il tempo di esecuzione richiesto quanto il tempo trascorso in attesa
+>
+>>[!done]- Risposta
+>>
+>>La funzione di decisione dello scheduler Highest Response Ratio Next considera tanto il tempo di esecuzione stimato quanto il tempo trascorso in attesa
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 91
+>
+>Quale delle seguenti affermazioni è vera sulla memoria virtuale con paginazione a segmentazione?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Sia la tabella dei segmenti che quella delle pagine di un processo contengono, in ciascuna entry, un bit per indicare se la pagina o il segmento sono stati modificati
+>- [ ] Un indirizzo virtuale contiene anche un bit per indicare se la pagina corrispondente è o no in memoria principale
+>- [ ] La tabella delle pagine di un processo contiene una pagina speciale dove è memorizzato il process control block del processo stesso
+>- [ ] Ogni entry di una tabella delle pagine contiene un numero di pagina ed un offset
+>
+>>[!done]- Risposta
+>>
+>>Sia la tabella dei segmenti che quella delle pagine di un processo contengono, in ciascuna entry, un bit per indicare se la pagina o il segmento sono stati modificati
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 92
+>
+>Quale delle seguenti affermazioni sulla memoria virtuale con paginazione è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Per avere un overhead accettabile, occorre demandare la traduzione degli indirizzi all'hardware, mentre al software resta da gestire prelievo, posizionamento e sostituzione delle pagine
+>- [ ] Per avere un overhead accettabile, occorre demandare la traduzione degli indirizzi e la politica di sostituzione delle pagine all'hardware, mentre al software resta da gestire prelievo e posizionamento delle pagine
+>- [ ] Per avere un overhead accettabile, occorre demandare all'hardware la traduzione degli indirizzi ed il prelievo, il posizionamento e la sostituzione delle pagine
+>- [ ] Per avere un overhead accettabile, occorre demandare al software anche la traduzione degli indirizzi
+>
+>>[!done]- Risposta
+>>
+>>Per avere un overhead accettabile, occorre demandare la traduzione degli indirizzi all'hardware, mentre al software resta da gestire prelievo, posizionamento e sostituzione delle pagine
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 93
+>
+>Riguardo alle differenze tra sistemi batch e sistemi time sharing (degli anni 60/70), quale delle seguenti affermazioni è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] I sistemi time-sharing puntavano a minimizzare l'uso del processore
+>- [ ] Nei sistemi time-sharing, le direttive al sistema operativo arrivavano dai comandi digitati su terminali
+>- [ ] Nei sistemi batch, le direttive al sistema operativo arrivavano dai comandi del job control language, che erano non-interattivi
+>- [ ] I sistemi batch puntavano a massimizzare l'uso del processore
+>
+>>[!done]- Risposta
+>>
+>>I sistemi time-sharing puntavano a minimizzare l'uso del processore
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 94
+>
+>Considerare un insieme di cinque processi P1, P2, P3, P4, P5 con i seguenti tempi di arrivo e tempi di esecuzione in millisecondi: Quale delle seguenti affermazioni è falsa?
+>
+>>![image](iVBORw0KGgoAAAANSUhEUgAAAPsAAABxCAYAAAATWdUYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAABFgSURBVHhe7Z0LlFXzF8d3RTSUmdBgRLXkMTUipfQYhSUrz/IoIUuEJCIqoqe3FWq1YpBHhJoQKyqSpJc0QyWvilIelUiRMan5z2d3zrg15869d5p/nXPP/qx11tx7zj3n/M7v/PZv799vzv6eSkXFiDJzx59y08b5axiGH4kwdsMwkpkSY3/66ad1hWEYycX111+/4wPGDjk5Oc6n5CEZr2lvYPUYXCLvXeUdJm8YRrJjxm4YIcGM3TBCghm7j/juu+/kxRdflL/++stZs3v8+++/MmHCBMnLy3PWhIOKrseKpHjoLO+//74ufN6TlDL2OXPmSKVKlUqWE088UZ5//nltOEHk77//lhtvvHGna3KXcePGOb/ae3zzzTdy0kknaVm++uorbaQbNmxwtv7H5s2bpWvXrtKxY0f5/fffnbVls2XLFnnjjTdk3rx5zpryE/R65PM555xTquy09z3J1q1bZfr06brweU8S1bOPHj1aPvzwQ7nmmmukf//+8s477zhbgkXVqlW1kXItgwYNkvr168vLL7+s31u1auX8yh+ce+65MmPGDDnqqKOcNf/x7bffagOZP3++LFu2zFlbNjVq1JDXXntNbr75ZmdN+UmWeuzevbuW2V2OO+44Z8uegXp8+OGHdeHzniSqsePR27Rpo97k5JNPlsWLF2uv2bx5c+nZs6f06NFDG123bt20UWVnZ2tDBNbjgeg5+es2zq+//rrUekKtwYMHy8EHH6znpHESRXAsjsmxOcfq1at1Pdv5Hb9nv1ihWpUqVbTH51pooCkpKdKkSRP9fvTRR3uWievk3DRqznPZZZfJ+PHj9bzHH3+8zJo1Sz1CZmamdOnSRct47bXXyvr16+MqI7/jf5/p6el6DjwwcF7KipeKhHDvo48+kpYtW8qZZ54pkydPlm3btpV4q5tuukkN7tVXX9X977jjDmnbtq188sknup1z3HrrrWqseGjCeq5jwYIFWq9e93BXkqEeoXbt2lpmd+HYkyZNKjnPgAED5LfffpN//vlHnnzySalTp44uOTk5Wiavth15PveeDBs2TNfzO3fhN4sWLdL74N6Lzz//vNTx3Cilb9++JXU1bdo0Lb9XPcdLzDH7Tz/9JL/88osceOCB+p0GRCEx+kcffVQrgHVnnHGGRgAU5oEHHpBDDjlElixZon+HDx8uP//8swwcOFALz5iKHpX1hJn0wrNnz9be7s0339T97rvvPrnkkkvkyy+/lIMOOkjeeustbRjc9HvvvVdv0NSpU3WIUV4Ih73KVFhYKMuXL5eGDRvqmPeLL76QDz74QF555RU57bTTtMHym40bN0qHDh006lm6dKl6urlz58Ys49tvv62GlpubKxdffLH8+eefzhZvaECM8WhELITl69atc7aKnvPss8/WxgoY8/nnn6/GA/vss492EtQr+y1cuFANjIZ///33l7qHP/zwg+4XL0GpR6CcrvFhkCtWrNC2NnToUD0nnd/HH3+s5xs7dqyWdcyYMfLMM89oh+vVtrkGLzDGX3/9Va+b+qc916tXz9m6o7Oik6K+aOccj+t1r4MOljqirrCLaDaEPcZDVGPHU1AhHPjYY4/VnhcaNWok/fr1016RG9OuXTs54YQTpHPnztojso6Q8/TTT9ebPGLECHnwwQdl7dq12osNGTJEL/ihhx6SlStXyhFHHKGdCRX/xx9/6PCBhkhv9uyzz+oNvvLKK9V75efnay9Lo6R8NHwqMt6L3RVurFeZuHm1atXSa6eHJRx0r4ff4VXxtu5vWrRooWWiR8YzllXGgoICvQ689Kmnnqr7c5yywBusWrVKmjZtqt6URvLpp586W0UbOo0ADwvXXXed3H777Tsdl/vG/eTefPbZZ9K4cWP1XjTaXe8h9ZIIQalHuPvuu9UAWW677TbtICnLY489JlOmTFHPzjCAzo8ycPyzzjpLO1DO79W29913X+foO1OtWjV1krRh/jKEoON1WbNmjd7H8847T+ufdo6z5P4C52A95aM+8eJe9exGNLEoc8xOmMWNpHcjVNodmIygx3rvvff0Bm/fvl3effdd7fEYO1GBL7zwgjZcOgY8zsiRI3UfvBblqWiilcmNYuKFRkvjS4T99ttPKleOGVjpsfEoTDphsHSCGD8eMppH8eKwww6TU045pcTDEuZj/BVBEOrRZf/991cDZ6F8aWlpaow4MBwVww4iDMpx1VVXyaZNm/SaiH4uuugi5yjxwX6vv/66RiB33nnnbtsQZfCqZzeii0XUWqKnbN26tRx55JE79UYu9KJZWVk6lqAhMr6qWbOm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)
+>
+> Scegli un'alternativa:
+>- [ ] Non ci sono sufficienti informazioni per determinare come si comporterebbe l'algoritmo di scheduling a feedback classico di Unix
+>- [ ] Non ci sono sufficienti informazioni per determinare come si comporterebbe l'algoritmo di scheduling Virtual Round-Robin
+>- [ ] Non ci sono sufficienti informazioni per determinare come si comporterebbe l'algoritmo di scheduling Round-Robin
+>- [ ] Non ci sono sufficienti informazioni per determinare come si comporterebbe l'algoritmo di scheduling SRT
+>
+>>[!done]- Risposta
+>>
+>>Non ci sono sufficienti informazioni per determinare come si comporterebbe l'algoritmo di scheduling SRT
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 95
+>
+>Considerare un insieme di cinque processi P1, P2, P3, P4, P5 con i seguenti tempi di arrivo e tempi di esecuzione in millisecondi: Assegnare questo insieme di processi ad un processore usando l'algoritmo di scheduling SRT, ﬁno a che non terminano tutti. Quale delle seguenti affermazioni è falsa?
+>
+>>![image](iVBORw0KGgoAAAANSUhEUgAAAPsAAABxCAYAAAATWdUYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAABFgSURBVHhe7Z0LlFXzF8d3RTSUmdBgRLXkMTUipfQYhSUrz/IoIUuEJCIqoqe3FWq1YpBHhJoQKyqSpJc0QyWvilIelUiRMan5z2d3zrg15869d5p/nXPP/qx11tx7zj3n/M7v/PZv799vzv6eSkXFiDJzx59y08b5axiGH4kwdsMwkpkSY3/66ad1hWEYycX111+/4wPGDjk5Oc6n5CEZr2lvYPUYXCLvXeUdJm8YRrJjxm4YIcGM3TBCghm7j/juu+/kxRdflL/++stZs3v8+++/MmHCBMnLy3PWhIOKrseKpHjoLO+//74ufN6TlDL2OXPmSKVKlUqWE088UZ5//nltOEHk77//lhtvvHGna3KXcePGOb/ae3zzzTdy0kknaVm++uorbaQbNmxwtv7H5s2bpWvXrtKxY0f5/fffnbVls2XLFnnjjTdk3rx5zpryE/R65PM555xTquy09z3J1q1bZfr06brweU8S1bOPHj1aPvzwQ7nmmmukf//+8s477zhbgkXVqlW1kXItgwYNkvr168vLL7+s31u1auX8yh+ce+65MmPGDDnqqKOcNf/x7bffagOZP3++LFu2zFlbNjVq1JDXXntNbr75ZmdN+UmWeuzevbuW2V2OO+44Z8uegXp8+OGHdeHzniSqsePR27Rpo97k5JNPlsWLF2uv2bx5c+nZs6f06NFDG123bt20UWVnZ2tDBNbjgeg5+es2zq+//rrUekKtwYMHy8EHH6znpHESRXAsjsmxOcfq1at1Pdv5Hb9nv1ihWpUqVbTH51pooCkpKdKkSRP9fvTRR3uWievk3DRqznPZZZfJ+PHj9bzHH3+8zJo1Sz1CZmamdOnSRct47bXXyvr16+MqI7/jf5/p6el6DjwwcF7KipeKhHDvo48+kpYtW8qZZ54pkydPlm3btpV4q5tuukkN7tVXX9X977jjDmnbtq188sknup1z3HrrrWqseGjCeq5jwYIFWq9e93BXkqEeoXbt2lpmd+HYkyZNKjnPgAED5LfffpN//vlHnnzySalTp44uOTk5Wiavth15PveeDBs2TNfzO3fhN4sWLdL74N6Lzz//vNTx3Cilb9++JXU1bdo0Lb9XPcdLzDH7Tz/9JL/88osceOCB+p0GRCEx+kcffVQrgHVnnHGGRgAU5oEHHpBDDjlElixZon+HDx8uP//8swwcOFALz5iKHpX1hJn0wrNnz9be7s0339T97rvvPrnkkkvkyy+/lIMOOkjeeustbRjc9HvvvVdv0NSpU3WIUV4Ih73KVFhYKMuXL5eGDRvqmPeLL76QDz74QF555RU57bTTtMHym40bN0qHDh006lm6dKl6urlz58Ys49tvv62GlpubKxdffLH8+eefzhZvaECM8WhELITl69atc7aKnvPss8/WxgoY8/nnn6/GA/vss492EtQr+y1cuFANjIZ///33l7qHP/zwg+4XL0GpR6CcrvFhkCtWrNC2NnToUD0nnd/HH3+s5xs7dqyWdcyYMfLMM89oh+vVtrkGLzDGX3/9Va+b+qc916tXz9m6o7Oik6K+aOccj+t1r4MOljqirrCLaDaEPcZDVGPHU1AhHPjYY4/VnhcaNWok/fr1016RG9OuXTs54YQTpHPnztojso6Q8/TTT9ebPGLECHnwwQdl7dq12osNGTJEL/ihhx6SlStXyhFHHKGdCRX/xx9/6PCBhkhv9uyzz+oNvvLKK9V75efnay9Lo6R8NHwqMt6L3RVurFeZuHm1atXSa6eHJRx0r4ff4VXxtu5vWrRooWWiR8YzllXGgoICvQ689Kmnnqr7c5yywBusWrVKmjZtqt6URvLpp586W0UbOo0ADwvXXXed3H777Tsdl/vG/eTefPbZZ9K4cWP1XjTaXe8h9ZIIQalHuPvuu9UAWW677TbtICnLY489JlOmTFHPzjCAzo8ycPyzzjpLO1DO79W29913X+foO1OtWjV1krRh/jKEoON1WbNmjd7H8847T+ufdo6z5P4C52A95aM+8eJe9exGNLEoc8xOmMWNpHcjVNodmIygx3rvvff0Bm/fvl3effdd7fEYO1GBL7zwgjZcOgY8zsiRI3UfvBblqWiilcmNYuKFRkvjS4T99ttPKleOGVjpsfEoTDphsHSCGD8eMppH8eKwww6TU045pcTDEuZj/BVBEOrRZf/991cDZ6F8aWlpaow4MBwVww4iDMpx1VVXyaZNm/SaiH4uuugi5yjxwX6vv/66RiB33nnnbtsQZfCqZzeii0XUWqKnbN26tRx55JE79UYu9KJZWVk6lqAhMr6qWbOm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)
+>
+> Scegli un'alternativa:
+>- [ ] Gli unici 2 processi che non sono serviti subito (ovvero, appena arrivati) sono P3 e P5
+>- [ ] Il tempo medio di attesa è tra 10 ed 11 ms
+>- [ ] Il processo con il più lungo tempo di attesa è P1
+>- [ ] Il tempo medio di turnaround è tra 2 e 3 ms
+>
+>>[!done]- Risposta
+>>
+>>Gli unici 2 processi che non sono serviti subito (ovvero, appena arrivati) sono P3 e P5
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 96
+>
+>Si consideri il seguente modo di implementare la mutua esclusione: Quale delle seguenti affermazioni è vera?
+>
+>>![image](iVBORw0KGgoAAAANSUhEUgAAAP8AAACICAYAAAAoLz2zAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAABldSURBVHhe7Z0JtFVTGMe3oSSkDIkylqRBZEiDWoZKoQEVSywqomURimQsCokGLUM0miMqaZKWZC4qRUlEFDKHZHzu73N2nc7b591z37vv9c4932+ts95759177rnnnG/Ye3//vbfLS2EURUkc23s/twJ/sGnTJu+v4uX11183t912m/eXoiglhdP4P/nkE9O7d2/zyy+/eHuigyFj0CXJ33//bR566CFz0EEHmSOOOMJMnjxZHJiiKOE4jb9GjRpm5MiRZrfddvP25Kc4Ivbjjz8uW6YsWbJEtqVLl5rp06ebqVOnmjVr1nj/VRTFhdP4P/roI3PttdeaH374QTKAAQMGSERlmz9/vhho06ZNzc033+x0AI899pipVauWOe6448xbb70l+7799ltzySWXmAoVKpgzzzzTLF68WPZbOE6XLl1ky9QBrFixwjRp0kScVbVq1czBBx9svvzyS/P000+bwYMHe69SFMWP0/j9/Prrr6ZKlSpmwYIFZtiwYWbatGmmY8eO5rXXXhOncNNNN3mv3MLxxx9vPvzwQzN69GjzyCOPiBMhk2jWrJn58ccfzS233GKGDh1q1q9f773DyHFwGmznnXeet9eY33//3Vx66aVmu+2227xFzTg6dOhgevXq5f2lKIqftMYPderUMTvttJOpWrWqtKX/+ecf7z9uaDZsv/328nOPPfaQPgQif6tWrcwOO+xg6tataw488EDzxRdfeO8IZ+eddzYPPvigfK7dXA7HRdmyZWVTFCU/kYy/sERxFOkoSuRXFCWcIhk/ho2BB1m1apX5999/JeL//PPPpnr16mbvvfc2s2bNkvcsW7bMfP7552b//ff33rGFoLOIEvnpX6ADktEJ2vqrV6+Wtj+Og01RlPwU2vgxrnnz5pnbb7/d2/M/u+yyi1m5cqU55JBDTLdu3Uz37t0l9b/88svNq6++aipVqmT69+9vrrrqKlO5cmXvXf+DEQ8aNCjjDr/69evLVq9ePdOmTRvTtm1bc8ABB5jnnntONkVR8pPTFX4TJkwwFStWFGegKMrWFGubf1uyceNG6WRs1KiRt0dRFD9a268oCSVnI7+iKAWjxq8oCUWNX1ESSlaM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)
+>
+> Scegli un'alternativa:
+>- [ ] La soluzione non implementa correttamente la mutua esclusione, ma può essere corretta nel seguente modo: int bolt = 0; void P(int i) { int key; while(true) { do (exchange(key, bolt) == 0) while(key != 0); critical_section(); bolt = 0; key = 1; } }
+>- [ ] La soluzione non implementa correttamente la mutua esclusione, in quanto key deve essere una variabile globale
+>- [ ] La soluzione non implementa correttamente la mutua esclusione, ma può essere corretta nel seguente modo: int bolt = 0; void P(int i) { int key; while(true) { key = 1; do (exchange(key, bolt) == 0) while(key != 0); critical_section(); bolt = 0; } }
+>- [ ] La soluzione implementa correttamente la mutua esclusione
+>
+>>[!done]- Risposta
+>>
+>>La soluzione non implementa correttamente la mutua esclusione, ma può essere corretta nel seguente modo: int bolt = 0; void P(int i) { int key; while(true) { key = 1; do (exchange(key, bolt) == 0) while(key != 0); critical_section(); bolt = 0; } }
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 97
+>
+>Quale delle seguenti affermazioni sulla memoria virtuale con paginazione è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Diminuire la dimensione delle pagine ha effetti positivi sul numero di pagine che possono trovarsi in memoria principale
+>- [ ] Aumentare la dimensione delle pagine ha effetti positivi sulla frammentazione interna
+>- [ ] Diminuire la dimensione delle pagine ha effetti negativi sulla dimensione della tabella delle pagine
+>- [ ] Aumentare la dimensione delle pagine ha effetti negativi sulla multiprogrammazione
+>
+>>[!done]- Risposta
+>>
+>>Aumentare la dimensione delle pagine ha effetti positivi sulla frammentazione interna
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 98
+>
+>Quale delle seguenti affermazioni sulla concorrenza tra processi o thread è falsa?
+>
+>
+> Scegli un'alternativa:
+>- [ ] La disabilitazione delle interruzioni impedisce la creazione di nuove interruzioni
+>- [ ] Se un processo utente può disabilitare le interruzioni tramite un'istruzione macchina dedicata, allora può far diminuire l'uso utile del processore
+>- [ ] La disabilitazione delle interruzioni non funziona ai fini della concorrenza (gestione sezioni critiche) su sistemi con più processori o più core
+>- [ ] L'abuso della disabilitazione delle interruzioni fa diminuire la multiprogrammazione, a parità di numero di processi
+>
+>>[!done]- Risposta
+>>
+>>La disabilitazione delle interruzioni impedisce la creazione di nuove interruzioni
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 99
+>
+>Quale delle seguenti affermazioni non è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] il kernel rimane in memoria durante l'intera sessione del computer
+>- [ ] il kernel è costituito da vari moduli che non possono essere caricati nel sistema operativo in esecuzione
+>- [ ] il kernel è la prima parte del sistema operativo a essere caricata in memoria durante l'avvio
+>- [ ] Il kernel è il programma che costituisce il nucleo centrale del sistema operativo.
+>
+>>[!done]- Risposta
+>>
+>>il kernel è costituito da vari moduli che non possono essere caricati nel sistema operativo in esecuzione
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 100
+>
+>In generale, la CPU puo’ eseguire un'istruzione soltanto quando gli operandi si trovano:
+>
+>
+> Scegli un'alternativa:
+>- [ ] In RAM, o in un livello qualsiasi della cache o nella memoria secondaria o nei registri CPU
+>- [ ] In RAM o in un livello qualsiasi della cache o nei registri CPU
+>- [ ] Nella cache di livello 1 (L1 cache) o nei registri CPU
+>- [ ] Nei registri della CPU
+>
+>>[!done]- Risposta
+>>
+>>Nei registri della CPU
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 101
+>
+>Il PCB (Process Control Block) e’:
+>
+>
+> Scegli un'alternativa:
+>- [ ] Un campo dello stato di un processo che definisce quali operazioni di controllo dei dispositivi a blocchi sono state fatte dal processo
+>- [ ] Una struttura dati mantenuta dal sistema operativo che contiene tutte le informazioni necessarie all’esecuzione, sospensione e ripresa dell’esecuzione di un processo
+>- [ ] Una struttura dati mantenuta dal sistema operativo che contiene l’intera immagine di un processo
+>- [ ] Un’interfaccia di controllo dei processi del sistema operativo
+>
+>>[!done]- Risposta
+>>
+>>Una struttura dati mantenuta dal sistema operativo che contiene tutte le informazioni necessarie all’esecuzione, sospensione e ripresa dell’esecuzione di un processo
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 102
+>
+>Considera un Sistema Operativo con esecuzione all’interno dei processi utente. Quando un processo utente fa una chiamata di sistema, quale delle seguenti affermazioni e’ corretta
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il sistema operativo deve effettuare un process switch ed un mode switch per eseguire la funzione richiesta
+>- [ ] Il sistema operativo deve effettuare soltanto un process switch per eseguire la funzione richiesta
+>- [ ] Il sistema operativo deve effettuare soltanto un mode switch per eseguire la funzione richiesta
+>- [ ] Il sistema operativo deve creare un nuovo processo e fare switch ad esso per eseguire la funzione richiesta
+>
+>>[!done]- Risposta
+>>
+>>Il sistema operativo deve effettuare soltanto un mode switch per eseguire la funzione richiesta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 103
+>
+>Quale delle seguenti affermazioni e’ vera:
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il dispatcher e’ una componente del medium term scheduler
+>- [ ] Il dispatcher si occupa di decidere l’ordine di sospensione dei processi
+>- [ ] Il dispatcher si occupa di scambiare i processi in esecuzione sulla CPU (process switch)
+>- [ ] Il dispatcher si occupa di scambiare i processi dalla memoria principale alla memoria secondaria
+>
+>>[!done]- Risposta
+>>
+>>Il dispatcher si occupa di scambiare i processi in esecuzione sulla CPU (process switch)
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 104
+>
+>In un sistema operativo con I/O buffering, quando c’e’ una scrittura su dispositivo di I/O quale delle seguenti affermazioni e’ vera:
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il sistema operativo copia immediatamente il contenuto della scrittura dalla memoria del processo direttamente alla memoria del dispositivo di I/O
+>- [ ] Il sistema operativo copia immediatamente il contenuto della scrittura dalla memoria utente alla memoria del sistema operativo, e dalla memoria del sistema operativo alla memoria del dispositivo di I/O quando piu’ opportuno
+>- [ ] Il sistema operativo copia quando piu’ opportuno il contenuto della scrittura dalla memoria del processo direttamente alla memoria del dispositivo di I/O
+>- [ ] Nessuna delle altre opzioni e’ corretta
+>
+>>[!done]- Risposta
+>>
+>>Il sistema operativo copia immediatamente il contenuto della scrittura dalla memoria utente alla memoria del sistema operativo, e dalla memoria del sistema operativo alla memoria del dispositivo di I/O quando piu’ opportuno
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 105
+>
+>L’algoritmo di scheduling C-SCAN:
+>
+>
+> Scegli un'alternativa:
+>- [ ] Scrivere le richieste su disco in modo tale che il braccio meccanico si muova sempre in una direzione, fino a raggiungere l’ultima traccia, e poi torna indietro scrivendo tutte le richieste fino a raggiungere la prima traccia
+>- [ ] Puo’ portare a starvation per alcuni processi
+>- [ ] E’ meno fair (equo) dell’algoritmo SCAN
+>- [ ] Non favorisce le richieste ai bordi rispetto a SCAN
+>
+>>[!done]- Risposta
+>>
+>>Non favorisce le richieste ai bordi rispetto a SCAN
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 106
+>
+>Quale dei seguenti sono requisiti per un File Management System?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Ogni utente dev’essere in grado di creare, cancellare, leggere, scrivere e modificare un file
+>- [ ] Ogni utente deve poter accedere, in modo controllato, ai file di un altro utente
+>- [ ] Ogni utente deve poter mantenere una copia di backup dei propri file
+>- [ ] Tutte le opzioni sono requisiti
+>
+>>[!done]- Risposta
+>>
+>>Tutte le opzioni sono requisiti
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 107
+>
+>Una sezione critica è un segmento di programma:
+>
+>
+> Scegli un'alternativa:
+>- [ ] Che e’ racchiuso tra una coppia di operazioni di semaforo semWait e semSignal
+>- [ ] In cui si accede a risorse condivise
+>- [ ] Che evita i deadlock
+>- [ ] Che deve essere eseguito in un determinato lasso di tempo.
+>
+>>[!done]- Risposta
+>>
+>>In cui si accede a risorse condivise
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 108
+>
+>Quale dei seguenti NON è vero riguarda il Algoritmo di Dekker per gestire la concorrenza?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Garantisce la non-starvation
+>- [ ] Non richiede nessun supporto dal SO.
+>- [ ] Richiede supporto dal SO
+>- [ ] E' deterministico.
+>
+>>[!done]- Risposta
+>>
+>>Richiede supporto dal SO
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 109
+>
+>Quale delle affermazioni è vera riguardo al Translation lookaside buffer per la gestione della memoria?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nel Translation lookaside buffer ci sono tag e chiavi con l'aiuto dei quali viene effettuata la mappatura.
+>- [ ] Il TLB hit è una condizione in cui la voce desiderata viene trovata nel TLB.
+>- [ ] Se la voce non viene trovata nel TLB (TLB miss), la CPU deve accedere alla tabella delle pagine nella memoria principale e quindi accedere al frame effettivo nella memoria principale.
+>- [ ] Tutte le opzioni sono vere.
+>
+>>[!done]- Risposta
+>>
+>>Tutte le opzioni sono vere.
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 110
+>
+>Quale delle seguenti affermazioni sul long-term scheduler e’ vera:
+>
+>
+> Scegli un'alternativa:
+>- [ ] Si occupa della decisione di quali processi debbano essere ammessi all’esecuzione nel sistema
+>- [ ] Si occupa dell’organizzazione di lungo termine dell’ordine di esecuzione dei processi nella CPU
+>- [ ] Si occupa dell’implementazione della funzione di swapping dei processi alla memoria secondaria
+>- [ ] Si occupa della transizione dei processi tra gli stati running ed exit
+>
+>>[!done]- Risposta
+>>
+>>Si occupa della decisione di quali processi debbano essere ammessi all’esecuzione nel sistema
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 111
+>
+>Nel modello dei processi a 5 stati, quale affermazione e’ falsa:
+>
+>
+> Scegli un'alternativa:
+>- [ ] Un processo puo’ essere spostato allo stato suspended dallo stato blocked e ready
+>- [ ] Un processo puo’ essere spostato dallo stato running allo stato ready o exit
+>- [ ] Un processo puo’ essere spostato dallo stato blocked solo allo stato ready
+>- [ ] Un processo puo’ essere spostato dallo stato ready allo stato running, blocked o exit
+>
+>>[!done]- Risposta
+>>
+>>Un processo puo’ essere spostato allo stato suspended dallo stato blocked e ready
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 112
+>
+>Riguardo l’efficienza dal punto di vista dell’utilizzo utile della CPU, quale dei seguenti modelli di I/O e’ piu’ efficiente dal punto di vista dell’uso della CPU e perche’?
+>
+>
+> Scegli un'alternativa:
+>- [ ] I/O programmato, perche’ consente al programmatore di fare uno scheduling esatto delle operazioni di I/O nei momenti piu’ opportuni
+>- [ ] I/O basato su DMA (Accesso Diretto alla Memoria), perche’ la CPU deve soltanto occuparsi del trasferimento dei dati
+>- [ ] I/O basato su interruzioni, perche’ il processore non deve controllare attivamente lo stato del dispositivo di I/O dopo aver effettuato la richiesta
+>- [ ] I/O basato su DMA (Accesso Diretto alla Memoria), perche’ la CPU deve soltanto occuparsi di inviare la richiesta di I/O e leggere il risultato
+>
+>>[!done]- Risposta
+>>
+>>I/O basato su DMA (Accesso Diretto alla Memoria), perche’ la CPU deve soltanto occuparsi di inviare la richiesta di I/O e leggere il risultato
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 113
+>
+>Dati due processi A e B e due risorse R1 ed R2, si ha sicuramente una situazione di deadlock se:
+>
+>
+> Scegli un'alternativa:
+>- [ ] A richiede ed ottiene accesso ad R1, B richiede ed ottiene accesso ad R2. A richiede accesso ad R2, B richiede accesso ad R1
+>- [ ] A richiede ed ottiene accesso ad R1, B richiede accesso ad R2. A richiede accesso ad R2. B richiede accesso ad R1
+>- [ ] A richiede ed ottiene accesso ad R2, B richiede accesso ad R1 ed R2. A richiede ed ottiene accesso ad R1
+>- [ ] B richiede ed ottiene accesso ad R1, A richiede ed ottiene accesso ad R2. B richiede accesso ad R2
+>
+>>[!done]- Risposta
+>>
+>>A richiede ed ottiene accesso ad R1, B richiede ed ottiene accesso ad R2. A richiede accesso ad R2, B richiede accesso ad R1
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 114
+>
+>Quali delle seguenti affermazioni e' vera riguardo la preallocazione rispetto all'allocazione dinamica dello spazio per i file?
+>
+>
+> Scegli un'alternativa:
+>- [ ] la preallocazione è più efficiente nell'utilizzo dello spazio su disco
+>- [ ] nessuna delle opzioni è corretta
+>- [ ] l'allocazione dinamica rischia di sprecare spazio disco in caso gli utenti/applicazioni sovrastimino la dimensione dei file, mentre questo non è il caso con la preallocazione
+>- [ ] L'allocazione dinamica impone un overhead di gestione minore per il sistema operativo
+>
+>>[!done]- Risposta
+>>
+>>nessuna delle opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 115
+>
+>Quale delle seguenti affermazioni sul file system NTFS è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] NTFS può, ove possibile, includere direttamente i dati di un file nella master file table
+>- [ ] NTFS non prevede la possibilità di avere record estesi
+>- [ ] nessuna delle altre opzioni è vera
+>- [ ] In NTFS, le informazioni relative alla sequenza di blocchi che contengono il file è interamente contenuta nel record base
+>
+>>[!done]- Risposta
+>>
+>>NTFS può, ove possibile, includere direttamente i dati di un file nella master file table
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 116
+>
+>Quale delle seguenti affermazioni riguardo la rilocazione degli indirizzi di memoria è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Nei sistemi con hardware dedicato per la rilocazione, il base register (registro base) viene impostato una sola volta, quando il programma viene caricato in memoria per la prima volta
+>- [ ] In un sistema con rilocazione a run time, i sistemi di protezione che verificano che un processo non vada ad accedere alla memoria di un'altro processo possono essere eseguiti a tempo di compilazione, prima di eseguire il programma
+>- [ ] In un sistema a rilocazione con indirizzi logici, non è necessario avere hardware dedicato per effettuare la rilocazione
+>- [ ] In un sistema a rilocazione con indirizzi assoluti, se si conosce l'indirizzo di memoria dove verrà caricato il programma, il compilatore può inserire direttamente gli indirizzi di memoria corretti nel codice oggetto (programma compilato)
+>
+>>[!done]- Risposta
+>>
+>>In un sistema a rilocazione con indirizzi assoluti, se si conosce l'indirizzo di memoria dove verrà caricato il programma, il compilatore può inserire direttamente gli indirizzi di memoria corretti nel codice oggetto (programma compilato)
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 117
+>
+>Quale delle seguenti affermazioni è vera riguardo il concetto di Thrashing?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il SO impiega la maggior parte del suo tempo a swappare pezzi di processi, anziché ad eseguire istruzioni
+>- [ ] provoca il deterioramento o il crollo delle prestazioni del computer
+>- [ ] quasi ogni richiesta di pagine da luogo ad una page fault
+>- [ ] Tutte le opzioni sono vere
+>
+>>[!done]- Risposta
+>>
+>>Tutte le opzioni sono vere
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 118
+>
+>Il sistema di partizionamento fisso per la memoria principale:
+>
+>
+> Scegli un'alternativa:
+>- [ ] Permette di avere partizioni di lunghezza diversa e di modificarle a runtime
+>- [ ] Nessuna delle opzioni è vera
+>- [ ] Consente una efficiente della memoria se ci sono molti processi di piccole dimensioni
+>- [ ] Impone un numero massimo di processi che possono essere in memoria principale
+>
+>>[!done]- Risposta
+>>
+>>Impone un numero massimo di processi che possono essere in memoria principale
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 119
+>
+>Quale delle seguenti non è un vantaggio dell’attacco dizionario?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Semplice da effettuare
+>- [ ] Versatilità
+>- [ ] Velocità di computazione in real time degli hash
+>- [ ] Disponibilità di molti tool per automatizzazione
+>
+>>[!done]- Risposta
+>>
+>>Velocità di computazione in real time degli hash
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 120
+>
+>Nello scheduler a breve ed a lungo termine la distizione principale è:
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il tipo di processi che gestiscono
+>- [ ] La frequenza di esecuzione
+>- [ ] La lunghezza delle loro code
+>- [ ] Nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>La frequenza di esecuzione
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 121
+>
+>Quale dei seguenti NON è un vantaggio della multiprogrammazione?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Riduzione dei tempi di risposta
+>- [ ] Possibilità di assegnare priorità ai lavori
+>- [ ] Aumento del throughput
+>- [ ] Riduzione dell’overhead del sistema operativo
+>
+>>[!done]- Risposta
+>>
+>>Riduzione dell’overhead del sistema operativo
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 122
+>
+>___> fornisce l’indirizzo della prossima istruzione che deve essere eseguita dal processo corrente?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Lo stack del processo
+>- [ ] Il bus di sistema
+>- [ ] Nessuno
+>- [ ] Program Counter
+>
+>>[!done]- Risposta
+>>
+>>Program Counter
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 123
+>
+>Quale dei seguenti NON è un valido schema di prevenzione del deadlock?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Rilasciare tutte le risorse prima di richiederne una nuova
+>- [ ] Non chiedere mai una risorsa dopo averne rilasciate altre
+>- [ ] Si definisce un ordinamento crescente delle risorse, una risorsa viene data solo se esegue quelle che il processo già detiene
+>- [ ] Richiedere e allocare tutte le risorse necessarie prima dell’esecuzione
+>
+>>[!done]- Risposta
+>>
+>>Non chiedere mai una risorsa dopo averne rilasciate altre
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 124
+>
+>Quale dei seguenti NON è vero riguardo l’algoritmo di Dekker per gestire la concorrenza?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Non usa busy waiting
+>- [ ] Garantisce la non-starvation
+>- [ ] Tutte le opzioni elencate
+>- [ ] Garantisce il non-deadlock
+>
+>>[!done]- Risposta
+>>
+>>Non usa busy waiting
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 125
+>
+>Quale delle seguenti non è una tabella di controllo del sistema operativo?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Tabella dei processi sospesi
+>- [ ] Tabelle di memoria
+>- [ ] Tabelle di controllo di accesso
+>- [ ] Tabelle di I/O
+>
+>>[!done]- Risposta
+>>
+>>Tabella dei processi sospesi
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 126
+>
+>In un sistema con modello di interruzioni (interrupt) annidate, se un interrupt (I-2) è ricevuto durante la gestione di un altro interrupt(I-1)
+>
+>
+> Scegli un'alternativa:
+>- [ ] La cpu sospende l’esecuzione del codice corrente, ed avvia l’handler del nuovo interrupt ricevuto
+>- [ ] La cpu completa l’esecuzione del codice corrente, e successivamente avvia l’handler del nuovo interrupt ricevuto
+>- [ ] La cpu gestisce entrambi gli handler in parallelo
+>- [ ] La cpu termina (aborts,kills) l’esecuzione del codice corrente, ed avvia l’handler del nuovo interrupt ricevuto
+>
+>>[!done]- Risposta
+>>
+>>La cpu sospende l’esecuzione del codice corrente, ed avvia l’handler del nuovo interrupt ricevuto
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 127
+>
+>Il numero di processi completati per unità di tempo è chiamato _____
+>
+>
+> Scegli un'alternativa:
+>- [ ] Produzione
+>- [ ] Throughput
+>- [ ] Capacità
+>- [ ] Nessuno
+>
+>>[!done]- Risposta
+>>
+>>Throughput
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 128
+>
+>Quale dei seguenti sono obiettivi per un file Management System?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Tutte le opzioni elencate
+>- [ ] Fornire supporto per l’I/O da più utenti in contemporanea
+>- [ ] Minimizzare i dati persi o distrutti
+>- [ ] Fornire un insieme di interfacce standard per i processi utente
+>
+>>[!done]- Risposta
+>>
+>>Tutte le opzioni elencate
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 129
+>
+>In un sistema operativo con allocazione dei file indicizzata, quale delle seguenti opzioni è vera:
+>
+>
+> Scegli un'alternativa:
+>- [ ] La tabella di allocazione contiene soltanto l'indirizzo di un blocco, e questo blocco contiene sempre tutte le entry per ogni porzione allocata al file
+>- [ ] La tabella di allocazione contiene l'indirizzo del primo blocco del file, e ciascun blocco contiene l'indirizzo del prossimo blocco del file
+>- [ ] La tabella di allocazione contiene soltanto l'indirizzo di un blocco, e questo blocco contiene le entry delle porzioni di file allocate oppure l'indirizzo di altri blocchi usati a loro volta per indicizzare le porzioni di file allocate
+>- [ ] La tabella di allocazione dei file contiene l'indirizzo di un blocco e la lista dei blocchi del file
+>
+>>[!done]- Risposta
+>>
+>>La tabella di allocazione contiene soltanto l'indirizzo di un blocco, e questo blocco contiene le entry delle porzioni di file allocate oppure l'indirizzo di altri blocchi usati a loro volta per indicizzare le porzioni di file allocate
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 130
+>
+>Quale delle seguenti affermazioni riguardo algoritmi di scheduling del disco è vera
+>
+>
+> Scegli un'alternativa:
+>- [ ] L'algoritmo SCAN può portare a starvation delle richieste
+>- [ ] L'algoritmo FSCAN è una versione di SCAN che rimuove il problema della starvation delle richieste, ma che rende l'algoritmo meno fair rispetto a SCAN
+>- [ ] L'algoritmo Minimo Tempo di Servizio non richiede di conoscere la posizione della testina del disco per operare
+>- [ ] N-step-SCAN è una generalizzazione di FSCAN che è fair e può avere prestazioni molto simili a quelle di SCAN
+>
+>>[!done]- Risposta
+>>
+>>N-step-SCAN è una generalizzazione di FSCAN che è fair e può avere prestazioni molto simili a quelle di SCAN
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 131
+>
+>Quali dei seguenti NON è un tipo di scheduling dei sistemi operativi:
+>
+>
+> Scegli un'alternativa:
+>- [ ] Short term scheduling
+>- [ ] Long term scheduling
+>- [ ] Disk scheduling
+>- [ ] File scheduling
+>
+>>[!done]- Risposta
+>>
+>>File scheduling
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 132
+>
+>Nei sistemi operativi che usano paginazione SEMPLICE per la gestione della memoria
+>
+>
+> Scegli un'alternativa:
+>- [ ] ai processi devono essere allocati frame di memoria necessariamente contigui per poter consentire l'esecuzione del processo
+>- [ ] il sistema operativo deve utilizzare la tabella delle pagine per tradurre gli indirizzi. Qualora una pagina non sia presente in memoria principale, il sistema la deve caricare dinamicamente per consentire il proseguimento dell'esecuzione di un processo
+>- [ ] non c'è necessità di traduzione degli indirizzi, in quanto tutte le pagine di un processo sono sempre caricate in un frame nella memoria principale
+>- [ ] nessuna delle altre opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>nessuna delle altre opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 133
+>
+>Nei sistemi operativi che usano journaling logico
+>
+>
+> Scegli un'alternativa:
+>- [ ] non c'è possibilità di perdita dei dati in quanto, in caso di arresto imprevisto, il sistema operativo può usare il journal per ricostruire interamente le operazioni non andate a buon fine
+>- [ ] il sistema operativo usa il journal solo per copiare i dati prima di farne la scrittura anche nel file system, ma non lo utilizza per i metadati
+>- [ ] il sistema operativo usa il journal solo per copiare i metadati prima di aggiornare le strutture del file system, ma non lo utilizza per i dati
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>il sistema operativo usa il journal solo per copiare i metadati prima di aggiornare le strutture del file system, ma non lo utilizza per i dati
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 134
+>
+>Il sistema operativo linux per la gestione dei file
+>
+>
+> Scegli un'alternativa:
+>- [ ] nessuna delle altre opzioni è corretta
+>- [ ] utilizza un sistema misto di allocazione contigua e concatenata in modo da minimizzare l'overhead di sistema e massimizzare le performance
+>- [ ] utilizza un sistema di allocazione concatenata basato sulla struttura dati conosciuta come inode
+>- [ ] usa gli inode per tenere traccia dei blocchi su disco allocati a ciascun file. Ogni inode contiene al suo interno la lista completa di tutti i blocchi su disco che compongono il file corrispondente
+>
+>>[!done]- Risposta
+>>
+>>nessuna delle altre opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 135
+>
+>Nei sistemi Unix
+>
+>
+> Scegli un'alternativa:
+>- [ ] gli hard links sono dei file speciali che contengono il cammino completo sul file system di un altro file, effettivamente creando un "puntatore" a quel file
+>- [ ] gli hard link sono puntatori diretti al descrittore di un file (inode). Un contatore viene utilizzato per tenere traccia di quanti hard link puntino ad un determinato inode. Questo fa si che il file non possa essere cancellato fintantoché ci sono hard link che continuano a puntarlo
+>- [ ] possono esistere hard link a file non più esistenti, ad esempio se il file a cui l'hard link puntava viene cancellato
+>- [ ] nessuna delle altre risposte è corretta
+>
+>>[!done]- Risposta
+>>
+>>gli hard link sono puntatori diretti al descrittore di un file (inode). Un contatore viene utilizzato per tenere traccia di quanti hard link puntino ad un determinato inode. Questo fa si che il file non possa essere cancellato fintantoché ci sono hard link che continuano a puntarlo
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 136
+>
+>Quale delle affermazioni è vera riguardo alla Segmentazione per la gestione della memoria?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Permette al programmatore di vedere la memoria come un insieme di spazi di indirizzi
+>- [ ] Non permette di condividere dati
+>- [ ] Non permette di proteggere dati
+>- [ ] Nessuna delle opzioni è vera
+>
+>>[!done]- Risposta
+>>
+>>Permette al programmatore di vedere la memoria come un insieme di spazi di indirizzi
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 137
+>
+>Quale opzione non appartiene alla triade della sicurezza?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Integrità
+>- [ ] Disponibilità
+>- [ ] Confidenzialità
+>- [ ] Autenticità
+>
+>>[!done]- Risposta
+>>
+>>Autenticità
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 138
+>
+>Quale dei seguenti elementi non e contenuto nel Process Control Block (PCB)?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Stack del processo
+>- [ ] Codice del programma
+>- [ ] Programma Bootstrap
+>- [ ] Nessuna delle opzioni e contenuta nel PCB
+>
+>>[!done]- Risposta
+>>
+>>Nessuna delle opzioni e contenuta nel PCB
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 139
+>
+>Il multiprocessore viene utilizzato perché:
+>
+>
+> Scegli un'alternativa:
+>- [ ] Capacità distribuita
+>- [ ] Aumentano l'affidabilità
+>- [ ] Consentono di risparmiare denaro rispetto a più sistemi singoli
+>- [ ] Tutte queste cose
+>
+>>[!done]- Risposta
+>>
+>>Tutte queste cose
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 140
+>
+>Considerando solo risorse riusabili, quali delle seguenti condizioni non è necessaria per avere deadlock?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Mutua esclusione
+>- [ ] Hold-and-wait: richiesta di una risorsa quando già se ne detiene una
+>- [ ] Preemption delle risorse
+>- [ ] Attesa circolare
+>
+>>[!done]- Risposta
+>>
+>>Preemption delle risorse
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 141
+>
+>Il buffering dell'I/O:
+>
+>
+> Scegli un'alternativa:
+>- [ ] non introduce alcun overhead nei sistemi operativi che lo usano rispetto a quelli che fanno I/O diretto senza buffering
+>- [ ] è utile per appianare le differenze tra diversi dispositivi di I/O rispetto alla loro velocità ed al tipo di trasferimento dati (blocchi, stream)
+>- [ ] richiede l'uso di buffer aggiuntivi nell'area di memoria dedicata ai dispositivi di I/O e nell'area di memoria dedicata ai processi utente, ma non nell'area del sistema operativo
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>è utile per appianare le differenze tra diversi dispositivi di I/O rispetto alla loro velocità ed al tipo di trasferimento dati (blocchi, stream)
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 142
+>
+>I sistemi operativi che usano partizionamento dinamico della memoria:
+>
+>
+> Scegli un'alternativa:
+>- [ ] non soffrono mai di frammentazione interna
+>- [ ] non soffrono mai di frammentazione esterna
+>- [ ] soffrono in alcuni casi di frammentazione interna, quando diversi processi a cui erano assegnate diverse aree di memoria vengono rimossi e sostituiti da altri processi con dimensioni diverse
+>- [ ] necessitano dell'uso di tecniche di compattazione della memoria per risolvere il problema della frammentazione interna
+>
+>>[!done]- Risposta
+>>
+>>non soffrono mai di frammentazione interna
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 143
+>
+>Quale dei seguenti è un tipo di partizionamento della memoria?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Partizionamento fisso
+>- [ ] Partizionamento dinamico
+>- [ ] Segmentazione con memoria virtuale
+>- [ ] Tutte le opzioni sono vere
+>
+>>[!done]- Risposta
+>>
+>>Tutte le opzioni sono vere
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 144
+>
+>Quale delle seguenti affermazioni sulla concorrenza tra processi o thread è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] La disabilitazione delle interruzioni non impedisce la creazione di nuove interruzioni, ma solo la loro gestione
+>- [ ] Se un processo utente può disabilitare le interruzioni tramite un'istruzione macchina dedicata, allora può far diminuire l'uso utile del processore
+>- [ ] La disabilitazione delle interruzioni non funziona ai fini della concorrenza (gestione sezioni critiche) su sistemi con più processori o più core
+>- [ ] Tutte le opzioni sono vere
+>
+>>[!done]- Risposta
+>>
+>>Tutte le opzioni sono vere
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 145
+>
+>Quale delle seguenti affermazioni sulla traduzione di un indirizzo virtuale in fisico, in un sistema con memoria virtuale con paginazione (avente tabella delle pagine ad 1 livello), è vera?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Il numero di frame dell'indirizzo fisico è contenuto già nell'indirizzo virtuale
+>- [ ] L'hardware deve usare il numero di pagina per accedere alla tabella delle pagine del processo in esecuzione. A tal proposito, deve conoscere l'inizio di tale tabella, che viene definito dal software (sistema operativo). Tale indirizzo può cambiare durante l'esecuzione del processo: sta al sistema operativo mantenerlo aggiornato
+>- [ ] L'hardware deve usare il numero della pagina per comporre, insieme con l'offset originale, l'indirizzo fisico. Tale operazione è equivalente ad uno shift seguito da una somma
+>- [ ] L'hardware deve effettuare una ricerca sequenziale del numero di pagina nelle entries della tabella delle pagine del processo in esecuzione
+>
+>>[!done]- Risposta
+>>
+>>L'hardware deve usare il numero di pagina per accedere alla tabella delle pagine del processo in esecuzione. A tal proposito, deve conoscere l'inizio di tale tabella, che viene definito dal software (sistema operativo). Tale indirizzo può cambiare durante l'esecuzione del processo: sta al sistema operativo mantenerlo aggiornato
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 146
+>
+>Il file system NTFS
+>
+>
+> Scegli un'alternativa:
+>- [ ] utilizza un sistema di lista concatenata per tenere traccia dei blocchi del disco assegnati ai diversi file
+>- [ ] utilizza un sistema di allocazione simile all'allocazione indicizzata basato su record di attributi per ciascun file, dove un il tipo di attributo DATA contiene puntatori individuali a tutti i blocchi che compongono un dato file
+>- [ ] utilizza un sistema di allocazione simile all'allocazione indicizzata basato su record di attributi per ciascun file, dove un il tipo di attributo DATA contiene puntatori a sequenze di blocchi contigue (runs) che compongono un dato file
+>- [ ] utilizza un sistema di allocazione simile all'allocazione indicizzata simile agli inode di UNIX, in cui un campo DATA all'interno dell'inode del file contiene la sequenza completa dei blocchi che compongono un dato file
+>
+>>[!done]- Risposta
+>>
+>>utilizza un sistema di allocazione simile all'allocazione indicizzata basato su record di attributi per ciascun file, dove un il tipo di attributo DATA contiene puntatori a sequenze di blocchi contigue (runs) che compongono un dato file
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 147
+>
+>Nei sistemi operativi con memoria virtuale paginata, tipicamente
+>
+>
+> Scegli un'alternativa:
+>- [ ] il sistema usa sempre e comunque l'allocatore di memoria standard a pagine, senza consentire richieste speciali come ad esempio allocazioni contigue di memoria. Questo per assicurarsi di evitare i problemi di frammentazione interna od esterna
+>- [ ] il sistema operativo, in casi speciali, può usare allocatori di memoria specializzati che consentano ad esempio allocazioni di porzioni di memoria contigue per richieste particolari (come ad esempio per il DMA)
+>- [ ] il sistema può modificare dinamicamente la dimensione delle pagine in base alla quantità di memoria richiesta da un processo, in modo tale da minimizzare la frammentazione interna
+>- [ ] nessuna delle altre opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>il sistema operativo, in casi speciali, può usare allocatori di memoria specializzati che consentano ad esempio allocazioni di porzioni di memoria contigue per richieste particolari (come ad esempio per il DMA)
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 148
+>
+>Nel sistema di partizionamento fisso variabile della memoria
+>
+>
+> Scegli un'alternativa:
+>- [ ] la memoria è divisa dinamicamente a tempo di esecuzione dal sistema operativo in base alle richieste di allocazione effettuate dai processi in esecuzione
+>- [ ] la memoria viene suddivisa in un numero fisso e predefinito di partizioni, tuttavia diversi gruppi di partizioni hanno dimensioni diverse (ad es. N partizioni da 2MB, M partizioni da 4MB, e cosi via)
+>- [ ] la memoria è divisa a tempo di esecuzione dal sistema operativo in partizioni della stessa dimensione, in base alla dimensione media di memoria richiesta dai diversi processi
+>- [ ] il sistema operativo deve mantenere una tabella di traduzione degli indirizzi che consentano di tradurre un indirizzo relativo nel codice del programma ad un indirizzo assoluto, in base alla dimensione della partizione di memoria assegnatagli
+>
+>>[!done]- Risposta
+>>
+>>la memoria viene suddivisa in un numero fisso e predefinito di partizioni, tuttavia diversi gruppi di partizioni hanno dimensioni diverse (ad es. N partizioni da 2MB, M partizioni da 4MB, e cosi via)
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 149
+>
+>Nei sistemi Unix
+>
+>
+> Scegli un'alternativa:
+>- [ ] i symbolic links sono dei simboli speciali che possono essere usati nelle chiamate di sistema per collegare le aree di memoria di diversi processi
+>- [ ] i symbolic links sono dei puntatori diretti ai descrittori di un file (inode) che consentono di creare un collegamento a quel file in una qualsiasi directory del file system
+>- [ ] ogni volta che viene creato un symbolic link tra due processi, deve essere incrementato il contatore che tiene traccia del numero di collegamenti creati. Questo per poter consentire di de-allocare le aree di memoria collegate quando tutti i processi sono terminati
+>- [ ] i symbolic links sono dei file che contengono il cammino completo sul file system di un altro file, effettivamente creando un puntatore a quel file
+>
+>>[!done]- Risposta
+>>
+>>i symbolic links sono dei file che contengono il cammino completo sul file system di un altro file, effettivamente creando un puntatore a quel file
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 150
+>
+>Tipicamente, nei processori moderni la memoria cache
+>
+>
+> Scegli un'alternativa:
+>- [ ] è strutturata a livelli gerarchici ed il processore può caricare i dati e le istruzioni nei registri da uno qualsiasi dei livelli della cache
+>- [ ] è strutturata a livelli gerarchici ed il processore può caricare i dati e le istruzioni nei registri solo se si trovano nel primo o secondo livello della cache
+>- [ ] non ha struttura gerarchica, in quanto una struttura piatta consente una maggior efficenza e velocità nel trasferimento dei dati
+>- [ ] è strutturata a livelli gerarchici ed il processore può caricare i dati solo dalla cache di livello 1 dati, e le istruzioni solo dalla cache livello 1 istruzioni.
+>
+>>[!done]- Risposta
+>>
+>>è strutturata a livelli gerarchici ed il processore può caricare i dati solo dalla cache di livello 1 dati, e le istruzioni solo dalla cache livello 1 istruzioni.
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 151
+>
+>Il file system FAT32
+>
+>
+> Scegli un'alternativa:
+>- [ ] utilizza una lista concatenata con cluster di dimensione fissa per l'allocazione dei file
+>- [ ] utilizza una bitmap per tenere traccia dei cluster liberi sul disco
+>- [ ] occupa poco spazio di memoria, e lo spazio occupato è indipendente dalla dimensione del disco e numero dei cluster
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>utilizza una lista concatenata con cluster di dimensione fissa per l'allocazione dei file
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 152
+>
+>Il meccanismo _____, consente di trasferire i dati da e verso la memoria senza l'intervento della CPU.
+>
+>
+> Scegli un'alternativa:
+>- [ ] Driver Monitor Access
+>- [ ] Direct Memory Access
+>- [ ] Driver Memory Access
+>- [ ] Direct Monitor Access
+>
+>>[!done]- Risposta
+>>
+>>Direct Memory Access
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 153
+>
+>Il registro program counter contiene
+>
+>
+> Scegli un'alternativa:
+>- [ ] L'indirizzo dell'ultima istruzione che la cpu ha prelevato dalla memoria
+>- [ ] L'indirizzo della prossima istruzione che la cpu dovrá prelevare dalla memoria
+>- [ ] Il numero di istruzione completate dall'avvio della macchina
+>- [ ] Il numero di istruzione eseguite dal processo corrente
+>
+>>[!done]- Risposta
+>>
+>>L'indirizzo della prossima istruzione che la cpu dovrá prelevare dalla memoria
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 154
+>
+>Il Direct Memory Access (DMA).
+>
+>
+> Scegli un'alternativa:
+>- [ ] É un software del sistema operativo che consente ai processi utenete l'accesso diretto a zone di memoria protette
+>- [ ] É un software del sistema operativo che mappa la memoria virtuale dei processi nella memoria fisica a loro assegnata in modo trasparente
+>- [ ] É una componente hardware che si occupa dello spostamento di blocchi di dati da una zona della memoria principale ad un dispositivoi di I/O, o ad un'altra zona della memoria principale
+>- [ ] É una componente hardware che consente l'accesso diretto ad una zona di memoria primaria al processore, senza dover passare per il bus di sistema
+>
+>>[!done]- Risposta
+>>
+>>É una componente hardware che si occupa dello spostamento di blocchi di dati da una zona della memoria principale ad un dispositivoi di I/O, o ad un'altra zona della memoria principale
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 155
+>
+>Quale delle seguenti affermazioni sulla memoria cache é FALSA?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Mantiene una copia di alcuni blocchi dlela memoria principale, per velocizzare le operazioni did accesso della cpu
+>- [ ] É strutturate gerarchicamente, e la cahe di livello piú alto (es.L2) é piú lenta di quella di livello piú basso (es.L0). La cpu accede direttamente ad un livello qualsiasi della cache per recuperare i dati e le istruzioni necessarie all'esecuzione se sono presenti
+>- [ ] É una componente di memoria piccola, ma piú veloce della memoria principale, con la quale si scambia dati in blocchi
+>- [ ] La cache é gestita interamente dall'hardware, ed il sistema operativo non si occupa dello spostamento di dati tra la ram e la cache
+>
+>>[!done]- Risposta
+>>
+>>É strutturate gerarchicamente, e la cahe di livello piú alto (es.L2) é piú lenta di quella di livello piú basso (es.L0). La cpu accede direttamente ad un livello qualsiasi della cache per recuperare i dati e le istruzioni necessarie all'esecuzione se sono presenti
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 156
+>
+>Il Process Control Block (PCB)
+>
+>
+> Scegli un'alternativa:
+>- [ ] É creato dal processore, e poi gestito dal sistema operativo, quando un processo viene creato ed inizializzato
+>- [ ] Contiene le informazione fondamentali per la gestione dei processi da parte del sistema operativo ed, in particolare, le informazioni necessarie per effettuare il process switching
+>- [ ] Contiene al suo interno l'intera immagine del processo a cui si  riferisce
+>- [ ] É mantenuto nella zona di  memoria dedicata al processo a cui appartiene
+>
+>>[!done]- Risposta
+>>
+>>Contiene le informazione fondamentali per la gestione dei processi da parte del sistema operativo ed, in particolare, le informazioni necessarie per effettuare il process switching
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 157
+>
+>L' esecuzione del processore passa da modalitá utente a modalitá kernel
+>
+>
+> Scegli un'alternativa:
+>- [ ] A seguito di una richiesta effettuata dal processo in esecuzione, che richiede esplicitamente il passaggio in modlitá kernel per eseguire del codice del programma
+>- [ ] In maniera automatica, quando viene sollevata e gestita un'interruzione. Il processore esegue il codice indicato dal processo utente per la gestione dell'interruzione sollevata
+>- [ ] In maniera automatica, quando viene sollevata e gestita un'interruzzione. Il processore recupera dalla tabella delle interruzioni ed esegue l'interrupt handler (il software di gestionde dell'interruzione) del sistema operativo associato alla specifica interruzione generata
+>- [ ] Nessuna delle altre risposte é corretta
+>
+>>[!done]- Risposta
+>>
+>>In maniera automatica, quando viene sollevata e gestita un'interruzzione. Il processore recupera dalla tabella delle interruzioni ed esegue l'interrupt handler (il software di gestionde dell'interruzione) del sistema operativo associato alla specifica interruzione generata
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 158
+>
+>Il dispatcher
+>
+>
+> Scegli un'alternativa:
+>- [ ] É la componente del sistema operativo che si occupa di spostare i processi dalla coda dei ready (e viceversa) e di salvarne lo stato
+>- [ ] É una parte del PCB dei processi necessaria ad inviare i segnali ad altri processi per implementare inter-process communication
+>- [ ] Si occupa di spostare processi dallo stato di ready allo stato di blocked, a seguito di una richiesta bloccante
+>- [ ] É la componente dello scheduler dei processi che gestisce la coda delle richieste di creazione di nuovi processi
+>
+>>[!done]- Risposta
+>>
+>>É la componente del sistema operativo che si occupa di spostare i processi dalla coda dei ready (e viceversa) e di salvarne lo stato
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 159
+>
+>Nel modello di esecuzione del sistema operativo all'interno dei processi utente
+>
+>
+> Scegli un'alternativa:
+>- [ ] Non é necessario ne fare process switching ne mode switching quando viene fatta una chiamata di sistema da un processo
+>- [ ] Il processore passa da modailtá utente a modalitá kernel a seguito di una chiamata di sistema, ma non é necessario cambiare il processo in esecuzione
+>- [ ] A seguito di una chiamata di sistema é necessario fare process switching per passare ad un processo di sistema con privilegi elevati per eseguire la system call richiesta
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>Il processore passa da modailtá utente a modalitá kernel a seguito di una chiamata di sistema, ma non é necessario cambiare il processo in esecuzione
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 160
+>
+>L'algoritmo di scheduling Round Robin Virtuale
+>
+>
+> Scegli un'alternativa:
+>- [ ] É una algoritmo di tipo non preemtive
+>- [ ] Puó portare alla starvation dei processi
+>- [ ] Non é un algoritmo equo in quanto, se un processo si blocca nel mezzo del suo quanto temporale a seguito di operazione bloccante, perderá il tempo rimanente in quel quanto temporale quando tornerá ready
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>nessuna delle opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 161
+>
+>Per la gestione della rilocazione degli indirizzi di un programma
+>
+>
+> Scegli un'alternativa:
+>- [ ] Gli indirizzi assoluti devono essere convertiti in indirizzi relativi al momento del caricamento del programma in memoria principale
+>- [ ] Gli indirizzi relativi devono essere tradotti in indirizzi assoluti in tempo reale dal sistema durante l'esecuzione dei programmi
+>- [ ] Gli indirizzi simbolici vengono usa quando un programma é caricato in memoria principale e durante la sua esecuzione
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>Gli indirizzi relativi devono essere tradotti in indirizzi assoluti in tempo reale dal sistema durante l'esecuzione dei programmi
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 162
+>
+>Il partizionamento fisso uniforme della memoria
+>
+>
+> Scegli un'alternativa:
+>- [ ] É una tecnica di gestione della memoria secondaria che viene usata per tenere traccia di dove sono memorizzati i blocchi dati di un dato file
+>- [ ] É una tecnica della gestione della memoria principale che suddivide la RAM in blocchi di partizioni di uguale dimensione. Questo consente di evitare di sprecare porzioni di memoria quando viene caricato un programma in RAM, evitando il problema della frammentazione interna
+>- [ ] nessuna delle risposte é corretta
+>- [ ] É una tecnica di gestione della cache che susddivide le linee di cache in modo uinforme, in modo da velocizzare l'accesso da parte della cpu
+>
+>>[!done]- Risposta
+>>
+>>nessuna delle risposte é corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 163
+>
+>La paginazione della memoria
+>
+>
+> Scegli un'alternativa:
+>- [ ] Consente di non dover necessariamente allocare un processo in una sequenza contigua di memoria fisica
+>- [ ] Richiede di allocare i processi in modo contiguo nella memoria fisica. Tuttavia, sfruttando la tabella delle pagine il sistema riesce comunque ad evitare problemi di frammentazione esterna
+>- [ ] Richiede la trasformazione degli indirizzi fisici del programma in indirizzi logici, nella memoria principale, tramite l'uso del PCB
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>Consente di non dover necessariamente allocare un processo in una sequenza contigua di memoria fisica
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 164
+>
+>Nella gestione dell'I/O, l'I/O buffering
+>
+>
+> Scegli un'alternativa:
+>- [ ] É un meccanismo del sistema operativo percui i dati delle richieste I/O vengono memorizzate temporaneamente in una zona di memoria del kernel prima di essere passate al dispositivo di I/O (nel caso di write) o al processo (nel caso di read)
+>- [ ] É una piccome memoria fisica che é dedicata alla copia temporanea di alcune richieste di lettura/scrittura effettuate dal sistema operativo di particolare importanza
+>- [ ] É un meccanismo di buffering tramite il quale il sistema operativo tiene in memoria principale alcuni blocchi dei files piú utilizzati dai processi con prioritá piú alta per massimizzarne il throughput
+>- [ ] É un meccanismo di buffering tramite il quale il sistema operativo tiene in memoria principale alcuni blocchi dei dischi di memoria secondaria prima di toglierli completamente dalla RAM
+>
+>>[!done]- Risposta
+>>
+>>É un meccanismo del sistema operativo percui i dati delle richieste I/O vengono memorizzate temporaneamente in una zona di memoria del kernel prima di essere passate al dispositivo di I/O (nel caso di write) o al processo (nel caso di read)
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 165
+>
+>Le politiche di scheduling dei dischi di I/O meccanici
+>
+>
+> Scegli un'alternativa:
+>- [ ] Sono progettate per ottimizzare il tempo di posizionamento della testina meccanica (seek time) per massimizzare le prestazioni
+>- [ ] Sono progettate per ottimizzare il ritardo di rotazione (rotational delay) del disco necessari a portare il settore desiderato al di sotto della testina meccanica
+>- [ ] Sono progettate per ottimizzare il tempo di trasferimento dei dati, massimizzando la velocitá di lettura di un settore da parte della testina
+>- [ ] Sono progettate per minimizzare il tempo di attesa per l'assegnazione del dispositivo (wait for device)
+>
+>>[!done]- Risposta
+>>
+>>Sono progettate per ottimizzare il tempo di posizionamento della testina meccanica (seek time) per massimizzare le prestazioni
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 166
+>
+>La configurazione RAID dei dischi
+>
+>
+> Scegli un'alternativa:
+>- [ ] É un meccanismo utilizzato per migliorare la velocitá di accesso e la ridondanza dei dati
+>- [ ] É un meccanismo logico che permette al sistem di visualizzare un solo disco come sse fossero diversi dischi separati
+>- [ ] É una tecnica di partizionamento dei dati su dischi che permette di minimizzare la probabilitá di un fallimento hardware dei dischi
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>É un meccanismo utilizzato per migliorare la velocitá di accesso e la ridondanza dei dati
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 167
+>
+>L'allocazione contigua dei file su disco
+>
+>
+> Scegli un'alternativa:
+>- [ ] Al contrario dell'allocazione concatenata, permette di ottimizzare l'allocazione dei files distribuendone diverse parti in blocchi arbitrari nel disco
+>- [ ] Garantisce ottime performance di accesso in lettura e scrittura sequenzial, ma porta a frammentazione eseterna nel tempo
+>- [ ] Con la creazione e cancellazzione di files nel tempo, puó portare a problemi di frammentazione interna
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>Garantisce ottime performance di accesso in lettura e scrittura sequenzial, ma porta a frammentazione eseterna nel tempo
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 168
+>
+>Il journaling logico
+>
+>
+> Scegli un'alternativa:
+>- [ ] É un meccanismo che puó essere utilizzato dal sistema operativo per evitare la perdita di dati e metadati nel caso di crash del sistema
+>- [ ] É un meccanismo che puó essere utilizzato dal sistema operativo per evitare la perdita di metadati nel caso di crash del sistema
+>- [ ] É un meccanismo del sistema operativo utilizzato per tenere una storia delle operazioni effettuate da un processo per verificarne la correttezza in caso di terminazione inaspettata
+>- [ ] É una tecnica di gestione della storia dei processi che permette di creare statistiche di esecuzione che sono utilizzate per supportare politiche di scheduling che richiedono conoscenza, ad esempio, dei tempi di esecuzione storici di un processo
+>
+>>[!done]- Risposta
+>>
+>>É un meccanismo che puó essere utilizzato dal sistema operativo per evitare la perdita di metadati nel caso di crash del sistema
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 169
+>
+>Nel file system NTFS
+>
+>
+> Scegli un'alternativa:
+>- [ ] La Master File Table é una sequenza lineare di record, ognuno dei quali descrive un file
+>- [ ] I record contengono una lista di coppie <attributo,valore>, in cui il valore puó essere in realtá un puntatore ad un record remoto salvato in un'altra zona del disco
+>- [ ] Per i files di grandi dimensioni il record base contiene, oltre ad una sequenza ordinata di blocchi su disco dove risiede il file, un puntatore ad un altro record. Questo record a sua volta contiene sequenze ordinate di blocchi del file, e potenzialmente un ulteriore puntatore ad un altro record
+>- [ ] Tutte le opzioni sono corrette
+>
+>>[!done]- Risposta
+>>
+>>Tutte le opzioni sono corrette
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 170
+>
+>Una Sezione critica
+>
+>
+> Scegli un'alternativa:
+>- [ ] É una sezione del codice di un programma in cui c'é accesso esclusivo ad una risorsa condivisa
+>- [ ] É una sezione del codice di un programma in cui viene violata la mutua esclusione per l'accesso ad una risorsa condivisa
+>- [ ] É una sezione del codice di un programma in cui nessun altro processo puó interrompere l'esecuzione del processo corrente
+>- [ ] tutte le risposte sono corrette
+>
+>>[!done]- Risposta
+>>
+>>É una sezione del codice di un programma in cui c'é accesso esclusivo ad una risorsa condivisa
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 171
+>
+>Il deadlock
+>
+>
+> Scegli un'alternativa:
+>- [ ] É una situazione in cui due o piú processi sono in attesa di una risorsa detenuta da un altro processo, che a sua volta é in attesa di una risorsa detenuta da un terzo processo, e questa sequenza di processi in attesa forma una catena circolare
+>- [ ] É un sistema di controllo degli accessi tramite il quale il sistema operativo blocca l'accesso ad alcuni files sensibili in caso di anomalie nel sistema
+>- [ ] É una situazione in cui due o piú risorse del sistema sono bloccate ed inacessibili ai processi a causa di errori interni
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>É una situazione in cui due o piú processi sono in attesa di una risorsa detenuta da un altro processo, che a sua volta é in attesa di una risorsa detenuta da un terzo processo, e questa sequenza di processi in attesa forma una catena circolare
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 172
+>
+>Il buffer Overflow
+>
+>
+> Scegli un'alternativa:
+>- [ ] É una situazione in cui un buffer di sistema si riempie ed il sistema operativo si trova in una situazione di stallo finché il buffer non viene liberato
+>- [ ] É una vulnerabilitá di un programma che puó portare ad esecuzione arbitraria di codice da parte di un avversari che la sfrutti
+>- [ ] É l'operazione tramite la quale il sistema operativo trasferisce i contenuti da un buffer di sistema ad un altro
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>É una vulnerabilitá di un programma che puó portare ad esecuzione arbitraria di codice da parte di un avversari che la sfrutti
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 173
+>
+>Una funzione hash crittografica
+>
+>
+> Scegli un'alternativa:
+>- [ ] É una funzione che prende in input una stringa di lunghezza arbitraria, e da in output una stringa di lunghezza fissa
+>- [ ] É una funzione per cui é computazionalmente estremamente difficile calcolare l'inverso
+>- [ ] É una funzione per cui é computazionalmente estremamente difficile trovare due input diversi che danno lo stesso output
+>- [ ] tutte le opzioni sono vere
+>
+>>[!done]- Risposta
+>>
+>>tutte le opzioni sono vere
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 174
+>
+>Il registro instruction register contiene
+>
+>
+> Scegli un'alternativa:
+>- [ ] L'indirizzo dell'ultima istruzione che la cpu ha prelevato dalla memoria
+>- [ ] L'indirizzo della prossiam istruzione che cpu dovrá prelevare dalla memoria
+>- [ ] nessuna delle opzione é corretta
+>- [ ] il numero di istruzione eseguite dal processo corrente
+>
+>>[!done]- Risposta
+>>
+>>nessuna delle opzione é corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 175
+>
+>In un sistema con paginazione virtuale con tabella delle pagine a piú livelli
+>
+>
+> Scegli un'alternativa:
+>- [ ] Le tabelle delle pagine di primo e secondo livello devono sempre essere presenti in memoria pirncipale, ma quelle dei livelli successivi non necessariamente
+>- [ ] Richiedono l'utilizzo congiunto della segmentazione della memoria per consentire lo swapping delle diverse porzioni della tabella delle pagine di secondo livello quando necessario
+>- [ ] É necessario che la cpu abbia dell'hardware dedicato per effettuare la conversione degli indirizzi dei processi durante l'esecuzione
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>É necessario che la cpu abbia dell'hardware dedicato per effettuare la conversione degli indirizzi dei processi durante l'esecuzione
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 176
+>
+>Quale delle seguenti affermazioni sulla memoria cache é VERA?
+>
+>
+> Scegli un'alternativa:
+>- [ ] Mantiene una copia di alcuni blocchi della memoria principale, per velocizzare le operazioni di accesso della cpu
+>- [ ] Tutte le opzioni sono vere
+>- [ ] É una componente di memoria piccola, ma piú veloce della memoria principale, con la quale scambia dati in blocchi
+>- [ ] La cache é gestita interamente dall'hardware, ed il sistema operativo non si occupa dello spostamento di dati tra la ram e la cache
+>
+>>[!done]- Risposta
+>>
+>>Tutte le opzioni sono vere
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 177
+>
+>Il Translation lookaside buffer (TLB)
+>
+>
+> Scegli un'alternativa:
+>- [ ] É una piccola memoria associativa interna alla cache che viene utilizzata per tradurre automaticamente gli indirizzi virtuali salvati nella cache in indirizzi fisici
+>- [ ] É una componente hardware che mantiene gli elementi della tabelle delle pagine acceduti piú di recente da un processo, e consente la traduzione degli indirizzi virtuali in fisici senza accedere alla tabella delle pagine
+>- [ ] É un buffer software del sistema operativo che viene utilizzato per evitare di accedere alla tabella delle pagine per la traduzione degli indirizzi virtuali
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>É una componente hardware che mantiene gli elementi della tabelle delle pagine acceduti piú di recente da un processo, e consente la traduzione degli indirizzi virtuali in fisici senza accedere alla tabella delle pagine
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 178
+>
+>L'algoritmo di scheduling Round Robin
+>
+>
+> Scegli un'alternativa:
+>- [ ] É un algoritmo di tipo non preemtive
+>- [ ] puó portare alla starvation dei processi
+>- [ ] Non é un algoritmo perfettamente equo in quanto, se un processo si blocca nel mezzo del suo quanto temporale a seguito di operazione bloccante, perderá il tempo rimanente in quel quanto temporale quando tornerá ready
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>Non é un algoritmo perfettamente equo in quanto, se un processo si blocca nel mezzo del suo quanto temporale a seguito di operazione bloccante, perderá il tempo rimanente in quel quanto temporale quando tornerá ready
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 179
+>
+>Per la gestione della rilocazione degli indirizzi di un programma
+>
+>
+> Scegli un'alternativa:
+>- [ ] Gli indirizzi assoluti devono  essere convertiti in indirizzi relativi al moemento del caricamento del programma in memoria principale
+>- [ ] Gli indirizzi relativi devono essere tradotti in indirizzi assoluti in tempo reale dal sistema durante l'esecuzione di un programma
+>- [ ] Gli indirizzi simbolici vengono usati quand un programma é caricato in memoria principale e durante la sua esecuzione
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>Gli indirizzi relativi devono essere tradotti in indirizzi assoluti in tempo reale dal sistema durante l'esecuzione di un programma
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 180
+>
+>La paginazione della memoria
+>
+>
+> Scegli un'alternativa:
+>- [ ] Consente di non dover necessariamente allocare un processo in una sequenza contigua di memoria fisica
+>- [ ] Richiede di allocare i processi in modo contiguo nella memoria fisica. Tuttavia sfruttando la tabella delle pagine il sistema riesce comunque ad evitare problemi di frammentazione esterna
+>- [ ] Richiede la trasformazione degli indirizzi fisici del programma in indirizzi logici nella memoria principale, tramite l'uso del PCB
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>Consente di non dover necessariamente allocare un processo in una sequenza contigua di memoria fisica
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 181
+>
+>L'allocazione indicizzata dei file su disco
+>
+>
+> Scegli un'alternativa:
+>- [ ] Al contrario dell'allocazione contigua, permette di ottimizzare l'allocazione dei files distribuendone diverse parti in blocchi arbitrari e non necessariamente adiacenti nel disco
+>- [ ] Garantisce ottima performance di accesso in lettura e scrittura sequenziale, ma porta a frammentazione esterna nel tempo
+>- [ ] Con la creazione e cancellazione di files nel tempo, puó portare a problemi di frammentazione interna
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>Al contrario dell'allocazione contigua, permette di ottimizzare l'allocazione dei files distribuendone diverse parti in blocchi arbitrari e non necessariamente adiacenti nel disco
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 182
+>
+>Le password nel sistema Linux
+>
+>
+> Scegli un'alternativa:
+>- [ ] Sono mantenute in formato offuscato e non invertibile all'interno del file shadow, che é direttamente accessibile a tutti gli utenti del sistema in modo che possano, ad esempio aggiornare la propria password
+>- [ ] Sono salvate in modo cifrato (encrypted) all'interno del file shadow, che é inaccessibile ad utenti senza privilegi di root
+>- [ ] Sono salvate in chiaro (cleartex) all'interno di un file di sistema protetto (shadow) ed inaccessibile ad utenti tranne root
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>nessuna delle opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>
+
+>[!note] Domanda Numero 183
+>
+>L'attacco a dizionario
+>
+>
+> Scegli un'alternativa:
+>- [ ] utilizza una lista di hash precomputati per trovare la password corrispondente ad un hash
+>- [ ] utilizza il dizionario di sistema per individuare la lista delle password piú usate in macchina, al fine di invertire un hash
+>- [ ] É un attacco che sfrutta vulnerabilitá di programmi per eseguire codice arbitrario su una macchina
+>- [ ] nessuna delle opzioni è corretta
+>
+>>[!done]- Risposta
+>>
+>>nessuna delle opzioni è corretta
+>>
+>>---
+>>
+>>**Motivazione:**
+>>

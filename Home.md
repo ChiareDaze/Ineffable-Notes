@@ -15,8 +15,15 @@ Ciao, sono Chiara e sono una studentessa di informatica. Qui troverete i miei ap
 - [[Basi di dati I]]
 - [[Basi di dati II]]
 - [[Calcolo delle probabilità]]
-- [[Sistemi operativi I]]
+- [Sistemi Operativi I](https://alem1105.github.io/Quartz/vault/Secondo-Anno/Primo-Semestre/Sistemi-Operativi-1)
 - [[Sistemi Operativi II]]
+
+**Terzo anno**
+- [[Programmazione Web]]
+- [[Interazione uomo-macchina]]
+- [[Ingegneria del software]]
+- [[Automi]]
+- [[Data science e diritto]]
 
 >Per qualsiasi cosa mancante o non sistemata, consiglio di vedere gli appunti dei miei pasticcini alla crema [Matteo](https://notesinpublic.xyz/) e [Alessio](https://alem1105.github.io/Quartz/)
 
