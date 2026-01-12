@@ -1,3 +1,3 @@
-[[Vecchi appunti]]
-[[Nuovi appunti]]
-[[Relazione progetto JBlackJack]]
+- [[Vecchi appunti]]
+- [[Nuovi appunti]]
+- [[Relazione progetto JBlackJack]]
