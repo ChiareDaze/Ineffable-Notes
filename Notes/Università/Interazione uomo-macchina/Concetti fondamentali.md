@@ -81,3 +81,116 @@ L'unica cosa che contraddistingue questo prototipo dal prodotto finale sta nel f
 Consente di testare un'applicazione che sembra completa, con interfaccia e algoritmi finalizzati, ma senza dover scrivere il codice necessario.
 Un essere umano simula il comportamento del sistema, controllando l'interfaccia dietro le quinte, come un "mago" nascosto dietro il sipario.
 Per implementare questa tecnica è necessario scegliere le task da simulare, creando mock-up dell'interfaccia che consentono al "mago" di  intervenire nei punti critici.
+
+**Metodi di osservazione**
+Sono tecniche impiegate per valutare l'usabilità e la funzionalità di un sistema interattivo, testando direttamente il modo in cui gli utenti reali utilizzano l'interfaccia.
+Gli obiettivi sono:
+- verificare l'efficacia delle funzionalità del sistema
+- aiutare l'impatto dell'interfaccia dell'utente
+- identificare eventuali problemi specifici di usabilità
+
+Questi obiettivi aiutano a comprendere se il sistema risponde ai bisogni dell'utente e se ci sono aree da migliorare.
+
+**Tipi di metodi di osservazione**
+- *Think aloud*: l'utente è osservato mentre svolge i task e viene invitato a descrivere verbalmente cosa sta facendo e perché
+- *Cooperative evaluation*: L'utente e il valutatore collaborano e posso farsi domande a vicenda
+- *Protocol analysis*: implica la registrazione delle sessioni di valutazione per consentire un'analisi approfondita successiva. Possono includere l'uso di carta e penna, audio, video/vlog su computer
+- *post-tal walkthroughs*: la registrazione della sessione viene riprodotta per il partecipante, che può commentare e spiegare le proprie azioni
+
+**Esperimenti**
+Permettono di condurre test in condizioni controllate,  con l'obiettivo di valutare l'effetto di una o più variabili sulle prestazioni degli utenti.
+Il valutatore stabilisce delle ipotesi da verificare e sceglie le variabili da modificare o misurare, suddividendo i partecipanti in gruppi che sperimentano condizioni diverse.
+Per progettare un esperimento efficace, ci sono alcuni fattori chiave da considerare:
+- *Partecipanti*
+- *Variabili*: possono essere indipendenti (interfaccia, numero di elementi in un menù,..) o dipendenti (misure raccolte durante l'esperimento, come il tempo di completamento di una task)
+- *Ipotesi*: possono essere alternative (afferma che la modifica di una variabile indipendente causi un cambiamento nella variabile dipendente) o nulle (afferma che non ci sarà alcun cambiamento nelle variabili dipendenti a seguito del cambiamento di una variabile indipendente)
+
+Dopo aver definito le ipotesi, variabili e partecipanti, il passo successivo è selezionare i metodo sperimentale.
+Ci sono due approcci:
+- *Between subjects*: ogni partecipante sperimenta solo una condizione
+- *Withing subjects*: ogni partecipante sperimenta tutte le condizioni, eseguendo i test più volte
+
+**Heuristic evaluation**
+E' una tecnica in cui gli esperti valutano un'inetrfaccia in base a una serie di euristiche (principi generali e regole pratiche per il design dell'usalbilità).
+1. *Visibilità dello stato del sistema*
+2. *Corrispondenza tra il sistema e il mondo reale*
+3. *Libertà e controllo da parte degli utenti*
+4. *Coerenza e standard*
+5. *Prevenzione degli errori*
+6. *Riconoscere piuttosto che ricordare*
+7. *Flessibilità ed efficienza d'uso*
+8. *Design minimalista ed estetico*
+9. *Aiutare gli utenti a riconoscere, diagnosticare e correggere gli errori*
+10. *Aiuto/guida e documentazione*
+
+**Sviluppo di sistemi interattivi**
+Nel mondo del design di sistemi interattivi, la metodologia utilizzata è cruciale per determinare il successo del prodotto finale.
+Esistono vari modelli di gestione dei progetti, i principali sono:
+- *Modello waterfall*
+- *Metodo agile*
+
+**Modello waterfall**
+Ogni fase deve essere scompletata prima che la successiva possa iniziare, creando una struttura rigida per lo sviluppo del progetto.
+Le fasi principali sono:
+- *Analisi del progetto*
+- *Progettazione*
+- *Implementazione*
+- *Testing*
+- *Manutenzione*
+
+Un vantaggio del modello waterfall è la sua struttura chiara. Infatti, le fasi sequenziali e ben definite lo rendono ideale per progetti in cui i requisiti sono stabili e non prevedono cambiamenti significativi.
+
+**Metodo agile**
+Introdotto per la necessità di maggiore flessibilità nel processo di sviluppo. Questo metodo prevede la suddivisione del progetto in cicli iterativi e incrementali chiamati *sprint*.
+Ogni sprint rappresenta una breve fase di sviluppo in cui vengono progettate, sviluppate e testate funzionalità specifiche.
+Alla fine di ogni sprint, il team verifica i progressi fatti, raccoglie feedback e adatta il progetto alle richieste emergenti.
+Le caratteristiche di questo metodo sono:
+- *Iterazione continua*
+- *Collaborazione costante con gli utenti*
+- *Flessibilità e adattabilità*
+
+**Interfaccia modale**
+Un'interfaccia si definisce *modale* quando il significato di un gesto cambia a seconda dello stato attuale del sistema.
+
+**Content**
+Rappresenta l'insieme delle informazioni presenti nel sistema, significative e utili per l'utente
+
+**GID (graphic input device)**
+E' un dispositivo grafico di input  (come il mouse) che permette di comunicare la posizione del cursore
+
+**GID button**
+E' il tasto principale del GID utilizzato per attivare o selezionare elementi
+
+**Click, Double-Click, Drag e Swipe**
+Questi termini indicano azioni di interazione comune
+
+**Gesture**
+Rappresenta una sequenza di azioni completata automaticamente una volta avviata. Se un'interfaccia interpreta un gesto sempre nello stesso modo, allora si trova in un unico *modo*. Ma, se l'interfaccia del gesto cambia a seconda dello stato del sistema (per esempio il tasto "invio" potrebbe servire per andare a capo in un documento o per confermare un comando in una finestra di dialogo) ci troviamo di fronte a un'interfaccia in modalità variabile.
+
+**Errori di modo**
+Sono errori causati da una valutazione sbagliata dello stato del sistema e possono essere ridotti seguendo alcuni principi:
+- Evitare i modi quando possibile
+- Segnalare chiaramente i modi presenti
+- Distinguere i comandi in base ai modi: in modo tale che un comando emesso erratamente non produca effetti indesiderati
+
+**Seconda definizione di interfaccia modale**
+Un'interfaccia è modale se:
+- lo stato corrente dell'interfaccia non è il luogo dell'attenzione dell'utente
+- se rispetto a un gesto può rispondere a quel gesto in diversi modi a seconda dello stato del sistema
+
+**Noun-verb e verb-noun**
+- *Noun-verb*: si seleziona prima l'oggetto e poi si decide l'azione da eseguire su di esso
+- *Verb-noun*: si decide prima l'azione e poi l'oggetto
+
+**Affordance e signifiers**
+- *Affordance*: la forma, la dimensione e l'aspetto di un oggetto suggeriscono implicitamente quali azioni l'utente può compiere. Dipende sia dall'oggetto che dall'utente.  Se l'utente possiede le capacità percettive per comprendere come usare l'oggetto, allora l'affordance può guidarlo verso l'azione corretta
+- *Signifiers*: sono indicatori percettibili che comunicano all'utente quale comportamento adottare con un oggetto
+
+**Productivity application**
+App pensate per supportare compiti che richiedono organizzazione e gestione di informazioni dettagliate. Un esempio è Google Photo che organizza e gestisce foto e video
+
+**Utility application**
+Servono a compiere comiti semplici che richiedono un minimo intervento dell'utente. Il loro scopo principale è fornire informazioni essenziali su un argomento specifico, come nel caso delle applicazioni delle previsioni meteo
+
+**Immersive application**
+Sono app che forniscono un'esperienza immersiva, progettata per trattenere l'utente in un ambiente interattivo unico. Queste app, tipiche dei videogiochi, offrono ambienti ricchi di dettagli e occupano l'intero schermo del dispositivo, permettendo all'utente di esplorare e interagire con il contenuto in modo approfondito
