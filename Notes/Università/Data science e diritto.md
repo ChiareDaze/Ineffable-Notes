@@ -103,7 +103,6 @@ Quando vogliamo esprimere qualcosa, il cervello crea una configurazione neuronal
 
 
 ---
-
 #### Lezione 15/10
 
 La macchina (ai) è cosciente?
