@@ -1,172 +1,94 @@
-### Ciclo di vita di un software
-
-1. Studio di fattibilità 
-	- comprendere i requisiti di alto livello 
-	- valutare costi e benefici 
-	-  pianificare le attività e le risorse del progetto 
-	-  individuare l’ambiente di programmazione (hardware/software)  
-
-2. Raccolta dei requisiti 
-	- Raccolta dei requisiti presso i diversi attori 
-	- Stesura e sintesi iniziali 
-	- Raffinamento dei requisiti 
-	
-3. Analisi concettuale dei requisiti 
-	- *Obiettivo*: produrre lo schema concettuale dell'applicazione, che definisca in dettaglio cosa l’applicazione dovrà realizzare, indipendentemente dal come 
-	- Lo schema concettuale: 
-		- Modella i dati di interesse, le loro articolazioni, interrelazioni ed evoluzioni possibili 
-		- Specifica i servizi computazionali che l'applicazione dovrà offrire ai diversi utenti
-		- Lo schema concettuale è un modello logico-matematico dell’applicazione, e sarà la base da cui partire per le successive attività di progettazione
-
-4. Design dell'applicazione
-	-  specifica come l'applicazionen realizza le sue funzioni
-
-5. Realizzazione dell'applicazione (implementazione)
-	- Equivale alla scrittura del codice e scrivere la documentazione
-
-6. Integrazione dei componenti e verifica dell'applicazione
-	- Le diverse componenti dell’applicazione, sviluppate separatamente, vengono integrate 
-	- Si valuta se l’applicazione svolge correttamente, completamente ed efficientemente i suoi compiti 
-
-7. Messa in esercizio
-	- L’applicazione viene messa in esercizio ed inizia a funzionare 
-
-8. Manutenzione dell’applicazione 
-	- L’applicazione viene monitorata durante l’esercizio 
-	- Correzioni ed aggiornamenti vengono prodotti ove e quando necessario
-
-
->[!info] Modelli di ciclo di vita del software
->
->
-**Modello a cascata (waterfall model)**
->Questo significa che ogni attività inizia quando termina il precedente e ha uno scopo interamente didattico.
->
->**Modello a spirale (o iterativo)**
-![[Pasted image 20250226154809.png|300]]
->
->E' come una pipeline
+>[!info] Appunti presi solo ai fini dell'esame
+>- [[#Concetti fondamentali]]
+>- Esempi pratici per l'esame
+# Concetti fondamentali
 
 ### Analisi concettuale
+#### Oggetti
+Servono per descrivere elementi singoli particolarmente significativi oppure per descrivere esempi.
+In  UML un oggetto modella un elemento del dominio che ha "vita propria" ed è identificato mediante l'*identificatore* di oggetto. Di base, è l'*istanza* di una classe.
 
-#### Diagramma delle classi e degli oggetti
+![[Pasted image 20260305144205.png|250]]
 
-**Oggetti UML**
+In questo esempio `div_comm` è l'*identificatore* di un oggetto.
+Libro è la *classe* di cui l'oggetto ne è istanza.
 
-E' una porzione del mondo reale
-Identificato attraverso l'identificatore di oggetto
+#### Classi
+Una classe modella un insieme di oggetti omogenei (le istanze della classe) ai quali sono associate proprietà statiche (*attributi*) e dinamiche (*operazioni*).
+Ogni classe è descritta da:
+- un nome
+- un insieme di proprietà
 
-![[Pasted image 20250226162938.png]]
+![[Pasted image 20260305145005.png|400]]
 
-Libro è la classe più specifica di cui `Libro` è l'istamza
+>[!info] 
+>Il diagramma delle classi impone che tutte le sue istanze abbiano un valore di tipo stringa per l'attributo "titolo"
 
-**Classe**
+#### Associazioni e link
+Un'associazione modella la possibilità che oggetti di due (o più classi) abbiano dei legami.
+Le istanze di associazioni si chiamano *link*: se $A$ è un'associazione tra le classi $C_{1}$ e $C_{2}$, un'istanza di $A$ è un link tra due oggetti, uno della classe $C_{1}$ e l'altro della classe $C_{2}$.
 
-Modella un insieme di oggetti omogenei ai quali sono associate proprietà statiche (attributi) e dinamiche (operazioni)
+![[Pasted image 20260305151054.png|400]]
 
-Ogni classe è descritta da: 
--  un nome 
-- un insieme di proprietà (astrazioni delle proprietà comuni degli oggetti che sono istanze delle classi)
+![[Pasted image 20260305151127.png|400]]
 
-![[Pasted image 20250226163257.png]]
+Come gli oggetti sono istanze delle classi, così **i link sono istanze delle associazioni**.
+Al contrario degli oggetti, però, i link *non* hanno identificatori specifici. Il link è implicitamente identificato dalla coppia di oggetti che esso rappresenta.
 
-Un oggetto è identificato da un identificatore univoco
-Un diagramma delle classi in generale permette la coesistenza di oggetti identici
-
-![[Pasted image 20250226163537.png]]
-
-
-#### Associazioni
-
-Modellano la possibilità che oggetti di classi diverse abbiano dei legami
-
-![[Pasted image 20250226163624.png]]
-
-Le istanze di associazioni sono chiamate *link*.
-Se A è un'associazione tra classi C1 e C2, un'istanza di A è un link tra due oggetti.
-
-![[Pasted image 20250226163819.png]]
-
-I link non hanno identificatori espliciti e quindi non possono esistere link uguali per associazioni *distinte*.
-
->[!info] Esempio
->Si vuole progettare un’applicazione che permetta ai clienti di prenotare hotel via web
+>[!warning]
+>Non sono ammessi link uguali
 >
->![[Pasted image 20250226164211.png]]
->
->Esiste la classe `Hotel` e la classe `Prenota`, prenota significa che ogni persona può prenotare un hotel.
->
->![[Pasted image 20250226164322.png]]
->
->In questo caso significa che Alice ha prenotato all'hoter "La Pergola"
->
->E se volessimo rappresentare una seconda prenotazione di ‘alice’ presso ‘h1’?
->
->![[Pasted image 20250226164522.png]]
->
->Il diagramma qui sopra impedirebbe ad una stessa persona di prenotare, nella sua vita, lo stesso hotel più volte!
->
->*Come si può fare?*
->
->![[Pasted image 20250226164705.png]]
->
->Diciamo che una prenotazione è legata all'hotel tramite l'associazione `hotel_prenotato` e una prenotazione è legata a Persona tramite l'associazione `cliente_prenotazione`.
->
+>![[Pasted image 20260305153649.png|450]]
 
-#### Vincoli di integrità
+>[!example] Esempio prenotazioni
+>Si vuole progettare un'app che permette ai clienti di prenotare hotel via web.
+>
+>Si potrebbe pensare una cosa del genere:
+>
+>![[20260305-155518.jpg|500]]
+>
+>Però questo diagramma è inadeguato.
+>Dato che non possono esistere due link uguali che collegano le stesse classi, una stessa persona non potrebbe prenotare lo stesso hotel mai più.
+>Per aggirare questo problema si può creare la classe `Prenotazione`.
+>
+>![[20260305-161027.jpg|800]]
 
-Un vincolo di integrità impone ulteriori restrizioni (oltre quelle strutturali imposte dal diagramma) sui livelli estensionali ammessi.
+>[!info] Associazioni multiple tra due classi
+>Tra le stesse classi possono essere definite più associazioni che modellano legami di natura diversa
+>
+>![[Pasted image 20260305161345.png|400]]
 
+#### Vincoli di molteplicità
+UML permette di definire vincoli in un diagramma delle classi.
+Un vincolo  di integrità impone ulteriori restrizioni sui livelli estensionali ammessi.
 
-![[Pasted image 20250226165947.png]]
+![[Pasted image 20260305163321.png|500]]
 
-Ogni istanza di Impiegato deve essere coinvolta in un numero di link dell’associazione “nascita” che va “da 1 a 1”
+- $1\dots 1$: ogni istanza di `Impiegato` deve essere coinvolta in un numero di link dell'associazione "nascita" che va da $1$ a $1$.
+	- Dato che non possiamo avere più link tra la stessa coppia di oggetti, questo è equivalente a: ogni istanza di `Impiegato` deve essere legata a una e una sola istanza `Città` (tramite link dell'associazione `nascita`)
+- $0\dots^{*}$: ogni istanza di `Città` deve essere coinvolta in un numero di link dell’associazione `nascita` che va “da $0$ all’infinito. È equivalente a dire: ogni istanza di `Città` può essere legata ad un numero qualunque ($0\dots^{*}$) di istanze di `Impiegato` (tramite link dell’associazione `nascita`)
 
-Ogni istanza di Città deve essere coinvolta in un numero di link dell’associazione “nascita” che va “da 0 all’infinito”
+>[!Example] Esempio sovrano
+>Supponiamo di voler modellare i sovrani di un regno ormai scomparso. Di ogni sovrano interessa il nome, il periodo in cui ha regnato e il predecessore
+>
+>Creo la classe `Sovrano`
+>
+>![[20260305-164705.jpg|200]]
+>
+>Come possiamo rappresentare il concetto di `Predecessore`?
+>Il predecessore è comunque un sovrano che ha un nome, un periodo in cui ha regnato e a sua volta un predecessore. Perciò possiamo fare un'associazione che *insiste più volte sulla stessa classe*
+>
+>![[20260305-165421 1.jpg|250]]
 
 #### Associazioni con attributi
+Supponiamo di voler progettare un sistema che gestisca gli esiti dei test superati dagli studenti di un corso.
+Il corso è diviso in moduli e uno studente può superare il testa di ogni modulo al più di una volta.
 
-Supponiamo di voler progettare un sistema per la gestione degli esiti dei voti dei test superati dagli studenti di un corso.
-Il corso è diviso in moduli e uno studente può superare il test di ogni modulo al più una volta.
+![[Pasted image 20260305170054.png|500]]
 
-![[Pasted image 20250305084316.png|400]]
+Il problema nasce perché in questo modo non sappiamo dove mettere l'attributo `voto`, poiché non né attributo di `Studente` né di `Modulo`, ma *è una proprietà del legame* tra `Studente` e `Modulo`. E' quindi una proprietà *dell'associazione*.
 
-Non possiamo aggiungere un attributo “voto” né nella classe Studente né nella classe Modulo. Quindi, come si possono rappresentare i voti conseguiti dagli studenti nei test durante i diversi moduli?
+![[Pasted image 20260305170434.png|500]]
 
-Un voto, non è una proprietà locale di uno studente, né di un modulo, ma è una proprietà del legame tra uno studente e un modulo, è quindi una *prprietà dell'associazione*.
-
-
-
----
-### Tipi
-
-Sono dati concettuali, che siano facilmente realizzabili con qualsiasi tecnologia informatica.
-I tipi base sono: Intero, Reale, Booleano, Data, Ora, DataOra
-
-**Tipi specializzati**
-
-Serve per rappresentare, per esempio, degli intervalli
-
-![[Pasted image 20250304160143.png|500]]
-
----
-
-#### Vincoli di identificazione
-
-Mettendo un `id` diciamo che non possono esistere due oggetti con lo stesso attributo.
-
-#### Ereditarietà
-
-Il linguaggio UML permette di implementare l'ereditarietà, quindi il concetto di "sottoclasse".
-
-Per esempio, prendiamo le classi `Studente` e `Persona`. `Studente` può essere considerata una sottoclasse di `Persona`.
-`Studente` eredita tutti gli attributi di `Persona` (come in Java).
-
----
-
-### Operazioni
-
-Un'operazione di una classe ci indica che su quella classe di possono eseguire dei calcoli.
-- Si può calcolare un valore a partire da altri dati o operazioni
-- Effettuare cambiamenti di stato dell'oggetto, dei link in cui è coinvolto e/o degli oggetti a esso collegati
-
+>[!warning]
+>Anche in presenza di attributi, la natura dell'associazione non cambia. Il diagramma permette a una stesa coppia di oggetti di formare *al più* un link dell'associazione.
