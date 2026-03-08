@@ -43,7 +43,7 @@ Qualora questi obiettivi venissero vilati, l'impatto per l'organizzazione si cla
 10. La sicurezza forte è spesso vista come un ostacolo all'usabilità del sistema.
 
 >[!note] Modello del cybersex
-Il modello relazionale della sicurezza si basa su questi concetti chiave:
+>Il modello relazionale della sicurezza si basa su questi concetti chiave:
 >- *Asset*: hardware, software, dati, reti. Hanno un valore per i proprietari
 >- *Vulnerabilità*: Una debolezza nel sistema o nelle procedure che può essere sfruttata da una minaccia. Le risorse possono essere corrotte (integrità), divulgate (confidenzialità) o rese indisponibili (disponibilità)
 >- *Avversario*: L'entità (individuo o gruppo) che ha l'intento di condurre attività dannose
