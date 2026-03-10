@@ -159,7 +159,7 @@ Si distinguono contromisure di carattere:
 ---
 # Crittografia
 
-#### Cifratura a chiave simmetrica
+### Cifratura a chiave simmetrica
 
 E una tecnica crittografica che garantisce la *confidenzialità* dei dati.
 
@@ -251,47 +251,107 @@ Dove:
 Ciò che viene inviato e $MD_{M} \space || \space M$, cioè il prodotto della funzione hash, concatenato al messaggio in chiaro.
 Infine, il destinatario, che conosce $K$, calcola $MD_{M} = H(K \space || \space M \space || \space K)$ e la confronta con $MD_{M}$ per verificare l'integrità del messaggio.
 
-#### Public-key encryption structure
+### Crittografia a chiave pubblica (asimmetrica)
 
-Ho un plaintext, ho un algoritmo di cifratura. I mittenti cifrano il messaggio con una chiave pubblica e il destinatario decifra il messaggio con una chiave privata.
+Risolve principalmente il problema della distribuzione della chiave. 
+Viene utilizzata una coppia di chiavi matematicamente collegate tra loro, una *privata* e una *pubblica*, che garantiscono:
+- *Confidenzialità*: il messaggio verrà cifrato con la chiave pubblica del mittente, che sarà in grado di decifrare il messaggio con la sua chiave privata
+- *Autenticazione*: l'hash viene cifrato con la chiave privata del mittente e il destinatario decifrerà l'hash utilizzando la chiave pubblica del mittente, garantendone l'autenticità
+
+Per i seguenti esempi e schemi, supponiamo di avere una situazione in cui il mittente Bob vuole mandare un messaggio al destinatario Alice.
+
+![[Pasted image 20260308163330.png|600]]
+
+Tra i principali algoritmi a chiave asimmetrica troviamo:
+- *RSA*: utilizzato per la cifratura, firme digitali e scambio di chiavi
+- *Diffie-Hellman*: serve **solo** per permettere a due entità di generare una chiave simmetrica condivisa attraverso un canale sicuro.
+- *DSS (Digital Signature Standard)*: garantisce firma digitale con **SHA-1**
+- *ECC (Elliptic Curve)*: sicuro quanto RSA , ma usa chiavi più corte. Perciò, è più veloce e leggero
+
+![[Pasted image 20260308163806.png|500]]
+
+>[!info] Qual è l'importanza della chiave asimmetrica?
+>La crittografia asimmetrica e molto lenta dal punto di vista computazionale, rispetto a quella a chiave simmetrica. 
+>Nella pratica, viene utilizzata solo all'inizio della comunicazione per lo scambio sicuro di una chiave simmetrica temporanea. 
+>Dopodiché, il resto della comunicazione avviene attraverso la cifratura simmetrica *AES*.
 
 ---
 ### Firma digitale
 
-**Chiave pubblica**
-E l'inisieme degli algoritmi che permettono di garantire l'autenticità e la non ripudiabilità di un messaggio.
-L'obiettivo è quello di creare un pacchetto di dati che si va ad aggiungere al messaggio.
+Si intendono quegli algoritmi che ci permettono di verificare l'autenticità del mittente di un messaggio, la sua integrità e la non-ripudiabilità.
+L'idea è quella di creare un pacchetto di dati che accompagna i messaggio. Per fare questo, vengono utilizzati algoritmi di cifratura (*DSA*, *RSA* e *Algoritmi a curva ellittica ECDSA*).
 
-Si calcola un tag con un hash function e si cifra il tag con la chiave provata del mittente e si allega al messaggio.
-Chi riceve il messaggio va a verificare che l'integrità del messaggio non sia stata compromessa e che sia stato effettivamente il mittente a mandarlo.
-La falla di questo schema è che qualcuno potrebbe ottenere la chiave dato che è pubblica e "spacciarsi" per il mittente.
+![[Pasted image 20260308172757.png|450]]
 
-L'idea è quella di introdurre il certificato a chiave pubblica.
-vedi slide 7 del pdf
+Il mittente calcola l'hash del messaggio, che verrà cifrato e inviato insieme al messaggio in chiaro.
+Il destinatario, invece, calcola l'hash del messaggio in chiaro, decifra l'hash ricevuto con la chiave pubblica del mittente e, infine, confronta i due hash.
 
-Passi per verificare e creare un messaggio
-L'utente che vuole creare il messaggio genera le chiavi.
-Prepara il certificato che include la chiave pubblica.
-vedi slide 8-9
+La natura stessa della crittografia asimmetrica richiede che la chiave pubblica sia distribuita liberamente a tutti. 
+Tuttavia, il grande svantaggio è che chiunque può falsificare l'annuncio pubblico di una chiave. Un attaccante potrebbe fingere di essere il mittente legittimo (ad esempio Bob) e diffondere una propria chiave pubblica spacciandola per quella di Bob.
+Se questo accade, l'attaccante sarà in grado di leggere tutti i messaggi cifrati destinati a Bob e potrà utilizzare queste chiavi contraffatte per autenticarsi falsamente al suo posto.
 
-#### Chiave simmetrica
+Per risolvere questo problema, si utilizza un *certificato a chiave pubblica*, che sono composti da:
+- chiave pubblica da distribuire
+- informazioni sul possessore della chiave (ID)
+- informazioni sul verificatore dell'identità *Certification Authority* (ad esempio Aruba, Poste Italiane,...), cioè un'entità fidata che si occupa di verificare l'appartenenza delle chiavi
+- periodo di validità
 
-Digital envelop
+**Creazione del certificato**
 
-La chiave pubblica viene usata per proteggere la chiave simmetrica.
-Viene distribuito il messaggio + la chiave simmetrica utilizzata per cifrare il messaggio che verrà cifrata a sua volta con la chiave pubblica del destinatario.
+![[Pasted image 20260308175514.png|400]]
 
-**Numeri casuali**
-Utilizzati negli algoritmi a chiave pubblica.
-Caratteristiche di *casualità* e *non predicibilità*
+L'utente:
+1. crea la coppia di chiavi (pubblica e privata)
+2. prepara un certificato non verificato che include il suo ID e la sua chiave pubblica
+3. fornisce questo certificato a una *CA* in modo sicuro
 
-La frequenza con cui un numero deve essere generato è uguale per tutti gli altri numeri.
-Non deve essere possibile prevedere la sequenza di numeri generati.
+La *Certification Authority*: 
+- firma il certificato:
+	- usando una funzione di hash su tutto il certificato
+	- generando una firma digitale con la propria chiave privata
+- allega la firma digitale al certificato non verificato
+- invia il certificato verificato dall'utente
+
+![[Pasted image 20260308175103.png|400]]
+
+Ora, il certificato può essere pubblicato dall'utente e chiunque può verificarlo utilizzando la chiave pubblica della *CA*.
+
+Il destinatario, calcola l'hash del certificato, a esclusione della firma.
+Attraverso la chiave pubblica della *CA*, decifra la firma e la confronta con l'hash calcolato precedentemente, per verificare l'autenticità del mittente.
+
+#### Digital Envelop
+
+Utilizzare algoritmi a chiave asimmetrica è molto pesante dal punto di vista delle prestazioni.
+Per alleggerire il sistema e mantenere comunque una trasmissione sicura viene utilizzata una chiave simmetrica che verrà poi utilizzata per il resto della conversazione.
+
+![[Pasted image 20260310165101.png|500]]
+
+1. Viene preparato il messaggio da inviare
+2. Si genera una chiave simmetrica casuale che verrà utilizzata *solo* in questa comunicazione
+3. Il messaggio viene cifrato con la chiave generata precedentemente
+4. La chiave viene cifrata utilizzando la chiave pubblica del destinatario
+5. La chiave cifrata viene allegata al messaggio e inviata al destinatario
+
+![[Pasted image 20260310165511.png|500]]
+
+Il destinatario dovrà:
+1. decifrare la chiave simmetrica che era stata allegata al messaggio
+2. decifrare il messaggio con la chiave ottenuta
+
+#### Numeri casuali
+
+Vengono molto usati nella crittografia in algoritmi a chiave pubblica o cifratura a flusso.
+Devono rispettare le proprietà di *casualità* e *non predicibilità*.  
+
+**Casualità**
+- *Distribuzione uniforme*: la frequenza con cui un numero viene generato deve essere circa la stessa per tutti gli altri numeri
+- *Indipendenza*: non deve essere possibile prevedere la sequenza di numeri generati
 
 **Non predicibilità**
-Ogni numero è indipendente statisticamente dagli altri numeri nella sequenza
+Ogni numero è statisticamente indipendente dagli altri numeri nella sequenza. Infatti, un attaccante non deve essere in grado di predire i numeri futuri basandosi su quelli già usciti.
 
-Dato che avere dei numeri casuali pure  è difficile, si vanno a generare dei numeri *pseudo-casuali* che sono delle sequenze che soddisfano statisticamente un random test.
+Dato che avere dei numeri casuali puri è molto difficile, si devono generare dei numeri *pseudo-casuali*, cioè delle sequenze che soddisfano statisticamente un *random test*.
+Per ottenere questi numeri ci si basa su delle fonti non deterministiche (per esempio gli *Hardware RNG*, ovvero delle statistiche come la temperatura, il jitter dei circuiti o i quantum effects).
 
 ---
 ### Cifratura simmetrica e confidenzialità dei messaggi
@@ -346,4 +406,50 @@ Si usa il vettore T generato dalla chiave.
 Inverto gli elementi del vettore S
 (vedi codice nelle slides)
 
-**Generazione degli stream delle chiavi**
+---
+### Modalità di cifratura
+
+#### Electronic codebook (ECB) mode
+
+E' il modo più semplice per cifrare.
+Ogni blocco è cifrato utilizzando la stessa chiave.
+
+E' vulnerabile perché se ho un testo lungo, perché si possono avere dei plaintext ripetuti.
+
+#### Cipher block chaining mode
+
+Introduzione dell'entropia. 
+Messaggio suddiviso in n blocchi e ogni blocco viene cifrato con la stessa chiave, ma vado a modificare l'input dell'algoritmo di cifratura.
+Non cifro mai il plaintext così com'è, ma lo metto in xor con un vettore di inizializzazione.
+
+Nella decifratura prendo il primo blocco cifrato e lo metto in xor con il vettore di inizializzazione
+
+**Vettore di inizializzazione**
+Ha una dimensione pari a quella del blocco. 
+
+
+
+Il problema principale del ECB è che si potrebbero propagarsi degli errori nel plaintext.
+Se viene introdotto un errore in un blocco, si propagherà nel blocco cifrato.
+
+Nel CBC l'errore si propaga in tutto il plaintext.
+
+#### Counter mode
+
+L'idea è di utilizzare la chiave per la cifratura + un contatore.
+Poi, si fa lo xor tra la parte cifrata e il blocco del plaintext.
+
+
+#### Cipher feedback mode
+
+Registro a scorrimento che viene inizializzato con un vettore di inizializzazione.
+
+---
+#### Criptoanalisi
+
+E' il processo che serve per scoprire la chiave o il plaintext.
+
+**Attacco di ciphertext**
+- Attacco di forza bruta: si provano tutte le possibili chiavi
+- Analisi del testo cifrato: si deve avere un'idea del tipo di plaintext (lingua, estensione del file,...)
+
