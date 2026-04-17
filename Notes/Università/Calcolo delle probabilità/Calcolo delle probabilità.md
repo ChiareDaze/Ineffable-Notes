@@ -1,2 +1,0 @@
-- [[Notes/Università/Calcolo delle probabilità/Appunti vecchi|Appunti vecchi]]
-- [[Appunti nuovi]]

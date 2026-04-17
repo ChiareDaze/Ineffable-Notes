@@ -1,7 +1,3 @@
->[!tip] Informazioni gruppo
->- Nome gruppo: Aldo, Giovanni e Giacomo
->- Componenti gruppo: Petrucci Chiara (2110970), Porceddu Cristina (2112808), Rufo Lorenzo (2118957)
-
 #### Profilo utenti
 
 Il sondaggio è rivolto a studenti universitari di età compresa tra 18 e 30 anni

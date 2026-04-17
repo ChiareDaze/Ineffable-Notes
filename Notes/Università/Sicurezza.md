@@ -356,67 +356,267 @@ Per ottenere questi numeri ci si basa su delle fonti non deterministiche (per es
 ---
 ### Cifratura simmetrica e confidenzialità dei messaggi
 
-**Struttura di Feistel**
-All'interno di ogni round vengono fatte le stesse operazioni.
-Ogni round lavora con una chiave diversa.
-fai bene appunti
+E' il metodo convenzionale di cifratura. Si compone di 5 elementi fondamentali:
+- *Plaintext*: il testo in chiaro da dare all'algoritmo
+- *Encryption algorithm*: algoritmi che effettua sostituzioni e trasformazioni al plaintext
+- *Secret key*: chiave data in input all'algoritmo, da cui dipendono tutte le operazioni effettuate nell'algoritmo
+- *Ciphertext*: il testo di output dell'algoritmo. Utilizzando chiavi diverse per ogni testo, si ottengono risultati diversi
+- *Decryption algorithm*: l'algoritmo di cifratura inverso. Dato il ciphertext e la chiave, deve dare in output il plaintext
 
-**AES**
-Struttura a round ma non segue l'architettura di Feistel
-A partire dalla prima chiave vengono generate delle sottochiavi.
+#### Sistemi crittografici
 
-Data la chiave di partenza, viene espansa in un array di 44 parole a 32 bit.
-Ciò che rende l'algoritmo sicuro sono le operazioni di sostituzione e trasposizione.
+Meccanismi che utilizzano algoritmi, chiavi e protocolli per proteggere la confidenzialità, l'integrità, l'autenticità e la non-ripudiabilità.
 
-La sostituzione avviene attraverso una matrice di sostituzione.
-Ogni byte vedo il suo equivalente in esadecimale e vedo le colonne e le righe.
-La sostituzione viene memorizzata nell'array.
-Dopodiché vengono mischiate le varie righe della matrice con lo shift.
-Il risultato viene inserito nell'array di stato.
-Vengono mischiate le colonne e si fa uno xor con le righe mixate.
+Sono classificati su *3 dimensioni*
 
-Per la generazione della chiave.
-L'algoritmo prende come input 4 parole da 16 byte ciascuna e produce un array lineare da 44 parole.
+**Operazioni per la cifratura del plaintext**
+- *Sostituzione*: vengono presi un insieme di byte e rimpiazzati con altri
+- *Trasposizione*: i byte del testo vengono mischiati tra loro
+
+Queste operazioni sono indipendenti dalla chiave e vengono ripetute un certo numeri di volte (*round*) sul testo.
+Quando vengono effettuate, è importante non perdere informazione. Perciò, le operazioni devono essere invertibili.
+
+**Tipologia di chiavi**
+- Simmetrica
+- Asimmetrica
+
+**Gestione del plaintext**
+- *Blocco*: i blocchi vengono processati uno alla volta. Da un blocco in input otteniamo un blocco in output
+- *Stream*: l'input viene continuamente processato. Ogni elemento ne produce uno in output
+
+#### Block cipher
+
+I meccanismi di cifratura simmetrici a blocchi consistono in una serie di *round*. Ogni round è composto da *sostituzioni* e *permutazioni* basai su una chiave.
+
+Una delle strutture più famose è la *Struttura di Feistel*, utilizzata anche nell'algoritmo DES.
+
+>[!info] Idea
+>- All'interno di ogni round vengono effettuate le stesse operazioni
+>- A partire da una chiave, a ogni round, vengono generate chiavi diverse
+
+![[20260311-164842.jpg|500]]
+
+Per progettare una struttura di cifrario a blocchi dobbiamo considerare diverse parametri:
+- *Block size*: se il blocco è grande si ha più sicurezza, ma meno velocità nelle operazioni. Un trade-off ottimale è 128-bit
+- *Key Size*: più è grande e più è alta la sicurezza, però si riduce la velocità delle operazioni. Il trade-off ottimale è tra i 128 e 256 bit
+- *Numero di round*: all'aumentare del numero di round, aumenta la sicurezza. Il trade-off ottimale è di 16 round
+- *Algoritmo di generazione delle sotto-chiavi*: più è complesso, più è difficile fare criptoanalisi
+- *Funzione utilizzata nei round*: più è complesso, più è difficile fare criptoanalisi
+- *Velocità dell'algoritmo di cifratura/decifratura*
+
+L'algoritmo deve essere facile da analizzare, perché serve a individuare meglio le vulnerabilità. Tuttavia, le componenti dell'algoritmo devono essere tali da impedire la criptoanalisi, anche se si è a conoscenza delle componenti stesse.
+
+>[!note] Criptoanalisi
+>Processo utilizzato per cercare di scoprire il testo in chiaro o la chiave, sfruttando soltanto la conoscenza dell’algoritmo di cifratura. Conoscendo quest’ultimo e i suoi punti deboli, si cerca di risalire al testo in chiaro
+
+#### Data Encryption Standard (DES)
+
+In questo algoritmo, il processo di cifratura è composto da:
+- *Block cipher* con blocchi da 64 bit e chiavi da 56 bit
+- Una variante della struttura di Feistel composta da 16 round
+- Una chiave a 56 bit da cui vengono generate delle sotto-chiavi
+
+Il processo di decifratura è l'inverso della cifratura. Prende il input il ciphertext e usa le sotto-chiavi in ordine inverso (per esempio, la sotto-chiave $K_{16}$ viene usata per la prima iterazione, $K_{15}$ sulla seconda iterazione,..., $K_{1}$ sulla sedicesima iterazione).
+
+#### 3DES
+
+E' un'evoluzione del DES e presenta le seguenti caratteristiche:
+- Estende la chiave fino a 168 bit, suddividendola in tre chiavi da 56 bit
+- La cifratura avviene in modo sequenziale utilizzando le tre chiavi (applicando, quindi, il DES tre volte)
+- Per la decifratura, si utilizza l'algoritmo inverso
+
+![[Pasted image 20260313120220.png|500]]
+
+Definiamo:
+- $E$ la funzione di decifratura
+- $D$ la funzione di decifratura
+- $K$ la chiave
+- $C$ il ciphertext
+- $P$ il plaintext
+
+$$
+C = E(K_{3}, D(K_{2}, E(K_{1}, P)))
+$$
+$$
+P = D(K_{1}, E(K_{2}, D(K_{3},C)))
+$$
+
+#### Advanced Encryption Standard (AES)
+
+Utilizza blocchi da 128 bit e chiavi da 128, 192, 256 bit.
+Prende in input un blocco da 128 bit, rappresentato come una matrice di byte.
+Durante l'esecuzione dell'algoritmo, il blocco viene copiato nello *state array* che viene modificato a ogni stage di cifratura o decifratura.
+Dopo l'ultimo stage l'array viene copiato in una matrice di output.
+Anche la chiave è rappresentata come una matrice, che viene estesa in un array di words. Ogni word è composta da 4 bytes e l'array in totale contiene 44 words e all'aumentare dei bit della chiave, aumentano anche le words nell'array.
+
+![[Pasted image 20260316112411.png|300]]
+
+Da notare che l'ordine segue le colonne. Quindi, i primi 4 bytes del plaintext occuperanno la prima colonna della matrice.
+
+Caratteristiche dell'AES:
+- Non segue l'architettuare di Feistel
+- La chiave iniziale viene estesa in un array di 44 words da 32 bit di cui 4 words (128 bit) costituiscono una chiave utilizzabile in un round
+- Presenta 4 stages: 1 di permutazione e 3 sostituzioni
+	- *Substitute bytes*: utilizza delle tabelle per fare sostituzioni byte a byte
+	- *Shift rows*: permutazione effettuata sulle righe
+	- *Mix Columns*: sostituzione che altera ogni byte in una colonna smistandoli sulle restanti colonne
+	- *Add round key*: una xor del blocco corrente con la chiave del round corrente
+
+![[Pasted image 20260316122109.png|400]]
+
+La cifratura inizia con una *Add Round Key* seguita da 9 round contenenti tutti gli stage, seguiti infine da un round di tre stage.
+
+![[Pasted image 20260319112230.png|500]]
+
+Solo lo stage *Add Round Key* utilizza la chiave, perciò, viene svolto all'inizio e alla fine della cifratura. Tutti gli altri stage, invece, servono a "creare confusione" nei dati, ma sono invertibili anche senza conoscere la chiave 
+
+L'algoritmo di decifratura utilizza le funzioni inverse degli stage. Per la round key, viene utilizzata la chiave estesa in ordine inverso e messa in XOR.
+
+**1. Substitute Bytes**
+
+![[Pasted image 20260319113750.png|500]]
+
+E' una sostituzione byte a byte del blocco attraverso una tabella. Esiste anche una matrice per la decifratura e dovrà essere progettata per avere poca correlazione tra in input e di output.
+Inoltre, non deve essere possibile definire una relazione matematica per capire l'output dall'input.
+
+![[Pasted image 20260319114050.png|500]]
+
+I primi 4 bit vengono usati per la coordinata $x$, mentre gli ultimi 4 per la coordinata $y$.
+Per esempio, il byte con rappresentazione esadecimale 95 verrà tradotto in $2A$, cioè il byte presente in $(9,5)$. 
+
+A questo punto, il risultato viene salvato nello state array per poi passare all'operazione successiva.
+
+**2. Shift Rows**
+
+![[Pasted image 20260319114505.png|500]]
+
+- La prima riga non viene modificata
+- La seconda viene spostata di un byte a sinistra
+- La seconda viene spostata di 2 byte a sinistra
+- La seconda viene spostata di 3 byte a sinistra
+
+Gli shift sono circolari, quindi gli elementi che arrivano al limite sinistro, "sbucano" all'estremità destra (tipo effetto Pac-Man).
+Questa operazione si assicura che i 4 byte di una colonna vengano smistati in 4 colonne diverse.
+
+A questo punto, il risultato viene salvato nello state array per poi passare all'operazione successiva.
+
+**3. Mix Column**
+
+![[Pasted image 20260319121400.png|500]]
+
+Vengono presi in input i 4 byte di una colonna e si ottengono nuovi 4 byte in output. Durante questa operazione non ci deve essere perdita di informazioni.
+
+A questo punto, il risultato viene salvato nuovamente nello state array per poi passare all'operazione successiva.
+
+**Add Round Key**
+
+![[Pasted image 20260319121705.png|500]]
+
+- Prende in input la chiave composta da 4 words (16 byte - 128 bit)
+- Restituisce in output un vettore da 44 words (156 byte), sufficienti per garantire il numero di chiavi necessario per tutti i round
+
+Le prime 4 words vengono utilizzate per il primo add round key, e le restanti 40, nei 40 successivi 10 round.
+All'aumentare della lunghezza della chiave, aumentano anche i round.
+
+Prima viene copiata la chiave nelle prime 4 words dell'array esteso, poi, il resto viene riempito con 4 words alla volta, dove `word[i]` dipende da `word[i-1]` e `word[i-4]`.
+
+Esistono diversi algoritmi *finite-field* per generare la chiave estesa.
+
+![[Pasted image 20260319144102.png|400]]
 
 #### Stream cipher (cifratura a flusso)
 
-Cifra byte continuamente.
-Genera delle sequenze di chiavi che cambiano continuamente.
-La complessità risiede nell'algoritmo per generare le chiavi.
+L'idea è quella di cifrare byte continuamente.
+La complessità risiede nell'algoritmo per generare le chiavi, infatti, genera delle sequenze di chiavi che cambiano continuamente.
 
 L'input è una chiave e un byte che voglio cifrare.
 La sequenza è equivalente a una sequenza di numeri pseudo-casuali.
-La cifratura avviene solo mediante uno xor.
+La cifratura avviene solo mediante una XOR.
 
-**RC4**
-Dimensione variabile della chiave.
-Algoritmo estremamente veloce.
+>[!note] Seed
+>Viene utilizzato lo stesso concetto dei seed per i generatori di numeri. Se utilizziamo lo stesso seed otteniamo in output la stessa sequenza di numeri
 
-Tre fasi
+#### RC4
+
+Utilizza una chiave di lunghezza variabile da 1 a 256 bytes che viene usata per inizializzare lo *state array* $S$ di 256 byte.
+In ogni momento dell'algoritmo avremo che $S$ contiene una permutazione di tutti i numeri a 8 bit, cioè di tutti i numeri da 0 a 255.
+Per la cifratura e decifratura, un byte $k$ viene generato da $S$ selezionando una delle 255 entries. Per ogni valore $k$ selezionato, viene effettuata una nuova permutazione dei valori di $S$.
+
+Si compone di tre fasi:
 1. Inizializzazione
-2. Permutazione
-3. Generatore di stream
+2. Permutazione e swap
+3. Generazione di stream
 
 **Inizializzazione**
-Si prende una chiave usata per inizializzare un vettore di stato di 256 byte.
-Il vettore contiene le permutazione dei bit della chiave e per riempire il vettore viene fatto un for in cui si prende un elemento della chiave in cui si 
+Viene inizializzato $S$ con tutti i valori da 0 a 255 tale che `S[0] = 0, S[1] = 2,...,S[255] = 255`.
+Viene inizializzato un altro vettore $T$, se la lunghezza della chiave $K$ è 256 bytes, allora $K$ viene trasferita in $T$. Altrimenti, per una chiave di lunghezza $n$ bytes, i primi $n$ bytes di $K$ vengono copiati nel vettore $T$ e $K$ verrà ricopiata tante volte quanto necessario per riempire tutto $T$.
 
-**Permutazione vettore S**
-Si usa il vettore T generato dalla chiave.
-Inverto gli elementi del vettore S
-(vedi codice nelle slides)
+```
+for i = 0 to 355 do
+	S[i] = i;
+	T[i] = K[i mod keylen];
+```
+
+![[20260322-162751.jpg|500]]
+
+**Permutazione e Swap**
+Per effettuare la permutazione si utilizza la seguente formula:
+$$
+j = (j+S[i]+T[i]) \space \space \space (mod \space 256)
+$$
+Il nuovo valore dell'indice $j$ è calcolato sommando il valore precedente di $j$, il valore corrente dello stato $S[i]$ e il byte corrispondente della chiave estesa $T[i]$.
+L'operazione $mod \space 256$ garantisce la chiusura nell'intervallo degli indici validi per il vettore $S$ (cioè, assicura che il valore di $j$ non superi mai il valore 255).
+
+Viene eseguito uno scambio dei valori: il valore all'indice $i$ viene scambiato con quello all'indice $j$.
+$$
+S[i] \leftrightarrow S[j]
+$$
+```
+j = 0;
+for i = 0 to 255 do
+	j = (j + S[i] + T[i]) mod 255;
+	Swap(S[i], S[j]);
+```
+
+![[20260322-162751 1.jpg|500]]
+
+**Generazione di stream**
+
+Dopo aver inizializzato il vettore $S$, la chiave in input non viene più utilizzata. La generazione degli stream consiste nell'iterare su $S$. Ogni elemento $S[i]$ viene scambiato con un altro elemento di $S$ basandosi sulla configurazione di $S$. 
+Se raggiungiamo l’elemento in posizione 255 torniamo a 0.
+
+```
+i, j = 0;
+while(true)
+	i = (i + 1) mod 256;
+	j = (j + S[i], S[j]) mod 256;
+	Swap(S[i], S[j]);
+	t = (S[i] + S[j]) mod 256;
+	k = s[t];
+```
+
+![[IMG_0342.jpg|500]]
+
+Per la cifratura viene calcola la XOR tra il valore $k$ con il byte successivo del plaintext.
+Per decifrare, si calcola la XOR tra il valore $k$ e il byte successivo del cyphertext.
 
 ---
 ### Modalità di cifratura
 
-#### Electronic codebook (ECB) mode
+Gli algoritmi a chiave simmetrica e a blocchi processano un blocco alla volta. Quando il testo è molto lungo è necessario spezzarlo in più blocchi.
 
-E' il modo più semplice per cifrare.
-Ogni blocco è cifrato utilizzando la stessa chiave.
+![[Pasted image 20260326151236.png|500]]
 
-E' vulnerabile perché se ho un testo lungo, perché si possono avere dei plaintext ripetuti.
+#### Electronic codebook mode (ECB)
 
-#### Cipher block chaining mode
+E' il modo più semplice per cifrare. Infatti, se i blocchi hanno dimensione $b$ bit, allora verranno processati $b$ bit alla volta cifrandoli sempre con la stessa chiave.
+Per messaggi molto lunghi questa tecnica non è molto sicura. Le ripetizioni hanno la stessa cifratura, oppure sui messaggi molto strutturati è possibile effettuare la criptoanalisi (es. ogni pagina inizia con gli stessi header, allora si hanno già delle combinazioni da poter sfruttare).
+
+#### Cipher block chaining mode (CBC)
+
+In questa modalità di cifratura a blocchi, l'input dell'algoritmo è uno XOR del blocco contenente il plaintext corrente e il precedente blocco cifrato, utilizzando la stessa chiave.
+
+
 
 Introduzione dell'entropia. 
 Messaggio suddiviso in n blocchi e ogni blocco viene cifrato con la stessa chiave, ma vado a modificare l'input dell'algoritmo di cifratura.
@@ -453,3 +653,289 @@ E' il processo che serve per scoprire la chiave o il plaintext.
 - Attacco di forza bruta: si provano tutte le possibili chiavi
 - Analisi del testo cifrato: si deve avere un'idea del tipo di plaintext (lingua, estensione del file,...)
 
+---
+### Secure Hash Algorithm
+
+#### SHA-2
+
+Il messaggio in chiaro ha una sua lunghezza l che va portata a una lunghezza di 1024 bit attraverso l'utilizzo di un buffer.
+128 bit verranno presi dalla lunghezza del messaggio, se c'è altro spazio libero viene utilizzato un pudding per arrivare 896 bit.
+Il messaggio viene suddiviso in blocchi ogni blocco viene dato in input a una funzione che fa 80 round.
+L'out della funzione viene sommato all'hash dell'out della funzione del blocco successivo (vedi immagine per appunti)
+
+La funzione prende altri valori in input. Dal messaggio vengono estratte delle parole a 64 bit che derivano dal blocco di cui stiamo calcolando l'hash.
+
+FAAAHHH
+
+All'interno di ogni round ci sono degli shift circolari e operatori and or not e xor.
+All'ottantesimo round c'è una somma tra FAAHH
+
+#### SHA-3
+
+FAAAHH
+
+#### HMAC key hashing for message authentication
+
+Obiettivi:
+- Poter utilizzare funzioni hash esistenti
+- Permette di rimpiazzare FAHH
+- Non FAAHH
+- Gestisce le chiavi in modo semplice
+
+- Il messaggio viene diviso in blocchi
+- Prendere una funzione hash e la utilizza due volte
+	- la prima volta sul messaggio originale
+	- la seconda sull'hash del messaggio originale
+- La chiave deve avere la stessa lunghezza di ogni blocco
+	- se troppo lunga, viene tagliata
+	- altrimenti viene messo del pudding
+- La chiave viene messa in xor con dei parametri dati di default (*ipad*).
+	- l'ipad FAAAHHH
+
+---
+### Cifratura a chiave pubblica
+
+#### RSA
+
+Requisiti:
+- E' possibile trovare dei valori FAAAH
+
+---
+### Autenticazione
+
+La base della sicurezza dei computer è controllare gli accessi.
+Per autorizzare qualcuno a fare delle azioni, bisogna capire se quel qualcuno e chi dice di essere
+
+Il soggetto può essere un umano o un non human identity (processo)
+
+Dopo aver identificato il soggetto, bisogna autenticarlo
+
+L'identità è una cosa nota e predicibile.
+L'autenticazione non deve essere noto e non deve essere facile risalire all'identità
+
+Meccanismi di autenticazione
+- qualcosa che sai (password)
+- qualcosa che l'utente è (biometrica)
+- qualcosa che l'utente ha (token)
+
+**Autenticazione con password**
+Il più utilizzato ma introduce delle problematiche:
+- autenticare il soggetto per qualsiasi azione e per un certo periodo
+- se un attaccante riesce a ottenere la password dell'utente, potrà accedere al sistema
+	- La contromisura è cambiare la password
+- perdita di una password: sarà impossibile ritrovare quella password esatta, poiché le chiavi sono memorizzate sul sistema attraverso un hash
+
+>[!info] Step che permettono a un attaccante di scoprire una pw
+>- nessuna password
+>- stesso nome dello User ID
+>- derivato dello user ID
+>- parole comuni come "password", "qwerty", "1234"
+>- combinazioni varie delle parole comuni
+>- forza bruta
+
+Maggiore è il numero di tentativi, maggiore è la robustezza di una pw
+
+>[!info] attacco a dizionario
+>Molti siti pubblicano dei dizionari di frasi, nomi di personaggi, miti, parole cinesi...
+>Esistono delle utility che cercano di scoprire se le password di un utente sonodsbhiifudhsbhiudsu
+
+I sistemi operativi non salvano le pw in modo chiaro, ma utilizzano l'hash o la crittografia
+
+Gli User ID sono scritte in una tabella.
+FAAHH
+
+
+**Come si riduce il rischio di un attacco?**
+Il meccanismo è il SALT
+Il salt è un campo extra  diverso per ogni utente.
+
+L'utente definisce la pw che viene concatenata a sale e nome utente.
+Dopodiché si calcola l'hash del valore ottenuto.
+
+**Password cracking**
+- Attacco a dizionario
+- Attacco a rainbow table
+
+#### Autenticazione biometrica
+
+Problematiche:
+- dato che il match deve essere veloce, non è molto accurato
+- intrusiva
+- una compromissione al database dei template, blocca il meccanismo
+
+#### Autenticazione basata sui token
+
+**Token attivi**
+Possono avere qualche variabilità e interagiscono con una banda magnetica di trasmissioni radio
+
+**Token statici**
+Hanno sempre lo stesso valore
+La maggiore debolezza è lo *skimming* (il token viene memorizzato)
+
+La dinamicità permette maggiore sicurezza
+
+
+#### Federate identity management
+
+Vengono uniti sistemi di autenticazione separati.
+C'è un identity manager che fa da proxy per tutti i sistemi a cui si vuole garantire un'autenticazione.
+
+#### Single sign-on
+
+Procedura che lavora per l'utente mantenendo i vari meccanismi separati
+(vedi immagine slide)
+
+Memorizza le credenziali per accedere
+
+#### Multi factor authenticator
+
+Ex. Autenticazione a due fattori.
+La password viene associata a un token dinamico
+
+#### Categorie di attacco
+
+- Host attack
+- Replay
+- Client attack
+- Trojan Horse
+- Denial of service
+- Eavesdropping
+
+**Client attack**
+L'attaccante non si impossessa delle credenziali, ma si pone in mezzo al client e all'host
+
+- pw auth: L'unico modo di difesa è avere una password robusta
+- token auth:
+	- attacco: forza bruta
+	- difesa: elevata entropia
+- biometric auth
+	- attacco: match falso
+	- difesa: elevata entropia e limitare i tentativi
+
+**Host attack**
+Quando l'attaccante si vuole impossessare dei file con le pw, token o template biometrici
+
+- ps
+	- attacco: attacco a dizionario, forza bruta o furto
+	- difesa: il file deve essere protetto all'interno del sistema
+- token:
+	- attacco: furto di passcode
+	- difesa: stessa della pw
+- biometrica:
+	- attacco: furto del template
+	- difesa: 
+		- token statico: autenticazione del meccanismo per rilevare la caratteristica biometrica
+		- token dinamico: protocollo challange-response
+
+**Eavesdropping attack**
+L'attaccante cerca di osservare l'utente
+
+- pw
+	- attacco: keylogging
+	- difesa: uso consapevole, autenticazione multi fattore
+- token:
+	- attacco: furto, copia fisica
+	- difesa: stessa della pw
+- biometrica:
+	- attacco: copia o imitazione
+	- difesa
+		- dinamica: bfdgi 
+		- statica: fddfds
+
+**Trojan Horse**
+un'app malevola viene installata sul device
+L'unica soluzione è autenticazione del client, del software e device
+
+**Replay attack**
+L'attaccante fa il replay delle informazioni
+Le soluzioni sono i protocollo challange-response, autenticazione multi fattore e one time passcode
+
+**Denial of service**
+tentativo di disabilitare il servizio di autenticazione cercando di bloccare il servizio con tentativi di autenticazione
+
+---
+
+### Controllo degli accessi
+
+#### Access policies
+
+E' un insieme di decisioni che definiscono quando si possono fare particolari accessi a particolari istanze.
+
+FAAAAHHHH
+
+**Accesso basato sui ruoli**
+
+Abbiamo utenti e ruoli.
+Mappiamo utenti e ruoli. Ogni ruolo può operare in un certo mondo sugli utenti o sui ruoli stessi.
+
+Modelli RBAC
+Introdotte le gerarchie (tipico delle organizzazioni aziendali). 
+
+---
+### Errori nella programmazione
+
+Errori tipici di chi scrive il codice per la sicurezza in un sistema.
+
+A monte c'è un errore umano (distrazione) che può generare una fault.
+La fault può dare luogo a una failure.
+
+L'attaccante deve prima controllare se c'è un flaw da sfruttare per accedere al sistema.
+#### Buffer overflow
+
+Quando un programma cerca di inserire più dati rispetto a quanti ne può contenere.
+
+L'effetto non è immediato
+E' il primo passo per degli attacchi più complessi (aprire una shell)
+
+>[!info] Dialer.exe
+>Dialer era un programma Windows che accettava un numero e inoltrava le chiamate
+>Non c'era un controllo, perché un numero da 100 numeri mandava in crash il programma.
+>Si passò ad analizzare come il programma utilizzava la memoria.
+>Il numero di telefono veniva scritto all'interno dello stack.
+
+>[!note] Elementi
+>- Program counter: cambiare il program counter causa il trasferimento del programma in esecuzione a un'altra istruzione nel code segment
+>- Per il sistema i dati memorizzati sono solo dei stringhe binarie con un corrispettivo esadecimale
+
+#### Incomplete mediation
+
+Non si ha pieno controllo dei dati.
+Errore di controllo dell'accesso.
+
+---
+### Malware
+
+Il malware è un codice malevolo. A seconda del suo comportamento e dei danni assume diversi nomi.
+
+**Tipi di Malware**
+- Virus: un programma che può replicarsi e infettare programmi modificandoli
+	- non possono replicarsi e attaccare se non c'è un programma (host) da infettare e che lo può eseguire
+- Worm: programmi *standalone* non ha bisogno di un host che lo esegue
+- Trojan Horse: programmi con funzionalità specifiche che possono modificare in modo malevolo oppure con funzionalità aggiunte
+	- Ex. uno script di login che da le informazioni di login al resto del sistema
+
+![[Pasted image 20260330141345.png|500]]
+
+- Rabbit: codice che si replica senza limiti per esaurire le memorie del sistema
+- Logic bomb: l'azione del virus si attiva allo scadere di un timer o dopo un certo evento
+- Dropper: depositare dell'altro codice (per esempio depositare un malware)
+- Script attack: eseguito quando si scarica dal web
+- Spyware: Intercetta dati
+- Ransomware: cifra o trasferisce dei file
+- Trapdoor/backdoor: accede da remoto al sistema
+- Rootkit: codice che accede a sezione con privilegi alti
+
+#### Danno
+
+- Disturbo: nulla di distruttivo
+- Distruttivo: corruzione o eliminazione di file, software danneggiati
+- Intenti commerciali o criminali: FAAAHH
+
+#### Strategie per nascondere il malware
+
+- Nascondere un file nelle directory di sistema
+- Rimpiazzare un file non malevolo 
+- Distribuire i file in varie directory
+- Modifica dei registri di sistema in modo tale da essere sempre eseguito
+
++
