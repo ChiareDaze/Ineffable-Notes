@@ -174,7 +174,7 @@ I suoi elementi sono:
 
 I principali tipi di attacco a questa tecnica sono:
 - *Crittoanalisi*: sfruttare la natura matematica dell'algoritmo o se si conoscono delle caratteristiche del testo non cifrato per dedurre la chiave
-- *Forza bruta*: di provano tutte le possibili chiavi fino a ottenere un testo sensato
+- *Forza bruta*: si provano tutte le possibili chiavi fino a ottenere un testo sensato
 
 >[!notes] Distribuzione delle chiavi
 >Il punto debole decifratura a chiave simmetrica è la tecnica di distribuzione della chiave, perché non è possibile scambiare la chiave in modo sicuro se il canale non è protetto.
@@ -616,23 +616,33 @@ Per messaggi molto lunghi questa tecnica non è molto sicura. Le ripetizioni han
 
 In questa modalità di cifratura a blocchi, l'input dell'algoritmo è uno XOR del blocco contenente il plaintext corrente e il precedente blocco cifrato, utilizzando la stessa chiave.
 
+![[IMG_0409.png|500]]
 
+Per la decifratura, ogni blocco cifrato viene passato all'algoritmo e il risultato viene messo in XOR con il blocco cifrato precedente per produrre il blocco in chiaro.
 
-Introduzione dell'entropia. 
-Messaggio suddiviso in n blocchi e ogni blocco viene cifrato con la stessa chiave, ma vado a modificare l'input dell'algoritmo di cifratura.
-Non cifro mai il plaintext così com'è, ma lo metto in xor con un vettore di inizializzazione.
+![[IMG_0411 1.jpg]]
 
-Nella decifratura prendo il primo blocco cifrato e lo metto in xor con il vettore di inizializzazione
+![[IMG_0412 2.jpg]]
 
-**Vettore di inizializzazione**
-Ha una dimensione pari a quella del blocco. 
+Per produrre il blocco cifrato abbiamo bisogno di un *initialization vector (IV)* con cui effettuare lo XOR con il primo blocco di plaintext.
+Per la decifratura facciamo lo stesso procedimento (il vettore IV viene messo in XOR con l'output dell'algoritmo per recuperare il primo blocco di plaintext).
+Mittente e destinatario devono conoscere il vettore di inizializzazione, e per avere più sicurezza viene cifrato attraverso una chiave.
 
+Proteggere il vettore di inizializzazione è importante poiché se un attaccante riuscisse a leggerlo e a modificarlo, allora potrebbe modificare il primo blocco del messaggio.
 
+![[IMG_0413.jpg|500]]
 
-Il problema principale del ECB è che si potrebbero propagarsi degli errori nel plaintext.
-Se viene introdotto un errore in un blocco, si propagherà nel blocco cifrato.
+Supponiamo che un attaccante intercetti $IV$ e il testo cifrato $C_{1}$.
+L'attaccante non potrà decifrare $C_{1}$ perché non ha la chiave $K$. Tuttavia, potrebbe decidere di modificare un bit del vettore di inizializzazione $IV$.
 
-Nel CBC l'errore si propaga in tutto il plaintext.
+Quando il destinatario riceverà il messaggio manomesso e proverà a decifrarlo, quello che otterrà è:
+$$
+P_{1}[i]' = IV[i]' \space \oplus \space D(K,C_{1})[i]
+$$
+L'operazione di decifratura restituisce lo stesso risultato di prima, perché l'attaccante non ha toccato né $C_{1}$ né $K$.
+Poiché l'attaccante ha modificato $IV[i]$ facendolo diventare $IV[i]'$, il risultato finale dello XOR cambierà inevitabilmente, trasformando il bit originale del messaggio $P_{1}[i]$ nel bit modificato $P_{1}[i]'$
+ 
+**Propagazione degli errori**
 
 #### Counter mode
 
